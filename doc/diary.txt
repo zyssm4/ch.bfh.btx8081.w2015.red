@@ -1,3 +1,11 @@
+13.10.2015
+Durchgefuehrt von: Maurice Zysset
+Der Validate teil wurde hinzugefügt, Prototyp änderungen wurden vorgenommen.
+
+12.10.2015
+Durchgefuehrt von: Maurice Zysset
+Storyboards & Prototyp wurde Hinzugefügt, das Validate wurde ebenfalls durchgeführt
+
 12.10.2015
 Durchgefuehrt von:Komplett
 Wir haben Die Dokumentation erweitert, Präsentation vorbereitet, 
@@ -14,6 +22,7 @@ Durchgefuehrt von: Zysset, Schmocker, Tschanz, Noser
 Interviewfragen fÃ¼r Task 3 erarbeitet, weiteres vorgehen besprochen.
 
 26.09.2015 & 27.09.2015
+Durchgefuehrt von: Komplett
 Gruppe hat Praesentation und Dokumentation von Task 1 & 2 durchgelesen und 
 kleine Aenderungen angebracht. Rechtschreibfehler korrigiert kleine Layoutaenderungen "feinschliff"
 angebracht.
