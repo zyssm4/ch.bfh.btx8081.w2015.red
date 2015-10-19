@@ -1,3 +1,7 @@
+19.10.2015
+Durchgeführt von: Zysset, Tschanz, Noser, Schmocker, Iseli
+Context Diagram erstellt und hinzugefügt und jeder macht jetzt noch ein Activity Diagram 
+
 13.10.2015
 Durchgefuehrt von: Maurice Zysset
 Der Validate teil wurde hinzugefügt, Prototyp änderungen wurden vorgenommen.
