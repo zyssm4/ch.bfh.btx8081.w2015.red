@@ -1,45 +1,48 @@
-
+05.11.2015
+DurchgefÃ¼hrt von: Tschanz, Zysset, Schmocker
+Update von verschiedenen CRC-Karten, PrÃ¤sentation, Domain Modell etc.
+Task 7 ist somit bis auf die Dokumentation abgeschlossen
 
 05.11.2015
-Durchgeführt von: Iseli
-Präsentation Task07 hinzugefügt & ein paar Ergänzungen
+DurchgefÃ¼hrt von: Iseli
+PrÃ¤sentation Task07 hinzugefÃ¼gt & ein paar ErgÃ¤nzungen
 
 22.10.2015
-Durchgeführt von: Tschanz, Zysset, Schmocker, Iseli, Noser
+DurchgefÃ¼hrt von: Tschanz, Zysset, Schmocker, Iseli, Noser
 Punkt 1 & 2 von Task07
 
 22.10.2015
-Durchgeführt von: Tschanz
+DurchgefÃ¼hrt von: Tschanz
 KrankheitDatenbank.pptx erstellt und hochgeladen
-Durchgeführt von: Tschanz, Zysset, Schmocker, Iseli
-Erste Gedanken und Entwürfe für Task07
+DurchgefÃ¼hrt von: Tschanz, Zysset, Schmocker, Iseli
+Erste Gedanken und EntwÃ¼rfe fÃ¼r Task07
 
 19.10.2015
-Durchgeführt von: Zysset, Tschanz, Noser, Schmocker, Iseli
-Context Diagram erstellt und hinzugefügt und jeder macht jetzt noch ein Activity Diagram 
+DurchgefÃ¼hrt von: Zysset, Tschanz, Noser, Schmocker, Iseli
+Context Diagram erstellt und hinzugefÃ¼gt und jeder macht jetzt noch ein Activity Diagram 
 
 13.10.2015
 Durchgefuehrt von: Maurice Zysset
-Der Validate teil wurde hinzugefügt, Prototyp änderungen wurden vorgenommen.
+Der Validate teil wurde hinzugefÃ¼gt, Prototyp Ã¤nderungen wurden vorgenommen.
 
 12.10.2015
 Durchgefuehrt von: Maurice Zysset
-Storyboards & Prototyp wurde Hinzugefügt, das Validate wurde ebenfalls durchgeführt
+Storyboards & Prototyp wurde HinzugefÃ¼gt, das Validate wurde ebenfalls durchgefÃ¼hrt
 
 12.10.2015
 Durchgefuehrt von:Komplett
-Wir haben Die Dokumentation erweitert, Präsentation vorbereitet, 
+Wir haben Die Dokumentation erweitert, PrÃ¤sentation vorbereitet, 
 Storyboards gezeichnet und evaluiert, Interview verarbeitet. 
 
 08.10.2015
 Durchgefuehrt von: Zysset, Schmocker, Tschanz
 Wir haben die Scoping, Research und Synthesize Phase durchlaufen.
 Dabei haben wir die Storyboards definiert und die Arbeitsaufteilung gemacht.
-Und haben Recherche Aufgaben fÃ¼r bis Montag erteilt.
+Und haben Recherche Aufgaben fÃƒÂ¼r bis Montag erteilt.
 
 05.10.2015
 Durchgefuehrt von: Zysset, Schmocker, Tschanz, Noser
-Interviewfragen fÃ¼r Task 3 erarbeitet, weiteres vorgehen besprochen.
+Interviewfragen fÃƒÂ¼r Task 3 erarbeitet, weiteres vorgehen besprochen.
 
 26.09.2015 & 27.09.2015
 Durchgefuehrt von: Komplett
