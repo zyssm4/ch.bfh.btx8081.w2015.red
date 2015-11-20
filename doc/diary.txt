@@ -1,3 +1,13 @@
+20.11.2015
+Durchgeführt von: Tschanz, Zysset, Schmocker
+Weitere bearbeitung an Task 10 mit verfeinerung der Arbeiteinteilung und UserStory beschreibung
+
+
+19.11.2015
+Durchgeführt von: Tschanz, Zysset, Schmocker, Iseli
+Task 9 wurde abgeschlossen und hochgeladen.
+Mit Task 10 wurde begonnen und wird morgen verfeinert
+
 05.11.2015
 DurchgefÃ¼hrt von: Tschanz, Zysset, Schmocker
 Update von verschiedenen CRC-Karten, PrÃ¤sentation, Domain Modell etc.
