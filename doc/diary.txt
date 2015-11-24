@@ -1,3 +1,8 @@
+23.11.2015
+Durchgeführt von: Zysset, Tschanz, Noser, Schmocker, Iseli
+Erstes DailyScrum & erstellen der Packages
+
+
 20.11.2015
 Durchgeführt von: Tschanz, Zysset, Schmocker
 Weitere bearbeitung an Task 10 mit verfeinerung der Arbeiteinteilung und UserStory beschreibung
