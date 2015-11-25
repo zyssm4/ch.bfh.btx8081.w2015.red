@@ -37,7 +37,7 @@ public class LoginView extends VerticalLayout implements View {
 		Button button = new Button("Log In", new Button.ClickListener() {
 			@Override
 			public void buttonClick(ClickEvent event) {
-				getUI().getNavigator().navigateTo(MyUI.MAINVIEW);
+				//getUI().getNavigator().navigateTo(MyUI.LoginView);
 			}
 		});
 		return button;
