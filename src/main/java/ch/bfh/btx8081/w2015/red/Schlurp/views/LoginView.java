@@ -16,6 +16,7 @@ public class LoginView extends VerticalLayout implements View {
 
 	public LoginView() {
 		setSizeFull();
+		
 		setSpacing(true);
 		
 		Label label = new Label("Enter your information below to log in.");
@@ -37,7 +38,7 @@ public class LoginView extends VerticalLayout implements View {
 		Button button = new Button("Log In", new Button.ClickListener() {
 			@Override
 			public void buttonClick(ClickEvent event) {
-				//getUI().getNavigator().navigateTo(MyUI.LoginView);
+				getUI().getNavigator().navigateTo(MyUI.HOMEVIEW);
 			}
 		});
 		return button;

@@ -2,6 +2,7 @@ package ch.bfh.btx8081.w2015.red.Schlurp;
 
 import javax.servlet.annotation.WebServlet;
 
+import ch.bfh.btx8081.w2015.red.Schlurp.views.HomeView;
 import ch.bfh.btx8081.w2015.red.Schlurp.views.LoginView;
 
 import com.vaadin.annotations.Theme;
@@ -23,18 +24,19 @@ public class MyUI extends UI {
 
 	public Navigator navigator;
 
-	public static final String MAINVIEW = "main";
-	public static final String HELPVIEW = "help";
+	public static final String HOMEVIEW = "home";
 
 	@Override
 	protected void init(VaadinRequest request) {
 		final VerticalLayout layout = new VerticalLayout();
 		layout.setMargin(true);
 		layout.setSpacing(true);
+	
 		setContent(layout);
 		ComponentContainerViewDisplay viewDisplay = new ComponentContainerViewDisplay(layout);
 		navigator = new Navigator(UI.getCurrent(), viewDisplay);
 		navigator.addView("", new LoginView());
+		navigator.addView(HOMEVIEW, new HomeView());
 
 	}
     @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
