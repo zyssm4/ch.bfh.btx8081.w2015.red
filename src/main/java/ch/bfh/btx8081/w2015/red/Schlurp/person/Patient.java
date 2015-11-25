@@ -1,4 +1,4 @@
-package ch.bfh.btx8081.w2015.red.Schlurp.patient;
+package ch.bfh.btx8081.w2015.red.Schlurp.person;
 /**
  * Patient class to 
  * @author Kaspar
