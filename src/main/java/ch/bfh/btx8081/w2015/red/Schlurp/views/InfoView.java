@@ -1,5 +1,7 @@
 package ch.bfh.btx8081.w2015.red.Schlurp.views;
 
+import java.io.File;
+
 import ch.bfh.btx8081.w2015.red.Schlurp.MyUI;
 import ch.bfh.btx8081.w2015.red.Schlurp.uiElements.Wrapper;
 
@@ -7,6 +9,7 @@ import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.Widgetset;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
+import com.vaadin.server.FileResource;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Button.ClickListener;
@@ -59,15 +62,6 @@ public class InfoView extends VerticalLayout implements View {
 		textFieldBox.setHeight(HEIGHT_BODY);
 		textFieldBox.setWidth(WIDTH_LAYOUT_TEXTFIELDBOX);
 
-		VerticalLayout textFieldBoxSmall = new VerticalLayout();
-		textFieldBoxSmall.setEnabled(false);
-		textFieldBoxSmall.setHeight(HEIGHT_HEADER_BODY_SPLITTER);
-		textFieldBoxSmall.setWidth(WIDTH_LAYOUT_TEXTFIELDBOX);
-
-		VerticalLayout labelBoxSmall = new VerticalLayout();
-		labelBoxSmall.setEnabled(false);
-		labelBoxSmall.setHeight(HEIGHT_HEADER_BODY_SPLITTER);
-		labelBoxSmall.setWidth(WIDTH_LAYOUT_LABELBOX);
 
 		// Add Infopage Components
 		Label label_Name = new Label();
@@ -170,10 +164,23 @@ public class InfoView extends VerticalLayout implements View {
 		textField_RelativesContactPhone.setHeight(HEIGHT_TEXTFIELD);
 		textField_RelativesContactPhone.setWidth(WIDTH_TEXTFIELD);
 
+		
+		//Ressource Images
+		FileResource editImage = new FileResource(new File("src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/book_edit.png"));
+		FileResource saveImage = new FileResource(new File("src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/Floppy-64.png"));
+
 		// Edit/Save Button
 		editButton.setCaption("Edit");
+		editButton.setHeight(HEIGHT_HEADER);
+		editButton.setWidth(WIDTH_LABEL);
+		editButton.setEnabled(true);
+		editButton.setIcon(editImage, "Edit");
 		saveButton.setCaption("Save");
+		saveButton.setIcon(saveImage, "Edit");
 		saveButton.setVisible(false);
+		saveButton.setHeight(HEIGHT_HEADER);
+		saveButton.setWidth(WIDTH_LABEL);
+		
 		editButton.addClickListener(new ClickListener(){
 			public void buttonClick(ClickEvent event){
 				textFieldBox.setEnabled(true);
@@ -182,21 +189,30 @@ public class InfoView extends VerticalLayout implements View {
 			}
 		});
 		
+		saveButton.addClickListener(new ClickListener(){
+			public void buttonClick(ClickEvent event){
+				textFieldBox.setEnabled(false);
+				editButton.setVisible(true);
+				saveButton.setVisible(false);
+			}
+		});
+		
 		// add Components to the Layout
 		// Button
 		wrapper.getButton().addClickListener(new ClickListener() {
-
 			public void buttonClick(ClickEvent event) {
 				getUI().getNavigator().navigateTo(MyUI.HOMEVIEW);
 			}
 		});
 		
+
+		
 		// body
 		body.addComponent(labelBox);
 		body.addComponent(textFieldBox);
 
+		
 		// textFieldBox
-		// textFieldBox.addComponent(textFieldBoxSmall);
 		textFieldBox.addComponent(textField_Name);
 		textFieldBox.addComponent(textField_Firstname);
 		textFieldBox.addComponent(textField_Insurance);
@@ -210,7 +226,6 @@ public class InfoView extends VerticalLayout implements View {
 		textFieldBox.addComponent(textField_RelativesContactPhone);
 
 		// labelBox
-		// labelBox.addComponent(labelBoxSmall);
 		labelBox.addComponent(label_Name);
 		labelBox.addComponent(label_Firstname);
 		labelBox.addComponent(label_Insurance);
@@ -223,6 +238,9 @@ public class InfoView extends VerticalLayout implements View {
 		labelBox.addComponent(label_RelativesContact);
 		labelBox.addComponent(label_RelativesPhone);
 
+		//Button
+		labelBox.addComponent(editButton);
+		labelBox.addComponent(saveButton);
 		// layout
 		layout.addComponent(header);
 		layout.addComponent(body);
