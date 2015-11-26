@@ -16,7 +16,6 @@ public class LoginView extends VerticalLayout implements View {
 
 	public LoginView() {
 		setSizeFull();
-		
 		setSpacing(true);
 		
 		Label label = new Label("Enter your information below to log in.");
