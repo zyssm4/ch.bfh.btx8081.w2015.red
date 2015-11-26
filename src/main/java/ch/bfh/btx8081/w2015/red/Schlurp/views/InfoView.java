@@ -7,6 +7,7 @@ import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.Widgetset;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
+import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Button.ClickListener;
 import com.vaadin.ui.HorizontalLayout;
@@ -31,7 +32,7 @@ public class InfoView extends VerticalLayout implements View {
 	final String WIDTH_LAYOUT_LABELBOX = "160";
 	final String WIDTH_LABEL = "54";
 	final String WIDTH_TEXTFIELD = "145";
-
+	
 	public InfoView() {
 		setSizeFull();
 		setSpacing(false);
@@ -44,7 +45,9 @@ public class InfoView extends VerticalLayout implements View {
 		final HorizontalLayout header = wrapper.getHeader();
 
 		final HorizontalLayout body = wrapper.getBody();
-
+		final Button editButton = new Button();
+		final Button saveButton = new Button();
+		
 		wrapper.setLabel("InfoPage");
 
 		VerticalLayout labelBox = new VerticalLayout();
@@ -52,7 +55,7 @@ public class InfoView extends VerticalLayout implements View {
 		labelBox.setWidth(WIDTH_LAYOUT_LABELBOX);
 
 		VerticalLayout textFieldBox = new VerticalLayout();
-
+		textFieldBox.setEnabled(false);
 		textFieldBox.setHeight(HEIGHT_BODY);
 		textFieldBox.setWidth(WIDTH_LAYOUT_TEXTFIELDBOX);
 
@@ -167,6 +170,18 @@ public class InfoView extends VerticalLayout implements View {
 		textField_RelativesContactPhone.setHeight(HEIGHT_TEXTFIELD);
 		textField_RelativesContactPhone.setWidth(WIDTH_TEXTFIELD);
 
+		// Edit/Save Button
+		editButton.setCaption("Edit");
+		saveButton.setCaption("Save");
+		saveButton.setVisible(false);
+		editButton.addClickListener(new ClickListener()){
+			public void buttonClick(ClickEvent event){
+				textFieldBox.setEnabled(true);
+				editButton.setVisible(false);
+				saveButton.setVisible(true);
+			}
+		}
+		
 		// add Components to the Layout
 		// Button
 		wrapper.getButton().addClickListener(new ClickListener() {
@@ -175,6 +190,7 @@ public class InfoView extends VerticalLayout implements View {
 				getUI().getNavigator().navigateTo(MyUI.HOMEVIEW);
 			}
 		});
+		
 		// body
 		body.addComponent(labelBox);
 		body.addComponent(textFieldBox);
