@@ -62,7 +62,7 @@ public class HomeView extends VerticalLayout implements View {
 		
 	}
 
-	private Button timeTable() {
+/*	private Button timeTable() {
 		Button button = new Button("Terminplan", new Button.ClickListener() {
 
 			@Override
@@ -72,7 +72,7 @@ public class HomeView extends VerticalLayout implements View {
 		});
 		return button;
 	}
-
+*/
 	private Button mediPlan() {
 		Button button = new Button("Medikationsplan", new Button.ClickListener() {
 
