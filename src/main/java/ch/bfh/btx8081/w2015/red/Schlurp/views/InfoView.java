@@ -174,13 +174,13 @@ public class InfoView extends VerticalLayout implements View {
 		editButton.setCaption("Edit");
 		saveButton.setCaption("Save");
 		saveButton.setVisible(false);
-		editButton.addClickListener(new ClickListener()){
+		editButton.addClickListener(new ClickListener(){
 			public void buttonClick(ClickEvent event){
 				textFieldBox.setEnabled(true);
 				editButton.setVisible(false);
 				saveButton.setVisible(true);
 			}
-		}
+		});
 		
 		// add Components to the Layout
 		// Button
@@ -222,7 +222,7 @@ public class InfoView extends VerticalLayout implements View {
 		labelBox.addComponent(label_DoctorPhone);
 		labelBox.addComponent(label_RelativesContact);
 		labelBox.addComponent(label_RelativesPhone);
-		
+
 		// layout
 		layout.addComponent(header);
 		layout.addComponent(body);
