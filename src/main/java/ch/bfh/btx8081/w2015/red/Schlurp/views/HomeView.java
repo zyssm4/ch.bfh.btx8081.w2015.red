@@ -5,7 +5,9 @@ import ch.bfh.btx8081.w2015.red.Schlurp.uiElements.Wrapper;
 
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
+import com.vaadin.shared.ui.gridlayout.GridLayoutState.ChildComponentData;
 import com.vaadin.ui.AbstractOrderedLayout;
+import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Button.ClickListener;
@@ -33,7 +35,8 @@ public class HomeView extends VerticalLayout implements View {
 		final HorizontalLayout body = wrapper.getBody();
 		
 		final VerticalLayout buttonContainer = new VerticalLayout();
-
+		buttonContainer.setHeight(wrapper.getBody().getHeight()+"");
+		buttonContainer.setDefaultComponentAlignment(Alignment.MIDDLE_CENTER);
 		
 		wrapper.setLabel("Home");
 		wrapper.getHeader().removeComponent(wrapper.getButton());
