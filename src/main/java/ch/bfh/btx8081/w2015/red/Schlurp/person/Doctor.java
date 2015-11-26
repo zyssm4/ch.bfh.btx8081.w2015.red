@@ -13,7 +13,7 @@ public class Doctor extends Person{
 	private long phoneNb;
 
 	/**
-	 * Constructs a Doctor with name and first name
+	 * Constructs a doctor with name and first name
 	 * 
 	 * @param lastName
 	 * 			the last name
@@ -25,7 +25,7 @@ public class Doctor extends Person{
 	}
 
 	/**
-	 * Constructs a complete Doctor
+	 * Constructs a complete doctor
 	 * @param lastName
 	 * 			the last name
 	 * @param firstName
@@ -39,7 +39,7 @@ public class Doctor extends Person{
 	}
 
 	/**
-	 * returns the phone number of this <code>doctor</codes>
+	 * returns the phone number of this <code>Doctor</codes>
 	 * 
 	 * @return the phoneNb
 	 */
@@ -48,7 +48,7 @@ public class Doctor extends Person{
 	}
 
 	/**
-	 * sets the phone number of this <code>doctor</codes>
+	 * sets the phone number of this <code>Doctor</codes>
 	 * @param phoneNb
 	 * 			the phone number to set
 	 */
