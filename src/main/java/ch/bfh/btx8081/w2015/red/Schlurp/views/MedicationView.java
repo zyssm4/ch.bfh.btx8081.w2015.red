@@ -20,9 +20,9 @@ import com.vaadin.ui.TextField;
 import com.vaadin.ui.VerticalLayout;
 
 @SuppressWarnings("serial")
-public class HomeView extends VerticalLayout implements View {
+public class MedicationView extends VerticalLayout implements View {
 
-	public HomeView() {
+	public MedicationView() {
 		setSizeFull();
 
 		Wrapper wrapper = new Wrapper();
@@ -46,7 +46,8 @@ public class HomeView extends VerticalLayout implements View {
 		buttonContainer.addComponent(timeTable());
 		buttonContainer.addComponent(mediPlan());
 
-
+		layout.addComponent(header);
+		layout.addComponent(body);
 
 	}
 

@@ -5,6 +5,8 @@ import javax.servlet.annotation.WebServlet;
 import ch.bfh.btx8081.w2015.red.Schlurp.views.HomeView;
 import ch.bfh.btx8081.w2015.red.Schlurp.views.InfoView;
 import ch.bfh.btx8081.w2015.red.Schlurp.views.LoginView;
+import ch.bfh.btx8081.w2015.red.Schlurp.views.MedicationView;
+import ch.bfh.btx8081.w2015.red.Schlurp.views.TimeView;
 
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
@@ -27,7 +29,9 @@ public class MyUI extends UI {
 
 	public static final String HOMEVIEW = "home";
 	public static final String LOGINVIEW = "login";
-	public static final String INFOPAGE = "infopage";
+	public static final String INFOVIEW = "infoview";
+	public static final String TIMEVIEW = "timeview";
+	public static final String MEDICATIONVIEW = "medicationview";
 
 	@Override
 	protected void init(VaadinRequest request) {
@@ -40,7 +44,9 @@ public class MyUI extends UI {
 		navigator = new Navigator(UI.getCurrent(), viewDisplay);
 		navigator.addView("", new LoginView());
 		navigator.addView(HOMEVIEW, new HomeView());
-		navigator.addView(INFOPAGE, new InfoView());
+		navigator.addView(INFOVIEW, new InfoView());
+		navigator.addView(TIMEVIEW, new TimeView());
+		navigator.addView(MEDICATIONVIEW, new MedicationView());
 
 	}
     @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
