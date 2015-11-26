@@ -174,9 +174,9 @@ public class InfoView extends VerticalLayout implements View {
 		editButton.setHeight(HEIGHT_HEADER);
 		editButton.setWidth(WIDTH_LABEL);
 		editButton.setEnabled(true);
-		editButton.setIcon(editImage, "Edit");
+		editButton.setIcon(editImage);
 		saveButton.setCaption("Save");
-		saveButton.setIcon(saveImage, "Edit");
+		saveButton.setIcon(saveImage);
 		saveButton.setVisible(false);
 		saveButton.setHeight(HEIGHT_HEADER);
 		saveButton.setWidth(WIDTH_LABEL);

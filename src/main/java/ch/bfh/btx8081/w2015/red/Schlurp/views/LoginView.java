@@ -1,9 +1,12 @@
 package ch.bfh.btx8081.w2015.red.Schlurp.views;
 
+import java.io.File;
+
 import ch.bfh.btx8081.w2015.red.Schlurp.MyUI;
 
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
+import com.vaadin.server.FileResource;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Label;
@@ -19,6 +22,7 @@ public class LoginView extends VerticalLayout implements View {
 		setSpacing(true);
 		
 		Label label = new Label("Enter your information below to log in.");
+		Label schlurpLabel = new Label();
 		TextField username = new TextField("Username");
 		TextField password = new TextField("Password");
 		
@@ -26,6 +30,11 @@ public class LoginView extends VerticalLayout implements View {
 		addComponent(username);
 		addComponent(password);
 		addComponent(loginButton());
+		
+	
+		FileResource saveImage = new FileResource(new File("src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/108px-Schlurp_Traumwelt.png"));
+		schlurpLabel.setIcon(saveImage);
+		addComponent(schlurpLabel);
 	}
 
 	@Override
