@@ -1,5 +1,6 @@
 package ch.bfh.btx8081.w2015.red.Schlurp.views;
 
+import com.google.gwt.layout.client.Layout;
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.annotations.Widgetset;
@@ -23,7 +24,6 @@ import com.vaadin.ui.VerticalLayout;
 public class InfoView extends VerticalLayout implements View {
 
 	//defined Height
-	final String HEIGHT_LAYOUT = "568";
 	final String HEIGHT_HEADER = "25";
 	final String HEIGHT_BODY = "543";
 	final String HEIGHT_HEADER_BODY_SPLITTER = "60";
@@ -42,16 +42,17 @@ public class InfoView extends VerticalLayout implements View {
 	
 	public InfoView() {
 		setSizeFull();
-		setSpacing(true);
+		setSpacing(false);
+		
 		
 		final VerticalLayout layout = new VerticalLayout();
-		layout.setHeight(HEIGHT_LAYOUT);
-		layout.setWidth(WIDTH_LAYOUT);
 		addComponent(layout);
+		layout.setMargin(false);
 		
 		HorizontalLayout header = new HorizontalLayout();
 		header.setHeight(HEIGHT_HEADER);
 		header.setWidth(WIDTH_LAYOUT);
+
 		
 		HorizontalLayout body = new HorizontalLayout();
 		body.setHeight(HEIGHT_BODY);
