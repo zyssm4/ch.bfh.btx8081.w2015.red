@@ -5,6 +5,7 @@ import ch.bfh.btx8081.w2015.red.Schlurp.uiElements.Wrapper;
 
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
+import com.vaadin.ui.AbstractOrderedLayout;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Button.ClickListener;
@@ -21,7 +22,7 @@ public class HomeView extends VerticalLayout implements View {
 
 	public HomeView() {
 		setSizeFull();
-	
+
 		Wrapper wrapper = new Wrapper();
 		final VerticalLayout layout = wrapper.getLayout();
 		addComponent(layout);
@@ -30,19 +31,23 @@ public class HomeView extends VerticalLayout implements View {
 		final HorizontalLayout header = wrapper.getHeader();
 
 		final HorizontalLayout body = wrapper.getBody();
+		
+		final VerticalLayout buttonContainer = new VerticalLayout();
 
+		
 		wrapper.setLabel("Home");
-		wrapper.getButton().setCaption("Logout");
-		
+		wrapper.getHeader().removeComponent(wrapper.getButton());
+		wrapper.getHeader().addComponent(logOut(), 0);
+		body.addComponent(buttonContainer);
+		buttonContainer.addComponent(infoPage());
+		buttonContainer.addComponent(timeTable());
+		buttonContainer.addComponent(mediPlan());
 
-		
-		body.addComponent(infoPage());		
 		layout.addComponent(header);
 		layout.addComponent(body);
-        
 
-        
-        }
+	}
+
 	private Button infoPage() {
 		Button button = new Button("Infopage", new Button.ClickListener() {
 			@Override
@@ -51,7 +56,31 @@ public class HomeView extends VerticalLayout implements View {
 			}
 		});
 		return button;
+		
 	}
+
+	private Button timeTable() {
+		Button button = new Button("Terminplan", new Button.ClickListener() {
+
+			@Override
+			public void buttonClick(ClickEvent event) {
+				getUI().getNavigator().navigateTo(MyUI.TIMETABLE);
+			}
+		});
+		return button;
+	}
+
+	private Button mediPlan() {
+		Button button = new Button("Medikationsplan", new Button.ClickListener() {
+
+			@Override
+			public void buttonClick(ClickEvent event) {
+				getUI().getNavigator().navigateTo(MyUI.MEDICATIONPLAN);
+			}
+		});
+		return button;
+	}
+
 	private Button logOut() {
 		Button button = new Button("Logout", new Button.ClickListener() {
 			@Override
@@ -63,16 +92,14 @@ public class HomeView extends VerticalLayout implements View {
 		return button;
 	}
 
-
 	@Override
 	public void enter(ViewChangeEvent event) {
 		// TODO Auto-generated method stub
-		
+
 	}
+
 	private String getLogoutPath() {
 		return getUI().getPage().getLocation().getPath();
 	}
 
-	
-	
 }
