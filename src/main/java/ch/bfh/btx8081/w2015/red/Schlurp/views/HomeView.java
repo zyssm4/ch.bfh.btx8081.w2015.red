@@ -28,15 +28,44 @@ public class HomeView extends VerticalLayout implements View {
         addComponent(sample);
         
         sample.addStyleName("outlined");
-        Button infoPage = new Button("Infopage") ;
-        infoPage.setStyleName("danger");
-        sample.addComponent(infoPage);
-        sample.addComponent(new Button("Logout"));
+        
+      
+        sample.addComponent(infoPage());
+        sample.addComponent(logOut());
+        
+
+        
         }
+	private Button infoPage() {
+		Button button = new Button("Infopage", new Button.ClickListener() {
+			@Override
+			public void buttonClick(ClickEvent event) {
+				getUI().getNavigator().navigateTo(MyUI.INFOPAGE);
+			}
+		});
+		return button;
+	}
+	private Button logOut() {
+		Button button = new Button("Logout", new Button.ClickListener() {
+			@Override
+			public void buttonClick(ClickEvent event) {
+				getUI().getSession().close();
+				getUI().getPage().setLocation(getLogoutPath());
+			}
+		});
+		return button;
+	}
+
 
 	@Override
 	public void enter(ViewChangeEvent event) {
 		// TODO Auto-generated method stub
 		
 	}
+	private String getLogoutPath() {
+		return getUI().getPage().getLocation().getPath();
+	}
+
+	
+	
 }

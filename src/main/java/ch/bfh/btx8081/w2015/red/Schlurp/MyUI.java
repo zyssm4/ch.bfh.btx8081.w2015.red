@@ -3,6 +3,7 @@ package ch.bfh.btx8081.w2015.red.Schlurp;
 import javax.servlet.annotation.WebServlet;
 
 import ch.bfh.btx8081.w2015.red.Schlurp.views.HomeView;
+import ch.bfh.btx8081.w2015.red.Schlurp.views.InfoView;
 import ch.bfh.btx8081.w2015.red.Schlurp.views.LoginView;
 
 import com.vaadin.annotations.Theme;
@@ -25,6 +26,8 @@ public class MyUI extends UI {
 	public Navigator navigator;
 
 	public static final String HOMEVIEW = "home";
+	public static final String LOGINVIEW = "login";
+	public static final String INFOPAGE = "infopage";
 
 	@Override
 	protected void init(VaadinRequest request) {
@@ -37,6 +40,7 @@ public class MyUI extends UI {
 		navigator = new Navigator(UI.getCurrent(), viewDisplay);
 		navigator.addView("", new LoginView());
 		navigator.addView(HOMEVIEW, new HomeView());
+		navigator.addView(INFOPAGE, new InfoView());
 
 	}
     @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
