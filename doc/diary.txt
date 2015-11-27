@@ -1,3 +1,7 @@
+27.11.2015
+Durchgeführt von: Schmocker
+Logik InfoPage angepasst.
+
 26.11.2015
 DurchgefÃ¼hrt von: Zysset, Tschanz, Noser, Schmocker, Iseli
 Drittes DailyScrum, Navigatorm InfopageView, LoginView, HomeView, Wrapper Klasse erstelt & vereinert.
