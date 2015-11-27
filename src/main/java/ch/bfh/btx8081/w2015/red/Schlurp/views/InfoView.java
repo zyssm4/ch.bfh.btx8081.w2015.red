@@ -3,6 +3,9 @@ package ch.bfh.btx8081.w2015.red.Schlurp.views;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.UnsupportedEncodingException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import ch.bfh.btx8081.w2015.red.Schlurp.MyUI;
 import ch.bfh.btx8081.w2015.red.Schlurp.infopage.Infopage;
@@ -20,8 +23,10 @@ import com.vaadin.server.FileResource;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Button.ClickListener;
+import com.vaadin.ui.DateField;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
+import com.vaadin.ui.PopupDateField;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.VerticalLayout;
 
@@ -43,6 +48,8 @@ public class InfoView extends VerticalLayout implements View {
 	final String WIDTH_LAYOUT_LABELBOX = "160";
 	final String WIDTH_LABEL = "54";
 	final String WIDTH_TEXTFIELD = "145";
+	
+	SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
 
 	public InfoView() {
 		setSizeFull();
@@ -147,9 +154,14 @@ public class InfoView extends VerticalLayout implements View {
 		textField_Disease.setHeight(HEIGHT_TEXTFIELD);
 		textField_Disease.setWidth(WIDTH_TEXTFIELD);
 
-		TextField textField_FirstTreatment = new TextField();
-		textField_FirstTreatment.setHeight(HEIGHT_TEXTFIELD);
-		textField_FirstTreatment.setWidth(WIDTH_TEXTFIELD);
+		DateField dateField_firstTreatment = new DateField();
+		dateField_firstTreatment.setValue(new Date());
+		dateField_firstTreatment.setHeight(HEIGHT_TEXTFIELD);
+		dateField_firstTreatment.setWidth(WIDTH_TEXTFIELD);
+		
+//		TextField textField_FirstTreatment = new TextField();
+//		textField_FirstTreatment.setHeight(HEIGHT_TEXTFIELD);
+//		textField_FirstTreatment.setWidth(WIDTH_TEXTFIELD);
 
 		TextField textField_Medicament = new TextField();
 		textField_Medicament.setHeight(HEIGHT_TEXTFIELD);
@@ -203,7 +215,7 @@ public class InfoView extends VerticalLayout implements View {
 				editButton.setVisible(true);
 				saveButton.setVisible(false);
 				Patient patient = new Patient(textField_Name.getValue(), textField_Firstname.getValue(), textField_Insurance.getValue(),
-						textField_InsuranceNumber.getValue(), textField_FirstTreatment.getValue(),
+						textField_InsuranceNumber.getValue(), dateField_firstTreatment.getValue(),//textField_FirstTreatment.getValue(),
 						textField_Disease.getValue(), new Medicament(textField_Medicament.getValue()),
 						new Doctor(textField_DoctorContactName.getValue(), textField_DoctorContactPhone.getValue()),
 						new FamilyMember(textField_RelativesContactName.getValue(),
@@ -240,7 +252,8 @@ public class InfoView extends VerticalLayout implements View {
 		textFieldBox.addComponent(textField_Insurance);
 		textFieldBox.addComponent(textField_InsuranceNumber);
 		textFieldBox.addComponent(textField_Disease);
-		textFieldBox.addComponent(textField_FirstTreatment);
+		textFieldBox.addComponent(dateField_firstTreatment);
+//		textFieldBox.addComponent(textField_FirstTreatment);
 		textFieldBox.addComponent(textField_Medicament);
 		textFieldBox.addComponent(textField_DoctorContactName);
 		textFieldBox.addComponent(textField_DoctorContactPhone);
