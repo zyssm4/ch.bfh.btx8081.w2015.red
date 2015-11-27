@@ -1,26 +1,34 @@
 package ch.bfh.btx8081.w2015.red.Schlurp.views;
 
+import java.io.File;
+
 import ch.bfh.btx8081.w2015.red.Schlurp.MyUI;
 import ch.bfh.btx8081.w2015.red.Schlurp.uiElements.Wrapper;
 
+
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
-import com.vaadin.shared.ui.gridlayout.GridLayoutState.ChildComponentData;
-import com.vaadin.ui.AbstractOrderedLayout;
+import com.vaadin.server.FileResource;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Button.ClickListener;
-import com.vaadin.ui.Component;
 import com.vaadin.ui.HorizontalLayout;
-import com.vaadin.ui.HorizontalSplitPanel;
-import com.vaadin.ui.Label;
-import com.vaadin.ui.Notification;
-import com.vaadin.ui.TextField;
 import com.vaadin.ui.VerticalLayout;
 
 @SuppressWarnings("serial")
 public class HomeView extends VerticalLayout implements View {
+
+	// Load Images from Resources
+	FileResource infoPageImage = new FileResource(
+			new File(
+					"src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/infoPage.png"));
+	FileResource calendarImage = new FileResource(
+			new File(
+					"src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/calendar.png"));
+	FileResource mediPlanImage = new FileResource(
+			new File(
+					"src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/MedPlan.png"));
 
 	public HomeView() {
 		setSizeFull();
@@ -33,32 +41,34 @@ public class HomeView extends VerticalLayout implements View {
 		final HorizontalLayout header = wrapper.getHeader();
 
 		final HorizontalLayout body = wrapper.getBody();
-		
+
 		final VerticalLayout buttonContainer = new VerticalLayout();
-		buttonContainer.setHeight(wrapper.getBody().getHeight()+"");
+		buttonContainer.setHeight(wrapper.getBody().getHeight() + "");
 		buttonContainer.setDefaultComponentAlignment(Alignment.MIDDLE_CENTER);
 		
 		wrapper.setLabel("Home");
-		wrapper.getHeader().removeComponent(wrapper.getButton());
-		wrapper.getHeader().addComponent(logOut(), 0);
+		wrapper.getButton().setCaption("Logout");
+		wrapper.getButton().addClickListener(logOut());
+		
 		body.addComponent(buttonContainer);
 		buttonContainer.addComponent(infoPage());
 		buttonContainer.addComponent(timeTable());
 		buttonContainer.addComponent(mediPlan());
 
-
-
 	}
 
 	private Button infoPage() {
-		Button button = new Button("Infopage", new Button.ClickListener() {
+		Button button = new Button("",new Button.ClickListener() {
 			@Override
 			public void buttonClick(ClickEvent event) {
 				getUI().getNavigator().navigateTo(MyUI.INFOVIEW);
 			}
 		});
+		button.setIcon(infoPageImage);
+		button.setHeight("70");
+		button.setWidth("70");
 		return button;
-		
+
 	}
 
 	private Button timeTable() {
@@ -66,32 +76,41 @@ public class HomeView extends VerticalLayout implements View {
 
 			@Override
 			public void buttonClick(ClickEvent event) {
-				getUI().getNavigator().navigateTo(MyUI.TIMEVIEW);
+				getUI().getNavigator().navigateTo(MyUI.HOMEVIEW);
 			}
 		});
+		button.setIcon(calendarImage);
+		button.setStyleName("button");
+		button.setHeight("70");
+		button.setWidth("70");
 		return button;
 	}
 
 	private Button mediPlan() {
-		Button button = new Button("Medikationsplan", new Button.ClickListener() {
+		Button button = new Button("Medikationsplan",
+				new Button.ClickListener() {
 
-			@Override
-			public void buttonClick(ClickEvent event) {
-				getUI().getNavigator().navigateTo(MyUI.MEDICATIONVIEW);
-			}
-		});
+					@Override
+					public void buttonClick(ClickEvent event) {
+						getUI().getNavigator().navigateTo(MyUI.HOMEVIEW);
+					}
+				});
+		button.setIcon(mediPlanImage);
+		button.setStyleName("button");
+		button.setHeight("70");
+		button.setWidth("70");
 		return button;
 	}
 
-	private Button logOut() {
-		Button button = new Button("Logout", new Button.ClickListener() {
+	private ClickListener logOut() {
+		Button.ClickListener logout = new Button.ClickListener() {
 			@Override
 			public void buttonClick(ClickEvent event) {
 				getUI().getSession().close();
 				getUI().getPage().setLocation(getLogoutPath());
 			}
-		});
-		return button;
+		};
+		return logout;
 	}
 
 	@Override
