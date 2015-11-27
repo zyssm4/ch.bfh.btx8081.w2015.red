@@ -7,6 +7,8 @@ import java.io.UnsupportedEncodingException;
 //import java.util.ArrayList;
 import java.util.Scanner;
 
+import ch.bfh.btx8081.w2015.red.Schlurp.person.Patient;
+
 /**
  * A <code>Infopage</code> object represents an information page (abstraction)
  * of a patient with its following data (name, first name and phone number). The
@@ -19,39 +21,25 @@ import java.util.Scanner;
  * Note: The input data are not validated.
  * 
  * @author Rea
- * @version V26.11.2015
+ * @author Kaspar
+ * @version V27.11.2015
  */
 public class Infopage {
 
-	private String name = null;
-	private String firstname = null;
-	private String insurance = null;
-	private String insuranceNumber = null;
-	private String disease = null;
-	private String firstTreatment = null;
-	private String medicament = null;
-	private String doctorContactName = null;
-	private String doctorContactPhone = null;
-	private String relativeContactName = null;
-	private String relativeContactPhone = null;
+	private Patient patient = null;
 
-	// private static ArrayList<Infopage> infopage = new ArrayList<Infopage>();
+	/**
+	 * Constructs a <code>Infopage</code> with one <code>Patient</code>
+	 * 
+	 * @param patient
+	 */
+	public Infopage(Patient patient) {
+		this.patient = patient;
+	}
 
-	public Infopage(String name, String firstname, String insurance, String insuranceNumber, String disease,
-			String firstTreatment, String medicament, String doctorContactName, String doctorContactPhone,
-			String relativeContactName, String relativeContactPhone) {
-		this.name = name;
-		this.firstname = firstname;
-		this.insurance = insurance;
-		this.insuranceNumber = insuranceNumber;
-		this.disease = disease;
-		this.firstTreatment = firstTreatment;
-		this.medicament = medicament;
-		this.doctorContactName = doctorContactName;
-		this.doctorContactPhone = doctorContactPhone;
-		this.relativeContactName = relativeContactName;
-		this.relativeContactPhone = relativeContactPhone;
-
+	public Infopage(String string, String string2, String string3, String string4, String string5, String string6,
+			String string7, String string8, String string9, String string10, String string11) {
+		// TODO Auto-generated constructor stub
 	}
 
 	// Reads the content of a text file with the name inputFileName and returns
@@ -82,112 +70,28 @@ public class Infopage {
 	public static void writeInfomationsToFile(Infopage infos, String outputfileName)
 			throws FileNotFoundException, UnsupportedEncodingException {
 
-		final PrintWriter out = new PrintWriter(outputfileName, "UTF-8");
+		final PrintWriter out = new PrintWriter(outputfileName, "UTF-16");
 		String delimiter = ";";
 
-		out.format(infos.getName() + delimiter + " " + infos.getFirstname() + delimiter + " " + infos.getInsurance()
-				+ delimiter + " " + infos.getInsuranceNumber() + delimiter + " " + infos.getDisease() + delimiter + " "
-				+ infos.getFirstTreatment() + delimiter + " " + infos.getMedicament() + delimiter + " "
-				+ infos.getDoctorContactName() + delimiter + " " + infos.getDoctorContactPhone() + delimiter + " "
-				+ infos.getRelativeContactName() + delimiter + " " + infos.getRelativeContactPhone() + "%n");
+		out.format(infos.patient.getLastName() + delimiter + " " + infos.patient.getFirstName() + delimiter + " "
+				+ infos.patient.getInsurance() + delimiter + " " + infos.patient.getInsPolicyNb() + delimiter + " "
+				+ infos.patient.getDisease() + delimiter + " " + infos.patient.getFirstTreatment() + delimiter + " "
+				+ infos.patient.getMedicaments() + delimiter + " " + infos.patient.getDoctor().getLastName() + delimiter
+				+ " " + infos.patient.getDoctor().getPhoneNb() + delimiter + " "
+				+ infos.patient.getFmember().getLastName() + delimiter + " " + infos.patient.getFmember().getPhoneNb()
+				+ "%n");
 
 		out.close();
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getFirstname() {
-		return firstname;
-	}
-
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
-	}
-
-	public String getInsurance() {
-		return insurance;
-	}
-
-	public void setInsurance(String insurance) {
-		this.insurance = insurance;
-	}
-
-	public String getInsuranceNumber() {
-		return insuranceNumber;
-	}
-
-	public void setInsuranceNumber(String insuranceNumber) {
-		this.insuranceNumber = insuranceNumber;
-	}
-
-	public String getDisease() {
-		return disease;
-	}
-
-	public void setDisease(String disease) {
-		this.disease = disease;
-	}
-
-	public String getFirstTreatment() {
-		return firstTreatment;
-	}
-
-	public void setFirstTreatment(String firstTreatment) {
-		this.firstTreatment = firstTreatment;
-	}
-
-	public String getMedicament() {
-		return medicament;
-	}
-
-	public void setMedicament(String medicament) {
-		this.medicament = medicament;
-	}
-
-	public String getDoctorContactName() {
-		return doctorContactName;
-	}
-
-	public void setDoctorContactName(String doctorContact) {
-		this.doctorContactName = doctorContact;
-	}
-
-	public String getRelativeContactName() {
-		return relativeContactName;
-	}
-
-	public void setRelativeContactName(String relativeContact) {
-		this.relativeContactName = relativeContact;
-	}
-
-	public String getDoctorContactPhone() {
-		return doctorContactPhone;
-	}
-
-	public void setDoctorContactPhone(String doctorContactPhone) {
-		this.doctorContactPhone = doctorContactPhone;
-	}
-
-	public String getRelativeContactPhone() {
-		return relativeContactPhone;
-	}
-
-	public void setRelativeContactPhone(String relativeContactPhone) {
-		this.relativeContactPhone = relativeContactPhone;
-	}
-
 	@Override
 	public String toString() {
-		return "Infopage [name=" + name + ", firstname=" + firstname + ", insurance=" + insurance + ", insuranceNumber="
-				+ insuranceNumber + ", disease=" + disease + ", firstTreatment=" + firstTreatment + ", medicament="
-				+ medicament + ", doctorContactName=" + doctorContactName + ", doctorContactPhone=" + doctorContactPhone
-				+ ", relativeContactName=" + relativeContactName + ", relativeContactPhone=" + relativeContactPhone
+		return "Infopage [name=" + patient.getLastName() + ", firstname=" + patient.getFirstName() + ", insurance="
+				+ patient.getInsurance() + ", insuranceNumber=" + patient.getInsPolicyNb() + ", disease="
+				+ patient.getDisease() + ", firstTreatment=" + patient.getFirstTreatment() + ", medicament="
+				+ patient.getMedicaments().toString() + ", doctorContactName=" + patient.getDoctor().getLastName()
+				+ ", doctorContactPhone=" + patient.getDoctor().getPhoneNb() + ", relativeContactName="
+				+ patient.getFmember().getLastName() + ", relativeContactPhone=" + patient.getFmember().getPhoneNb()
 				+ "]";
 	}
 }
