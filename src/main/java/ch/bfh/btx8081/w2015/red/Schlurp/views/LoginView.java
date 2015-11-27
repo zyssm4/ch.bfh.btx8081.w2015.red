@@ -3,8 +3,12 @@ package ch.bfh.btx8081.w2015.red.Schlurp.views;
 import java.io.File;
 
 import ch.bfh.btx8081.w2015.red.Schlurp.MyUI;
+import ch.bfh.btx8081.w2015.red.Schlurp.login.PasswordValidator;
+import ch.bfh.btx8081.w2015.red.Schlurp.login.UsernameValidator;
 import ch.bfh.btx8081.w2015.red.Schlurp.uiElements.Wrapper;
 
+import com.vaadin.data.Validator;
+import com.vaadin.data.validator.EmailValidator;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.server.FileResource;
@@ -26,8 +30,21 @@ public class LoginView extends VerticalLayout implements View {
 		
 		Label label = new Label("Enter your information below to log in.");
 		Label schlurpLabel = new Label();
+		// Create the user input Field
 		TextField username = new TextField("Username");
+		username.setRequired(true);
+		username.setInvalidAllowed(false);
+		username.addValidator(new UsernameValidator());
+		username.setImmediate(true);
+		//username.setNullSettingAllowed(true);
+		
+		//Create the password input Field
 		PasswordField password = new PasswordField("Password");
+		password.setRequired(true);
+		password.setInvalidAllowed(false);
+		password.addValidator(new PasswordValidator());
+		password.setImmediate(true);
+		//password.setNullSettingAllowed(true);
 		
 		label.setStyleName(ValoTheme.LABEL_COLORED);
 		
@@ -49,6 +66,7 @@ public class LoginView extends VerticalLayout implements View {
 	
 	private Button loginButton() {
 		Button button = new Button("Log In", new Button.ClickListener() {
+			
 			@Override
 			public void buttonClick(ClickEvent event) {
 				getUI().getNavigator().navigateTo(MyUI.HOMEVIEW);
