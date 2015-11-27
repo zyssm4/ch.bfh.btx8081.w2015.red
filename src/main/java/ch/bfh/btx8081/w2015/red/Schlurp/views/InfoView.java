@@ -6,6 +6,10 @@ import java.io.UnsupportedEncodingException;
 
 import ch.bfh.btx8081.w2015.red.Schlurp.MyUI;
 import ch.bfh.btx8081.w2015.red.Schlurp.infopage.Infopage;
+import ch.bfh.btx8081.w2015.red.Schlurp.mediplan.Medicament;
+import ch.bfh.btx8081.w2015.red.Schlurp.person.Doctor;
+import ch.bfh.btx8081.w2015.red.Schlurp.person.FamilyMember;
+import ch.bfh.btx8081.w2015.red.Schlurp.person.Patient;
 import ch.bfh.btx8081.w2015.red.Schlurp.uiElements.Wrapper;
 
 import com.vaadin.annotations.Theme;
@@ -21,6 +25,7 @@ import com.vaadin.ui.Label;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.VerticalLayout;
 
+@SuppressWarnings("serial")
 @Theme("mytheme")
 @Widgetset("ch.bfh.btx8081.w2015.red.Schlurp.MyAppWidgetset")
 public class InfoView extends VerticalLayout implements View {
@@ -197,14 +202,15 @@ public class InfoView extends VerticalLayout implements View {
 				textFieldBox.setEnabled(false);
 				editButton.setVisible(true);
 				saveButton.setVisible(false);
-				Infopage Info = new Infopage(textField_Name.getValue(), textField_Firstname.getValue(),
-						textField_Insurance.getValue(), textField_InsuranceNumber.getValue(),
-						textField_Disease.getValue(), textField_FirstTreatment.getValue(),
-						textField_Medicament.getValue(), textField_DoctorContactName.getValue(),
-						textField_DoctorContactPhone.getValue(), textField_RelativesContactName.getValue(),
-						textField_RelativesContactPhone.getValue());
+				Patient patient = new Patient(textField_Name.getValue(), textField_Firstname.getValue(), textField_Insurance.getValue(),
+						textField_InsuranceNumber.getValue(), textField_FirstTreatment.getValue(),
+						textField_Disease.getValue(), new Medicament(textField_Medicament.getValue()),
+						new Doctor(textField_DoctorContactName.getValue(), textField_DoctorContactPhone.getValue()),
+						new FamilyMember(textField_RelativesContactName.getValue(),
+								textField_RelativesContactName.getValue()));
+				Infopage infoPage = new Infopage(patient);
 				try {
-					Infopage.writeInfomationsToFile(Info, "abc.txt");
+					Infopage.writeInfomationsToFile(infoPage, "abc.txt");
 				} catch (FileNotFoundException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
