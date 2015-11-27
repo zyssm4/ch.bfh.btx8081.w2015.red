@@ -21,63 +21,8 @@ public class Patient extends Person {
 //	private ArrayList<Medicament> medicaments;
 	private Doctor doctor;
 	private FamilyMember fmember;
-//	/**
-//	 * Constructs a patient
-//	 * 
-//	 * @param name
-//	 * 			the name
-//	 * @param insurance
-//	 * 			the insurance name
-//	 * @param insPolicyNb
-//	 * 			the insurance policy number
-//	 * @param firstTreatment
-//	 * 			the date of the first treatment
-//	 */
-//	public Patient(String name, String insurance, String insPolicyNb, String firstTreatment) {
-//		super(name);
-//		this.insurance = insurance;
-//		this.insPolicyNb = insPolicyNb;
-//		this.firstTreatment = firstTreatment;
-//	}
-//	/**
-//	 * Constructs a patient 
-//	 * 
-//	 * @param name
-//	 * 			the name
-//	 * @param insurance
-//	 * 			the insurance name
-//	 * @param insPolicyNb
-//	 * 			the insurance policy number
-//	 */
-//	public Patient(String name, String insurance, String insPolicyNb) {
-//		super(name);
-//		this.insurance = insurance;
-//		this.insPolicyNb = insPolicyNb;
-//	}
-//	/**
-//	 * Construct a patient
-//	 * 
-//	 * @param name
-//	 * 			the name
-//	 * @param insurance
-//	 * 			the insurance nam
-//	 * @param insPolicyNb
-//	 * 			the insurance policy number
-//	 * @param firstTreatment
-//	 * 			the date of the first treatment
-//	 * @param medicament
-//	 * 			a medicament
-//	 */
-//	public Patient(String name, String insurance, String insPolicyNb, String firstTreatment, Medicament medicament){
-//		super(name);
-//		this.insurance = insurance;
-//		this.insPolicyNb = insPolicyNb;
-//		this.firstTreatment = firstTreatment;
-//		this.medicament = medicament;
-//	}
-//	
 	/**
-	 * Construct a patient
+	 * Constructs a patient
 	 * 
 	 * @param lastName
 	 * 			the lastname
