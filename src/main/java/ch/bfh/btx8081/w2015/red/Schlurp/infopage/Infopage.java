@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
+//import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -30,13 +30,16 @@ public class Infopage {
 	private String disease = null;
 	private String firstTreatment = null;
 	private String medicament = null;
-	private String doctorContact = null;
-	private String relativeContact = null;
+	private String doctorContactName = null;
+	private String doctorContactPhone = null;
+	private String relativeContactName = null;
+	private String relativeContactPhone = null;
 
-	private static ArrayList<Infopage> infopage = new ArrayList<Infopage>();
+	// private static ArrayList<Infopage> infopage = new ArrayList<Infopage>();
 
 	public Infopage(String name, String firstname, String insurance, String insuranceNumber, String disease,
-			String firstTreatment, String medicament, String doctorContact, String relativeContact) {
+			String firstTreatment, String medicament, String doctorContactName, String doctorContactPhone,
+			String relativeContactName, String relativeContactPhone) {
 		this.name = name;
 		this.firstname = firstname;
 		this.insurance = insurance;
@@ -44,8 +47,11 @@ public class Infopage {
 		this.disease = disease;
 		this.firstTreatment = firstTreatment;
 		this.medicament = medicament;
-		this.doctorContact = doctorContact;
-		this.relativeContact = relativeContact;
+		this.doctorContactName = doctorContactName;
+		this.doctorContactPhone = doctorContactPhone;
+		this.relativeContactName = relativeContactName;
+		this.relativeContactPhone = relativeContactPhone;
+
 	}
 
 	// Reads the content of a text file with the name inputFileName and returns
@@ -63,8 +69,9 @@ public class Infopage {
 			for (int i = 0; i < splittedData.length; i++) {
 				splittedData[i] = splittedData[i].trim();
 			}
-			info = new Infopage(splittedData[0], splittedData[1], splittedData[2], splittedData[3],
-					splittedData[4], splittedData[5], splittedData[6], splittedData[7], splittedData[8]);
+			info = new Infopage(splittedData[0], splittedData[1], splittedData[2], splittedData[3], splittedData[4],
+					splittedData[5], splittedData[6], splittedData[7], splittedData[8], splittedData[9],
+					splittedData[10]);
 		}
 
 		input.close();
@@ -81,7 +88,8 @@ public class Infopage {
 		out.format(infos.getName() + delimiter + " " + infos.getFirstname() + delimiter + " " + infos.getInsurance()
 				+ delimiter + " " + infos.getInsuranceNumber() + delimiter + " " + infos.getDisease() + delimiter + " "
 				+ infos.getFirstTreatment() + delimiter + " " + infos.getMedicament() + delimiter + " "
-				+ infos.getDoctorContact() + delimiter + " " + infos.getRelativeContact() + "%n");
+				+ infos.getDoctorContactName() + delimiter + " " + infos.getDoctorContactPhone() + delimiter + " "
+				+ infos.getRelativeContactName() + delimiter + " " + infos.getRelativeContactPhone() + "%n");
 
 		out.close();
 	}
@@ -142,20 +150,44 @@ public class Infopage {
 		this.medicament = medicament;
 	}
 
-	public String getDoctorContact() {
-		return doctorContact;
+	public String getDoctorContactName() {
+		return doctorContactName;
 	}
 
-	public void setDoctorContact(String doctorContact) {
-		this.doctorContact = doctorContact;
+	public void setDoctorContactName(String doctorContact) {
+		this.doctorContactName = doctorContact;
 	}
 
-	public String getRelativeContact() {
-		return relativeContact;
+	public String getRelativeContactName() {
+		return relativeContactName;
 	}
 
-	public void setRelativeContact(String relativeContact) {
-		this.relativeContact = relativeContact;
+	public void setRelativeContactName(String relativeContact) {
+		this.relativeContactName = relativeContact;
 	}
 
+	public String getDoctorContactPhone() {
+		return doctorContactPhone;
+	}
+
+	public void setDoctorContactPhone(String doctorContactPhone) {
+		this.doctorContactPhone = doctorContactPhone;
+	}
+
+	public String getRelativeContactPhone() {
+		return relativeContactPhone;
+	}
+
+	public void setRelativeContactPhone(String relativeContactPhone) {
+		this.relativeContactPhone = relativeContactPhone;
+	}
+
+	@Override
+	public String toString() {
+		return "Infopage [name=" + name + ", firstname=" + firstname + ", insurance=" + insurance + ", insuranceNumber="
+				+ insuranceNumber + ", disease=" + disease + ", firstTreatment=" + firstTreatment + ", medicament="
+				+ medicament + ", doctorContactName=" + doctorContactName + ", doctorContactPhone=" + doctorContactPhone
+				+ ", relativeContactName=" + relativeContactName + ", relativeContactPhone=" + relativeContactPhone
+				+ "]";
+	}
 }

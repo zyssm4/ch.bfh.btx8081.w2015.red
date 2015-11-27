@@ -1,8 +1,11 @@
 package ch.bfh.btx8081.w2015.red.Schlurp.views;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.UnsupportedEncodingException;
 
 import ch.bfh.btx8081.w2015.red.Schlurp.MyUI;
+import ch.bfh.btx8081.w2015.red.Schlurp.infopage.Infopage;
 import ch.bfh.btx8081.w2015.red.Schlurp.uiElements.Wrapper;
 
 import com.vaadin.annotations.Theme;
@@ -35,7 +38,7 @@ public class InfoView extends VerticalLayout implements View {
 	final String WIDTH_LAYOUT_LABELBOX = "160";
 	final String WIDTH_LABEL = "54";
 	final String WIDTH_TEXTFIELD = "145";
-	
+
 	public InfoView() {
 		setSizeFull();
 		setSpacing(false);
@@ -50,7 +53,7 @@ public class InfoView extends VerticalLayout implements View {
 		final HorizontalLayout body = wrapper.getBody();
 		final Button editButton = new Button();
 		final Button saveButton = new Button();
-		
+
 		wrapper.setLabel("InfoPage");
 
 		VerticalLayout labelBox = new VerticalLayout();
@@ -61,7 +64,6 @@ public class InfoView extends VerticalLayout implements View {
 		textFieldBox.setEnabled(false);
 		textFieldBox.setHeight(HEIGHT_BODY);
 		textFieldBox.setWidth(WIDTH_LAYOUT_TEXTFIELDBOX);
-
 
 		// Add Infopage Components
 		Label label_Name = new Label();
@@ -140,9 +142,9 @@ public class InfoView extends VerticalLayout implements View {
 		textField_Disease.setHeight(HEIGHT_TEXTFIELD);
 		textField_Disease.setWidth(WIDTH_TEXTFIELD);
 
-		TextField textField_FirstThreatment = new TextField();
-		textField_FirstThreatment.setHeight(HEIGHT_TEXTFIELD);
-		textField_FirstThreatment.setWidth(WIDTH_TEXTFIELD);
+		TextField textField_FirstTreatment = new TextField();
+		textField_FirstTreatment.setHeight(HEIGHT_TEXTFIELD);
+		textField_FirstTreatment.setWidth(WIDTH_TEXTFIELD);
 
 		TextField textField_Medicament = new TextField();
 		textField_Medicament.setHeight(HEIGHT_TEXTFIELD);
@@ -164,10 +166,11 @@ public class InfoView extends VerticalLayout implements View {
 		textField_RelativesContactPhone.setHeight(HEIGHT_TEXTFIELD);
 		textField_RelativesContactPhone.setWidth(WIDTH_TEXTFIELD);
 
-		
-		//Ressource Images
-		FileResource editImage = new FileResource(new File("src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/book_edit.png"));
-		FileResource saveImage = new FileResource(new File("src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/Floppy-64.png"));
+		// Ressource Images
+		FileResource editImage = new FileResource(
+				new File("src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/book_edit.png"));
+		FileResource saveImage = new FileResource(
+				new File("src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/Floppy-64.png"));
 
 		// Edit/Save Button
 		editButton.setCaption("Edit");
@@ -180,23 +183,39 @@ public class InfoView extends VerticalLayout implements View {
 		saveButton.setVisible(false);
 		saveButton.setHeight(HEIGHT_HEADER);
 		saveButton.setWidth(WIDTH_LABEL);
-		
-		editButton.addClickListener(new ClickListener(){
-			public void buttonClick(ClickEvent event){
+
+		editButton.addClickListener(new ClickListener() {
+			public void buttonClick(ClickEvent event) {
 				textFieldBox.setEnabled(true);
 				editButton.setVisible(false);
 				saveButton.setVisible(true);
 			}
 		});
-		
-		saveButton.addClickListener(new ClickListener(){
-			public void buttonClick(ClickEvent event){
+
+		saveButton.addClickListener(new ClickListener() {
+			public void buttonClick(ClickEvent event) {
 				textFieldBox.setEnabled(false);
 				editButton.setVisible(true);
 				saveButton.setVisible(false);
+				Infopage Info = new Infopage(textField_Name.getValue(), textField_Firstname.getValue(),
+						textField_Insurance.getValue(), textField_InsuranceNumber.getValue(),
+						textField_Disease.getValue(), textField_FirstTreatment.getValue(),
+						textField_Medicament.getValue(), textField_DoctorContactName.getValue(),
+						textField_DoctorContactPhone.getValue(), textField_RelativesContactName.getValue(),
+						textField_RelativesContactPhone.getValue());
+				try {
+					Infopage.writeInfomationsToFile(Info, "abc.txt");
+				} catch (FileNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (UnsupportedEncodingException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
 			}
 		});
-		
+
 		// add Components to the Layout
 		// Button
 		wrapper.getButton().addClickListener(new ClickListener() {
@@ -204,21 +223,18 @@ public class InfoView extends VerticalLayout implements View {
 				getUI().getNavigator().navigateTo(MyUI.HOMEVIEW);
 			}
 		});
-		
 
-		
 		// body
 		body.addComponent(labelBox);
 		body.addComponent(textFieldBox);
 
-		
 		// textFieldBox
 		textFieldBox.addComponent(textField_Name);
 		textFieldBox.addComponent(textField_Firstname);
 		textFieldBox.addComponent(textField_Insurance);
 		textFieldBox.addComponent(textField_InsuranceNumber);
 		textFieldBox.addComponent(textField_Disease);
-		textFieldBox.addComponent(textField_FirstThreatment);
+		textFieldBox.addComponent(textField_FirstTreatment);
 		textFieldBox.addComponent(textField_Medicament);
 		textFieldBox.addComponent(textField_DoctorContactName);
 		textFieldBox.addComponent(textField_DoctorContactPhone);
@@ -238,7 +254,7 @@ public class InfoView extends VerticalLayout implements View {
 		labelBox.addComponent(label_RelativesContact);
 		labelBox.addComponent(label_RelativesPhone);
 
-		//Button
+		// Button
 		labelBox.addComponent(editButton);
 		labelBox.addComponent(saveButton);
 		// layout
