@@ -9,38 +9,34 @@ package ch.bfh.btx8081.w2015.red.Schlurp.person;
  */
 public class FamilyMember extends Person {
 
-	private long phoneNb;
+	private String phoneNb;
 	/**
-	 * Constructs a family member with name and first name
+	 * Constructs a family member with name
 	 * 
-	 * @param lastName
-	 * 			the last name
-	 * @param firstName
-	 * 			the first name
+	 * @param name
+	 * 			the name
 	 */
-	public FamilyMember(String lastName, String firstName) {
-		super(lastName, firstName);
+	public FamilyMember(String name) {
+		super(name);
 	}
 	
 	/**
 	 * Constructs a complete family member
 	 * 
-	 * @param lastName
-	 * 			the last name
-	 * @param firstName
-	 * 			the first name
+	 * @param name
+	 * 			the name
 	 * @param phoneNb
 	 * 			the phone number
 	 */
-	public FamilyMember(String lastName, String firstName, long phoneNb) {
-		super(lastName, firstName);
+	public FamilyMember(String name, String phoneNb) {
+		super(name);
 		this.phoneNb = phoneNb;
 	}
 
 	/**
 	 * @return the phoneNb
 	 */
-	public long getPhoneNb() {
+	public String getPhoneNb() {
 		return phoneNb;
 	}
 	
@@ -49,7 +45,7 @@ public class FamilyMember extends Person {
 	 * 
 	 * @return the phoneNb
 	 */
-	public void setPhoneNb(long phoneNb) {
+	public void setPhoneNb(String phoneNb) {
 		this.phoneNb = phoneNb;
 	}
 }

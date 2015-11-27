@@ -1,8 +1,5 @@
 package ch.bfh.btx8081.w2015.red.Schlurp.person;
 
-import java.util.ArrayList;
-import java.util.Date;
-
 import ch.bfh.btx8081.w2015.red.Schlurp.mediplan.Medicament;
 
 /**
@@ -16,85 +13,84 @@ import ch.bfh.btx8081.w2015.red.Schlurp.mediplan.Medicament;
  */
 public class Patient extends Person {
 	private String insurance;
-	private Long insPolicyNb;
-	private Date firstTreatment;
-	private ArrayList<Medicament> medicaments;
+	private String insPolicyNb;
+//	private Date firstTreatment;
+	private String firstTreatment;
+	private String disease;
+	private Medicament medicament;
+//	private ArrayList<Medicament> medicaments;
 	private Doctor doctor;
 	private FamilyMember fmember;
-	/**
-	 * Constructs a patient
-	 * 
-	 * @param lastName
-	 * 			the last name
-	 * @param firstName
-	 * 			the first name
-	 * @param insurance
-	 * 			the insurance name
-	 * @param insPolicyNb
-	 * 			the insurance policy number
-	 * @param firstTreatment
-	 * 			the date of the first treatment
-	 */
-	public Patient(String lastName, String firstName, String insurance, Long insPolicyNb, Date firstTreatment) {
-		super(lastName, firstName);
-		this.insurance = insurance;
-		this.insPolicyNb = insPolicyNb;
-		this.firstTreatment = firstTreatment;
-	}
-	/**
-	 * Constructs a patient 
-	 * 
-	 * @param lastName
-	 * 			the last name
-	 * @param firstName
-	 * 			the first name
-	 * @param insurance
-	 * 			the insurance name
-	 * @param insPolicyNb
-	 * 			the insurance policy number
-	 */
-	public Patient(String lastName, String firstName, String insurance, Long insPolicyNb) {
-		super(lastName, firstName);
-		this.insurance = insurance;
-		this.insPolicyNb = insPolicyNb;
-	}
-	/**
-	 * Construct a patient
-	 * 
-	 * @param lastName
-	 * 			the last name
-	 * @param firstName
-	 * 			the first name
-	 * @param insurance
-	 * 			the insurance nam
-	 * @param insPolicyNb
-	 * 			the insurance policy number
-	 * @param firstTreatment
-	 * 			the date of the first treatment
-	 * @param medicament
-	 * 			a medicament
-	 */
-	public Patient(String lastName, String firstName, String insurance, Long insPolicyNb, Date firstTreatment, Medicament medicament){
-		super(lastName, firstName);
-		this.insurance = insurance;
-		this.insPolicyNb = insPolicyNb;
-		this.firstTreatment = firstTreatment;
-		this.medicaments.add(medicament);
-	}
-	
+//	/**
+//	 * Constructs a patient
+//	 * 
+//	 * @param name
+//	 * 			the name
+//	 * @param insurance
+//	 * 			the insurance name
+//	 * @param insPolicyNb
+//	 * 			the insurance policy number
+//	 * @param firstTreatment
+//	 * 			the date of the first treatment
+//	 */
+//	public Patient(String name, String insurance, String insPolicyNb, String firstTreatment) {
+//		super(name);
+//		this.insurance = insurance;
+//		this.insPolicyNb = insPolicyNb;
+//		this.firstTreatment = firstTreatment;
+//	}
+//	/**
+//	 * Constructs a patient 
+//	 * 
+//	 * @param name
+//	 * 			the name
+//	 * @param insurance
+//	 * 			the insurance name
+//	 * @param insPolicyNb
+//	 * 			the insurance policy number
+//	 */
+//	public Patient(String name, String insurance, String insPolicyNb) {
+//		super(name);
+//		this.insurance = insurance;
+//		this.insPolicyNb = insPolicyNb;
+//	}
+//	/**
+//	 * Construct a patient
+//	 * 
+//	 * @param name
+//	 * 			the name
+//	 * @param insurance
+//	 * 			the insurance nam
+//	 * @param insPolicyNb
+//	 * 			the insurance policy number
+//	 * @param firstTreatment
+//	 * 			the date of the first treatment
+//	 * @param medicament
+//	 * 			a medicament
+//	 */
+//	public Patient(String name, String insurance, String insPolicyNb, String firstTreatment, Medicament medicament){
+//		super(name);
+//		this.insurance = insurance;
+//		this.insPolicyNb = insPolicyNb;
+//		this.firstTreatment = firstTreatment;
+//		this.medicament = medicament;
+//	}
+//	
 	/**
 	 * Construct a patient
 	 * 
 	 * @param lastName
-	 * 			the last name
+	 * 			the lastname
 	 * @param firstName
-	 * 			the first name
+	 * 			the firstname
 	 * @param insurance
 	 * 			the insurance name
 	 * @param insPolicyNb
 	 * 			the insurance policy number
 	 * @param firstTreatment
 	 * 			the first treatment
+	 * @param disease
+	 * 			the main disease
 	 * @param medicament
 	 * 			a medicament
 	 * @param doctor
@@ -102,13 +98,14 @@ public class Patient extends Person {
 	 * @param fmember
 	 * 			a family member
 	 */
-	public Patient(String lastName, String firstName, String insurance, Long insPolicyNb, Date firstTreatment,
+	public Patient(String lastName, String firstName, String insurance, String insPolicyNb, String firstTreatment, String disease,
 			Medicament medicament, Doctor doctor, FamilyMember fmember) {
 		super(lastName, firstName);
 		this.insurance = insurance;
 		this.insPolicyNb = insPolicyNb;
 		this.firstTreatment = firstTreatment;
-		this.medicaments.add(medicament);
+		this.disease = disease;
+		this.medicament = medicament;
 		this.doctor = doctor;
 		this.fmember = fmember;
 	}
@@ -132,7 +129,7 @@ public class Patient extends Person {
 	 * returns the insurance policy number of this <code>Patient</codes>
 	 * @return the insPolicyNb
 	 */
-	public Long getInsPolicyNb() {
+	public String getInsPolicyNb() {
 		return insPolicyNb;
 	}
 	/**
@@ -140,14 +137,14 @@ public class Patient extends Person {
 	 * @param insPolicyNb
 	 * 			the insPolicyNb to set
 	 */
-	public void setInsPolicyNb(Long insPolicyNb) {
+	public void setInsPolicyNb(String insPolicyNb) {
 		this.insPolicyNb = insPolicyNb;
 	}
 	/**
 	 * returns the date of the first treatment of this <code>Patient</codes>
 	 * @return the firstTreatment
 	 */
-	public Date getFirstTreatment() {
+	public String getFirstTreatment() {
 		return firstTreatment;
 	}
 	/**
@@ -155,15 +152,30 @@ public class Patient extends Person {
 	 * @param firstTreatment
 	 * 			the firstTreatment to set
 	 */
-	public void setFirstTreatment(Date firstTreatment) {
+	public void setFirstTreatment(String firstTreatment) {
 		this.firstTreatment = firstTreatment;
+	}
+	/**
+	 * returns the name of the main disease of this <code>Patient</code>
+	 * @return the main disease
+	 */
+	public String getDisease(){
+		return disease;
+	}
+	/**
+	 * sets the name of the main disease of this <code>Patient</code>
+	 * @param disease
+	 * 			the disease to set
+	 */
+	public void setDisease(String disease){
+		this.disease = disease;
 	}
 	/**
 	 * returns the list of the <code>medicament</code> of this <code>Patient</codes>
 	 * @return the medicaments
 	 */
-	public ArrayList<Medicament> getMedicaments() {
-		return medicaments;
+	public String getMedicaments(){
+		return medicament.getName();
 	}
 	/**
 	 * sets a <code>Medicament</codes> into ArrayList <code>medicaments</code> of this <code>Patient</codes>
@@ -171,7 +183,7 @@ public class Patient extends Person {
 	 * 			the medicament to set
 	 */
 	public void setMedicament(Medicament medicament) {
-		this.medicaments.add(medicament);
+		this.medicament = medicament;
 	}
 	/**
 	 * returns the <code>Doctor</codes> of this <code>Patient</codes>

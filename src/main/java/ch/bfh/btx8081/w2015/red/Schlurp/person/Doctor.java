@@ -1,40 +1,38 @@
 package ch.bfh.btx8081.w2015.red.Schlurp.person;
 /**
  * A <code>Doctor</code> object represents a doctor (abstraction) with its
- * following data (name, first name and phone number).
+ * following data (name and phone number).
  * <p>
  * Note: The input data are not validated. 
  * 
  * @author Kaspar
- * @version V26.11.2015
+ * @version V27.11.2015
  */
 public class Doctor extends Person{
 	
-	private long phoneNb;
+	private String phoneNb;
 
 	/**
-	 * Constructs a doctor with name and first name
+	 * Constructs a doctor with its name
 	 * 
-	 * @param lastName
-	 * 			the last name
-	 * @param firstName
-	 * 			the first name
+	 * @param name
+	 * 			the name
+	 * 
 	 */
-	public Doctor(String lastName, String firstName) {
-		super(lastName, firstName);
+	public Doctor(String name) {
+		super(name);
 	}
 
 	/**
-	 * Constructs a complete doctor
-	 * @param lastName
-	 * 			the last name
-	 * @param firstName
-	 * 			the first name
+	 * Constructs a doctor
+	 * 
+	 * @param name
+	 * 			the name
 	 * @param phoneNb
 	 * 			the phone number
 	 */
-	public Doctor(String lastName, String firstName, long telNb) {
-		super(lastName, firstName);
+	public Doctor(String name, String telNb) {
+		super(name);
 		this.phoneNb = telNb;
 	}
 
@@ -43,7 +41,7 @@ public class Doctor extends Person{
 	 * 
 	 * @return the phoneNb
 	 */
-	public long getTelNb() {
+	public String getPhoneNb() {
 		return phoneNb;
 	}
 
@@ -52,8 +50,7 @@ public class Doctor extends Person{
 	 * @param phoneNb
 	 * 			the phone number to set
 	 */
-	public void setTelNb(long phoneNb) {
+	public void setPhoneNb(String phoneNb) {
 		this.phoneNb = phoneNb;
 	}
-
 }

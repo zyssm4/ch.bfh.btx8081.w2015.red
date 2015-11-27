@@ -4,14 +4,14 @@ package ch.bfh.btx8081.w2015.red.Schlurp.person;
  * Represents a <code>person</code> with its last name and first name.
  * 
  * @author Kaspar
- * @version V26.11.2015
+ * @version V27.11.2015
  */
 public class Person {
 	private String lastName;
 	private String firstName;
 
 	/**
-	 * Initializes an object representing a <code>person</code>.
+	 * Initializes an object representing a <code>Person</code>.
 	 * 
 	 * @param lastName
 	 * 			the last name
@@ -22,9 +22,20 @@ public class Person {
 		this.lastName = lastName;
 		this.firstName = firstName;
 	}
+	
 
 	/**
-	 * Returns the last name of this <code>person</code>.
+	 * Initialize an object representing a <code>Person</code> 
+	 * @param lastName
+	 */
+	public Person(String lastName) {
+		super();
+		this.lastName = lastName;
+	}
+
+
+	/**
+	 * Returns the last name of this <code>Person</code>.
 	 * 
 	 * @return the last name
 	 */
@@ -33,7 +44,7 @@ public class Person {
 	}
 
 	/**
-	 * Sets the last name of this <code>person</code>.
+	 * Sets the last name of this <code>Person</code>.
 	 * @param lastName
 	 *            the last name to set
 	 */
@@ -42,7 +53,7 @@ public class Person {
 	}
 
 	/**
-	 * Returns the first name of this <code>person</code>.
+	 * Returns the first name of this <code>Person</code>.
 	 * 
 	 * @return the first name
 	 */
@@ -51,7 +62,7 @@ public class Person {
 	}
 
 	/**
-	 * Sets the first name of this <code>person</code>
+	 * Sets the first name of this <code>Person</code>
 	 * @param firstName
 	 *            the first name to set
 	 */
