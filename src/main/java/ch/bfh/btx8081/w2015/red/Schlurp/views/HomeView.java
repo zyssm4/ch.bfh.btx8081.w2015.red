@@ -58,7 +58,7 @@ public class HomeView extends VerticalLayout implements View {
 	}
 
 	private Button infoPage() {
-		Button button = new Button("",new Button.ClickListener() {
+		Button button = new Button("Infopage",new Button.ClickListener() {
 			@Override
 			public void buttonClick(ClickEvent event) {
 				getUI().getNavigator().navigateTo(MyUI.INFOVIEW);
@@ -67,6 +67,7 @@ public class HomeView extends VerticalLayout implements View {
 		button.setIcon(infoPageImage);
 		button.setHeight("70");
 		button.setWidth("70");
+		button.setPrimaryStyleName("nobackground");
 		return button;
 
 	}
@@ -83,6 +84,7 @@ public class HomeView extends VerticalLayout implements View {
 		button.setStyleName("button");
 		button.setHeight("70");
 		button.setWidth("70");
+		button.setPrimaryStyleName("nobackground");
 		return button;
 	}
 
@@ -99,6 +101,7 @@ public class HomeView extends VerticalLayout implements View {
 		button.setStyleName("button");
 		button.setHeight("70");
 		button.setWidth("70");
+		button.setPrimaryStyleName("nobackground");
 		return button;
 	}
 
