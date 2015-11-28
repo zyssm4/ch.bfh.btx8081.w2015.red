@@ -1,6 +1,13 @@
+28.11.2015
+Durchgeführt von: Iseli
+Erweitern der Validatoren & LoginView, Infoview
+
 27.11.2015
 Durchgeführt von: Schmocker
 Logik InfoPage angepasst.
+Durchgeführt von: Iseli
+Erstellen von Password & Username Validatoren
+Logik Infopage & InfoView erweitert.
 
 26.11.2015
 DurchgefÃ¼hrt von: Zysset, Tschanz, Noser, Schmocker, Iseli
