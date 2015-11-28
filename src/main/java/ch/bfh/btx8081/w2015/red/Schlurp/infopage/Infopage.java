@@ -33,6 +33,9 @@ public class Infopage {
 	 * 
 	 * @param patient
 	 */
+	public Infopage(){
+	}
+	
 	public Infopage(Patient patient) {
 		this.patient = patient;
 	}

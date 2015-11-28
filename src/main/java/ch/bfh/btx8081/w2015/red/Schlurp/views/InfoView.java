@@ -222,7 +222,7 @@ public class InfoView extends VerticalLayout implements View {
 								textField_RelativesContactName.getValue()));
 				Infopage infoPage = new Infopage(patient);
 				try {
-					Infopage.writeInfomationsToFile(infoPage, "abc.txt");
+					Infopage.writeInfomationsToFile(infoPage, LoginView.getUsername().getValue()+ ".txt");
 				} catch (FileNotFoundException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
