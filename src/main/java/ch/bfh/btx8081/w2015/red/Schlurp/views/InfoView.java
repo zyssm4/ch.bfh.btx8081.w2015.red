@@ -188,12 +188,14 @@ public class InfoView extends VerticalLayout implements View {
 				new File("src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/book_edit.png"));
 		FileResource saveImage = new FileResource(
 				new File("src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/Floppy-64.png"));
-
+		
 		// Edit/Save Button
+		
 		editButton.setCaption("Edit");
 		editButton.setHeight(HEIGHT_HEADER);
 		editButton.setWidth(WIDTH_LABEL);
 		editButton.setEnabled(true);
+		editButton.setPrimaryStyleName("nobackground");
 		editButton.setIcon(editImage);
 		saveButton.setCaption("Save");
 		saveButton.setIcon(saveImage);
