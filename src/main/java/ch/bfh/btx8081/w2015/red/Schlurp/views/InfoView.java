@@ -78,6 +78,10 @@ public class InfoView extends VerticalLayout implements View {
 		textFieldBox.setWidth(WIDTH_LAYOUT_TEXTFIELDBOX);
 
 		// Add Infopage Components
+		Label label_ButtonCompensation = new Label();
+		label_ButtonCompensation.setHeight(HEIGHT_LABEL);
+		label_ButtonCompensation.setWidth(WIDTH_LABEL);
+		
 		Label label_Name = new Label();
 		label_Name.setHeight(HEIGHT_LABEL);
 		label_Name.setWidth(WIDTH_LABEL);
@@ -191,13 +195,11 @@ public class InfoView extends VerticalLayout implements View {
 		
 		// Edit/Save Button
 		
-		editButton.setCaption("Edit");
 		editButton.setHeight(HEIGHT_HEADER);
 		editButton.setWidth(WIDTH_LABEL);
 		editButton.setEnabled(true);
 		editButton.setPrimaryStyleName("nobackground");
 		editButton.setIcon(editImage);
-		saveButton.setCaption("Save");
 		saveButton.setPrimaryStyleName("nobackground");
 		saveButton.setIcon(saveImage);
 		saveButton.setVisible(false);
@@ -262,6 +264,7 @@ public class InfoView extends VerticalLayout implements View {
 		textFieldBox.addComponent(textField_DoctorContactPhone);
 		textFieldBox.addComponent(textField_RelativesContactName);
 		textFieldBox.addComponent(textField_RelativesContactPhone);
+		textFieldBox.addComponent(label_ButtonCompensation);
 
 		// labelBox
 		labelBox.addComponent(label_Name);
