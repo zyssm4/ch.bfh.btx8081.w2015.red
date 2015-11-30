@@ -11,7 +11,7 @@ import ch.bfh.btx8081.w2015.red.Schlurp.person.Patient;
 public class infopageTest {
 	public static void main(String[] args) throws IOException {
 		
-		Infopage.writeInfomationsToFile(new Infopage(new Patient("a", "b", "c", "d",new Date(), "e", new Medicament("g"), new Doctor("h", "i"),  new FamilyMember("j", "k"))), "abc.txt");
+		Infopage.writeInfomationsToFile(new Infopage(new Patient("a", "b", "c", "d",new Date().toString(), "e", new Medicament("g"), new Doctor("h", "i"),  new FamilyMember("j", "k"))), "abc.txt");
 		
 		System.out.println(Infopage.readInformationsFromFile("abc.txt"));
 		}
