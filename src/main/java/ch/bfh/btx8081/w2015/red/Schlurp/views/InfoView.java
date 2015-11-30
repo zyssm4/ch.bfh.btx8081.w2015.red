@@ -217,11 +217,9 @@ public class InfoView extends VerticalLayout implements View {
 		textField_InsuranceNumber.setValue(infopage.getPatient().getInsPolicyNb());
 		textField_Disease.setValue(infopage.getPatient().getDisease());
 		textField_Medicament.setValue(infopage.getPatient().getMedicaments());
-		textField_DoctorContactName.setValue(
-				infopage.getPatient().getDoctor().getFirstName() + infopage.getPatient().getDoctor().getLastName());
+		textField_DoctorContactName.setValue(infopage.getPatient().getDoctor().getLastName());
 		textField_DoctorContactPhone.setValue((infopage.getPatient().getDoctor().getPhoneNb()));
-		textField_RelativesContactName.setValue(
-				infopage.getPatient().getFmember().getFirstName() + infopage.getPatient().getFmember().getLastName());
+		textField_RelativesContactName.setValue(infopage.getPatient().getFmember().getLastName());
 		textField_RelativesContactPhone.setValue(infopage.getPatient().getFmember().getPhoneNb());
 	}
 }
