@@ -9,7 +9,6 @@ public class ObjectController {
 
 	private static ObjectController oc = null;
 	private Infopage infopage = null;
-	private Patient patient = null;
 
 	private ObjectController() {
 	}
@@ -21,9 +20,12 @@ public class ObjectController {
 		return oc;
 	}
 
-	public Infopage createInfoPageObject(String username) throws FileNotFoundException {
+	public void createInfoPageObject(String username) throws FileNotFoundException {
 		infopage = Infopage.readInformationsFromFile(username+".txt");
-		return infopage;
-
+		
 	}
+	public Infopage getInfopage(){
+		return infopage;
+	}
+
 }
