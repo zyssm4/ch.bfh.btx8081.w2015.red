@@ -139,7 +139,7 @@ public class InfoView extends VerticalLayout implements View {
 				saveButton.setVisible(false);
 				Patient patient = new Patient(textField_Name.getValue(), textField_Firstname.getValue(),
 						textField_Insurance.getValue(), textField_InsuranceNumber.getValue(),
-						textField_firstTreatment.getValue(), textField_Disease.getValue(),
+						textField_Disease.getValue(), textField_firstTreatment.getValue(),
 						new Medicament(textField_Medicament.getValue()),
 						new Doctor(textField_DoctorContactName.getValue(), textField_DoctorContactPhone.getValue()),
 						new FamilyMember(textField_RelativesContactName.getValue(),
