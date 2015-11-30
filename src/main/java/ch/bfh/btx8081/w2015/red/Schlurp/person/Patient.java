@@ -41,13 +41,13 @@ public class Patient extends Person {
 	 * @param fmember
 	 * 			a family member
 	 */
-	public Patient(String lastName, String firstName, String insurance, String insPolicyNb, String firstTreatment, String disease,
+	public Patient(String lastName, String firstName, String insurance, String insPolicyNb, String disease, String firstTreatment,
 			Medicament medicament, Doctor doctor, FamilyMember fmember) {
 		super(lastName, firstName);
 		this.insurance = insurance;
 		this.insPolicyNb = insPolicyNb;
-		this.firstTreatment = firstTreatment;
 		this.disease = disease;
+		this.firstTreatment = firstTreatment;
 		this.medicament = medicament;
 		this.doctor = doctor;
 		this.fmember = fmember;
