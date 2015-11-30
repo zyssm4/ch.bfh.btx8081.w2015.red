@@ -3,7 +3,6 @@ package ch.bfh.btx8081.w2015.red.Schlurp.views;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.UnsupportedEncodingException;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -26,7 +25,6 @@ import com.vaadin.ui.Button.ClickListener;
 import com.vaadin.ui.DateField;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
-import com.vaadin.ui.PopupDateField;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.VerticalLayout;
 
@@ -41,6 +39,19 @@ public class InfoView extends VerticalLayout implements View {
 
 	// defined Width
 	final String WIDTH_TEXTFIELD = "145";
+	
+	//set TextFields
+	TextField textField_Name = new TextField();
+	TextField textField_Firstname = new TextField();
+	TextField textField_Insurance = new TextField();
+	TextField textField_InsuranceNumber = new TextField();
+	TextField textField_Disease = new TextField();
+	TextField textField_Medicament = new TextField();
+	TextField textField_DoctorContactName = new TextField();
+	TextField textField_DoctorContactPhone = new TextField();
+	TextField textField_RelativesContactName = new TextField();
+	TextField textField_RelativesContactPhone = new TextField();
+	
 	
 	//define SimpleDate default
 	SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
@@ -84,20 +95,6 @@ public class InfoView extends VerticalLayout implements View {
 		Label label_DoctorPhone = new Label("");
 		Label label_RelativesContact = new Label("Angehörige: ");
 		Label label_RelativesPhone = new Label("");
-
-
-		// TextFields
-		TextField textField_Name = new TextField();
-		TextField textField_Firstname = new TextField();
-		TextField textField_Insurance = new TextField();
-		TextField textField_InsuranceNumber = new TextField();
-		TextField textField_Disease = new TextField();
-		TextField textField_Medicament = new TextField();
-		TextField textField_DoctorContactName = new TextField();
-		TextField textField_DoctorContactPhone = new TextField();
-		TextField textField_RelativesContactName = new TextField();
-		TextField textField_RelativesContactPhone = new TextField();
-		
 		
 		//DateField
 		DateField dateField_firstTreatment = new DateField();
