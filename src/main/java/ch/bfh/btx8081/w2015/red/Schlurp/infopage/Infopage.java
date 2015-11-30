@@ -36,6 +36,10 @@ public class Infopage {
 	public Infopage(){
 	}
 	
+	public Patient getPatient() {
+		return patient;
+	}
+
 	public Infopage(Patient patient) {
 		this.patient = patient;
 	}

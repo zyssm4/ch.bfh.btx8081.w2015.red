@@ -26,12 +26,6 @@ import com.vaadin.ui.themes.ValoTheme;
 @SuppressWarnings("serial")
 public class LoginView extends VerticalLayout implements View {
 	
-	private static Infopage infopageBuffer = null;
-	
-	public static Infopage getInfopageBuffer() {
-		return infopageBuffer;
-	}
-
 	private static TextField username = null;
 	
 	public static TextField getUsername() {
@@ -87,13 +81,6 @@ public class LoginView extends VerticalLayout implements View {
 			public void buttonClick(ClickEvent event) {
 				if (UsernameValidator.isUsernameValid() && PasswordValidator.isPasswordValid()) {
 					getUI().getNavigator().navigateTo(MyUI.HOMEVIEW);
-					try {
-						//infopageBuffer = new Infopage();
-						infopageBuffer = Infopage.readInformationsFromFile(username.getValue()+ ".txt");
-					} catch (FileNotFoundException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
 				}
 			}
 		});

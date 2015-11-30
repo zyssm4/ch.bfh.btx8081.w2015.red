@@ -57,6 +57,7 @@ public class Patient extends Person {
 		this.doctor = doctor;
 		this.fmember = fmember;
 	}
+
 	/**
 	 * returns the name of the insurance of this <code>Patient</codes>
 	 * @return the insurance

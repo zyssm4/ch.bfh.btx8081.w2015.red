@@ -33,6 +33,9 @@ import com.vaadin.ui.VerticalLayout;
 @Widgetset("ch.bfh.btx8081.w2015.red.Schlurp.MyAppWidgetset")
 public class InfoView extends VerticalLayout implements View {
 
+	//create Infopage
+	Infopage infopage;
+	
 	// defined Height
 	final String HEIGHT_BODY = "543";
 	final String HEIGHT_TEXTFIELD = "23";
@@ -205,7 +208,22 @@ public class InfoView extends VerticalLayout implements View {
 
 	@Override
 	public void enter(ViewChangeEvent event) {
-		// TODO Auto-generated method stub
-
+		try {
+			infopage = Infopage.readInformationsFromFile(LoginView.getUsername().getValue() + ".txt");
+			System.out.println(infopage.toString());
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		textField_Name.setCaption(infopage.getPatient().getLastName());
+		textField_Firstname.setCaption(infopage.getPatient().getFirstName());
+		textField_Insurance.setCaption(infopage.getPatient().getInsurance());
+		textField_InsuranceNumber.setCaption(infopage.getPatient().getInsPolicyNb());
+		textField_Disease.setCaption(infopage.getPatient().getDisease());
+		textField_Medicament.setCaption(infopage.getPatient().getMedicaments());
+		textField_DoctorContactName.setCaption(infopage.getPatient().getDoctor().getFirstName()+ infopage.getPatient().getDoctor().getLastName());
+		textField_DoctorContactPhone.setCaption(infopage.getPatient().getDoctor().getPhoneNb());
+		textField_RelativesContactName.setCaption(infopage.getPatient().getFmember().getFirstName() + infopage.getPatient().getFmember().getLastName());
+		textField_RelativesContactPhone.setCaption(infopage.getPatient().getFmember().getPhoneNb());
 	}
 }
