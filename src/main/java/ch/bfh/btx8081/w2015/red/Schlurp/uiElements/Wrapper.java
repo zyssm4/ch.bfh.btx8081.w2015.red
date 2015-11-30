@@ -46,7 +46,8 @@ public class Wrapper extends CustomComponent {
 		homeButton = new Button("Home");
 		
 		//Button		
-		homeButton.setWidth(WIDTH_HEADER_BUTTON);
+	
+		homeButton.setStyleName("tiny");
 		homeButton.setHeight(HEIGHT_HEADER);
 		
 		
