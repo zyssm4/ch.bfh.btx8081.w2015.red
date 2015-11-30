@@ -25,7 +25,7 @@ import ch.bfh.btx8081.w2015.red.Schlurp.person.Patient;
  * 
  * @author Rea
  * @author Kaspar
- * @version V27.11.2015
+ * @version V30.11.2015
  */
 public class Infopage {
 
@@ -36,20 +36,16 @@ public class Infopage {
 	 * 
 	 * @param patient
 	 */
-	public Infopage(){
-	}
-	
-	public Patient getPatient() {
-		return patient;
-	}
-
 	public Infopage(Patient patient) {
 		this.patient = patient;
 	}
 
-	// Reads the content of a text file with the name inputFileName and returns
-	// the read
-	// data in an Infopage object.
+	/**
+	 * Reads the content of a text file with the name inputFileName and stores
+	 * the read data in an Infopage object.
+	 * 
+	 * @return returns an infopage object
+	 */
 	public static Infopage readInformationsFromFile(String inputFileName) throws FileNotFoundException {
 
 		Scanner input = new Scanner(new File(inputFileName), "UTF-16");
@@ -62,16 +58,19 @@ public class Infopage {
 			for (int i = 0; i < splittedData.length; i++) {
 				splittedData[i] = splittedData[i].trim();
 			}
-			info = new Infopage(new Patient(splittedData[0], splittedData[1], splittedData[2], splittedData[3], splittedData[4],
-					splittedData[5], new Medicament(splittedData[6]), new Doctor(splittedData[7], splittedData[8]), new FamilyMember(splittedData[9],
-					splittedData[10])));
+			info = new Infopage(new Patient(splittedData[0], splittedData[1], splittedData[2], splittedData[3],
+					splittedData[4], splittedData[5], new Medicament(splittedData[6]),
+					new Doctor(splittedData[7], splittedData[8]), new FamilyMember(splittedData[9], splittedData[10])));
 		}
 
 		input.close();
 		return info;
 	}
 
-	// Writes the data of the infopage to a defined Textfile
+	/**
+	 * Writes the data of the infopage to a defined Textfile
+	 * 
+	 */
 	public static void writeInfomationsToFile(Infopage infos, String outputfileName)
 			throws FileNotFoundException, UnsupportedEncodingException {
 
@@ -89,6 +88,16 @@ public class Infopage {
 		out.close();
 	}
 
+	public Patient getPatient() {
+		return patient;
+	}
+
+	/**
+	 * returns a String representation of Infopage, which is only used for
+	 * testing
+	 * 
+	 * @return String representation of Infopage
+	 */
 	@Override
 	public String toString() {
 		return "Infopage [patient=" + patient + "]";

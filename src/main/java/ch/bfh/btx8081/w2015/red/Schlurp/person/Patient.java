@@ -4,7 +4,8 @@ import ch.bfh.btx8081.w2015.red.Schlurp.mediplan.Medicament;
 
 /**
  * A <code>patient</code> object represents a patient (abstraction) with its
- * following data (name, first name, insurance, insurance policy number and first treatment).
+ * following data (name, first name, insurance, insurance policy number and
+ * first treatment).
  * <p>
  * Note: The input data are not validated.
  * 
@@ -19,30 +20,31 @@ public class Patient extends Person {
 	private Medicament medicament;
 	private Doctor doctor;
 	private FamilyMember fmember;
+
 	/**
 	 * Constructs a patient
 	 * 
 	 * @param lastName
-	 * 			the lastname
+	 *            the lastname
 	 * @param firstName
-	 * 			the firstname
+	 *            the firstname
 	 * @param insurance
-	 * 			the insurance name
+	 *            the insurance name
 	 * @param insPolicyNb
-	 * 			the insurance policy number
+	 *            the insurance policy number
 	 * @param firstTreatment
-	 * 			the first treatment
+	 *            the first treatment
 	 * @param disease
-	 * 			the main disease
+	 *            the main disease
 	 * @param medicament
-	 * 			a medicament
+	 *            a medicament
 	 * @param doctor
-	 * 			the doctor
+	 *            the doctor
 	 * @param fmember
-	 * 			a family member
+	 *            a family member
 	 */
-	public Patient(String lastName, String firstName, String insurance, String insPolicyNb, String disease, String firstTreatment,
-			Medicament medicament, Doctor doctor, FamilyMember fmember) {
+	public Patient(String lastName, String firstName, String insurance, String insPolicyNb, String disease,
+			String firstTreatment, Medicament medicament, Doctor doctor, FamilyMember fmember) {
 		super(lastName, firstName);
 		this.insurance = insurance;
 		this.insPolicyNb = insPolicyNb;
@@ -55,109 +57,138 @@ public class Patient extends Person {
 
 	/**
 	 * returns the name of the insurance of this <code>Patient</codes>
+	 * 
 	 * @return the insurance
 	 */
 	public String getInsurance() {
 		return insurance;
 	}
+
 	/**
 	 * sets the name of the insurance if this <code>Patient</codes>
+	 * 
 	 * @param insurance
-	 * 			the insurance to set
+	 *            the insurance to set
 	 * 
 	 */
 	public void setInsurance(String insurance) {
 		this.insurance = insurance;
 	}
+
 	/**
 	 * returns the insurance policy number of this <code>Patient</codes>
+	 * 
 	 * @return the insPolicyNb
 	 */
 	public String getInsPolicyNb() {
 		return insPolicyNb;
 	}
+
 	/**
 	 * sets the insurance policy number of this <code>Patient</codes>
+	 * 
 	 * @param insPolicyNb
-	 * 			the insPolicyNb to set
+	 *            the insPolicyNb to set
 	 */
 	public void setInsPolicyNb(String insPolicyNb) {
 		this.insPolicyNb = insPolicyNb;
 	}
+
 	/**
 	 * returns the date of the first treatment of this <code>Patient</codes>
+	 * 
 	 * @return the firstTreatment
 	 */
 	public String getFirstTreatment() {
 		return firstTreatment;
 	}
+
 	/**
 	 * sets the date of the first treatment of this <code>Patient</codes>
+	 * 
 	 * @param firstTreatment
-	 * 			the firstTreatment to set
+	 *            the firstTreatment to set
 	 */
 	public void setFirstTreatment(String firstTreatment) {
 		this.firstTreatment = firstTreatment;
 	}
+
 	/**
 	 * returns the name of the main disease of this <code>Patient</code>
+	 * 
 	 * @return the main disease
 	 */
-	public String getDisease(){
+	public String getDisease() {
 		return disease;
 	}
+
 	/**
 	 * sets the name of the main disease of this <code>Patient</code>
+	 * 
 	 * @param disease
-	 * 			the disease to set
+	 *            the disease to set
 	 */
-	public void setDisease(String disease){
+	public void setDisease(String disease) {
 		this.disease = disease;
 	}
+
 	/**
-	 * returns the list of the <code>medicament</code> of this <code>Patient</codes>
+	 * returns the list of the <code>medicament</code> of this
+	 * <code>Patient</codes>
+	 * 
 	 * @return the medicaments
 	 */
-	public String getMedicaments(){
+	public String getMedicaments() {
 		return medicament.getName();
 	}
+
 	/**
-	 * sets a <code>Medicament</codes> into ArrayList <code>medicaments</code> of this <code>Patient</codes>
+	 * sets a <code>Medicament</codes> into ArrayList <code>medicaments</code>
+	 * of this <code>Patient</codes>
+	 * 
 	 * @param medicament
-	 * 			the medicament to set
+	 *            the medicament to set
 	 */
 	public void setMedicament(Medicament medicament) {
 		this.medicament = medicament;
 	}
+
 	/**
 	 * returns the <code>Doctor</codes> of this <code>Patient</codes>
+	 * 
 	 * @return the doctor
 	 */
 	public Doctor getDoctor() {
 		return doctor;
 	}
+
 	/**
 	 * sets the <code>Doctor</codes> of this <code>Patient</codes>
+	 * 
 	 * @param doctor
-	 * 			the doctor to set
+	 *            the doctor to set
 	 */
 	public void setDoctor(Doctor doctor) {
 		this.doctor = doctor;
 	}
+
 	/**
 	 * returns the family member of this <code>Patient</codes>
+	 * 
 	 * @return the family member
 	 */
 	public FamilyMember getFmember() {
 		return fmember;
 	}
+
 	/**
 	 * sets the family member of this <code>Patient</codes>
+	 * 
 	 * @param fmember
-	 * 			the family member to set
+	 *            the family member to set
 	 */
 	public void setFmember(FamilyMember fmember) {
 		this.fmember = fmember;
 	}
-	
+
 }

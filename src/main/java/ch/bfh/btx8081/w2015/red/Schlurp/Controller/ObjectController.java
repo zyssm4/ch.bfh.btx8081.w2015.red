@@ -3,13 +3,13 @@ package ch.bfh.btx8081.w2015.red.Schlurp.Controller;
 import java.io.FileNotFoundException;
 
 import ch.bfh.btx8081.w2015.red.Schlurp.infopage.Infopage;
-import ch.bfh.btx8081.w2015.red.Schlurp.person.Patient;
 
 public class ObjectController {
 
 	private static ObjectController oc = null;
 	private Infopage infopage = null;
 	private String user = null;
+	private final String FILETYPE = ".txt";
 
 	private ObjectController() {
 	}
@@ -22,18 +22,20 @@ public class ObjectController {
 	}
 
 	public void createInfoPageObject(String username) throws FileNotFoundException {
-		infopage = Infopage.readInformationsFromFile(username+".txt");
-		
+		infopage = Infopage.readInformationsFromFile(username + FILETYPE);
+
 	}
-	
-	public Infopage getInfopage(){
+
+	public Infopage getInfopage() {
 		return infopage;
 	}
-	public void createUser(String user){
+
+	public void createUser(String user) {
 		this.user = user;
-		
+
 	}
-	public String getUser(){
+
+	public String getUser() {
 		return user;
 	}
 

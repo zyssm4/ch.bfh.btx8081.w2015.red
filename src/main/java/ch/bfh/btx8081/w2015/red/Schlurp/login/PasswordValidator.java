@@ -1,8 +1,15 @@
 package ch.bfh.btx8081.w2015.red.Schlurp.login;
 
 import com.vaadin.data.Validator;
-import com.vaadin.data.Validator.InvalidValueException;
 
+
+/**
+ * Validates the password input of the user, if it's valid the boolean
+ * isPasswordValid() turns true.
+ * 
+ * @author Rea
+ * @version V30.11.2015
+ */
 public class PasswordValidator implements Validator {
 
 	private static boolean passwordValid = false;

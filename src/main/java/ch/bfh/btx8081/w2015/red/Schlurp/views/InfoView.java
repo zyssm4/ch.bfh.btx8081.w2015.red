@@ -19,7 +19,6 @@ import com.vaadin.annotations.Widgetset;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.server.FileResource;
-import com.vaadin.server.ThemeResource;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Button.ClickListener;
@@ -39,6 +38,9 @@ public class InfoView extends VerticalLayout implements View {
 	// get ObjectController
 	ObjectController oc = ObjectController.getInstance();
 
+	//Set File Type
+	private final String FILETYPE = ".txt";
+	
 	// defined Height
 	final String HEIGHT_BODY = "543";
 	final String HEIGHT_TEXTFIELD = "23";
@@ -146,7 +148,7 @@ public class InfoView extends VerticalLayout implements View {
 								textField_RelativesContactPhone.getValue()));
 				Infopage infoPage = new Infopage(patient);
 				try {
-					Infopage.writeInfomationsToFile(infoPage, oc.getUser() + ".txt");
+					Infopage.writeInfomationsToFile(infoPage, oc.getUser() + FILETYPE);
 				} catch (FileNotFoundException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
