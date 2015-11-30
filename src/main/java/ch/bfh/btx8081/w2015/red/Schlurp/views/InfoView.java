@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
+
 import ch.bfh.btx8081.w2015.red.Schlurp.MyUI;
 import ch.bfh.btx8081.w2015.red.Schlurp.Controller.ObjectController;
 import ch.bfh.btx8081.w2015.red.Schlurp.infopage.Infopage;
@@ -18,6 +19,7 @@ import com.vaadin.annotations.Widgetset;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.server.FileResource;
+import com.vaadin.server.ThemeResource;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Button.ClickListener;
@@ -112,10 +114,10 @@ public class InfoView extends VerticalLayout implements View {
 				new File("src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/Floppy-64.png"));
 
 		// Buttons
-
+		
 		editButton.setPrimaryStyleName("nobackground");
 		editButton.setIcon(editImage);
-
+		
 		saveButton.setPrimaryStyleName("nobackground");
 		saveButton.setIcon(saveImage);
 		saveButton.setVisible(false);
@@ -209,17 +211,17 @@ public class InfoView extends VerticalLayout implements View {
 	@Override
 	public void enter(ViewChangeEvent event) {
 		infopage = oc.getInfopage();
-		textField_Name.setCaption(infopage.getPatient().getLastName());
-		textField_Firstname.setCaption(infopage.getPatient().getFirstName());
-		textField_Insurance.setCaption(infopage.getPatient().getInsurance());
-		textField_InsuranceNumber.setCaption(infopage.getPatient().getInsPolicyNb());
-		textField_Disease.setCaption(infopage.getPatient().getDisease());
-		textField_Medicament.setCaption(infopage.getPatient().getMedicaments());
-		textField_DoctorContactName.setCaption(
+		textField_Name.setValue(infopage.getPatient().getLastName());
+		textField_Firstname.setValue(infopage.getPatient().getFirstName());
+		textField_Insurance.setValue(infopage.getPatient().getInsurance());
+		textField_InsuranceNumber.setValue(infopage.getPatient().getInsPolicyNb());
+		textField_Disease.setValue(infopage.getPatient().getDisease());
+		textField_Medicament.setValue(infopage.getPatient().getMedicaments());
+		textField_DoctorContactName.setValue(
 				infopage.getPatient().getDoctor().getFirstName() + infopage.getPatient().getDoctor().getLastName());
-		textField_DoctorContactPhone.setCaption(infopage.getPatient().getDoctor().getPhoneNb());
-		textField_RelativesContactName.setCaption(
+		textField_DoctorContactPhone.setValue((infopage.getPatient().getDoctor().getPhoneNb()));
+		textField_RelativesContactName.setValue(
 				infopage.getPatient().getFmember().getFirstName() + infopage.getPatient().getFmember().getLastName());
-		textField_RelativesContactPhone.setCaption(infopage.getPatient().getFmember().getPhoneNb());
+		textField_RelativesContactPhone.setValue(infopage.getPatient().getFmember().getPhoneNb());
 	}
 }
