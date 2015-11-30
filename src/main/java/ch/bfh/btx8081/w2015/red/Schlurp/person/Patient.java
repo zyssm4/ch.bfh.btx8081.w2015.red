@@ -14,8 +14,8 @@ import ch.bfh.btx8081.w2015.red.Schlurp.mediplan.Medicament;
 public class Patient extends Person {
 	private String insurance;
 	private String insPolicyNb;
-	private String firstTreatment;
 	private String disease;
+	private String firstTreatment;
 	private Medicament medicament;
 	private Doctor doctor;
 	private FamilyMember fmember;

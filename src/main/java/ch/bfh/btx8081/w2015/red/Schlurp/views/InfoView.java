@@ -38,7 +38,7 @@ public class InfoView extends VerticalLayout implements View {
 
 	// get ObjectController
 	ObjectController oc = ObjectController.getInstance();
-	
+
 	// defined Height
 	final String HEIGHT_BODY = "543";
 	final String HEIGHT_TEXTFIELD = "23";
@@ -114,10 +114,10 @@ public class InfoView extends VerticalLayout implements View {
 				new File("src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/Floppy-64.png"));
 
 		// Buttons
-		
+
 		editButton.setPrimaryStyleName("nobackground");
 		editButton.setIcon(editImage);
-		
+
 		saveButton.setPrimaryStyleName("nobackground");
 		saveButton.setIcon(saveImage);
 		saveButton.setVisible(false);
@@ -143,10 +143,10 @@ public class InfoView extends VerticalLayout implements View {
 						new Medicament(textField_Medicament.getValue()),
 						new Doctor(textField_DoctorContactName.getValue(), textField_DoctorContactPhone.getValue()),
 						new FamilyMember(textField_RelativesContactName.getValue(),
-								textField_RelativesContactName.getValue()));
+								textField_RelativesContactPhone.getValue()));
 				Infopage infoPage = new Infopage(patient);
 				try {
-					Infopage.writeInfomationsToFile(infoPage, oc.getUser()+ ".txt");
+					Infopage.writeInfomationsToFile(infoPage, oc.getUser() + ".txt");
 				} catch (FileNotFoundException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -216,6 +216,7 @@ public class InfoView extends VerticalLayout implements View {
 		textField_Insurance.setValue(infopage.getPatient().getInsurance());
 		textField_InsuranceNumber.setValue(infopage.getPatient().getInsPolicyNb());
 		textField_Disease.setValue(infopage.getPatient().getDisease());
+		textField_firstTreatment.setValue(infopage.getPatient().getFirstTreatment());
 		textField_Medicament.setValue(infopage.getPatient().getMedicaments());
 		textField_DoctorContactName.setValue(infopage.getPatient().getDoctor().getLastName());
 		textField_DoctorContactPhone.setValue((infopage.getPatient().getDoctor().getPhoneNb()));
