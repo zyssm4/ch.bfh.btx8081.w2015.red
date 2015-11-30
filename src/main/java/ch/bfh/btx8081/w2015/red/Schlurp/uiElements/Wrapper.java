@@ -43,6 +43,13 @@ public class Wrapper extends CustomComponent {
 		body = new HorizontalLayout();
 		headerLabel = new Label();
 		headerComboBox = new ComboBox();
+		headerComboBox.setNullSelectionAllowed(false);
+		headerComboBox.setInvalidAllowed(false);
+
+		headerComboBox.addItem("EN");
+		headerComboBox.addItem("DE");
+		headerComboBox.addItem("FR");
+		headerComboBox.setValue(headerComboBox.getItemIds().iterator().next());
 		homeButton = new Button("Home");
 		
 		//Button		
