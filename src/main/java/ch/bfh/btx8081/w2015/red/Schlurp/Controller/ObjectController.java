@@ -9,6 +9,7 @@ public class ObjectController {
 
 	private static ObjectController oc = null;
 	private Infopage infopage = null;
+	private String user = null;
 
 	private ObjectController() {
 	}
@@ -24,8 +25,16 @@ public class ObjectController {
 		infopage = Infopage.readInformationsFromFile(username+".txt");
 		
 	}
+	
 	public Infopage getInfopage(){
 		return infopage;
+	}
+	public void createUser(String user){
+		this.user = user;
+		
+	}
+	public String getUser(){
+		return user;
 	}
 
 }

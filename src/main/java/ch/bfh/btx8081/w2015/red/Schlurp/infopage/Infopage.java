@@ -7,6 +7,9 @@ import java.io.UnsupportedEncodingException;
 //import java.util.ArrayList;
 import java.util.Scanner;
 
+import ch.bfh.btx8081.w2015.red.Schlurp.mediplan.Medicament;
+import ch.bfh.btx8081.w2015.red.Schlurp.person.Doctor;
+import ch.bfh.btx8081.w2015.red.Schlurp.person.FamilyMember;
 import ch.bfh.btx8081.w2015.red.Schlurp.person.Patient;
 
 /**
@@ -44,17 +47,12 @@ public class Infopage {
 		this.patient = patient;
 	}
 
-	public Infopage(String string, String string2, String string3, String string4, String string5, String string6,
-			String string7, String string8, String string9, String string10, String string11) {
-		// TODO Auto-generated constructor stub
-	}
-
 	// Reads the content of a text file with the name inputFileName and returns
 	// the read
 	// data in an Infopage object.
 	public static Infopage readInformationsFromFile(String inputFileName) throws FileNotFoundException {
 
-		Scanner input = new Scanner(new File(inputFileName));
+		Scanner input = new Scanner(new File(inputFileName), "UTF-16");
 		String delimiter = ";";
 		Infopage info = null;
 
@@ -64,9 +62,9 @@ public class Infopage {
 			for (int i = 0; i < splittedData.length; i++) {
 				splittedData[i] = splittedData[i].trim();
 			}
-			info = new Infopage(splittedData[0], splittedData[1], splittedData[2], splittedData[3], splittedData[4],
-					splittedData[5], splittedData[6], splittedData[7], splittedData[8], splittedData[9],
-					splittedData[10]);
+			info = new Infopage(new Patient(splittedData[0], splittedData[1], splittedData[2], splittedData[3], splittedData[4],
+					splittedData[5], new Medicament(splittedData[6]), new Doctor(splittedData[7], splittedData[8]), new FamilyMember(splittedData[9],
+					splittedData[10])));
 		}
 
 		input.close();
@@ -93,12 +91,6 @@ public class Infopage {
 
 	@Override
 	public String toString() {
-		return "Infopage [name=" + patient.getLastName() + ", firstname=" + patient.getFirstName() + ", insurance="
-				+ patient.getInsurance() + ", insuranceNumber=" + patient.getInsPolicyNb() + ", disease="
-				+ patient.getDisease() + ", firstTreatment=" + patient.getFirstTreatment() + ", medicament="
-				+ patient.getMedicaments().toString() + ", doctorContactName=" + patient.getDoctor().getLastName()
-				+ ", doctorContactPhone=" + patient.getDoctor().getPhoneNb() + ", relativeContactName="
-				+ patient.getFmember().getLastName() + ", relativeContactPhone=" + patient.getFmember().getPhoneNb()
-				+ "]";
+		return "Infopage [patient=" + patient + "]";
 	}
 }

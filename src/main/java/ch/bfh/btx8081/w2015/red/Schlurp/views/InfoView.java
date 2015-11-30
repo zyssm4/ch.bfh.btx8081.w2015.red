@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import ch.bfh.btx8081.w2015.red.Schlurp.MyUI;
+import ch.bfh.btx8081.w2015.red.Schlurp.Controller.ObjectController;
 import ch.bfh.btx8081.w2015.red.Schlurp.infopage.Infopage;
 import ch.bfh.btx8081.w2015.red.Schlurp.mediplan.Medicament;
 import ch.bfh.btx8081.w2015.red.Schlurp.person.Doctor;
@@ -33,6 +34,9 @@ public class InfoView extends VerticalLayout implements View {
 	// create Infopage
 	Infopage infopage;
 
+	// get ObjectController
+	ObjectController oc = ObjectController.getInstance();
+	
 	// defined Height
 	final String HEIGHT_BODY = "543";
 	final String HEIGHT_TEXTFIELD = "23";
@@ -140,7 +144,7 @@ public class InfoView extends VerticalLayout implements View {
 								textField_RelativesContactName.getValue()));
 				Infopage infoPage = new Infopage(patient);
 				try {
-					Infopage.writeInfomationsToFile(infoPage, LoginView.getUsername().getValue() + ".txt");
+					Infopage.writeInfomationsToFile(infoPage, oc.getUser()+ ".txt");
 				} catch (FileNotFoundException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -204,13 +208,7 @@ public class InfoView extends VerticalLayout implements View {
 
 	@Override
 	public void enter(ViewChangeEvent event) {
-		try {
-			infopage = Infopage.readInformationsFromFile(LoginView.getUsername().getValue() + ".txt");
-			System.out.println(infopage.toString());
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		infopage = oc.getInfopage();
 		textField_Name.setCaption(infopage.getPatient().getLastName());
 		textField_Firstname.setCaption(infopage.getPatient().getFirstName());
 		textField_Insurance.setCaption(infopage.getPatient().getInsurance());

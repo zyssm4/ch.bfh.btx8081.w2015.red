@@ -4,13 +4,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 
 import ch.bfh.btx8081.w2015.red.Schlurp.MyUI;
-import ch.bfh.btx8081.w2015.red.Schlurp.infopage.Infopage;
+import ch.bfh.btx8081.w2015.red.Schlurp.Controller.ObjectController;
 import ch.bfh.btx8081.w2015.red.Schlurp.login.PasswordValidator;
 import ch.bfh.btx8081.w2015.red.Schlurp.login.UsernameValidator;
-import ch.bfh.btx8081.w2015.red.Schlurp.uiElements.Wrapper;
 
-import com.vaadin.data.Validator;
-import com.vaadin.data.validator.EmailValidator;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.server.FileResource;
@@ -26,11 +23,7 @@ import com.vaadin.ui.themes.ValoTheme;
 @SuppressWarnings("serial")
 public class LoginView extends VerticalLayout implements View {
 	
-	private static TextField username = null;
-	
-	public static TextField getUsername() {
-		return username;
-	}
+	private TextField username = null;
 
 	PasswordField password = null;
 	
@@ -81,6 +74,14 @@ public class LoginView extends VerticalLayout implements View {
 			public void buttonClick(ClickEvent event) {
 				if (UsernameValidator.isUsernameValid() && PasswordValidator.isPasswordValid()) {
 					getUI().getNavigator().navigateTo(MyUI.HOMEVIEW);
+					ObjectController oc = ObjectController.getInstance();
+					try {
+						oc.createUser(username.getValue());
+						oc.createInfoPageObject(oc.getUser());
+					} catch (FileNotFoundException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
 			}
 		});
