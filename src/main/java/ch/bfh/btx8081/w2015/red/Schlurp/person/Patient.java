@@ -1,9 +1,5 @@
 package ch.bfh.btx8081.w2015.red.Schlurp.person;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-
 import ch.bfh.btx8081.w2015.red.Schlurp.mediplan.Medicament;
 
 /**
@@ -21,7 +17,6 @@ public class Patient extends Person {
 	private String firstTreatment;
 	private String disease;
 	private Medicament medicament;
-//	private ArrayList<Medicament> medicaments;
 	private Doctor doctor;
 	private FamilyMember fmember;
 	/**
@@ -46,12 +41,12 @@ public class Patient extends Person {
 	 * @param fmember
 	 * 			a family member
 	 */
-	public Patient(String lastName, String firstName, String insurance, String insPolicyNb, Date firstTreatment, String disease,
+	public Patient(String lastName, String firstName, String insurance, String insPolicyNb, String firstTreatment, String disease,
 			Medicament medicament, Doctor doctor, FamilyMember fmember) {
 		super(lastName, firstName);
 		this.insurance = insurance;
 		this.insPolicyNb = insPolicyNb;
-		this.firstTreatment = new SimpleDateFormat("dd.MM.yyyy").format(firstTreatment);
+		this.firstTreatment = firstTreatment;
 		this.disease = disease;
 		this.medicament = medicament;
 		this.doctor = doctor;
