@@ -6,6 +6,7 @@ import com.google.gwt.user.cellview.client.HeaderBuilder;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.shared.ui.MarginInfo;
+import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickListener;
 import com.vaadin.ui.ComboBox;
@@ -26,7 +27,7 @@ public class Wrapper extends CustomComponent {
 	// defined Width
 	final String WIDTH_LAYOUT = "320";
 	final String WIDTH_HEADER_BUTTON = "68";
-	final String WIDTH_HEADER_COMBOBOX = "100";
+	final String WIDTH_HEADER_COMBOBOX = "60";
 	final String WIDTH_HEADER_LABEL = "71";
 
 	private HorizontalLayout header = null;
@@ -45,7 +46,9 @@ public class Wrapper extends CustomComponent {
 		headerComboBox = new ComboBox();
 		headerComboBox.setNullSelectionAllowed(false);
 		headerComboBox.setInvalidAllowed(false);
-
+		body.setStyleName("myWrapper");
+		headerLabel.setStyleName("myHeaderLabel");
+		
 		headerComboBox.addItem("EN");
 		headerComboBox.addItem("DE");
 		headerComboBox.addItem("FR");
@@ -61,8 +64,6 @@ public class Wrapper extends CustomComponent {
 		// Header
 		header.setHeight(HEIGHT_HEADER);
 		header.setWidth(WIDTH_LAYOUT);
-		headerLabel.setHeight(HEIGHT_HEADER);
-		headerLabel.setWidth(WIDTH_HEADER_LABEL);
 		headerComboBox.setHeight(HEIGHT_HEADER);
 		headerComboBox.setWidth(WIDTH_HEADER_COMBOBOX);
 
@@ -76,6 +77,10 @@ public class Wrapper extends CustomComponent {
 		header.addComponent(homeButton);
 		header.addComponent(headerLabel);
 		header.addComponent(headerComboBox);
+		headerComboBox.setStyleName("tiny");
+		headerLabel.setWidth(null);
+		header.setComponentAlignment(headerLabel, Alignment.MIDDLE_CENTER);
+		header.setComponentAlignment(headerComboBox, Alignment.MIDDLE_RIGHT);
 
 	}
 	
