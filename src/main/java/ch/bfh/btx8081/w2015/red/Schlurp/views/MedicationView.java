@@ -1,7 +1,7 @@
 package ch.bfh.btx8081.w2015.red.Schlurp.views;
 
 import ch.bfh.btx8081.w2015.red.Schlurp.MyUI;
-import ch.bfh.btx8081.w2015.red.Schlurp.uiElements.Wrapper;
+import ch.bfh.btx8081.w2015.red.Schlurp.UI.Elements.Wrapper;
 
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;

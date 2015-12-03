@@ -7,12 +7,12 @@ import java.text.SimpleDateFormat;
 
 import ch.bfh.btx8081.w2015.red.Schlurp.MyUI;
 import ch.bfh.btx8081.w2015.red.Schlurp.Controller.ObjectController;
+import ch.bfh.btx8081.w2015.red.Schlurp.UI.Elements.Wrapper;
 import ch.bfh.btx8081.w2015.red.Schlurp.infopage.Infopage;
 import ch.bfh.btx8081.w2015.red.Schlurp.mediplan.Medicament;
 import ch.bfh.btx8081.w2015.red.Schlurp.person.Doctor;
 import ch.bfh.btx8081.w2015.red.Schlurp.person.FamilyMember;
 import ch.bfh.btx8081.w2015.red.Schlurp.person.Patient;
-import ch.bfh.btx8081.w2015.red.Schlurp.uiElements.Wrapper;
 
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.Widgetset;
