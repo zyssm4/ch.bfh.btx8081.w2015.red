@@ -6,7 +6,7 @@ import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 
 import ch.bfh.btx8081.w2015.red.Schlurp.MyUI;
-import ch.bfh.btx8081.w2015.red.Schlurp.Controller.ObjectController;
+import ch.bfh.btx8081.w2015.red.Schlurp.persistenceLayer.UserManager;
 import ch.bfh.btx8081.w2015.red.Schlurp.UI.Elements.Wrapper;
 import ch.bfh.btx8081.w2015.red.Schlurp.infopage.Infopage;
 import ch.bfh.btx8081.w2015.red.Schlurp.mediplan.Medicament;
@@ -36,7 +36,7 @@ public class InfoView extends VerticalLayout implements View {
 	Infopage infopage;
 
 	// get ObjectController
-	ObjectController oc = ObjectController.getInstance();
+	UserManager uc = UserManager.getInstance();
 
 	//Set File Type
 	private final String FILETYPE = ".txt";
@@ -148,7 +148,7 @@ public class InfoView extends VerticalLayout implements View {
 								textField_RelativesContactPhone.getValue()));
 				Infopage infoPage = new Infopage(patient);
 				try {
-					Infopage.writeInfomationsToFile(infoPage, oc.getUser() + FILETYPE);
+					Infopage.writeInfomationsToFile(infoPage, uc.getUser() + FILETYPE);
 				} catch (FileNotFoundException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -212,7 +212,7 @@ public class InfoView extends VerticalLayout implements View {
 
 	@Override
 	public void enter(ViewChangeEvent event) {
-		infopage = oc.getInfopage();
+		infopage = uc.getInfopage();
 		textField_Name.setValue(infopage.getPatient().getLastName());
 		textField_Firstname.setValue(infopage.getPatient().getFirstName());
 		textField_Insurance.setValue(infopage.getPatient().getInsurance());

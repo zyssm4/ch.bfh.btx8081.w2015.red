@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 
 import ch.bfh.btx8081.w2015.red.Schlurp.MyUI;
-import ch.bfh.btx8081.w2015.red.Schlurp.Controller.ObjectController;
+import ch.bfh.btx8081.w2015.red.Schlurp.persistenceLayer.UserManager;
 import ch.bfh.btx8081.w2015.red.Schlurp.login.PasswordValidator;
 import ch.bfh.btx8081.w2015.red.Schlurp.login.UsernameValidator;
 
@@ -74,7 +74,7 @@ public class LoginView extends VerticalLayout implements View {
 			public void buttonClick(ClickEvent event) {
 				if (UsernameValidator.isUsernameValid() && PasswordValidator.isPasswordValid()) {
 					getUI().getNavigator().navigateTo(MyUI.HOMEVIEW);
-					ObjectController oc = ObjectController.getInstance();
+					UserManager oc = UserManager.getInstance();
 					try {
 						oc.createUser(username.getValue());
 						oc.createInfoPageObject(oc.getUser());
