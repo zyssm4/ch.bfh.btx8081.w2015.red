@@ -2,11 +2,11 @@ package ch.bfh.btx8081.w2015.red.Schlurp;
 
 import javax.servlet.annotation.WebServlet;
 
-import ch.bfh.btx8081.w2015.red.Schlurp.views.HomeView;
-import ch.bfh.btx8081.w2015.red.Schlurp.views.InfoView;
-import ch.bfh.btx8081.w2015.red.Schlurp.views.LoginView;
-import ch.bfh.btx8081.w2015.red.Schlurp.views.MedicationView;
-import ch.bfh.btx8081.w2015.red.Schlurp.views.TimeView;
+import ch.bfh.btx8081.w2015.red.Schlurp.UI.Views.HomeView;
+import ch.bfh.btx8081.w2015.red.Schlurp.UI.Views.InfoView;
+import ch.bfh.btx8081.w2015.red.Schlurp.UI.Views.LoginView;
+import ch.bfh.btx8081.w2015.red.Schlurp.UI.Views.MedicationView;
+import ch.bfh.btx8081.w2015.red.Schlurp.UI.Views.TimeView;
 
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
