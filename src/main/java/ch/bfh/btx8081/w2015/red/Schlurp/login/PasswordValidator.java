@@ -1,6 +1,7 @@
 package ch.bfh.btx8081.w2015.red.Schlurp.login;
 
 import com.vaadin.data.Validator;
+import com.vaadin.ui.Notification;
 
 
 /**
@@ -14,10 +15,11 @@ public class PasswordValidator implements Validator {
 
 	private static boolean passwordValid = false;
 	private String password = "schlurp";
-
-	public void validate(Object value) throws InvalidValueException {
+	private String notification = "False password";
+	
+	public void validate(Object value){
 		if (!(value instanceof String && ((String) value).equals(password))) {
-			throw new InvalidValueException("False Username");
+			Notification.show(notification);
 		} else {
 			passwordValid = true;
 		}

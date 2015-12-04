@@ -1,6 +1,7 @@
 package ch.bfh.btx8081.w2015.red.Schlurp.login;
 
 import com.vaadin.data.Validator;
+import com.vaadin.ui.Notification;
 
 /**
  * Validates the username input of the user, if it's valid the boolean
@@ -14,12 +15,13 @@ public class UsernameValidator implements Validator {
 	private static boolean usernameValid = false;
 	private String patientOne = "Moritz";
 	private String patientTwo = "Maja";
-	private String exceptionRemark = "False Username";
+	private String notification = "False username";
 
-	public void validate(Object value) throws InvalidValueException {
+	public void validate(Object value) {
+		
 		if (!(value instanceof String
 				&& (((String) value).equals(patientOne) || ((String) value).equals(patientTwo)))) {
-			throw new InvalidValueException(exceptionRemark);
+			Notification.show(notification);
 		} else {
 			usernameValid = true;
 		}

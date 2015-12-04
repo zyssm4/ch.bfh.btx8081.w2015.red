@@ -69,7 +69,7 @@ public class Infopage {
 						+ infos.patient.getFmember().getLastName() + delimiter + " "
 						+ infos.patient.getFmember().getPhoneNb() + "%n");
 				out.close();
-				
+				input = new Scanner(new File(inputFileName), "UTF-16");
 			} catch (FileNotFoundException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
