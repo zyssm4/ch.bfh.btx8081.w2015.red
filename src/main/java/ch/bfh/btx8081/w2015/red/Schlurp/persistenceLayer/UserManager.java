@@ -27,7 +27,7 @@ public class UserManager {
 	
 	public void saveInfopage(Infopage iP){
 		infopage = iP;
-		Infopage.writeInfomationsToFile(infopage, user);
+		Infopage.writeInfomationsToFile(infopage, user + FILETYPE);
 	}
 	
 	public Infopage getInfopage() {
