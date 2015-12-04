@@ -36,9 +36,9 @@ public class InfoView extends VerticalLayout implements View {
 	// get ObjectController
 	UserManager uc = UserManager.getInstance();
 
-	//Set File Type
+	// Set File Type
 	private final String FILETYPE = ".txt";
-	
+
 	// defined Height
 	final String HEIGHT_BODY = "543";
 	final String HEIGHT_TEXTFIELD = "23";
@@ -109,9 +109,11 @@ public class InfoView extends VerticalLayout implements View {
 
 		// Ressource Images
 		FileResource editImage = new FileResource(
-				new File("src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/book_edit.png"));
+				new File(
+						"src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/book_edit.png"));
 		FileResource saveImage = new FileResource(
-				new File("src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/Floppy-64.png"));
+				new File(
+						"src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/Floppy-64.png"));
 
 		// Buttons
 
@@ -137,15 +139,22 @@ public class InfoView extends VerticalLayout implements View {
 				textFieldBox.setEnabled(false);
 				editButton.setVisible(true);
 				saveButton.setVisible(false);
-				Patient patient = new Patient(textField_Name.getValue(), textField_Firstname.getValue(),
-						textField_Insurance.getValue(), textField_InsuranceNumber.getValue(),
-						textField_Disease.getValue(), textField_firstTreatment.getValue(),
-						new Medicament(textField_Medicament.getValue()),
-						new Doctor(textField_DoctorContactName.getValue(), textField_DoctorContactPhone.getValue()),
-						new FamilyMember(textField_RelativesContactName.getValue(),
+				Patient patient = new Patient(textField_Name.getValue(),
+						textField_Firstname.getValue(), 
+						textField_Insurance.getValue(), 
+						textField_InsuranceNumber.getValue(), 
+						textField_Disease.getValue(),
+						textField_firstTreatment.getValue(), 
+						new Medicament(
+								textField_Medicament.getValue()), 
+						new Doctor(
+								textField_DoctorContactName.getValue(),
+								textField_DoctorContactPhone.getValue()),
+						new FamilyMember(
+								textField_RelativesContactName.getValue(), 
 								textField_RelativesContactPhone.getValue()));
 				Infopage infoPage = new Infopage(patient);
-				Infopage.writeInfomationsToFile(infoPage, uc.getUser() + FILETYPE);
+				uc.saveInfopage(infoPage);
 
 			}
 		});
@@ -207,13 +216,19 @@ public class InfoView extends VerticalLayout implements View {
 		textField_Name.setValue(infopage.getPatient().getLastName());
 		textField_Firstname.setValue(infopage.getPatient().getFirstName());
 		textField_Insurance.setValue(infopage.getPatient().getInsurance());
-		textField_InsuranceNumber.setValue(infopage.getPatient().getInsPolicyNb());
+		textField_InsuranceNumber.setValue(infopage.getPatient()
+				.getInsPolicyNb());
 		textField_Disease.setValue(infopage.getPatient().getDisease());
-		textField_firstTreatment.setValue(infopage.getPatient().getFirstTreatment());
+		textField_firstTreatment.setValue(infopage.getPatient()
+				.getFirstTreatment());
 		textField_Medicament.setValue(infopage.getPatient().getMedicaments());
-		textField_DoctorContactName.setValue(infopage.getPatient().getDoctor().getLastName());
-		textField_DoctorContactPhone.setValue((infopage.getPatient().getDoctor().getPhoneNb()));
-		textField_RelativesContactName.setValue(infopage.getPatient().getFmember().getLastName());
-		textField_RelativesContactPhone.setValue(infopage.getPatient().getFmember().getPhoneNb());
+		textField_DoctorContactName.setValue(infopage.getPatient().getDoctor()
+				.getLastName());
+		textField_DoctorContactPhone.setValue((infopage.getPatient()
+				.getDoctor().getPhoneNb()));
+		textField_RelativesContactName.setValue(infopage.getPatient()
+				.getFmember().getLastName());
+		textField_RelativesContactPhone.setValue(infopage.getPatient()
+				.getFmember().getPhoneNb());
 	}
 }
