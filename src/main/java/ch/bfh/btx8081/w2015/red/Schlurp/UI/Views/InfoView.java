@@ -202,6 +202,7 @@ public class InfoView extends VerticalLayout implements View {
 
 	@Override
 	public void enter(ViewChangeEvent event) {
+		uc.createInfoPageObject(uc.getUser());
 		infopage = uc.getInfopage();
 		textField_Name.setValue(infopage.getPatient().getLastName());
 		textField_Firstname.setValue(infopage.getPatient().getFirstName());

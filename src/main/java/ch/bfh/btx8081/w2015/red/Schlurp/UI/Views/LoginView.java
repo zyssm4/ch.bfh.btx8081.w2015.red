@@ -75,13 +75,8 @@ public class LoginView extends VerticalLayout implements View {
 				if (UsernameValidator.isUsernameValid() && PasswordValidator.isPasswordValid()) {
 					getUI().getNavigator().navigateTo(MyUI.HOMEVIEW);
 					UserManager oc = UserManager.getInstance();
-					try {
 						oc.createUser(username.getValue());
 						oc.createInfoPageObject(oc.getUser());
-					} catch (FileNotFoundException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
 				}
 			}
 		});

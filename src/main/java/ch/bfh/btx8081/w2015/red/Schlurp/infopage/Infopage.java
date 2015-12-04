@@ -50,14 +50,35 @@ public class Infopage {
 	public static Infopage readInformationsFromFile(String inputFileName) {
 
 		Scanner input = null;
+		String delimiter = ";";
+		
 		try {
 			input = new Scanner(new File(inputFileName), "UTF-16");
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			try {
+				PrintWriter out = new PrintWriter(inputFileName, "UTF-16");
+				Infopage infos = new Infopage(
+						new Patient("", "", "", "", "", "", new Medicament(""), new Doctor("",""), new FamilyMember("","")));
+
+				out.format(infos.patient.getLastName() + delimiter + " " + infos.patient.getFirstName() + delimiter
+						+ " " + infos.patient.getInsurance() + delimiter + " " + infos.patient.getInsPolicyNb()
+						+ delimiter + " " + infos.patient.getDisease() + delimiter + " "
+						+ infos.patient.getFirstTreatment() + delimiter + " " + infos.patient.getMedicaments()
+						+ delimiter + " " + infos.patient.getDoctor().getLastName() + delimiter + " "
+						+ infos.patient.getDoctor().getPhoneNb() + delimiter + " "
+						+ infos.patient.getFmember().getLastName() + delimiter + " "
+						+ infos.patient.getFmember().getPhoneNb() + "%n");
+				out.close();
+				
+			} catch (FileNotFoundException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (UnsupportedEncodingException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		}
-		
-		String delimiter = ";";
+
 		Infopage info = null;
 
 		while (input.hasNextLine()) {
@@ -120,4 +141,3 @@ public class Infopage {
 		return "Infopage [patient=" + patient + "]";
 	}
 }
-

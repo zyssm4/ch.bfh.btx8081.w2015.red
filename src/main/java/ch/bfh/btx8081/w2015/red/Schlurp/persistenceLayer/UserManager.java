@@ -1,6 +1,5 @@
 package ch.bfh.btx8081.w2015.red.Schlurp.persistenceLayer;
 
-import java.io.FileNotFoundException;
 
 import ch.bfh.btx8081.w2015.red.Schlurp.infopage.Infopage;
 
@@ -21,9 +20,8 @@ public class UserManager {
 		return oc;
 	}
 
-	public void createInfoPageObject(String username) throws FileNotFoundException {
+	public void createInfoPageObject(String username) {
 		infopage = Infopage.readInformationsFromFile(username + FILETYPE);
-
 	}
 
 	public Infopage getInfopage() {
@@ -32,7 +30,6 @@ public class UserManager {
 
 	public void createUser(String user) {
 		this.user = user;
-
 	}
 
 	public String getUser() {
