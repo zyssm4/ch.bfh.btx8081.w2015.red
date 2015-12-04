@@ -1,8 +1,6 @@
 package ch.bfh.btx8081.w2015.red.Schlurp.UI.Views;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 
 import ch.bfh.btx8081.w2015.red.Schlurp.MyUI;
@@ -147,15 +145,7 @@ public class InfoView extends VerticalLayout implements View {
 						new FamilyMember(textField_RelativesContactName.getValue(),
 								textField_RelativesContactPhone.getValue()));
 				Infopage infoPage = new Infopage(patient);
-				try {
-					Infopage.writeInfomationsToFile(infoPage, uc.getUser() + FILETYPE);
-				} catch (FileNotFoundException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (UnsupportedEncodingException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				Infopage.writeInfomationsToFile(infoPage, uc.getUser() + FILETYPE);
 
 			}
 		});
