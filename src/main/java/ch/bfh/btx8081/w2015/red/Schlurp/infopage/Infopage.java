@@ -45,10 +45,18 @@ public class Infopage {
 	 * the read data in an Infopage object.
 	 * 
 	 * @return returns an infopage object
+	 * @throws FileNotFoundException
 	 */
-	public static Infopage readInformationsFromFile(String inputFileName) throws FileNotFoundException {
+	public static Infopage readInformationsFromFile(String inputFileName) {
 
-		Scanner input = new Scanner(new File(inputFileName), "UTF-16");
+		Scanner input = null;
+		try {
+			input = new Scanner(new File(inputFileName), "UTF-16");
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		String delimiter = ";";
 		Infopage info = null;
 
@@ -71,10 +79,19 @@ public class Infopage {
 	 * Writes the data of the infopage to a defined Textfile
 	 * 
 	 */
-	public static void writeInfomationsToFile(Infopage infos, String outputfileName)
-			throws FileNotFoundException, UnsupportedEncodingException {
+	public static void writeInfomationsToFile(Infopage infos, String outputfileName) {
 
-		final PrintWriter out = new PrintWriter(outputfileName, "UTF-16");
+		PrintWriter out = null;
+		try {
+			out = new PrintWriter(outputfileName, "UTF-16");
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 		String delimiter = ";";
 
 		out.format(infos.patient.getLastName() + delimiter + " " + infos.patient.getFirstName() + delimiter + " "
@@ -103,3 +120,4 @@ public class Infopage {
 		return "Infopage [patient=" + patient + "]";
 	}
 }
+
