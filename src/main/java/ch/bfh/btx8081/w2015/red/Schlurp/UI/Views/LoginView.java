@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 
 import ch.bfh.btx8081.w2015.red.Schlurp.MyUI;
 import ch.bfh.btx8081.w2015.red.Schlurp.persistenceLayer.UserManager;
+import ch.bfh.btx8081.w2015.red.Schlurp.login.LoginValidation;
 import ch.bfh.btx8081.w2015.red.Schlurp.login.PasswordValidator;
 import ch.bfh.btx8081.w2015.red.Schlurp.login.UsernameValidator;
 
@@ -26,6 +27,7 @@ public class LoginView extends VerticalLayout implements View {
 	private TextField username = null;
 
 	PasswordField password = null;
+	LoginValidation loginVal = null;
 	
 	public LoginView() {
 		setSizeFull();
@@ -37,7 +39,7 @@ public class LoginView extends VerticalLayout implements View {
 		username = new TextField("Username");
 		username.setRequired(true);
 		username.setInvalidAllowed(false);
-		username.addValidator(new UsernameValidator());
+		//username.addValidator(new UsernameValidator());
 		username.setImmediate(true);
 		// username.setNullSettingAllowed(true);
 
@@ -45,10 +47,12 @@ public class LoginView extends VerticalLayout implements View {
 		password = new PasswordField("Password");
 		password.setRequired(true);
 		password.setInvalidAllowed(false);
-		password.addValidator(new PasswordValidator());
+		//password.addValidator(new PasswordValidator());
 		password.setImmediate(true);
 		// password.setNullSettingAllowed(true);
-
+		
+		
+		
 		label.setStyleName(ValoTheme.LABEL_COLORED);
 
 		addComponent(label);
@@ -72,7 +76,10 @@ public class LoginView extends VerticalLayout implements View {
 
 			@Override
 			public void buttonClick(ClickEvent event) {
-				if (UsernameValidator.isUsernameValid() && PasswordValidator.isPasswordValid()) {
+				//new LoginValidation
+				loginVal = new LoginValidation(username.getValue(), password.getValue());
+				
+				if (loginVal.validate()) {
 					getUI().getNavigator().navigateTo(MyUI.HOMEVIEW);
 					UserManager oc = UserManager.getInstance();
 						oc.createUser(username.getValue());
