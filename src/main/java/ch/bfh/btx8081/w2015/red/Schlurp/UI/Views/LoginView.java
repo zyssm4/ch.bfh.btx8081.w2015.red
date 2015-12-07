@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 
 import ch.bfh.btx8081.w2015.red.Schlurp.MyUI;
 import ch.bfh.btx8081.w2015.red.Schlurp.persistenceLayer.UserManager;
-import ch.bfh.btx8081.w2015.red.Schlurp.login.LoginValidation;
+import ch.bfh.btx8081.w2015.red.Schlurp.login.LoginValidator;
 import ch.bfh.btx8081.w2015.red.Schlurp.login.PasswordValidator;
 import ch.bfh.btx8081.w2015.red.Schlurp.login.UsernameValidator;
 
@@ -27,7 +27,7 @@ public class LoginView extends VerticalLayout implements View {
 	private TextField username = null;
 
 	PasswordField password = null;
-	LoginValidation loginVal = null;
+	LoginValidator loginVal = null;
 	
 	public LoginView() {
 		setSizeFull();
@@ -77,7 +77,7 @@ public class LoginView extends VerticalLayout implements View {
 			@Override
 			public void buttonClick(ClickEvent event) {
 				//new LoginValidation
-				loginVal = new LoginValidation(username.getValue(), password.getValue());
+				loginVal = new LoginValidator(username.getValue(), password.getValue());
 				
 				if (loginVal.validate()) {
 					getUI().getNavigator().navigateTo(MyUI.HOMEVIEW);

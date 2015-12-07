@@ -16,13 +16,13 @@ package ch.bfh.btx8081.w2015.red.Schlurp.login;
 	 * @author Rea
 	 * @version V30.11.2015
 	 */
-public class LoginValidation {
+public class LoginValidator {
 
 	private String notification = "False user or password";
 	private String username;
 	private String password;
 
-	public LoginValidation(String username, String password) {
+	public LoginValidator(String username, String password) {
 		this.username = username;
 		this.password = password;
 	}
