@@ -67,13 +67,16 @@ public class DrugWrapper extends CustomComponent {
 		Label_DrugTimeTakeSplitter_Morning_Noon.setValue("-");
 		Label_DrugTimeTakeSplitter_Noon_Evening.setValue("-");
 		Label_DrugTimeTakeSplitter_Evening_Night.setValue("-");
-		Label_DrugTakeTime.setCaption("Drug take time");
-		Intervall.setCaption("Please Choose");
+		Label_DrugTakeTime.setValue("Drug take time");
+		Intervall.setCaption("Set Repetiton");
 		StartDate.setCaption("Start Date");
 		EndDate.setCaption("End Date");
 		
 
 		layoutDrugBox.setWidth(WIDTH_DRUGLAYOUT);
+		
+		Label_DrugTakeTime.setHeight("23");
+		drugTimeTakeBox.setHeight("23");
 		
 		TextField_Morning.setWidth(WIDTH_DRUGTAKETIME);
 		TextField_Noon.setWidth(WIDTH_DRUGTAKETIME);
@@ -84,10 +87,13 @@ public class DrugWrapper extends CustomComponent {
 		EndDate.setWidth(WIDTH_DRUGBOXCOMPONENTS);
 		Intervall.setWidth(WIDTH_DRUGBOXCOMPONENTS);
 		DrugName.setWidth(WIDTH_DRUGBOXCOMPONENTS);
+		
+		
 		//set Components
 		layoutDrugBox.addStyleName("myDrugWrapper");
 		layoutDrug_leftBox.setStyleName("myDrugWrapperMargin");
 		layoutDrug_rightBox.setStyleName("myDrugWrapperMargin");
+		
 		// Add Components
 		layoutDrugBox.addComponent(layoutDrug_leftBox);
 		layoutDrugBox.addComponent(layoutDrug_rightBox);
