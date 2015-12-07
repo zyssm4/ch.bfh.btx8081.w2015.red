@@ -73,7 +73,6 @@ public class InfoView extends VerticalLayout implements View {
 		layout.setMargin(false);
 
 		final HorizontalLayout header = wrapper.getHeader();
-
 		final HorizontalLayout body = wrapper.getBody();
 		final Button editButton = new Button();
 		final Button saveButton = new Button();
@@ -86,7 +85,7 @@ public class InfoView extends VerticalLayout implements View {
 		VerticalLayout textFieldBox = new VerticalLayout();
 		textFieldBox.setEnabled(false);
 		textFieldBox.setHeight(HEIGHT_BODY);
-
+		
 		// Add Infopage Components
 		Label label_ButtonCompensation = new Label();
 		Label label_Name = new Label("Name: ");
@@ -110,10 +109,10 @@ public class InfoView extends VerticalLayout implements View {
 		// Ressource Images
 		FileResource editImage = new FileResource(
 				new File(
-						"src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/book_edit.png"));
+						"src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/editpen.png"));
 		FileResource saveImage = new FileResource(
 				new File(
-						"src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/Floppy-64.png"));
+						"src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/diskette.png"));
 
 		// Buttons
 

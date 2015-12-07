@@ -1,8 +1,8 @@
 package ch.bfh.btx8081.w2015.red.Schlurp.UI.Views;
 
 import ch.bfh.btx8081.w2015.red.Schlurp.MyUI;
+import ch.bfh.btx8081.w2015.red.Schlurp.UI.Elements.DrugWrapper;
 import ch.bfh.btx8081.w2015.red.Schlurp.UI.Elements.Wrapper;
-import ch.bfh.btx8081.w2015.red.Schlurp.mediplan.DrugWrapper;
 
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
@@ -32,30 +32,31 @@ public class MedicationView extends VerticalLayout implements View {
 		layout.setMargin(false);
 
 		final HorizontalLayout header = wrapper.getHeader();
-
 		final HorizontalLayout body = wrapper.getBody();
-		
-	
-		wrapper.setLabel("Home");
-		wrapper.getHeader().removeComponent(wrapper.getButton());
-		wrapper.getHeader().addComponent(logOut(), 0);
+		final HorizontalLayout footer = wrapper.getFooter();
 
+		wrapper.setLabel("Medication");
+		VerticalLayout drugSetBox = new VerticalLayout();
+
+		body.addComponent(drugSetBox);
 		layout.addComponent(header);
 		layout.addComponent(body);
-		
-		DrugWrapper drugWrapper = new DrugWrapper();
-		final HorizontalLayout layoutDrugWrapper = drugWrapper.getLayoutDrugBox();
-		body.addComponent(layoutDrugWrapper);
-	}
-	private Button logOut() {
-		Button button = new Button("Logout", new Button.ClickListener() {
-			@Override
+		layout.addComponent(footer);
+
+		wrapper.getFooterAddButton().addClickListener(new ClickListener() {
 			public void buttonClick(ClickEvent event) {
-				getUI().getSession().close();
-				getUI().getPage().setLocation(getLogoutPath());
+				DrugWrapper drugWrapper = new DrugWrapper();
+				final HorizontalLayout layoutDrugWrapper = drugWrapper
+						.getLayoutDrugBox();
+				drugSetBox.addComponent(layoutDrugWrapper);
 			}
 		});
-		return button;
+		
+		wrapper.getButton().addClickListener(new ClickListener() {
+			public void buttonClick(ClickEvent event) {
+				getUI().getNavigator().navigateTo(MyUI.HOMEVIEW);
+			}
+		});
 	}
 
 	@Override

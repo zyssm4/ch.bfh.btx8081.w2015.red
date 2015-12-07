@@ -1,4 +1,4 @@
-package ch.bfh.btx8081.w2015.red.Schlurp.mediplan;
+package ch.bfh.btx8081.w2015.red.Schlurp.UI.Elements;
 
 import com.vaadin.ui.CustomComponent;
 import com.vaadin.ui.DateField;
