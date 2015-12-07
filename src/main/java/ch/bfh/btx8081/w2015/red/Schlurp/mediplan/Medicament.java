@@ -4,6 +4,7 @@
 package ch.bfh.btx8081.w2015.red.Schlurp.mediplan;
 
 import java.util.Date;
+import ch.bfh.btx8081.w2015.red.Schlurp.mediplan.StatePattern.*;
 
 /**
  * @author Kaspar
@@ -18,7 +19,7 @@ public class Medicament {
 	private int interval;
 	private Date start;
 	private Date end;
-	
+	private DrugState actState;
 
 	/**
 	 * @param name 
@@ -49,6 +50,10 @@ public class Medicament {
 		this.start = start;
 		this.end = end;
 	}
+	
+	//---------------------------------------------------------------//
+	//--------------------START-GETTER-SECTION-----------------------//
+	//---------------------------------------------------------------//
 
 	/**
 	 * @return the name
@@ -100,6 +105,11 @@ public class Medicament {
 	/**
 	 * @param dose the dose to set
 	 */
+	
+	//---------------------------------------------------------------//
+	//--------------------START-SETTER-SECTION-----------------------//
+	//---------------------------------------------------------------//
+
 	public void setDose(int[] dose) {
 		this.dose = dose;
 	}
@@ -138,5 +148,16 @@ public class Medicament {
 	 */
 	public void setEnd(Date end) {
 		this.end = end;
+	}
+	
+	//---------------------------------------------------------------//
+	//--------------------StatePattern-Functions---------------------//
+	//---------------------------------------------------------------//
+
+	public void setState(DrugState aState){
+		actState = aState;
+	}
+	public DrugState getState(){
+		return actState;
 	}
 }
