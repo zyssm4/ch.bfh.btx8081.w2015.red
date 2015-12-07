@@ -2,6 +2,7 @@ package ch.bfh.btx8081.w2015.red.Schlurp.UI.Views;
 
 import ch.bfh.btx8081.w2015.red.Schlurp.MyUI;
 import ch.bfh.btx8081.w2015.red.Schlurp.UI.Elements.Wrapper;
+import ch.bfh.btx8081.w2015.red.Schlurp.mediplan.DrugWrapper;
 
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
@@ -34,56 +35,18 @@ public class MedicationView extends VerticalLayout implements View {
 
 		final HorizontalLayout body = wrapper.getBody();
 		
-		final VerticalLayout buttonContainer = new VerticalLayout();
-		buttonContainer.setHeight(wrapper.getBody().getHeight()+"");
-		buttonContainer.setDefaultComponentAlignment(Alignment.MIDDLE_CENTER);
-		
+	
 		wrapper.setLabel("Home");
 		wrapper.getHeader().removeComponent(wrapper.getButton());
 		wrapper.getHeader().addComponent(logOut(), 0);
-		body.addComponent(buttonContainer);
-		buttonContainer.addComponent(infoPage());
-		buttonContainer.addComponent(timeTable());
-		buttonContainer.addComponent(mediPlan());
 
 		layout.addComponent(header);
 		layout.addComponent(body);
-
-	}
-
-	private Button infoPage() {
-		Button button = new Button("Infopage", new Button.ClickListener() {
-			@Override
-			public void buttonClick(ClickEvent event) {
-				getUI().getNavigator().navigateTo(MyUI.INFOVIEW);
-			}
-		});
-		return button;
 		
+		DrugWrapper drugWrapper = new DrugWrapper();
+		final HorizontalLayout layoutDrugWrapper = drugWrapper.getLayoutDrugBox();
+		body.addComponent(layoutDrugWrapper);
 	}
-
-	private Button timeTable() {
-		Button button = new Button("Terminplan", new Button.ClickListener() {
-
-			@Override
-			public void buttonClick(ClickEvent event) {
-				getUI().getNavigator().navigateTo(MyUI.TIMEVIEW);
-			}
-		});
-		return button;
-	}
-
-	private Button mediPlan() {
-		Button button = new Button("Medikationsplan", new Button.ClickListener() {
-
-			@Override
-			public void buttonClick(ClickEvent event) {
-				getUI().getNavigator().navigateTo(MyUI.MEDICATIONVIEW);
-			}
-		});
-		return button;
-	}
-
 	private Button logOut() {
 		Button button = new Button("Logout", new Button.ClickListener() {
 			@Override

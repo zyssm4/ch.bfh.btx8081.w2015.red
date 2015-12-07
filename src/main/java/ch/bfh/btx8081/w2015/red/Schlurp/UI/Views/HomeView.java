@@ -93,7 +93,7 @@ public class HomeView extends VerticalLayout implements View {
 
 					@Override
 					public void buttonClick(ClickEvent event) {
-						getUI().getNavigator().navigateTo(MyUI.HOMEVIEW);
+						getUI().getNavigator().navigateTo(MyUI.MEDICATIONVIEW);
 					}
 				});
 		button.setIcon(mediPlanImage);
