@@ -44,21 +44,23 @@ public class Infopage {
 	 * Reads the content of a text file with the name inputFileName and stores
 	 * the read data in an Infopage object.
 	 * 
-	 * @return returns an infopage object
-	 * @throws FileNotFoundException
+	 * @param inputFileName
+	 *            the name of the file that will be read
+	 * @return returns an Infopage object
+	 * 
 	 */
 	public static Infopage readInformationsFromFile(String inputFileName) {
 
 		Scanner input = null;
 		String delimiter = ";";
-		
+
 		try {
 			input = new Scanner(new File(inputFileName), "UTF-16");
 		} catch (FileNotFoundException e) {
 			try {
 				PrintWriter out = new PrintWriter(inputFileName, "UTF-16");
-				Infopage infos = new Infopage(
-						new Patient("", "", "", "", "", "", new Medicament(""), new Doctor("",""), new FamilyMember("","")));
+				Infopage infos = new Infopage(new Patient("", "", "", "", "", "", new Medicament(""),
+						new Doctor("", ""), new FamilyMember("", "")));
 
 				out.format(infos.patient.getLastName() + delimiter + " " + infos.patient.getFirstName() + delimiter
 						+ " " + infos.patient.getInsurance() + delimiter + " " + infos.patient.getInsPolicyNb()
@@ -99,6 +101,10 @@ public class Infopage {
 	/**
 	 * Writes the data of the infopage to a defined Textfile
 	 * 
+	 * @param infos
+	 *            a infopage object
+	 * @param outputfileName
+	 *            the name of the file which will be (over)written
 	 */
 	public static void writeInfomationsToFile(Infopage infos, String outputfileName) {
 

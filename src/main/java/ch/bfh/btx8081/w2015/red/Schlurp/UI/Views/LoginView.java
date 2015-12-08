@@ -1,13 +1,10 @@
 package ch.bfh.btx8081.w2015.red.Schlurp.UI.Views;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 
 import ch.bfh.btx8081.w2015.red.Schlurp.MyUI;
 import ch.bfh.btx8081.w2015.red.Schlurp.persistenceLayer.UserManager;
 import ch.bfh.btx8081.w2015.red.Schlurp.login.LoginValidator;
-import ch.bfh.btx8081.w2015.red.Schlurp.login.PasswordValidator;
-import ch.bfh.btx8081.w2015.red.Schlurp.login.UsernameValidator;
 
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
@@ -21,14 +18,19 @@ import com.vaadin.ui.TextField;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.themes.ValoTheme;
 
+/**
+ * Creates the view for the login page.
+ * 
+ * @author Maurice
+ */
 @SuppressWarnings("serial")
 public class LoginView extends VerticalLayout implements View {
-	
+
 	private TextField username = null;
 
 	PasswordField password = null;
 	LoginValidator loginVal = null;
-	
+
 	public LoginView() {
 		setSizeFull();
 		setSpacing(true);
@@ -39,7 +41,7 @@ public class LoginView extends VerticalLayout implements View {
 		username = new TextField("Username");
 		username.setRequired(true);
 		username.setInvalidAllowed(false);
-		//username.addValidator(new UsernameValidator());
+		// username.addValidator(new UsernameValidator());
 		username.setImmediate(true);
 		// username.setNullSettingAllowed(true);
 
@@ -47,12 +49,10 @@ public class LoginView extends VerticalLayout implements View {
 		password = new PasswordField("Password");
 		password.setRequired(true);
 		password.setInvalidAllowed(false);
-		//password.addValidator(new PasswordValidator());
+		// password.addValidator(new PasswordValidator());
 		password.setImmediate(true);
 		// password.setNullSettingAllowed(true);
-		
-		
-		
+
 		label.setStyleName(ValoTheme.LABEL_COLORED);
 
 		addComponent(label);
@@ -76,14 +76,14 @@ public class LoginView extends VerticalLayout implements View {
 
 			@Override
 			public void buttonClick(ClickEvent event) {
-				//new LoginValidation
+				// new LoginValidator
 				loginVal = new LoginValidator(username.getValue(), password.getValue());
-				
+
 				if (loginVal.validate()) {
 					getUI().getNavigator().navigateTo(MyUI.HOMEVIEW);
 					UserManager oc = UserManager.getInstance();
-						oc.createUser(username.getValue());
-						oc.createInfoPageObject(oc.getUser());
+					oc.createUser(username.getValue());
+					oc.createInfoPageObject(oc.getUser());
 				}
 			}
 		});
