@@ -4,6 +4,7 @@
 package ch.bfh.btx8081.w2015.red.Schlurp.mediplan;
 
 import java.util.Date;
+
 import ch.bfh.btx8081.w2015.red.Schlurp.mediplan.StatePattern.*;
 
 /**
@@ -19,7 +20,7 @@ public class Medicament {
 	private int interval;
 	private Date start;
 	private Date end;
-	private DrugState actState;
+	private DrugState actState = new Upcoming(this);
 
 	/**
 	 * @param name 
@@ -159,5 +160,14 @@ public class Medicament {
 	}
 	public DrugState getState(){
 		return actState;
+	}
+	public void switchState(){
+		actState.switchState();
+	}
+	public void checkTime(){
+		actState.checkTime();
+	}
+	public String getStyle(){
+		return actState.getStyle();
 	}
 }
