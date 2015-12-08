@@ -4,6 +4,9 @@ import ch.bfh.btx8081.w2015.red.Schlurp.MyUI;
 import ch.bfh.btx8081.w2015.red.Schlurp.UI.Elements.DrugWrapper;
 import ch.bfh.btx8081.w2015.red.Schlurp.UI.Elements.Wrapper;
 
+import com.google.gwt.user.client.ui.Widget;
+import com.vaadin.client.ui.LayoutClickEventHandler;
+import com.vaadin.event.LayoutEvents.LayoutClickEvent;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.shared.ui.gridlayout.GridLayoutState.ChildComponentData;
@@ -22,10 +25,11 @@ import com.vaadin.ui.VerticalLayout;
 
 @SuppressWarnings("serial")
 public class MedicationView extends VerticalLayout implements View {
+	DrugWrapper drugWrapper = null;
 
 	public MedicationView() {
 		setSizeFull();
-
+		drugWrapper = new DrugWrapper();
 		Wrapper wrapper = new Wrapper();
 		final VerticalLayout layout = wrapper.getLayout();
 		addComponent(layout);
@@ -42,16 +46,25 @@ public class MedicationView extends VerticalLayout implements View {
 		layout.addComponent(header);
 		layout.addComponent(body);
 		layout.addComponent(footer);
-
+	
+		
 		wrapper.getFooterAddButton().addClickListener(new ClickListener() {
 			public void buttonClick(ClickEvent event) {
-				DrugWrapper drugWrapper = new DrugWrapper();
+				drugWrapper = new DrugWrapper();
 				final HorizontalLayout layoutDrugWrapper = drugWrapper
 						.getLayoutDrugBox();
 				drugSetBox.addComponent(layoutDrugWrapper);
 			}
 		});
 		
+		wrapper.getFooterSaveButton().addClickListener(new ClickListener() {
+			public void buttonClick(ClickEvent event) {
+				drugWrapper.getLeftLayoutDrugBox().setEnabled(false);
+				drugWrapper.getRightLayoutDrugBox().setEnabled(false);
+			}
+		});
+
+
 		wrapper.getButton().addClickListener(new ClickListener() {
 			public void buttonClick(ClickEvent event) {
 				getUI().getNavigator().navigateTo(MyUI.HOMEVIEW);
@@ -63,10 +76,6 @@ public class MedicationView extends VerticalLayout implements View {
 	public void enter(ViewChangeEvent event) {
 		// TODO Auto-generated method stub
 
-	}
-
-	private String getLogoutPath() {
-		return getUI().getPage().getLocation().getPath();
 	}
 
 }
