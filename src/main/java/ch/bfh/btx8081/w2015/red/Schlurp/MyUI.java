@@ -38,7 +38,7 @@ public class MyUI extends UI {
 		final VerticalLayout layout = new VerticalLayout();
 		layout.setMargin(true);
 		layout.setSpacing(true);
-	
+		
 		setContent(layout);
 		ComponentContainerViewDisplay viewDisplay = new ComponentContainerViewDisplay(layout);
 		navigator = new Navigator(UI.getCurrent(), viewDisplay);

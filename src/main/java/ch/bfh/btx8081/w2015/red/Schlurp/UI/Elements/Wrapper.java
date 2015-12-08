@@ -45,7 +45,7 @@ public class Wrapper extends CustomComponent {
 	private ComboBox headerComboBox = null;
 	private Button homeButton = null;
 
-	private Button footerSaveButton = null;
+	private Button footerBackButton = null;
 	private Button footerDeleteButton = null;
 	private Button footerAddButton = null;
 
@@ -59,16 +59,16 @@ public class Wrapper extends CustomComponent {
 		headerLabel = new Label();
 		headerComboBox = new ComboBox();
 		homeButton = new Button("Home");
-		footerSaveButton = new Button();
+		footerBackButton = new Button();
 		footerDeleteButton = new Button();
 		footerAddButton = new Button();
 
 		// Button
 
 		// set Button Images
-		FileResource saveImage = new FileResource(
+		FileResource backImage = new FileResource(
 				new File(
-						"src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/diskette.png"));
+						"src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/backbutton.png"));
 		FileResource deleteImage = new FileResource(
 				new File(
 						"src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/delete.png"));
@@ -79,8 +79,8 @@ public class Wrapper extends CustomComponent {
 		homeButton.setStyleName("tiny");
 		homeButton.setHeight(HEIGHT_HEADER);
 
-		footerSaveButton.setPrimaryStyleName("nobackground");
-		footerSaveButton.setIcon(saveImage);
+		footerBackButton.setPrimaryStyleName("nobackground");
+		footerBackButton.setIcon(backImage);
 		footerDeleteButton.setPrimaryStyleName("nobackground");
 		footerDeleteButton.setIcon(deleteImage);
 		footerAddButton.setPrimaryStyleName("nobackground");
@@ -120,7 +120,7 @@ public class Wrapper extends CustomComponent {
 		header.addComponent(headerComboBox);
 		headerComboBox.setStyleName("tiny");
 
-		footer.addComponent(footerSaveButton);
+		footer.addComponent(footerBackButton);
 		footer.addComponent(footerAddButton);
 		footer.addComponent(footerDeleteButton);
 
@@ -140,8 +140,8 @@ public class Wrapper extends CustomComponent {
 	}
 
 
-	public Button getFooterSaveButton() {
-		return footerSaveButton;
+	public Button getFooterBackButton() {
+		return footerBackButton;
 	}
 
 	public Button getFooterAddButton() {

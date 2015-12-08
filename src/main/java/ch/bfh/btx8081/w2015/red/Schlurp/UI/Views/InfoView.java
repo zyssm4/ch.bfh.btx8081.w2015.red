@@ -74,6 +74,7 @@ public class InfoView extends VerticalLayout implements View {
 
 		final HorizontalLayout header = wrapper.getHeader();
 		final HorizontalLayout body = wrapper.getBody();
+		final HorizontalLayout footer = wrapper.getFooter();
 		final Button editButton = new Button();
 		final Button saveButton = new Button();
 
@@ -115,6 +116,8 @@ public class InfoView extends VerticalLayout implements View {
 						"src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/diskette.png"));
 
 		// Buttons
+		wrapper.getFooterAddButton().setVisible(false);
+		wrapper.getFooterDeleteButton().setVisible(false);
 
 		editButton.setPrimaryStyleName("nobackground");
 		editButton.setIcon(editImage);
@@ -124,7 +127,10 @@ public class InfoView extends VerticalLayout implements View {
 		saveButton.setVisible(false);
 
 		// ClickListeners
-
+		wrapper.getButton().setCaption("Logout");
+		wrapper.getButton().addClickListener(logOut());
+		
+		
 		editButton.addClickListener(new ClickListener() {
 			public void buttonClick(ClickEvent event) {
 				textFieldBox.setEnabled(true);
@@ -158,7 +164,7 @@ public class InfoView extends VerticalLayout implements View {
 			}
 		});
 
-		wrapper.getButton().addClickListener(new ClickListener() {
+		wrapper.getFooterBackButton().addClickListener(new ClickListener() {
 			public void buttonClick(ClickEvent event) {
 				getUI().getNavigator().navigateTo(MyUI.HOMEVIEW);
 			}
@@ -199,13 +205,13 @@ public class InfoView extends VerticalLayout implements View {
 
 		// Button
 
-		labelBox.addComponent(editButton);
-		labelBox.addComponent(saveButton);
-
+		footer.addComponent(editButton);
+		footer.addComponent(saveButton);
+		
 		// layout
 		layout.addComponent(header);
 		layout.addComponent(body);
-
+		layout.addComponent(footer);
 	}
 
 	@Override
@@ -230,4 +236,20 @@ public class InfoView extends VerticalLayout implements View {
 		textField_RelativesContactPhone.setValue(infopage.getPatient()
 				.getFmember().getPhoneNb());
 	}
+	
+	private ClickListener logOut() {
+		Button.ClickListener logout = new Button.ClickListener() {
+			@Override
+			public void buttonClick(ClickEvent event) {
+				getUI().getSession().close();
+				getUI().getPage().setLocation(getLogoutPath());
+			}
+		};
+		return logout;
+	}
+
+	private String getLogoutPath() {
+		return getUI().getPage().getLocation().getPath();
+	}
+
 }

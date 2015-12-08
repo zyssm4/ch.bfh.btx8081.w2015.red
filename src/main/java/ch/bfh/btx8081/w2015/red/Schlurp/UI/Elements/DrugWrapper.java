@@ -1,14 +1,20 @@
 package ch.bfh.btx8081.w2015.red.Schlurp.UI.Elements;
 
+import java.io.File;
+
 import com.vaadin.client.ui.LayoutClickEventHandler;
 import com.vaadin.event.LayoutEvents.LayoutClickEvent;
 import com.vaadin.event.LayoutEvents.LayoutClickListener;
+import com.vaadin.server.FileResource;
+import com.vaadin.ui.Button;
 import com.vaadin.ui.CustomComponent;
 import com.vaadin.ui.DateField;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.VerticalLayout;
+import com.vaadin.ui.Button.ClickEvent;
+import com.vaadin.ui.Button.ClickListener;
 
 @SuppressWarnings("serial")
 public class DrugWrapper extends CustomComponent {
@@ -41,13 +47,16 @@ public class DrugWrapper extends CustomComponent {
 	private DateField StartDate = null;
 	private DateField EndDate = null;
 
+	// create Button
+	private Button SaveButton = null;
+
 	public DrugWrapper() {
 
 		// generate Boxes
 		layoutDrug_leftBox = new VerticalLayout();
 		layoutDrug_leftBox.setEnabled(false);
 		layoutDrug_rightBox = new VerticalLayout();
-		layoutDrug_rightBox.setEnabled(false);	
+		layoutDrug_rightBox.setEnabled(false);
 		layoutDrugBox = new HorizontalLayout();
 		drugTimeTakeBox = new HorizontalLayout();
 
@@ -64,6 +73,7 @@ public class DrugWrapper extends CustomComponent {
 		Intervall = new TextField();
 		StartDate = new DateField();
 		EndDate = new DateField();
+		SaveButton = new Button();
 
 		// set Boxes
 		DrugName.setCaption("Enter drug name");
@@ -71,8 +81,8 @@ public class DrugWrapper extends CustomComponent {
 		Label_DrugTimeTakeSplitter_Noon_Evening.setValue("-");
 		Label_DrugTimeTakeSplitter_Evening_Night.setValue("-");
 		Label_DrugTakeTime.setValue("Drug take time");
-		Intervall.setCaption("Set Repetiton");
-		StartDate.setCaption("Start Date");
+		Intervall.setCaption("Set repetition");
+		StartDate.setCaption("Start date");
 		EndDate.setCaption("End Date");
 
 		layoutDrugBox.setWidth(WIDTH_DRUGLAYOUT);
@@ -95,12 +105,19 @@ public class DrugWrapper extends CustomComponent {
 		layoutDrug_leftBox.setStyleName("myDrugWrapperMargin");
 		layoutDrug_rightBox.setStyleName("myDrugWrapperMargin");
 
+		// Set Button
+		FileResource saveImage = new FileResource(
+				new File(
+						"src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/diskette.png"));
+
+		SaveButton.setIcon(saveImage);
+		SaveButton.setPrimaryStyleName("nobackground");
+		SaveButton.setVisible(false);
 		// Add Components
-		layoutDrugBox.addComponent(layoutDrug_leftBox);
-		layoutDrugBox.addComponent(layoutDrug_rightBox);
 
 		layoutDrug_leftBox.addComponent(DrugName);
 		layoutDrug_leftBox.addComponent(Intervall);
+		layoutDrug_leftBox.addComponent(SaveButton);
 
 		layoutDrug_rightBox.addComponent(Label_DrugTakeTime);
 		layoutDrug_rightBox.addComponent(drugTimeTakeBox);
@@ -115,6 +132,9 @@ public class DrugWrapper extends CustomComponent {
 		drugTimeTakeBox.addComponent(Label_DrugTimeTakeSplitter_Evening_Night);
 		drugTimeTakeBox.addComponent(TextField_Night);
 
+		layoutDrugBox.addComponent(layoutDrug_leftBox);
+		layoutDrugBox.addComponent(layoutDrug_rightBox);
+
 		// Layout Events
 		layoutDrugBox.addLayoutClickListener(new LayoutClickListener() {
 			@Override
@@ -122,8 +142,17 @@ public class DrugWrapper extends CustomComponent {
 				if (event.isDoubleClick()) {
 					layoutDrug_leftBox.setEnabled(true);
 					layoutDrug_rightBox.setEnabled(true);
+					SaveButton.setVisible(true);
 				}
 
+			}
+		});
+
+		SaveButton.addClickListener(new ClickListener() {
+			public void buttonClick(ClickEvent event) {
+				layoutDrug_leftBox.setEnabled(false);
+				layoutDrug_rightBox.setEnabled(false);
+				SaveButton.setVisible(false);
 			}
 		});
 
@@ -139,6 +168,10 @@ public class DrugWrapper extends CustomComponent {
 
 	public VerticalLayout getRightLayoutDrugBox() {
 		return layoutDrug_rightBox;
+	}
+
+	public Button getSaveButton() {
+		return SaveButton;
 	}
 
 }

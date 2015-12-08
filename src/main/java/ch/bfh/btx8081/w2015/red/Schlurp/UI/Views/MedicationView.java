@@ -38,6 +38,7 @@ public class MedicationView extends VerticalLayout implements View {
 		final HorizontalLayout header = wrapper.getHeader();
 		final HorizontalLayout body = wrapper.getBody();
 		final HorizontalLayout footer = wrapper.getFooter();
+		final Button logoutButton = wrapper.getButton();
 
 		wrapper.setLabel("Medication");
 		VerticalLayout drugSetBox = new VerticalLayout();
@@ -46,8 +47,10 @@ public class MedicationView extends VerticalLayout implements View {
 		layout.addComponent(header);
 		layout.addComponent(body);
 		layout.addComponent(footer);
-	
-		
+
+		wrapper.getButton().setCaption("Logout");
+		wrapper.getButton().addClickListener(logOut());
+
 		wrapper.getFooterAddButton().addClickListener(new ClickListener() {
 			public void buttonClick(ClickEvent event) {
 				drugWrapper = new DrugWrapper();
@@ -56,16 +59,8 @@ public class MedicationView extends VerticalLayout implements View {
 				drugSetBox.addComponent(layoutDrugWrapper);
 			}
 		});
-		
-		wrapper.getFooterSaveButton().addClickListener(new ClickListener() {
-			public void buttonClick(ClickEvent event) {
-				drugWrapper.getLeftLayoutDrugBox().setEnabled(false);
-				drugWrapper.getRightLayoutDrugBox().setEnabled(false);
-			}
-		});
 
-
-		wrapper.getButton().addClickListener(new ClickListener() {
+		wrapper.getFooterBackButton().addClickListener(new ClickListener() {
 			public void buttonClick(ClickEvent event) {
 				getUI().getNavigator().navigateTo(MyUI.HOMEVIEW);
 			}
@@ -78,4 +73,18 @@ public class MedicationView extends VerticalLayout implements View {
 
 	}
 
+	private ClickListener logOut() {
+		Button.ClickListener logout = new Button.ClickListener() {
+			@Override
+			public void buttonClick(ClickEvent event) {
+				getUI().getSession().close();
+				getUI().getPage().setLocation(getLogoutPath());
+			}
+		};
+		return logout;
+	}
+
+	private String getLogoutPath() {
+		return getUI().getPage().getLocation().getPath();
+	}
 }
