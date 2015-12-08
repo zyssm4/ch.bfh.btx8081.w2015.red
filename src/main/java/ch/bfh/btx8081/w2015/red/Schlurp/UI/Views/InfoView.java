@@ -188,7 +188,7 @@ public class InfoView extends VerticalLayout implements View {
 		textFieldBox.addComponent(textField_DoctorContactPhone);
 		textFieldBox.addComponent(textField_RelativesContactName);
 		textFieldBox.addComponent(textField_RelativesContactPhone);
-		textFieldBox.addComponent(label_ButtonCompensation);
+//		textFieldBox.addComponent(label_ButtonCompensation);
 
 		// labelBox
 		labelBox.addComponent(label_Name);
