@@ -3,12 +3,14 @@ package ch.bfh.btx8081.w2015.red.Schlurp.UI.Views;
 import ch.bfh.btx8081.w2015.red.Schlurp.MyUI;
 import ch.bfh.btx8081.w2015.red.Schlurp.UI.Elements.DrugWrapper;
 import ch.bfh.btx8081.w2015.red.Schlurp.UI.Elements.Wrapper;
+import ch.bfh.btx8081.w2015.red.Schlurp.mediplan.StatePattern.DrugState;
 
 import com.google.gwt.user.client.ui.ClickListenerCollection;
 import com.google.gwt.user.client.ui.Widget;
 import com.vaadin.client.ui.LayoutClickEventHandler;
 import com.vaadin.client.widget.escalator.ScrollbarBundle;
 import com.vaadin.event.LayoutEvents.LayoutClickEvent;
+import com.vaadin.event.LayoutEvents.LayoutClickListener;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.shared.ui.gridlayout.GridLayoutState.ChildComponentData;
@@ -22,6 +24,7 @@ import com.vaadin.ui.Component;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.HorizontalSplitPanel;
 import com.vaadin.ui.Label;
+import com.vaadin.ui.Layout;
 import com.vaadin.ui.Notification;
 import com.vaadin.ui.Panel;
 import com.vaadin.ui.TextField;
@@ -46,28 +49,28 @@ public class MedicationView extends VerticalLayout implements View {
 		final Button logoutButton = wrapper.getButton();
 
 		wrapper.setLabel("Medication");
-		VerticalLayout drugSetBox = new VerticalLayout();
+		VerticalLayout drugBox = new VerticalLayout();
+		VerticalLayout drugEditBox = new VerticalLayout();
 
-		final Accordion acc = new Accordion();
-		final VerticalLayout morning = new VerticalLayout();
-		final VerticalLayout noon = new VerticalLayout();
-		final VerticalLayout evening = new VerticalLayout();
-		final VerticalLayout night = new VerticalLayout();
+		// final Accordion acc = new Accordion();
+		// final VerticalLayout morning = new VerticalLayout();
+		// final VerticalLayout noon = new VerticalLayout();
+		// final VerticalLayout evening = new VerticalLayout();
+		// final VerticalLayout night = new VerticalLayout();
 		// acc.addTab(morning, "Morgen");
 		// acc.addTab(noon, "Mittag");
 		// acc.addTab(evening, "Abend");
 		// acc.addTab(night, "Nacht");
 
-		morning.setCaption("Morgen");
-		
 		Tree mediMenu = new Tree();
 		mediMenu.addItem("Morgen");
 		mediMenu.addItem("Mittag");
 		mediMenu.addItem("Abend");
 		mediMenu.addItem("Nacht");
 
-		drugSetBox.addComponent(mediMenu);
-		body.addComponent(drugSetBox);
+		drugBox.addComponent(mediMenu);
+		drugBox.addComponent(drugEditBox);
+		body.addComponent(drugBox);
 		layout.addComponent(header);
 		layout.addComponent(body);
 		layout.addComponent(footer);
@@ -79,7 +82,7 @@ public class MedicationView extends VerticalLayout implements View {
 			public void buttonClick(ClickEvent event) {
 				drugWrapper = new DrugWrapper();
 				final HorizontalLayout layoutDrugWrapper = drugWrapper.getLayoutDrugBox();
-				drugSetBox.addComponent(layoutDrugWrapper);
+				drugEditBox.addComponent(layoutDrugWrapper);
 			}
 		});
 
@@ -90,8 +93,15 @@ public class MedicationView extends VerticalLayout implements View {
 		});
 
 		wrapper.getFooterDeleteButton().addClickListener(new ClickListener() {
+			//faulty
+			@Override
 			public void buttonClick(ClickEvent event) {
 
+				drugEditBox.addLayoutClickListener(new LayoutClickListener() {
+					public void layoutClick(LayoutClickEvent event) {
+						drugEditBox.removeComponent(event.getClickedComponent());
+					}
+				});
 			}
 		});
 	}
