@@ -49,6 +49,7 @@ public class DrugWrapper extends CustomComponent {
 
 	// create Button
 	private Button SaveButton = null;
+	private Button CrossButton = null;
 
 	public DrugWrapper() {
 
@@ -74,6 +75,7 @@ public class DrugWrapper extends CustomComponent {
 		StartDate = new DateField();
 		EndDate = new DateField();
 		SaveButton = new Button();
+		CrossButton = new Button();
 
 		// set Boxes
 		DrugName.setCaption("Enter drug name");
@@ -107,17 +109,23 @@ public class DrugWrapper extends CustomComponent {
 
 		// Set Button
 		FileResource saveImage = new FileResource(
-				new File(
-						"src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/diskette.png"));
+				new File("src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/diskette.png"));
+		FileResource xImage = new FileResource(
+				new File("src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/xCross.png"));
 
 		SaveButton.setIcon(saveImage);
 		SaveButton.setPrimaryStyleName("nobackground");
 		SaveButton.setVisible(false);
+
+		CrossButton.setIcon(xImage);
+		CrossButton.setPrimaryStyleName("nobackground");
+		CrossButton.setVisible(false);
 		// Add Components
 
 		layoutDrug_leftBox.addComponent(DrugName);
 		layoutDrug_leftBox.addComponent(Intervall);
 		layoutDrug_leftBox.addComponent(SaveButton);
+		layoutDrug_leftBox.addComponent(CrossButton);
 
 		layoutDrug_rightBox.addComponent(Label_DrugTakeTime);
 		layoutDrug_rightBox.addComponent(drugTimeTakeBox);
@@ -142,9 +150,9 @@ public class DrugWrapper extends CustomComponent {
 				if (event.isDoubleClick()) {
 					layoutDrug_leftBox.setEnabled(true);
 					layoutDrug_rightBox.setEnabled(true);
+					CrossButton.setVisible(false);
 					SaveButton.setVisible(true);
 				}
-
 			}
 		});
 
@@ -177,4 +185,10 @@ public class DrugWrapper extends CustomComponent {
 		layoutDrugBox.setStyleName("myDrugWrapper "+s);
 	}
 
+	public Button getCrossButton() {
+		return CrossButton;
+	}
+	public void addCrossButton(){
+		CrossButton.setVisible(true);
+	}
 }
