@@ -93,17 +93,20 @@ public class MedicationView extends VerticalLayout implements View {
 		});
 
 		wrapper.getFooterDeleteButton().addClickListener(new ClickListener() {
-			//faulty
 			@Override
 			public void buttonClick(ClickEvent event) {
 
 				drugEditBox.addLayoutClickListener(new LayoutClickListener() {
 					public void layoutClick(LayoutClickEvent event) {
 						drugEditBox.removeComponent(event.getClickedComponent());
+						drugEditBox.removeLayoutClickListener(this);
 					}
+					
 				});
 			}
+			
 		});
+		
 	}
 
 	@Override
