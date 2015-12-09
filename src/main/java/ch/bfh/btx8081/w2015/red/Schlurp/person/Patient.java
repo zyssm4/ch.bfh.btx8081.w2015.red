@@ -1,6 +1,6 @@
 package ch.bfh.btx8081.w2015.red.Schlurp.person;
 
-import ch.bfh.btx8081.w2015.red.Schlurp.mediplan.Medicament;
+
 
 /**
  * A <code>patient</code> object represents a patient (abstraction) with its
@@ -17,7 +17,6 @@ public class Patient extends Person {
 	private String insPolicyNb;
 	private String disease;
 	private String firstTreatment;
-	private Medicament medicament;
 	private Doctor doctor;
 	private FamilyMember fmember;
 
@@ -44,13 +43,12 @@ public class Patient extends Person {
 	 *            a family member
 	 */
 	public Patient(String lastName, String firstName, String insurance, String insPolicyNb, String disease,
-			String firstTreatment, Medicament medicament, Doctor doctor, FamilyMember fmember) {
+			String firstTreatment, Doctor doctor, FamilyMember fmember) {
 		super(lastName, firstName);
 		this.insurance = insurance;
 		this.insPolicyNb = insPolicyNb;
 		this.disease = disease;
 		this.firstTreatment = firstTreatment;
-		this.medicament = medicament;
 		this.doctor = doctor;
 		this.fmember = fmember;
 	}
@@ -130,27 +128,6 @@ public class Patient extends Person {
 	 */
 	public void setDisease(String disease) {
 		this.disease = disease;
-	}
-
-	/**
-	 * returns the list of the <code>medicament</code> of this
-	 * <code>Patient</codes>
-	 * 
-	 * @return the medicaments
-	 */
-	public String getMedicaments() {
-		return medicament.getName();
-	}
-
-	/**
-	 * sets a <code>Medicament</codes> into ArrayList <code>medicaments</code>
-	 * of this <code>Patient</codes>
-	 * 
-	 * @param medicament
-	 *            the medicament to set
-	 */
-	public void setMedicament(Medicament medicament) {
-		this.medicament = medicament;
 	}
 
 	/**

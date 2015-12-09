@@ -7,7 +7,6 @@ import java.io.UnsupportedEncodingException;
 //import java.util.ArrayList;
 import java.util.Scanner;
 
-import ch.bfh.btx8081.w2015.red.Schlurp.mediplan.Medicament;
 import ch.bfh.btx8081.w2015.red.Schlurp.person.Doctor;
 import ch.bfh.btx8081.w2015.red.Schlurp.person.FamilyMember;
 import ch.bfh.btx8081.w2015.red.Schlurp.person.Patient;
@@ -59,15 +58,14 @@ public class Infopage {
 		} catch (FileNotFoundException e) {
 			try {
 				PrintWriter out = new PrintWriter(inputFileName, "UTF-16");
-				Infopage infos = new Infopage(new Patient("", "", "", "", "", "", new Medicament(""),
-						new Doctor("", ""), new FamilyMember("", "")));
+				Infopage infos = new Infopage(
+						new Patient("", "", "", "", "", "", new Doctor("", ""), new FamilyMember("", "")));
 
 				out.format(infos.patient.getLastName() + delimiter + " " + infos.patient.getFirstName() + delimiter
 						+ " " + infos.patient.getInsurance() + delimiter + " " + infos.patient.getInsPolicyNb()
 						+ delimiter + " " + infos.patient.getDisease() + delimiter + " "
-						+ infos.patient.getFirstTreatment() + delimiter + " " + infos.patient.getMedicaments()
-						+ delimiter + " " + infos.patient.getDoctor().getLastName() + delimiter + " "
-						+ infos.patient.getDoctor().getPhoneNb() + delimiter + " "
+						+ infos.patient.getFirstTreatment() + delimiter + " " + infos.patient.getDoctor().getLastName()
+						+ delimiter + " " + infos.patient.getDoctor().getPhoneNb() + delimiter + " "
 						+ infos.patient.getFmember().getLastName() + delimiter + " "
 						+ infos.patient.getFmember().getPhoneNb() + "%n");
 				out.close();
@@ -90,8 +88,8 @@ public class Infopage {
 				splittedData[i] = splittedData[i].trim();
 			}
 			info = new Infopage(new Patient(splittedData[0], splittedData[1], splittedData[2], splittedData[3],
-					splittedData[4], splittedData[5], new Medicament(splittedData[6]),
-					new Doctor(splittedData[7], splittedData[8]), new FamilyMember(splittedData[9], splittedData[10])));
+					splittedData[4], splittedData[5], new Doctor(splittedData[7], splittedData[8]),
+					new FamilyMember(splittedData[9], splittedData[10])));
 		}
 
 		input.close();
@@ -124,10 +122,9 @@ public class Infopage {
 		out.format(infos.patient.getLastName() + delimiter + " " + infos.patient.getFirstName() + delimiter + " "
 				+ infos.patient.getInsurance() + delimiter + " " + infos.patient.getInsPolicyNb() + delimiter + " "
 				+ infos.patient.getDisease() + delimiter + " " + infos.patient.getFirstTreatment() + delimiter + " "
-				+ infos.patient.getMedicaments() + delimiter + " " + infos.patient.getDoctor().getLastName() + delimiter
-				+ " " + infos.patient.getDoctor().getPhoneNb() + delimiter + " "
-				+ infos.patient.getFmember().getLastName() + delimiter + " " + infos.patient.getFmember().getPhoneNb()
-				+ "%n");
+				+ infos.patient.getDoctor().getLastName() + delimiter + " " + infos.patient.getDoctor().getPhoneNb()
+				+ delimiter + " " + infos.patient.getFmember().getLastName() + delimiter + " "
+				+ infos.patient.getFmember().getPhoneNb() + "%n");
 
 		out.close();
 	}

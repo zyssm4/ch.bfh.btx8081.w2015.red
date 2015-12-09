@@ -7,7 +7,6 @@ import ch.bfh.btx8081.w2015.red.Schlurp.MyUI;
 import ch.bfh.btx8081.w2015.red.Schlurp.persistenceLayer.UserManager;
 import ch.bfh.btx8081.w2015.red.Schlurp.UI.Elements.Wrapper;
 import ch.bfh.btx8081.w2015.red.Schlurp.infopage.Infopage;
-import ch.bfh.btx8081.w2015.red.Schlurp.mediplan.Medicament;
 import ch.bfh.btx8081.w2015.red.Schlurp.person.Doctor;
 import ch.bfh.btx8081.w2015.red.Schlurp.person.FamilyMember;
 import ch.bfh.btx8081.w2015.red.Schlurp.person.Patient;
@@ -36,9 +35,6 @@ public class InfoView extends VerticalLayout implements View {
 	// get ObjectController
 	UserManager uc = UserManager.getInstance();
 
-	// Set File Type
-	private final String FILETYPE = ".txt";
-
 	// defined Height
 	final String HEIGHT_BODY = "543";
 	final String HEIGHT_TEXTFIELD = "23";
@@ -53,7 +49,6 @@ public class InfoView extends VerticalLayout implements View {
 	TextField textField_InsuranceNumber = new TextField();
 	TextField textField_Disease = new TextField();
 	TextField textField_firstTreatment = new TextField();
-	TextField textField_Medicament = new TextField();
 	TextField textField_DoctorContactName = new TextField();
 	TextField textField_DoctorContactPhone = new TextField();
 	TextField textField_RelativesContactName = new TextField();
@@ -95,7 +90,6 @@ public class InfoView extends VerticalLayout implements View {
 		Label label_InsuranceNumber = new Label("Versicherten Nr: ");
 		Label label_Disease = new Label("Krankheit: ");
 		Label label_FirstThreatment = new Label("Erste Behandlung: ");
-		Label label_Medicament = new Label("Medikamente: ");
 		Label label_DoctorContact = new Label("Arzt Kontakt: ");
 		Label label_DoctorPhone = new Label("");
 		Label label_RelativesContact = new Label("Angehörige: ");
@@ -149,9 +143,7 @@ public class InfoView extends VerticalLayout implements View {
 						textField_Insurance.getValue(), 
 						textField_InsuranceNumber.getValue(), 
 						textField_Disease.getValue(),
-						textField_firstTreatment.getValue(), 
-						new Medicament(
-								textField_Medicament.getValue()), 
+						textField_firstTreatment.getValue(),  
 						new Doctor(
 								textField_DoctorContactName.getValue(),
 								textField_DoctorContactPhone.getValue()),
@@ -183,7 +175,6 @@ public class InfoView extends VerticalLayout implements View {
 		textFieldBox.addComponent(textField_InsuranceNumber);
 		textFieldBox.addComponent(textField_Disease);
 		textFieldBox.addComponent(textField_firstTreatment);
-		textFieldBox.addComponent(textField_Medicament);
 		textFieldBox.addComponent(textField_DoctorContactName);
 		textFieldBox.addComponent(textField_DoctorContactPhone);
 		textFieldBox.addComponent(textField_RelativesContactName);
@@ -197,7 +188,6 @@ public class InfoView extends VerticalLayout implements View {
 		labelBox.addComponent(label_InsuranceNumber);
 		labelBox.addComponent(label_Disease);
 		labelBox.addComponent(label_FirstThreatment);
-		labelBox.addComponent(label_Medicament);
 		labelBox.addComponent(label_DoctorContact);
 		labelBox.addComponent(label_DoctorPhone);
 		labelBox.addComponent(label_RelativesContact);
@@ -226,7 +216,6 @@ public class InfoView extends VerticalLayout implements View {
 		textField_Disease.setValue(infopage.getPatient().getDisease());
 		textField_firstTreatment.setValue(infopage.getPatient()
 				.getFirstTreatment());
-		textField_Medicament.setValue(infopage.getPatient().getMedicaments());
 		textField_DoctorContactName.setValue(infopage.getPatient().getDoctor()
 				.getLastName());
 		textField_DoctorContactPhone.setValue((infopage.getPatient()
