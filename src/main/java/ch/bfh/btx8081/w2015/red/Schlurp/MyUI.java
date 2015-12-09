@@ -5,6 +5,7 @@ import javax.servlet.annotation.WebServlet;
 import ch.bfh.btx8081.w2015.red.Schlurp.UI.Views.HomeView;
 import ch.bfh.btx8081.w2015.red.Schlurp.UI.Views.InfoView;
 import ch.bfh.btx8081.w2015.red.Schlurp.UI.Views.LoginView;
+import ch.bfh.btx8081.w2015.red.Schlurp.UI.Views.MedicationListView;
 import ch.bfh.btx8081.w2015.red.Schlurp.UI.Views.MedicationView;
 import ch.bfh.btx8081.w2015.red.Schlurp.UI.Views.TimeView;
 
@@ -32,6 +33,7 @@ public class MyUI extends UI {
 	public static final String INFOVIEW = "infoview";
 	public static final String TIMEVIEW = "timeview";
 	public static final String MEDICATIONVIEW = "medicationview";
+	public static final String MEDICATIONLISTVIEW = "medicationlistview";
 
 	@Override
 	protected void init(VaadinRequest request) {
@@ -47,6 +49,7 @@ public class MyUI extends UI {
 		navigator.addView(INFOVIEW, new InfoView());
 		navigator.addView(TIMEVIEW, new TimeView());
 		navigator.addView(MEDICATIONVIEW, new MedicationView());
+		navigator.addView(MEDICATIONLISTVIEW, new MedicationListView());
 
 	}
     @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)

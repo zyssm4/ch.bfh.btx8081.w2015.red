@@ -30,7 +30,6 @@ public class Wrapper extends CustomComponent {
 	// defined Width
 	final String WIDTH_LAYOUT = "320";
 	final String WIDTH_HEADER_BUTTON = "68";
-	final String WIDTH_HEADER_COMBOBOX = "60";
 	final String WIDTH_HEADER_LABEL = "71";
 	final String WIDTH_FOOTER_BUTTON = "50";
 
@@ -42,9 +41,9 @@ public class Wrapper extends CustomComponent {
 
 	// define Components
 	private Label headerLabel = null;
-	private ComboBox headerComboBox = null;
 	private Button homeButton = null;
-
+	private Button switchViewButton = null;
+	
 	private Button footerBackButton = null;
 	private Button footerDeleteButton = null;
 	private Button footerAddButton = null;
@@ -57,8 +56,8 @@ public class Wrapper extends CustomComponent {
 		body = new HorizontalLayout();
 
 		headerLabel = new Label();
-		headerComboBox = new ComboBox();
 		homeButton = new Button("Home");
+		switchViewButton = new Button();
 		footerBackButton = new Button();
 		footerDeleteButton = new Button();
 		footerAddButton = new Button();
@@ -78,7 +77,9 @@ public class Wrapper extends CustomComponent {
 
 		homeButton.setStyleName("tiny");
 		homeButton.setHeight(HEIGHT_HEADER);
-
+		switchViewButton.setStyleName("tiny");
+		switchViewButton.setHeight(HEIGHT_HEADER);
+		
 		footerBackButton.setPrimaryStyleName("nobackground");
 		footerBackButton.setIcon(backImage);
 		footerDeleteButton.setPrimaryStyleName("nobackground");
@@ -91,16 +92,6 @@ public class Wrapper extends CustomComponent {
 		header.setWidth(WIDTH_LAYOUT);
 
 		headerLabel.setStyleName("myHeaderLabel");
-
-		headerComboBox.setHeight(HEIGHT_HEADER);
-		headerComboBox.setWidth(WIDTH_HEADER_COMBOBOX);
-		headerComboBox.addItem("EN");
-		headerComboBox.addItem("DE");
-		headerComboBox.addItem("FR");
-		headerComboBox.setValue(headerComboBox.getItemIds().iterator().next());
-		headerComboBox.setNullSelectionAllowed(false);
-		headerComboBox.setInvalidAllowed(false);
-		headerComboBox.setStyleName("tiny");
 		headerLabel.setWidth(null);
 
 		// Body
@@ -117,17 +108,15 @@ public class Wrapper extends CustomComponent {
 		layout.addComponent(body);
 		header.addComponent(homeButton);
 		header.addComponent(headerLabel);
-		header.addComponent(headerComboBox);
-		headerComboBox.setStyleName("tiny");
-
+		header.addComponent(switchViewButton);
+		
 		footer.addComponent(footerBackButton);
 		footer.addComponent(footerAddButton);
 		footer.addComponent(footerDeleteButton);
 
 		// Set Alignment
 		header.setComponentAlignment(headerLabel, Alignment.MIDDLE_CENTER);
-		header.setComponentAlignment(headerComboBox, Alignment.MIDDLE_RIGHT);
-
+		header.setComponentAlignment(switchViewButton, Alignment.MIDDLE_CENTER);
 	}
 
 	public void setLabel(String title) {
@@ -139,7 +128,10 @@ public class Wrapper extends CustomComponent {
 		return homeButton;
 	}
 
-
+	public Button getSwitchButton() {
+		return switchViewButton;
+	}
+	
 	public Button getFooterBackButton() {
 		return footerBackButton;
 	}
