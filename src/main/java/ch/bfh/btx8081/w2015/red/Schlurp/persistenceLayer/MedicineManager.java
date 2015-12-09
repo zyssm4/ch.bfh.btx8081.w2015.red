@@ -33,5 +33,8 @@ public class MedicineManager {
 		return MediList;
 	
 	}
+	public void saveMedicament(){
+		
+	}
 	
 }
