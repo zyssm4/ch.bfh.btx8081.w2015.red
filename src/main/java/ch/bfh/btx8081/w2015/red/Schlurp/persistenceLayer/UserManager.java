@@ -1,6 +1,7 @@
 package ch.bfh.btx8081.w2015.red.Schlurp.persistenceLayer;
 
 
+import javafx.scene.media.Media;
 import ch.bfh.btx8081.w2015.red.Schlurp.infopage.Infopage;
 
 public class UserManager {
@@ -9,9 +10,11 @@ public class UserManager {
 	private Infopage infopage = null;
 	private String user = null;
 	private final String FILETYPE = ".txt";
+	private MedicineManager mc = null;
 
 
 	private UserManager() {
+		mc = MedicineManager.getInstance();
 	}
 
 	public static UserManager getInstance() {
@@ -40,6 +43,10 @@ public class UserManager {
 
 	public String getUser() {
 		return user;
+	}
+	
+	public void saveMedicament(){
+		mc.saveMedicament();
 	}
 
 }
