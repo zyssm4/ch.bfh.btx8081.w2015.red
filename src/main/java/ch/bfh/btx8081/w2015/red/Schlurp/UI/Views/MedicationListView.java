@@ -5,6 +5,8 @@ import ch.bfh.btx8081.w2015.red.Schlurp.UI.Elements.DrugWrapper;
 import ch.bfh.btx8081.w2015.red.Schlurp.UI.Elements.Wrapper;
 import ch.bfh.btx8081.w2015.red.Schlurp.mediplan.StatePattern.DrugState;
 
+import java.util.ArrayList;
+
 import com.google.gwt.user.client.ui.ClickListenerCollection;
 import com.google.gwt.user.client.ui.Widget;
 import com.vaadin.client.ui.LayoutClickEventHandler;
@@ -34,10 +36,12 @@ import com.vaadin.ui.VerticalLayout;
 @SuppressWarnings("serial")
 public class MedicationListView extends VerticalLayout implements View {
 	DrugWrapper drugWrapper = null;
+	ArrayList<DrugWrapper> drugWrapperList = null;
 
 	public MedicationListView() {
 		setSizeFull();
 		drugWrapper = new DrugWrapper();
+		drugWrapperList = new ArrayList<>();
 		Wrapper wrapper = new Wrapper();
 		final VerticalLayout layout = wrapper.getLayout();
 		addComponent(layout);
@@ -53,12 +57,11 @@ public class MedicationListView extends VerticalLayout implements View {
 		VerticalLayout drugEditBox = new VerticalLayout();
 
 		drugBox.addComponent(drugEditBox);
-		
+
 		Panel panel = new Panel();
 		panel.setContent(drugBox);
 		panel.setHeight("543");
-		
-		
+
 		body.addComponent(panel);
 		layout.addComponent(header);
 		layout.addComponent(body);
@@ -67,18 +70,17 @@ public class MedicationListView extends VerticalLayout implements View {
 		wrapper.getButton().setCaption("Logout");
 		wrapper.getButton().addClickListener(logOut());
 
-		
 		wrapper.getSwitchButton().setCaption("Medi Today");
 		wrapper.getSwitchButton().addClickListener(new ClickListener() {
 			public void buttonClick(ClickEvent event) {
 				getUI().getNavigator().navigateTo(MyUI.MEDICATIONVIEW);
 			}
 		});
-		
-		
+
 		wrapper.getFooterAddButton().addClickListener(new ClickListener() {
 			public void buttonClick(ClickEvent event) {
 				drugWrapper = new DrugWrapper();
+				drugWrapperList.add(drugWrapper);
 				final HorizontalLayout layoutDrugWrapper = drugWrapper.getLayoutDrugBox();
 				drugEditBox.addComponent(layoutDrugWrapper);
 			}
@@ -94,17 +96,22 @@ public class MedicationListView extends VerticalLayout implements View {
 			@Override
 			public void buttonClick(ClickEvent event) {
 
-				drugEditBox.addLayoutClickListener(new LayoutClickListener() {
+				for (DrugWrapper dw : drugWrapperList) {
+					dw.setStyleName("remove");
+				}
+				drugBox.addLayoutClickListener(new LayoutClickListener() {
 					public void layoutClick(LayoutClickEvent event) {
-						drugEditBox.removeComponent(event.getClickedComponent());
-						drugEditBox.removeLayoutClickListener(this);
+						drugBox.removeComponent(event.getClickedComponent());
+						drugBox.removeLayoutClickListener(this);
+						for (DrugWrapper dw : drugWrapperList) {
+							dw.setStyleName("");
+						}
 					}
-					
 				});
 			}
-			
+
 		});
-		
+
 	}
 
 	@Override

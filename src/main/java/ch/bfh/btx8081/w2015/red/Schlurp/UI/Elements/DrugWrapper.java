@@ -103,7 +103,7 @@ public class DrugWrapper extends CustomComponent {
 		DrugName.setWidth(WIDTH_DRUGBOXCOMPONENTS);
 
 		// set Components
-		layoutDrugBox.setStyleName("myDrugWrapper upcoming");
+		layoutDrugBox.setStyleName("myDrugWrapper");
 		layoutDrug_leftBox.setStyleName("myDrugWrapperMargin");
 		layoutDrug_rightBox.setStyleName("myDrugWrapperMargin");
 
@@ -181,14 +181,16 @@ public class DrugWrapper extends CustomComponent {
 	public Button getSaveButton() {
 		return SaveButton;
 	}
-	public void setStyleName(String s){
-		layoutDrugBox.setStyleName("myDrugWrapper "+s);
+
+	public void setStyleName(String s) {
+		layoutDrugBox.setStyleName("myDrugWrapper " + s);
 	}
 
 	public Button getCrossButton() {
 		return CrossButton;
 	}
-	public void addCrossButton(){
+
+	public void addCrossButton() {
 		CrossButton.setVisible(true);
 	}
 }
