@@ -14,22 +14,24 @@ import ch.bfh.btx8081.w2015.red.Schlurp.mediplan.StatePattern.*;
  */
 public class Medicament {
 
-
 	private String name;
 	private int[] dose = new int[4];
 	private int interval;
 	private Date start;
 	private Date end;
 	private DrugState actState = new Upcoming(this);
+	private Date taken;
+	private Date toTake;
 
 	/**
-	 * @param name 
+	 * @param name
 	 * 
 	 * 
 	 */
 	public Medicament(String name) {
 		this.name = name;
 	}
+
 	/**
 	 * 
 	 * @param name
@@ -41,7 +43,8 @@ public class Medicament {
 	 * @param start
 	 * @param end
 	 */
-	public Medicament(String name, int dose1, int dose2, int dose3, int dose4, int interval, Date start, Date end){
+	public Medicament(String name, int dose1, int dose2, int dose3, int dose4, int interval, Date start, Date end,
+			Date taken, Date toTake) {
 		this.name = name;
 		dose[0] = dose1;
 		dose[1] = dose2;
@@ -50,11 +53,13 @@ public class Medicament {
 		this.interval = interval;
 		this.start = start;
 		this.end = end;
+		this.taken = taken;
+		this.toTake = toTake;
 	}
-	
-	//---------------------------------------------------------------//
-	//--------------------START-GETTER-SECTION-----------------------//
-	//---------------------------------------------------------------//
+
+	// ---------------------------------------------------------------//
+	// --------------------START-GETTER-SECTION-----------------------//
+	// ---------------------------------------------------------------//
 
 	/**
 	 * @return the name
@@ -64,110 +69,147 @@ public class Medicament {
 	}
 
 	/**
-	 * @param name the name to set
+	 * @param name
+	 *            the name to set
 	 */
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	/**
 	 * @return the dose
 	 */
 	public int[] getDose() {
 		return dose;
 	}
+
 	/**
 	 * 
 	 * @return
 	 */
-	public int getDoseMorning(){
+	public int getDoseMorning() {
 		return dose[0];
 	}
+
 	/**
 	 * 
 	 * @return
 	 */
-	public int getDoseMidday(){
+	public int getDoseMidday() {
 		return dose[1];
 	}
+
 	/**
 	 * 
 	 * @return
 	 */
-	public int getDoseEvening(){
+	public int getDoseEvening() {
 		return dose[2];
 	}
+
 	/**
 	 * 
 	 * @return
 	 */
-	public int getDoseNight(){
+	public int getDoseNight() {
 		return dose[3];
 	}
+
 	/**
-	 * @param dose the dose to set
+	 * @param dose
+	 *            the dose to set
 	 */
-	
-	//---------------------------------------------------------------//
-	//--------------------START-SETTER-SECTION-----------------------//
-	//---------------------------------------------------------------//
+
+	// ---------------------------------------------------------------//
+	// --------------------START-SETTER-SECTION-----------------------//
+	// ---------------------------------------------------------------//
 
 	public void setDose(int[] dose) {
 		this.dose = dose;
 	}
+
 	/**
 	 * @return the interval
 	 */
 	public int getInterval() {
 		return interval;
 	}
+
 	/**
-	 * @param interval the interval to set
+	 * @param interval
+	 *            the interval to set
 	 */
 	public void setInterval(int interval) {
 		this.interval = interval;
 	}
+
 	/**
 	 * @return the start
 	 */
 	public Date getStart() {
 		return start;
 	}
+
 	/**
-	 * @param start the start to set
+	 * @param start
+	 *            the start to set
 	 */
 	public void setStart(Date start) {
 		this.start = start;
 	}
+
 	/**
 	 * @return the end
 	 */
 	public Date getEnd() {
 		return end;
 	}
+
 	/**
-	 * @param end the end to set
+	 * @param end
+	 *            the end to set
 	 */
 	public void setEnd(Date end) {
 		this.end = end;
 	}
-	
-	//---------------------------------------------------------------//
-	//--------------------StatePattern-Functions---------------------//
-	//---------------------------------------------------------------//
 
-	public void setState(DrugState aState){
+	// ---------------------------------------------------------------//
+	// --------------------StatePattern-Functions---------------------//
+	// ---------------------------------------------------------------//
+
+	public void setState(DrugState aState) {
 		actState = aState;
 	}
-	public DrugState getState(){
+
+	public DrugState getState() {
 		return actState;
 	}
-	public void switchState(){
+
+	public void switchState() {
 		actState.switchState();
 	}
-	public void checkTime(){
+
+	public void checkTime() {
 		actState.checkTime();
 	}
-	public String getStyle(){
+
+	public String getStyle() {
 		return actState.getStyle();
+	}
+
+	public Date getTaken() {
+		return taken;
+	}
+
+	public void setTaken(Date taken) {
+		this.taken = taken;
+	}
+
+	public Date getToTake() {
+		return toTake;
+	}
+
+	public void setToTake(Date toTake) {
+		this.toTake = toTake;
 	}
 }
