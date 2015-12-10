@@ -1,3 +1,28 @@
+09.12.2015
+DurchgefÃ¼hrt von: Zysset, Tschanz, Noser, Schmocker, Iseli
+Neuntes DailyScrum
+Arbeit verteilung für Herauslesen der Daten aus den Textgfiles und weiter arbeit an der Medikations View
+
+9.12.2015
+DurchgefÃ¼hrt von: Zysset, Tschanz, Noser, Schmocker, Iseli
+Achtes DailyScrum
+Weiterarbeit an MedicationView, MedicationListView und Speicherung für Medi
+
+7.12.2015
+DurchgefÃ¼hrt von: Zysset, Tschanz, Noser, Schmocker, Iseli
+Siebtes DailyScrum
+MedicationView, MedicationListView und Speicherung für Medikamente begonnen
+
+3.12.2015
+DurchgefÃ¼hrt von: Zysset, Tschanz, Noser, Schmocker, Iseli
+Sechstes DailyScrum
+Anfang MedicationView mit DrugWrapper & Bugfixing von Infopage sowie Login
+
+2.12.2015
+DurchgefÃ¼hrt von: Zysset, Tschanz, Noser, Schmocker, Iseli
+Fünftes DailyScrum
+Code vorführung an StakeHolder & Planung Sprint 2 mit definieren der Arbeiten
+
 30.11.2015
 DurchgefÃ¼hrt von: Zysset, Tschanz, Noser, Schmocker, Iseli
 Viertes DailyScrum
