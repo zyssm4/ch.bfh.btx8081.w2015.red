@@ -1,33 +1,35 @@
 package ch.bfh.btx8081.w2015.red.Schlurp.UI.Views;
 
 import ch.bfh.btx8081.w2015.red.Schlurp.MyUI;
+import ch.bfh.btx8081.w2015.red.Schlurp.UI.Elements.DrugTakeWrapper;
 import ch.bfh.btx8081.w2015.red.Schlurp.UI.Elements.DrugWrapper;
 import ch.bfh.btx8081.w2015.red.Schlurp.UI.Elements.Wrapper;
+
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Button.ClickListener;
+import com.vaadin.ui.Alignment;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Tree;
 import com.vaadin.ui.VerticalLayout;
 
 @SuppressWarnings("serial")
 public class MedicationView extends VerticalLayout implements View {
-	DrugWrapper drugWrapper = null;
+	DrugTakeWrapper drugTakeWrapper = null;
 
 	public MedicationView() {
 		setSizeFull();
-		Wrapper wrapper = new Wrapper();
-		final VerticalLayout layout = wrapper.getLayout();
-		addComponent(layout);
-		layout.setMargin(false);
 
+		Wrapper wrapper = new Wrapper();
+	
+		final VerticalLayout layout = wrapper.getLayout();
 		final HorizontalLayout header = wrapper.getHeader();
 		final HorizontalLayout body = wrapper.getBody();
 		final HorizontalLayout footer = wrapper.getFooter();
-		final Button logoutButton = wrapper.getButton();
-
+		
+		
 		wrapper.setLabel("Medication");
 		VerticalLayout drugBox = new VerticalLayout();
 		Tree mediMenu = new Tree();
@@ -36,30 +38,43 @@ public class MedicationView extends VerticalLayout implements View {
 		mediMenu.addItem("Abend");
 		mediMenu.addItem("Nacht");
 
+		
+
+		wrapper.getButton().setCaption("Logout");
+		wrapper.getButton().addClickListener(logOut());
+		wrapper.getSwitchButton().setVisible(true);
+		wrapper.getSwitchButton().setCaption("MediList");
+		
+		drugTakeWrapper = new DrugTakeWrapper();
+		final HorizontalLayout layoutDrugWrapper = drugTakeWrapper
+				.getDrugTakeLayout();
+		drugBox.addComponent(layoutDrugWrapper);
+		
+		
 		drugBox.addComponent(mediMenu);
 		body.addComponent(drugBox);
 		layout.addComponent(header);
 		layout.addComponent(body);
 		layout.addComponent(footer);
+		
+		addComponent(layout);
+		layout.setMargin(false);
 
-		wrapper.getButton().setCaption("Logout");
-		wrapper.getButton().addClickListener(logOut());
-
-		wrapper.getSwitchButton().setCaption("MediList");
+		
+		
+		
 		wrapper.getSwitchButton().addClickListener(new ClickListener() {
 			public void buttonClick(ClickEvent event) {
 				getUI().getNavigator().navigateTo(MyUI.MEDICATIONLISTVIEW);
 			}
 		});
-		
+
 		wrapper.getFooterBackButton().addClickListener(new ClickListener() {
 			public void buttonClick(ClickEvent event) {
 				getUI().getNavigator().navigateTo(MyUI.HOMEVIEW);
 			}
 		});
-		
-		
-		
+
 	}
 
 	@Override

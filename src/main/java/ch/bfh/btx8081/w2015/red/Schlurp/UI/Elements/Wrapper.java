@@ -79,6 +79,7 @@ public class Wrapper extends CustomComponent {
 		homeButton.setHeight(HEIGHT_HEADER);
 		switchViewButton.setStyleName("tiny");
 		switchViewButton.setHeight(HEIGHT_HEADER);
+		switchViewButton.setVisible(false);
 		
 		footerBackButton.setPrimaryStyleName("nobackground");
 		footerBackButton.setIcon(backImage);
