@@ -10,8 +10,10 @@ import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Button.ClickListener;
+import com.vaadin.ui.Accordion;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.HorizontalLayout;
+import com.vaadin.ui.Panel;
 import com.vaadin.ui.Tree;
 import com.vaadin.ui.VerticalLayout;
 
@@ -32,14 +34,8 @@ public class MedicationView extends VerticalLayout implements View {
 		
 		wrapper.setLabel("Medication");
 		VerticalLayout drugBox = new VerticalLayout();
-		Tree mediMenu = new Tree();
-		mediMenu.addItem("Morgen");
-		mediMenu.addItem("Mittag");
-		mediMenu.addItem("Abend");
-		mediMenu.addItem("Nacht");
-
-		
-
+	
+			
 		wrapper.getButton().setCaption("Logout");
 		wrapper.getButton().addClickListener(logOut());
 		wrapper.getSwitchButton().setVisible(true);
@@ -49,16 +45,26 @@ public class MedicationView extends VerticalLayout implements View {
 		final HorizontalLayout layoutDrugWrapper = drugTakeWrapper
 				.getDrugTakeLayout();
 		drugBox.addComponent(layoutDrugWrapper);
-		
-		
-		drugBox.addComponent(mediMenu);
-		body.addComponent(drugBox);
+		drugBox.addComponent(new DrugTakeWrapper().getDrugTakeLayout());
+		drugBox.addComponent(new DrugTakeWrapper().getDrugTakeLayout());
+		drugBox.addComponent(new DrugTakeWrapper().getDrugTakeLayout());
+		drugBox.addComponent(new DrugTakeWrapper().getDrugTakeLayout());
+		drugBox.addComponent(new DrugTakeWrapper().getDrugTakeLayout());
+		drugBox.addComponent(new DrugTakeWrapper().getDrugTakeLayout());
+		drugBox.addComponent(new DrugTakeWrapper().getDrugTakeLayout());	
+
+
+		Panel panel = new Panel();
+		panel.setContent(drugBox);
+		panel.setHeight("543");		
+		body.addComponent(panel);
 		layout.addComponent(header);
 		layout.addComponent(body);
 		layout.addComponent(footer);
 		
 		addComponent(layout);
 		layout.setMargin(false);
+		
 
 		
 		

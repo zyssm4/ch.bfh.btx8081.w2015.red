@@ -53,7 +53,13 @@ public class MedicationListView extends VerticalLayout implements View {
 		VerticalLayout drugEditBox = new VerticalLayout();
 
 		drugBox.addComponent(drugEditBox);
-		body.addComponent(drugBox);
+		
+		Panel panel = new Panel();
+		panel.setContent(drugBox);
+		panel.setHeight("543");
+		
+		
+		body.addComponent(panel);
 		layout.addComponent(header);
 		layout.addComponent(body);
 		layout.addComponent(footer);
