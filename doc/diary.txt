@@ -1,86 +1,91 @@
+30.11.2015
+DurchgefÃ¼hrt von: Zysset, Tschanz, Noser, Schmocker, Iseli
+Viertes DailyScrum
+Erweiterungen Infopage & Änderungen Homeview
+
 28.11.2015
-Durchgef�hrt von: Iseli
+Durchgeführt von: Iseli
 Erweitern der Validatoren & LoginView, Infoview
 
 27.11.2015
-Durchgef�hrt von: Schmocker
+Durchgeführt von: Schmocker
 Logik InfoPage angepasst.
-Durchgef�hrt von: Iseli
+Durchgeführt von: Iseli
 Erstellen von Password & Username Validatoren
 Logik Infopage & InfoView erweitert.
 
 26.11.2015
-Durchgeführt von: Zysset, Tschanz, Noser, Schmocker, Iseli
+DurchgefÃ¼hrt von: Zysset, Tschanz, Noser, Schmocker, Iseli
 Drittes DailyScrum, Navigatorm InfopageView, LoginView, HomeView, Wrapper Klasse erstelt & vereinert.
 VaadinView und Logik erweitert.
 Und weitere einabreit in Vaadin, z.B. CSS
 
 25.11.2015
-Durchgeführt von: Zysset, Tschanz, Noser, Schmocker, Iseli
+DurchgefÃ¼hrt von: Zysset, Tschanz, Noser, Schmocker, Iseli
 Zweites DailyScrum, erstes GUI design & Logik erstellt.
 Zudem einarbeit in Vaadin
 
 
 23.11.2015
-Durchgeführt von: Zysset, Tschanz, Noser, Schmocker, Iseli
+DurchgefÃ¼hrt von: Zysset, Tschanz, Noser, Schmocker, Iseli
 Erstes DailyScrum & erstellen der Packages
 
 
 20.11.2015
-Durchgeführt von: Tschanz, Zysset, Schmocker
+DurchgefÃ¼hrt von: Tschanz, Zysset, Schmocker
 Weitere bearbeitung an Task 10 mit verfeinerung der Arbeiteinteilung und UserStory beschreibung
 
 
 19.11.2015
-Durchgeführt von: Tschanz, Zysset, Schmocker, Iseli
+DurchgefÃ¼hrt von: Tschanz, Zysset, Schmocker, Iseli
 Task 9 wurde abgeschlossen und hochgeladen.
 Mit Task 10 wurde begonnen und wird morgen verfeinert
 
 05.11.2015
-DurchgefÃ¼hrt von: Tschanz, Zysset, Schmocker
-Update von verschiedenen CRC-Karten, PrÃ¤sentation, Domain Modell etc.
+DurchgefÃƒÂ¼hrt von: Tschanz, Zysset, Schmocker
+Update von verschiedenen CRC-Karten, PrÃƒÂ¤sentation, Domain Modell etc.
 Task 7 ist somit bis auf die Dokumentation abgeschlossen
 
 05.11.2015
-DurchgefÃ¼hrt von: Iseli
-PrÃ¤sentation Task07 hinzugefÃ¼gt & ein paar ErgÃ¤nzungen
+DurchgefÃƒÂ¼hrt von: Iseli
+PrÃƒÂ¤sentation Task07 hinzugefÃƒÂ¼gt & ein paar ErgÃƒÂ¤nzungen
 
 22.10.2015
-DurchgefÃ¼hrt von: Tschanz, Zysset, Schmocker, Iseli, Noser
+DurchgefÃƒÂ¼hrt von: Tschanz, Zysset, Schmocker, Iseli, Noser
 Punkt 1 & 2 von Task07
 
 22.10.2015
-DurchgefÃ¼hrt von: Tschanz
+DurchgefÃƒÂ¼hrt von: Tschanz
 KrankheitDatenbank.pptx erstellt und hochgeladen
-DurchgefÃ¼hrt von: Tschanz, Zysset, Schmocker, Iseli
-Erste Gedanken und EntwÃ¼rfe fÃ¼r Task07
+DurchgefÃƒÂ¼hrt von: Tschanz, Zysset, Schmocker, Iseli
+Erste Gedanken und EntwÃƒÂ¼rfe fÃƒÂ¼r Task07
 
 19.10.2015
-DurchgefÃ¼hrt von: Zysset, Tschanz, Noser, Schmocker, Iseli
-Context Diagram erstellt und hinzugefÃ¼gt und jeder macht jetzt noch ein Activity Diagram 
+DurchgefÃƒÂ¼hrt von: Zysset, Tschanz, Noser, Schmocker, Iseli
+Context Diagram erstellt und hinzugefÃƒÂ¼gt und jeder macht jetzt noch ein Activity Diagram 
 
 13.10.2015
 Durchgefuehrt von: Maurice Zysset
-Der Validate teil wurde hinzugefÃ¼gt, Prototyp Ã¤nderungen wurden vorgenommen.
+Der Validate teil wurde hinzugefÃƒÂ¼gt, Prototyp ÃƒÂ¤nderungen wurden vorgenommen.
 
 12.10.2015
 Durchgefuehrt von: Maurice Zysset
-Storyboards & Prototyp wurde HinzugefÃ¼gt, das Validate wurde ebenfalls durchgefÃ¼hrt
+Storyboards & Prototyp wurde HinzugefÃƒÂ¼gt, das Validate wurde ebenfalls durchgefÃƒÂ¼hrt
 
 12.10.2015
 Durchgefuehrt von:Komplett
-Wir haben Die Dokumentation erweitert, PrÃ¤sentation vorbereitet, 
+Wir haben Die Dokumentation erweitert, PrÃƒÂ¤sentation vorbereitet, 
 Storyboards gezeichnet und evaluiert, Interview verarbeitet. 
 
 08.10.2015
 Durchgefuehrt von: Zysset, Schmocker, Tschanz
 Wir haben die Scoping, Research und Synthesize Phase durchlaufen.
 Dabei haben wir die Storyboards definiert und die Arbeitsaufteilung gemacht.
-Und haben Recherche Aufgaben fÃƒÂ¼r bis Montag erteilt.
+Und haben Recherche Aufgaben fÃƒÆ’Ã‚Â¼r bis Montag erteilt.
 
 05.10.2015
 Durchgefuehrt von: Zysset, Schmocker, Tschanz, Noser
-Interviewfragen fÃƒÂ¼r Task 3 erarbeitet, weiteres vorgehen besprochen.
+Interviewfragen fÃƒÆ’Ã‚Â¼r Task 3 erarbeitet, weiteres vorgehen besprochen.
 
 26.09.2015 & 27.09.2015
 Durchgefuehrt von: Komplett
