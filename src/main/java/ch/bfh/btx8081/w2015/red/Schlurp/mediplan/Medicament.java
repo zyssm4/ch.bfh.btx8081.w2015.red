@@ -3,6 +3,7 @@
  */
 package ch.bfh.btx8081.w2015.red.Schlurp.mediplan;
 
+import java.util.Arrays;
 import java.util.Date;
 
 import ch.bfh.btx8081.w2015.red.Schlurp.mediplan.StatePattern.*;
@@ -55,7 +56,7 @@ public class Medicament {
 		this.end = end;
 		this.taken = taken;
 		this.toTake = toTake;
-	
+
 	}
 
 	// ---------------------------------------------------------------//
@@ -213,4 +214,11 @@ public class Medicament {
 	public void setToTake(Date toTake) {
 		this.toTake = toTake;
 	}
+
+	@Override
+	public String toString() {
+		return "Medicament [name=" + name + ", dose=" + Arrays.toString(dose) + ", interval=" + interval + ", start="
+				+ start + ", end=" + end + ", actState=" + actState + ", taken=" + taken + ", toTake=" + toTake + "]";
+	}
+
 }
