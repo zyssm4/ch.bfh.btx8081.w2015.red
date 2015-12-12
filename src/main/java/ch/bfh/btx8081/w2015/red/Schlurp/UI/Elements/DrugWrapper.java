@@ -182,10 +182,6 @@ public class DrugWrapper extends CustomComponent {
 		return SaveButton;
 	}
 
-	public void setStyleName(String s) {
-		layoutDrugBox.setStyleName("myDrugWrapper " + s);
-	}
-
 	public Button getCrossButton() {
 		return CrossButton;
 	}

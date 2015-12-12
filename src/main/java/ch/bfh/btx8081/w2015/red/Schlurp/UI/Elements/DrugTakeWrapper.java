@@ -89,7 +89,7 @@ public class DrugTakeWrapper extends CustomComponent {
 		//set Style
 		drugNameBox.setStyleName("MarginLabel");
 		drugAmountBox.setStyleName("MarginLabel");
-		drugTakeBox.setStyleName("myDrugTakeWrapper");
+		drugTakeBox.setStyleName("myDrugTakeWrapper upcoming");
 		drug_Taken.setStyleName("MarginButton");
 		
 	}
@@ -102,4 +102,7 @@ public class DrugTakeWrapper extends CustomComponent {
 		return drug_Taken;
 	}
 
+	public void setStyleName(String s) {
+		drugTakeBox.setStyleName("myDrugTakeWrapper " + s);
+	}
 }
