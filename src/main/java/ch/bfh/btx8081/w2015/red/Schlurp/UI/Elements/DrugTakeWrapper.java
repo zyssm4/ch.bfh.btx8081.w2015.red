@@ -14,6 +14,9 @@ import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.VerticalLayout;
+
+import ch.bfh.btx8081.w2015.red.Schlurp.mediplan.Medicament;
+
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Button.ClickListener;
 
@@ -33,7 +36,7 @@ public class DrugTakeWrapper extends CustomComponent {
 	private Label label_TopBoxAmount = null;
 	private Label label_BottomBoxName = null;
 	private Label label_BottomBoxAmount = null;
-	
+	private Medicament m = null;
 	// create Button
 	private Button drug_Taken = null;
 
@@ -61,10 +64,14 @@ public class DrugTakeWrapper extends CustomComponent {
 						"src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/MedPlan.png"));
 		drug_Taken.setIcon(takenImage);
 		drug_Taken.setPrimaryStyleName("nobackground");
-
-		// set Label Demo
-		label_DrugName.setValue("Test Drug");
-		label_DrugAmount.setValue("Test Amount");
+		drug_Taken.addClickListener(new ClickListener() {
+			public void buttonClick(ClickEvent event) {
+			m.switchState();
+			setStyleName();
+			
+			}
+		});
+		
 		
 		// define Boxes
 		drugTakeBox.setHeight(HEIGHT_DRUGTAKEBOX);
@@ -102,7 +109,21 @@ public class DrugTakeWrapper extends CustomComponent {
 		return drug_Taken;
 	}
 
-	public void setStyleName(String s) {
-		drugTakeBox.setStyleName("myDrugTakeWrapper " + s);
+	public void setStyleName() {
+		drugTakeBox.setStyleName("myDrugTakeWrapper " + m.getState().getStyle());
 	}
+	public void setName(){
+	label_DrugName.setValue(m.getName());
+	}
+	public void setAmout(int i){
+		int[] dose = m.getDose();
+		label_DrugAmount.setValue(Integer.toString(dose[i]));
+	}
+	public void setMedicament(Medicament m){
+		this.m = m;
+	}
+	public Medicament getMedicament(){
+		return m;
+	}
+
 }

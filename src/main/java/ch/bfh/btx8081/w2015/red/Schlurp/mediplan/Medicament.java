@@ -55,6 +55,7 @@ public class Medicament {
 		this.end = end;
 		this.taken = taken;
 		this.toTake = toTake;
+	
 	}
 
 	// ---------------------------------------------------------------//
