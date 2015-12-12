@@ -92,10 +92,10 @@ public class DrugWrapper extends CustomComponent {
 		Label_DrugTakeTime.setHeight("23");
 		drugTimeTakeBox.setHeight("23");
 
-		TextField_Morning.setWidth(WIDTH_DRUGTAKETIME);
-		TextField_Noon.setWidth(WIDTH_DRUGTAKETIME);
-		TextField_Evening.setWidth(WIDTH_DRUGTAKETIME);
-		TextField_Night.setWidth(WIDTH_DRUGTAKETIME);
+		TextField_Morning.setStyleName("drugTakeTimeField");
+		TextField_Noon.setStyleName("drugTakeTimeField");
+		TextField_Evening.setStyleName("drugTakeTimeField");
+		TextField_Night.setStyleName("drugTakeTimeField");
 
 		StartDate.setWidth(WIDTH_DRUGBOXCOMPONENTS);
 		EndDate.setWidth(WIDTH_DRUGBOXCOMPONENTS);

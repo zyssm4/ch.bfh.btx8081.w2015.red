@@ -42,16 +42,21 @@ public class MedicationView extends VerticalLayout implements View {
 		wrapper.getSwitchButton().setCaption("MediList");
 		
 		drugTakeWrapper = new DrugTakeWrapper();
-		final HorizontalLayout layoutDrugWrapper = drugTakeWrapper
+		HorizontalLayout layoutDrugWrapper = drugTakeWrapper
 				.getDrugTakeLayout();
 		drugBox.addComponent(layoutDrugWrapper);
-		drugBox.addComponent(new DrugTakeWrapper().getDrugTakeLayout());
-		drugBox.addComponent(new DrugTakeWrapper().getDrugTakeLayout());
-		drugBox.addComponent(new DrugTakeWrapper().getDrugTakeLayout());
-		drugBox.addComponent(new DrugTakeWrapper().getDrugTakeLayout());
-		drugBox.addComponent(new DrugTakeWrapper().getDrugTakeLayout());
-		drugBox.addComponent(new DrugTakeWrapper().getDrugTakeLayout());
-		drugBox.addComponent(new DrugTakeWrapper().getDrugTakeLayout());	
+		drugTakeWrapper = new DrugTakeWrapper();
+		layoutDrugWrapper = drugTakeWrapper
+				.getDrugTakeLayout();
+		drugTakeWrapper.setStyleName("taken");
+		drugBox.addComponent(layoutDrugWrapper);
+		drugTakeWrapper = new DrugTakeWrapper();
+		layoutDrugWrapper = drugTakeWrapper
+				.getDrugTakeLayout();
+		drugTakeWrapper.setStyleName("expired");
+		drugBox.addComponent(layoutDrugWrapper);
+		
+			
 
 
 		Panel panel = new Panel();
