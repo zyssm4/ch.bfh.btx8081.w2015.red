@@ -1,8 +1,10 @@
 package ch.bfh.btx8081.w2015.red.Schlurp.persistenceLayer;
 
 
-import javafx.scene.media.Media;
+import java.util.ArrayList;
+
 import ch.bfh.btx8081.w2015.red.Schlurp.infopage.Infopage;
+import ch.bfh.btx8081.w2015.red.Schlurp.mediplan.Medicament;
 
 public class UserManager {
 
@@ -45,8 +47,17 @@ public class UserManager {
 		return user;
 	}
 	
-	public void saveMedicament(){
-		mc.saveMedicament();
+	public void saveMedicament(Medicament medi){
+		mc.saveMedicament(uc.getUser(), medi);
 	}
-
+	
+	public void createMediListObject(String username) {
+		mc.createMediListObject(username);
+	}
+	public void createDailyListObject(String username){
+		mc.createDailyListObject(username);
+	}
+	public ArrayList<Medicament> getMediList() {
+		return mc.getMediList();
+	}
 }

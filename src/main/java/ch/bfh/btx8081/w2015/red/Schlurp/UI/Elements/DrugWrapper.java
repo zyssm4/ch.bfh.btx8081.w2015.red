@@ -1,6 +1,7 @@
 package ch.bfh.btx8081.w2015.red.Schlurp.UI.Elements;
 
 import java.io.File;
+import java.util.Date;
 
 import com.vaadin.client.ui.LayoutClickEventHandler;
 import com.vaadin.event.LayoutEvents.LayoutClickEvent;
@@ -13,11 +14,18 @@ import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.VerticalLayout;
+
+import ch.bfh.btx8081.w2015.red.Schlurp.mediplan.Medicament;
+import ch.bfh.btx8081.w2015.red.Schlurp.persistenceLayer.UserManager;
+
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Button.ClickListener;
 
 @SuppressWarnings("serial")
 public class DrugWrapper extends CustomComponent {
+
+	// get ObjectController
+	UserManager uc = UserManager.getInstance();
 
 	// defined Width
 	final String WIDTH_DRUGLAYOUT = "320";
@@ -161,6 +169,12 @@ public class DrugWrapper extends CustomComponent {
 				layoutDrug_leftBox.setEnabled(false);
 				layoutDrug_rightBox.setEnabled(false);
 				SaveButton.setVisible(false);
+				Medicament medicament = new Medicament(DrugName.getValue(),
+						Integer.parseInt(TextField_Morning.getValue()), Integer.parseInt(TextField_Noon.getValue()),
+						Integer.parseInt(TextField_Evening.getValue()), Integer.parseInt(TextField_Night.getValue()),
+						Integer.parseInt(Intervall.getValue()), StartDate.getValue(), EndDate.getValue(), new Date(),
+						new Date());
+				uc.saveMedicament(medicament);
 			}
 		});
 
@@ -189,4 +203,38 @@ public class DrugWrapper extends CustomComponent {
 	public void addCrossButton() {
 		CrossButton.setVisible(true);
 	}
+
+	// Setters for Medicament Fields
+	public void setDrugName(String drugName) {
+		DrugName.setValue(drugName);
+	}
+
+	public void setTextField_Morning(String textField_Morning) {
+		TextField_Morning.setValue(textField_Morning);
+	}
+
+	public void setTextField_Noon(String textField_Noon) {
+		TextField_Noon.setValue(textField_Noon);
+	}
+
+	public void setTextField_Evening(String textField_Evening) {
+		TextField_Evening.setValue(textField_Evening);
+	}
+
+	public void setTextField_Night(String textField_Night) {
+		TextField_Night.setValue(textField_Night);
+	}
+
+	public void setIntervall(String intervall) {
+		Intervall.setValue(intervall);
+	}
+
+	public void setStartDate(Date startDate) {
+		StartDate.setValue(startDate);
+	}
+
+	public void setEndDate(Date endDate) {
+		EndDate.setValue(endDate);
+	}
+
 }

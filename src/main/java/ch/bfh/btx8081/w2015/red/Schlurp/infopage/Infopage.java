@@ -88,8 +88,8 @@ public class Infopage {
 				splittedData[i] = splittedData[i].trim();
 			}
 			info = new Infopage(new Patient(splittedData[0], splittedData[1], splittedData[2], splittedData[3],
-					splittedData[4], splittedData[5], new Doctor(splittedData[7], splittedData[8]),
-					new FamilyMember(splittedData[9], splittedData[10])));
+					splittedData[4], splittedData[5], new Doctor(splittedData[6], splittedData[7]),
+					new FamilyMember(splittedData[8], splittedData[9])));
 		}
 
 		input.close();

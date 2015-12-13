@@ -3,6 +3,9 @@ package ch.bfh.btx8081.w2015.red.Schlurp.UI.Views;
 import ch.bfh.btx8081.w2015.red.Schlurp.MyUI;
 import ch.bfh.btx8081.w2015.red.Schlurp.UI.Elements.DrugWrapper;
 import ch.bfh.btx8081.w2015.red.Schlurp.UI.Elements.Wrapper;
+import ch.bfh.btx8081.w2015.red.Schlurp.mediplan.Medicament;
+import ch.bfh.btx8081.w2015.red.Schlurp.persistenceLayer.UserManager;
+
 import java.util.ArrayList;
 
 import com.vaadin.event.LayoutEvents.LayoutClickEvent;
@@ -18,8 +21,13 @@ import com.vaadin.ui.VerticalLayout;
 
 @SuppressWarnings("serial")
 public class MedicationListView extends VerticalLayout implements View {
+	
+	// get ObjectController
+	UserManager uc = UserManager.getInstance();
+		
 	DrugWrapper drugWrapper = null;
 	ArrayList<DrugWrapper> drugWrapperList = null;
+	VerticalLayout drugBox = null;
 
 	public MedicationListView() {
 		setSizeFull();
@@ -34,7 +42,7 @@ public class MedicationListView extends VerticalLayout implements View {
 		final HorizontalLayout body = wrapper.getBody();
 		final HorizontalLayout footer = wrapper.getFooter();
 		wrapper.setLabel("Medication");
-		VerticalLayout drugBox = new VerticalLayout();
+		drugBox = new VerticalLayout();
 
 		Panel panel = new Panel();
 		panel.setContent(drugBox);
@@ -97,8 +105,22 @@ public class MedicationListView extends VerticalLayout implements View {
 
 	@Override
 	public void enter(ViewChangeEvent event) {
-		// TODO Auto-generated method stub
-
+		uc.createMediListObject(uc.getUser());
+		ArrayList<Medicament> mediList = uc.getMediList();
+		for(int i = 0; i < mediList.size(); i++){
+			drugWrapper = new DrugWrapper();
+			drugWrapper.setDrugName(mediList.get(i).getName());
+			drugWrapper.setTextField_Evening(String.valueOf(mediList.get(i).getDoseEvening()));
+			drugWrapper.setTextField_Morning(String.valueOf(mediList.get(i).getDoseMorning()));
+			drugWrapper.setTextField_Night(String.valueOf(mediList.get(i).getDoseNight()));
+			drugWrapper.setTextField_Noon(String.valueOf(mediList.get(i).getDoseMidday()));
+			drugWrapper.setIntervall(String.valueOf(mediList.get(i).getInterval()));
+			drugWrapper.setStartDate(mediList.get(i).getStart());
+			drugWrapper.setEndDate(mediList.get(i).getEnd());
+			drugWrapperList.add(drugWrapper);
+			final HorizontalLayout layoutDrugWrapper = drugWrapper.getLayoutDrugBox();
+			drugBox.addComponent(layoutDrugWrapper);
+		}
 	}
 
 	private ClickListener logOut() {

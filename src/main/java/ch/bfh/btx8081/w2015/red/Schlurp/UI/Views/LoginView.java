@@ -84,6 +84,8 @@ public class LoginView extends VerticalLayout implements View {
 					UserManager oc = UserManager.getInstance();
 					oc.createUser(username.getValue());
 					oc.createInfoPageObject(oc.getUser());
+					oc.createMediListObject(oc.getUser());
+					//oc.createDailyListObject(oc.getUser());
 				}
 			}
 		});
