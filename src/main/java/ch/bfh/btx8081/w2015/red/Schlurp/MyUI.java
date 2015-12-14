@@ -20,7 +20,11 @@ import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 
 /**
- *
+ * User interface class
+ * <p>
+ * the navigator handles the different views of the <i>Schlurp</i>-application
+ * @author zyssm4
+ * @version V09.12.2015
  */
 @Theme("mytheme")
 @Widgetset("ch.bfh.btx8081.w2015.red.Schlurp.MyAppWidgetset")
