@@ -17,7 +17,10 @@ import ch.bfh.btx8081.w2015.red.Schlurp.mediplan.StatePattern.*;
 public class Medicament {
 	
 	static final AtomicLong NEXT_ID = new AtomicLong(0);
-    final long id = NEXT_ID.getAndIncrement();
+	// ID for the next Medicament, if retrieved via getIdToSet it gets incremented by one
+    final long idToSet = NEXT_ID.getAndIncrement();
+    // Actual ID of the Medicament
+    private long mediID;
 	private String name;
 	private int[] dose = new int[4];
 	private int interval;
@@ -50,7 +53,7 @@ public class Medicament {
 	public Medicament(String name, int dose1, int dose2, int dose3, int dose4, int interval, Date start, Date end,
 			Date taken, Date toTake) {
 		
-		getId();
+		mediID = getIdToSet();
 		this.name = name;
 		dose[0] = dose1;
 		dose[1] = dose2;
@@ -67,9 +70,12 @@ public class Medicament {
 	// ---------------------------------------------------------------//
 	// --------------------START-GETTER-SECTION-----------------------//
 	// ---------------------------------------------------------------//
-    public long getId() {
-        return id;
+    public long getIdToSet() {
+        return idToSet;
    }
+    public long getMediID(){
+    	return mediID;
+    }
 	/**
 	 * @return the name
 	 */
