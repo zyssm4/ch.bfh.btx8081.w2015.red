@@ -28,7 +28,8 @@ public class MedicationListView extends VerticalLayout implements View {
 	DrugWrapper drugWrapper = null;
 	ArrayList<DrugWrapper> drugWrapperList = null;
 	VerticalLayout drugBox = null;
-
+	HorizontalLayout layoutDrugWrapper = null;
+	
 	public MedicationListView() {
 		setSizeFull();
 		drugWrapper = new DrugWrapper();
@@ -69,7 +70,7 @@ public class MedicationListView extends VerticalLayout implements View {
 			public void buttonClick(ClickEvent event) {
 				drugWrapper = new DrugWrapper();
 				drugWrapperList.add(drugWrapper);
-				final HorizontalLayout layoutDrugWrapper = drugWrapper.getLayoutDrugBox();
+				layoutDrugWrapper = drugWrapper.getLayoutDrugBox();
 				drugBox.addComponent(layoutDrugWrapper);
 			}
 		});
@@ -118,7 +119,7 @@ public class MedicationListView extends VerticalLayout implements View {
 			drugWrapper.setStartDate(mediList.get(i).getStart());
 			drugWrapper.setEndDate(mediList.get(i).getEnd());
 			drugWrapperList.add(drugWrapper);
-			final HorizontalLayout layoutDrugWrapper = drugWrapper.getLayoutDrugBox();
+			layoutDrugWrapper = drugWrapper.getLayoutDrugBox();
 			drugBox.addComponent(layoutDrugWrapper);
 		}
 	}
