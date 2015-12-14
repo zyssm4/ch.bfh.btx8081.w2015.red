@@ -45,11 +45,10 @@ public class MedicationView extends VerticalLayout implements View {
 		drugTakeWrapper = new DrugTakeWrapper();
 		HorizontalLayout layoutDrugWrapper = drugTakeWrapper
 				.getDrugTakeLayout();
-		Medicament m1 = new Medicament("Tafalgan", 1, 2, 3, 4, 5, null, null, null, null);
+		Medicament m1 = new Medicament("Tafalgan", null, null, null, null, null);
 		drugTakeWrapper.setMedicament(m1);
 		drugTakeWrapper.setStyleName();
 		drugTakeWrapper.setName();
-		drugTakeWrapper.setAmout(1);
 		
 		
 		drugBox.addComponent(layoutDrugWrapper);
@@ -58,10 +57,9 @@ public class MedicationView extends VerticalLayout implements View {
 				.getDrugTakeLayout();
 		drugTakeWrapper.setStyleName("taken");
 
-		Medicament m2 = new Medicament("Naloxon", 1, 2, 3, 4, 5, null, null, null, null);
+		Medicament m2 = new Medicament("Naloxon",null, null, null, null, null);
 		drugTakeWrapper.setMedicament(m2);
 		drugTakeWrapper.setName();
-		drugTakeWrapper.setAmout(1);
 		drugTakeWrapper.getMedicament().getState().switchState();
 		drugTakeWrapper.setStyleName();
 		
@@ -72,10 +70,9 @@ public class MedicationView extends VerticalLayout implements View {
 		drugTakeWrapper.setStyleName("expired");
 		drugBox.addComponent(layoutDrugWrapper);
 		
-		Medicament m3 = new Medicament("Zelboraf", 1, 2, 3, 4, 5, null, null, null, null);
+		Medicament m3 = new Medicament("Zelboraf", null, null, null, null, null);
 		drugTakeWrapper.setMedicament(m3);
 		drugTakeWrapper.setName();
-		drugTakeWrapper.setAmout(1);
 		drugTakeWrapper.getMedicament().getState().checkTime();
 		drugTakeWrapper.setStyleName();
 		

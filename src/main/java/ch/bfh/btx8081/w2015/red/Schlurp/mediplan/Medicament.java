@@ -7,6 +7,8 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.concurrent.atomic.AtomicLong;
 
+import com.vaadin.ui.ComboBox;
+
 import ch.bfh.btx8081.w2015.red.Schlurp.mediplan.StatePattern.*;
 
 /**
@@ -15,15 +17,15 @@ import ch.bfh.btx8081.w2015.red.Schlurp.mediplan.StatePattern.*;
  *
  */
 public class Medicament {
-	
+
 	static final AtomicLong NEXT_ID = new AtomicLong(0);
-	// ID for the next Medicament, if retrieved via getIdToSet it gets incremented by one
-    final long idToSet = NEXT_ID.getAndIncrement();
-    // Actual ID of the Medicament
-    private long mediID;
+	// ID for the next Medicament, if retrieved via getIdToSet it gets
+	// incremented by one
+	final long idToSet = NEXT_ID.getAndIncrement();
+	// Actual ID of the Medicament
+	private long mediID;
 	private String name;
-	private int[] dose = new int[4];
-	private int interval;
+	private ComboBox interval;
 	private Date start;
 	private Date end;
 	private DrugState actState = new Upcoming(this);
@@ -43,22 +45,14 @@ public class Medicament {
 	 * 
 	 * @param name
 	 * @param dose1
-	 * @param dose2
-	 * @param dose3
-	 * @param dose4
-	 * @param interval
 	 * @param start
 	 * @param end
 	 */
-	public Medicament(String name, int dose1, int dose2, int dose3, int dose4, int interval, Date start, Date end,
-			Date taken, Date toTake) {
-		
+	public Medicament(String name, ComboBox interval, Date start, Date end, Date taken,
+			Date toTake) {
+
 		mediID = getIdToSet();
 		this.name = name;
-		dose[0] = dose1;
-		dose[1] = dose2;
-		dose[2] = dose3;
-		dose[3] = dose4;
 		this.interval = interval;
 		this.start = start;
 		this.end = end;
@@ -70,12 +64,14 @@ public class Medicament {
 	// ---------------------------------------------------------------//
 	// --------------------START-GETTER-SECTION-----------------------//
 	// ---------------------------------------------------------------//
-    public long getIdToSet() {
-        return idToSet;
-   }
-    public long getMediID(){
-    	return mediID;
-    }
+	public long getIdToSet() {
+		return idToSet;
+	}
+
+	public long getMediID() {
+		return mediID;
+	}
+
 	/**
 	 * @return the name
 	 */
@@ -91,62 +87,14 @@ public class Medicament {
 		this.name = name;
 	}
 
-	/**
-	 * @return the dose
-	 */
-	public int[] getDose() {
-		return dose;
-	}
-
-	/**
-	 * 
-	 * @return
-	 */
-	public int getDoseMorning() {
-		return dose[0];
-	}
-
-	/**
-	 * 
-	 * @return
-	 */
-	public int getDoseMidday() {
-		return dose[1];
-	}
-
-	/**
-	 * 
-	 * @return
-	 */
-	public int getDoseEvening() {
-		return dose[2];
-	}
-
-	/**
-	 * 
-	 * @return
-	 */
-	public int getDoseNight() {
-		return dose[3];
-	}
-
-	/**
-	 * @param dose
-	 *            the dose to set
-	 */
-
 	// ---------------------------------------------------------------//
 	// --------------------START-SETTER-SECTION-----------------------//
 	// ---------------------------------------------------------------//
 
-	public void setDose(int[] dose) {
-		this.dose = dose;
-	}
-
 	/**
 	 * @return the interval
 	 */
-	public int getInterval() {
+	public ComboBox getInterval() {
 		return interval;
 	}
 
@@ -154,7 +102,7 @@ public class Medicament {
 	 * @param interval
 	 *            the interval to set
 	 */
-	public void setInterval(int interval) {
+	public void setInterval(ComboBox interval) {
 		this.interval = interval;
 	}
 
@@ -230,8 +178,9 @@ public class Medicament {
 
 	@Override
 	public String toString() {
-		return "Medicament [name=" + name + ", dose=" + Arrays.toString(dose) + ", interval=" + interval + ", start="
-				+ start + ", end=" + end + ", actState=" + actState + ", taken=" + taken + ", toTake=" + toTake + "]";
+		return "Medicament [name=" + name + ", interval=" + interval
+				+ ", start=" + start + ", end=" + end + ", actState="
+				+ actState + ", taken=" + taken + ", toTake=" + toTake + "]";
 	}
 
 }

@@ -111,10 +111,6 @@ public class MedicationListView extends VerticalLayout implements View {
 		for(int i = 0; i < mediList.size(); i++){
 			drugWrapper = new DrugWrapper();
 			drugWrapper.setDrugName(mediList.get(i).getName());
-			drugWrapper.setTextField_Evening(String.valueOf(mediList.get(i).getDoseEvening()));
-			drugWrapper.setTextField_Morning(String.valueOf(mediList.get(i).getDoseMorning()));
-			drugWrapper.setTextField_Night(String.valueOf(mediList.get(i).getDoseNight()));
-			drugWrapper.setTextField_Noon(String.valueOf(mediList.get(i).getDoseMidday()));
 			drugWrapper.setIntervall(String.valueOf(mediList.get(i).getInterval()));
 			drugWrapper.setStartDate(mediList.get(i).getStart());
 			drugWrapper.setEndDate(mediList.get(i).getEnd());

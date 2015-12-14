@@ -115,10 +115,7 @@ public class DrugTakeWrapper extends CustomComponent {
 	public void setName(){
 	label_DrugName.setValue(m.getName());
 	}
-	public void setAmout(int i){
-		int[] dose = m.getDose();
-		label_DrugAmount.setValue(Integer.toString(dose[i]));
-	}
+	
 	public void setMedicament(Medicament m){
 		this.m = m;
 	}

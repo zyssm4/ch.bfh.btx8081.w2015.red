@@ -8,6 +8,7 @@ import com.vaadin.event.LayoutEvents.LayoutClickEvent;
 import com.vaadin.event.LayoutEvents.LayoutClickListener;
 import com.vaadin.server.FileResource;
 import com.vaadin.ui.Button;
+import com.vaadin.ui.ComboBox;
 import com.vaadin.ui.CustomComponent;
 import com.vaadin.ui.DateField;
 import com.vaadin.ui.HorizontalLayout;
@@ -38,26 +39,29 @@ public class DrugWrapper extends CustomComponent {
 	private HorizontalLayout drugTimeTakeBox = null;
 
 	// create Textfields
-	private TextField DrugName = null;
-	private TextField TextField_Morning = null;
-	private TextField TextField_Noon = null;
-	private TextField TextField_Evening = null;
-	private TextField TextField_Night = null;
-	private TextField Intervall = null;
+	private TextField drugName = null;
+	// private TextField TextField_Morning = null;
+	// private TextField TextField_Noon = null;
+	// private TextField TextField_Evening = null;
+	// private TextField TextField_Night = null;
+	private TextField intervall = null;
 
 	// create Labels
-	private Label Label_DrugTimeTakeSplitter_Morning_Noon = null;
-	private Label Label_DrugTimeTakeSplitter_Noon_Evening = null;
-	private Label Label_DrugTimeTakeSplitter_Evening_Night = null;
-	private Label Label_DrugTakeTime = null;
+	private Label label_DrugTimeTakeSplitter_Morning_Noon = null;
+	private Label label_DrugTimeTakeSplitter_Noon_Evening = null;
+	private Label label_DrugTimeTakeSplitter_Evening_Night = null;
+	private Label label_DrugTakeTime = null;
 
 	// create DateFields
-	private DateField StartDate = null;
-	private DateField EndDate = null;
+	private DateField startDate = null;
+	private DateField endDate = null;
 
 	// create Button
-	private Button SaveButton = null;
-	private Button CrossButton = null;
+	private Button saveButton = null;
+	private Button crossButton = null;
+
+	// create ComboBox
+	private ComboBox comboBox_Intervall = null;
 
 	public DrugWrapper() {
 
@@ -70,45 +74,37 @@ public class DrugWrapper extends CustomComponent {
 		drugTimeTakeBox = new HorizontalLayout();
 
 		// generate Components
-		DrugName = new TextField();
-		TextField_Morning = new TextField();
-		TextField_Noon = new TextField();
-		TextField_Evening = new TextField();
-		TextField_Night = new TextField();
-		Label_DrugTimeTakeSplitter_Morning_Noon = new Label();
-		Label_DrugTimeTakeSplitter_Noon_Evening = new Label();
-		Label_DrugTimeTakeSplitter_Evening_Night = new Label();
-		Label_DrugTakeTime = new Label();
-		Intervall = new TextField();
-		StartDate = new DateField();
-		EndDate = new DateField();
-		SaveButton = new Button();
-		CrossButton = new Button();
+		drugName = new TextField();
+		label_DrugTimeTakeSplitter_Morning_Noon = new Label();
+		label_DrugTimeTakeSplitter_Noon_Evening = new Label();
+		label_DrugTimeTakeSplitter_Evening_Night = new Label();
+		label_DrugTakeTime = new Label();
+		startDate = new DateField();
+		endDate = new DateField();
+		saveButton = new Button();
+		crossButton = new Button();
+		intervall = new TextField();
+		comboBox_Intervall = new ComboBox();
 
 		// set Boxes
-		DrugName.setCaption("Enter drug name");
-		Label_DrugTimeTakeSplitter_Morning_Noon.setValue("-");
-		Label_DrugTimeTakeSplitter_Noon_Evening.setValue("-");
-		Label_DrugTimeTakeSplitter_Evening_Night.setValue("-");
-		Label_DrugTakeTime.setValue("Drug take time");
-		Intervall.setCaption("Set repetition");
-		StartDate.setCaption("Start date");
-		EndDate.setCaption("End Date");
+		drugName.setCaption("Enter drug name");
+		label_DrugTimeTakeSplitter_Morning_Noon.setValue("-");
+		label_DrugTimeTakeSplitter_Noon_Evening.setValue("-");
+		label_DrugTimeTakeSplitter_Evening_Night.setValue("-");
+		label_DrugTakeTime.setValue("Drug take time");
+		intervall.setCaption("Set repetition");
+		startDate.setCaption("Start date");
+		endDate.setCaption("End Date");
 
 		layoutDrugBox.setWidth(WIDTH_DRUGLAYOUT);
 
-		Label_DrugTakeTime.setHeight("23");
+		label_DrugTakeTime.setHeight("23");
 		drugTimeTakeBox.setHeight("23");
 
-		TextField_Morning.setStyleName("drugTakeTimeField");
-		TextField_Noon.setStyleName("drugTakeTimeField");
-		TextField_Evening.setStyleName("drugTakeTimeField");
-		TextField_Night.setStyleName("drugTakeTimeField");
-
-		StartDate.setWidth(WIDTH_DRUGBOXCOMPONENTS);
-		EndDate.setWidth(WIDTH_DRUGBOXCOMPONENTS);
-		Intervall.setWidth(WIDTH_DRUGBOXCOMPONENTS);
-		DrugName.setWidth(WIDTH_DRUGBOXCOMPONENTS);
+		startDate.setWidth(WIDTH_DRUGBOXCOMPONENTS);
+		endDate.setWidth(WIDTH_DRUGBOXCOMPONENTS);
+		intervall.setWidth(WIDTH_DRUGBOXCOMPONENTS);
+		drugName.setWidth(WIDTH_DRUGBOXCOMPONENTS);
 
 		// set Components
 		layoutDrugBox.setStyleName("myDrugWrapper");
@@ -117,36 +113,31 @@ public class DrugWrapper extends CustomComponent {
 
 		// Set Button
 		FileResource saveImage = new FileResource(
-				new File("src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/diskette.png"));
+				new File(
+						"src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/diskette.png"));
 		FileResource xImage = new FileResource(
-				new File("src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/xCross.png"));
+				new File(
+						"src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/xCross.png"));
 
-		SaveButton.setIcon(saveImage);
-		SaveButton.setPrimaryStyleName("nobackground");
-		SaveButton.setVisible(false);
+		saveButton.setIcon(saveImage);
+		saveButton.setPrimaryStyleName("nobackground");
+		saveButton.setVisible(false);
 
-		CrossButton.setIcon(xImage);
-		CrossButton.setPrimaryStyleName("nobackground");
-		CrossButton.setVisible(false);
+		crossButton.setIcon(xImage);
+		crossButton.setPrimaryStyleName("nobackground");
+		crossButton.setVisible(false);
+
 		// Add Components
 
-		layoutDrug_leftBox.addComponent(DrugName);
-		layoutDrug_leftBox.addComponent(Intervall);
-		layoutDrug_leftBox.addComponent(SaveButton);
-		layoutDrug_leftBox.addComponent(CrossButton);
+		layoutDrug_leftBox.addComponent(drugName);
+		layoutDrug_leftBox.addComponent(intervall);
+		layoutDrug_leftBox.addComponent(saveButton);
+		layoutDrug_leftBox.addComponent(crossButton);
 
-		layoutDrug_rightBox.addComponent(Label_DrugTakeTime);
-		layoutDrug_rightBox.addComponent(drugTimeTakeBox);
-		layoutDrug_rightBox.addComponent(StartDate);
-		layoutDrug_rightBox.addComponent(EndDate);
+		layoutDrug_rightBox.addComponent(comboBox_Intervall);
+		layoutDrug_rightBox.addComponent(startDate);
+		layoutDrug_rightBox.addComponent(endDate);
 
-		drugTimeTakeBox.addComponent(TextField_Morning);
-		drugTimeTakeBox.addComponent(Label_DrugTimeTakeSplitter_Morning_Noon);
-		drugTimeTakeBox.addComponent(TextField_Noon);
-		drugTimeTakeBox.addComponent(Label_DrugTimeTakeSplitter_Noon_Evening);
-		drugTimeTakeBox.addComponent(TextField_Evening);
-		drugTimeTakeBox.addComponent(Label_DrugTimeTakeSplitter_Evening_Night);
-		drugTimeTakeBox.addComponent(TextField_Night);
 
 		layoutDrugBox.addComponent(layoutDrug_leftBox);
 		layoutDrugBox.addComponent(layoutDrug_rightBox);
@@ -158,27 +149,30 @@ public class DrugWrapper extends CustomComponent {
 				if (event.isDoubleClick()) {
 					layoutDrug_leftBox.setEnabled(true);
 					layoutDrug_rightBox.setEnabled(true);
-					CrossButton.setVisible(false);
-					SaveButton.setVisible(true);
+					crossButton.setVisible(false);
+					saveButton.setVisible(true);
 				}
 			}
 		});
 
-		SaveButton.addClickListener(new ClickListener() {
+		saveButton.addClickListener(new ClickListener() {
 			public void buttonClick(ClickEvent event) {
 				layoutDrug_leftBox.setEnabled(false);
 				layoutDrug_rightBox.setEnabled(false);
-				SaveButton.setVisible(false);
-				Medicament medicament = new Medicament(DrugName.getValue(),
-						Integer.parseInt(TextField_Morning.getValue()), Integer.parseInt(TextField_Noon.getValue()),
-						Integer.parseInt(TextField_Evening.getValue()), Integer.parseInt(TextField_Night.getValue()),
-						Integer.parseInt(Intervall.getValue()), StartDate.getValue(), EndDate.getValue(), new Date(),
+				saveButton.setVisible(false);
+				Medicament medicament = new Medicament(drugName.getValue(),
+						(ComboBox) comboBox_Intervall.getValue(), startDate
+								.getValue(), endDate.getValue(), new Date(),
 						new Date());
 				uc.saveMedicament(medicament);
 			}
 		});
 
 	}
+
+	// ---------------------------------------------------------------------//
+	// --------------------DRUGWRAPPER-GETTER-SECTION-----------------------//
+	// ---------------------------------------------------------------------//
 
 	public HorizontalLayout getLayoutDrugBox() {
 		return layoutDrugBox;
@@ -193,48 +187,35 @@ public class DrugWrapper extends CustomComponent {
 	}
 
 	public Button getSaveButton() {
-		return SaveButton;
+		return saveButton;
 	}
 
 	public Button getCrossButton() {
-		return CrossButton;
+		return crossButton;
 	}
 
 	public void addCrossButton() {
-		CrossButton.setVisible(true);
+		crossButton.setVisible(true);
 	}
 
-	// Setters for Medicament Fields
+	// ---------------------------------------------------------------------//
+	// --------------------DRUGWRAPPER-SETTER-SECTION-----------------------//
+	// ---------------------------------------------------------------------//
+
 	public void setDrugName(String drugName) {
-		DrugName.setValue(drugName);
-	}
-
-	public void setTextField_Morning(String textField_Morning) {
-		TextField_Morning.setValue(textField_Morning);
-	}
-
-	public void setTextField_Noon(String textField_Noon) {
-		TextField_Noon.setValue(textField_Noon);
-	}
-
-	public void setTextField_Evening(String textField_Evening) {
-		TextField_Evening.setValue(textField_Evening);
-	}
-
-	public void setTextField_Night(String textField_Night) {
-		TextField_Night.setValue(textField_Night);
+		this.drugName.setValue(drugName);
 	}
 
 	public void setIntervall(String intervall) {
-		Intervall.setValue(intervall);
+		this.intervall.setValue(intervall);
 	}
 
 	public void setStartDate(Date startDate) {
-		StartDate.setValue(startDate);
+		this.startDate.setValue(startDate);
 	}
 
 	public void setEndDate(Date endDate) {
-		EndDate.setValue(endDate);
+		this.endDate.setValue(endDate);
 	}
 
 }
