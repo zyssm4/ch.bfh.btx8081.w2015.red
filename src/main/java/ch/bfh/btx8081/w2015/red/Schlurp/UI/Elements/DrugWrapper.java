@@ -13,6 +13,7 @@ import com.vaadin.ui.CustomComponent;
 import com.vaadin.ui.DateField;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
+import com.vaadin.ui.NativeSelect;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.VerticalLayout;
 
@@ -61,7 +62,7 @@ public class DrugWrapper extends CustomComponent {
 	private Button crossButton = null;
 
 	// create ComboBox
-	private ComboBox comboBox_Intervall = null;
+	private NativeSelect nativSelect_Intervall = null;
 
 	public DrugWrapper() {
 
@@ -84,8 +85,11 @@ public class DrugWrapper extends CustomComponent {
 		saveButton = new Button();
 		crossButton = new Button();
 		intervall = new TextField();
-		comboBox_Intervall = new ComboBox();
+		nativSelect_Intervall = new NativeSelect("Intervall");
 
+		//set NativSelect
+		nativSelect_Intervall.addItems("6 Std", "12 Std", "24 Std", "48 Std");
+		
 		// set Boxes
 		drugName.setCaption("Enter drug name");
 		label_DrugTimeTakeSplitter_Morning_Noon.setValue("-");
@@ -128,13 +132,13 @@ public class DrugWrapper extends CustomComponent {
 		crossButton.setVisible(false);
 
 		// Add Components
-
+		
 		layoutDrug_leftBox.addComponent(drugName);
-		layoutDrug_leftBox.addComponent(intervall);
+		layoutDrug_leftBox.addComponent(nativSelect_Intervall);
 		layoutDrug_leftBox.addComponent(saveButton);
 		layoutDrug_leftBox.addComponent(crossButton);
 
-		layoutDrug_rightBox.addComponent(comboBox_Intervall);
+		layoutDrug_rightBox.addComponent(nativSelect_Intervall);
 		layoutDrug_rightBox.addComponent(startDate);
 		layoutDrug_rightBox.addComponent(endDate);
 
@@ -161,9 +165,8 @@ public class DrugWrapper extends CustomComponent {
 				layoutDrug_rightBox.setEnabled(false);
 				saveButton.setVisible(false);
 				Medicament medicament = new Medicament(drugName.getValue(),
-						(ComboBox) comboBox_Intervall.getValue(), startDate
-								.getValue(), endDate.getValue(), new Date(),
-						new Date());
+						nativSelect_Intervall.getItem(1).toString(), startDate
+								.getValue(), endDate.getValue());
 				uc.saveMedicament(medicament);
 			}
 		});

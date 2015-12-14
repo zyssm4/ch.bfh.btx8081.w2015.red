@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.concurrent.atomic.AtomicLong;
 
 import com.vaadin.ui.ComboBox;
+import com.vaadin.ui.NativeSelect;
 
 import ch.bfh.btx8081.w2015.red.Schlurp.mediplan.StatePattern.*;
 
@@ -25,7 +26,7 @@ public class Medicament {
 	// Actual ID of the Medicament
 	private long mediID;
 	private String name;
-	private ComboBox interval;
+	private String interval;
 	private Date start;
 	private Date end;
 	private DrugState actState = new Upcoming(this);
@@ -48,16 +49,12 @@ public class Medicament {
 	 * @param start
 	 * @param end
 	 */
-	public Medicament(String name, ComboBox interval, Date start, Date end, Date taken,
-			Date toTake) {
-
+	public Medicament(String name, String Intervall, Date start, Date end) {
 		mediID = getIdToSet();
 		this.name = name;
-		this.interval = interval;
+		this.interval = Intervall;
 		this.start = start;
 		this.end = end;
-		this.taken = taken;
-		this.toTake = toTake;
 
 	}
 
@@ -94,7 +91,7 @@ public class Medicament {
 	/**
 	 * @return the interval
 	 */
-	public ComboBox getInterval() {
+	public String getInterval() {
 		return interval;
 	}
 
@@ -102,7 +99,7 @@ public class Medicament {
 	 * @param interval
 	 *            the interval to set
 	 */
-	public void setInterval(ComboBox interval) {
+	public void setInterval(String interval) {
 		this.interval = interval;
 	}
 

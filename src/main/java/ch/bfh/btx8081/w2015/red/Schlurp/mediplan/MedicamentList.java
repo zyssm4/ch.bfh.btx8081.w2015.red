@@ -28,7 +28,8 @@ public class MedicamentList {
 	 * 
 	 * 
 	 */
-	public static ArrayList<Medicament> readInformationsFromMediplan(String inputFileName) {
+	public static ArrayList<Medicament> readInformationsFromMediplan(
+			String inputFileName) {
 
 		Scanner input = null;
 		String delimiter = ";";
@@ -61,11 +62,9 @@ public class MedicamentList {
 				splittedData[i] = splittedData[i].trim();
 			}
 			try {
-				mediListsOne.add(new Medicament(splittedData[0], Integer.parseInt(splittedData[1]),
-						Integer.parseInt(splittedData[2]), Integer.parseInt(splittedData[3]),
-						Integer.parseInt(splittedData[4]), Integer.parseInt(splittedData[5]),
-						format.parse(splittedData[6]), format.parse(splittedData[7]), format.parse(splittedData[8]),
-						format.parse(splittedData[9])));
+				mediListsOne.add(new Medicament(splittedData[0],
+						splittedData[1], format.parse(splittedData[2]), format
+								.parse(splittedData[3])));
 			} catch (NumberFormatException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -87,7 +86,8 @@ public class MedicamentList {
 	 * @param outputfileName
 	 *            the name of the file which will be (over)written
 	 */
-	public static void writeMediToMediplan(ArrayList<Medicament> medi, String outputfileName) {
+	public static void writeMediToMediplan(ArrayList<Medicament> medi,
+			String outputfileName) {
 
 		PrintWriter out = null;
 		try {
@@ -106,18 +106,21 @@ public class MedicamentList {
 		String delimiter = ";";
 		for (int i = 0; i < medi.size(); i++) {
 			for (int a = 0; a < NUMBEROFENTRIES; a++) {
-				out.format(medi.get(i).getName() + delimiter + " " + medi.get(i).getDoseMorning() + delimiter + " "
-						+ medi.get(i).getDoseMidday() + delimiter + " " + medi.get(i).getDoseEvening() + delimiter + " "
-						+ medi.get(i).getDoseNight() + delimiter + " " + medi.get(i).getInterval() + delimiter + " "
-						+ format.format(medi.get(i).getStart()) + delimiter + " " + format.format(medi.get(i).getEnd())
-						+ delimiter + " " + format.format(medi.get(i).getTaken()) + delimiter + " "
-						+ format.format(medi.get(i).getToTake()) + delimiter + "%n");
+				out.format(medi.get(i).getName() + delimiter + " "
+						+ medi.get(i).getInterval() + delimiter + " "
+						+ format.format(medi.get(i).getStart()) + delimiter
+						+ " " + format.format(medi.get(i).getEnd()) + delimiter
+						+ " " + format.format(medi.get(i).getTaken())
+						+ delimiter + " "
+						+ format.format(medi.get(i).getToTake()) + delimiter
+						+ "%n");
 			}
 		}
 		out.close();
 	}
 
-	public static ArrayList<Medicament> exists(Medicament medi, ArrayList<Medicament> mediList) {
+	public static ArrayList<Medicament> exists(Medicament medi,
+			ArrayList<Medicament> mediList) {
 		Medicament newMedi = medi;
 		ArrayList<Medicament> newMediList = mediList;
 		for (int i = 0; i < mediList.size(); i++) {
