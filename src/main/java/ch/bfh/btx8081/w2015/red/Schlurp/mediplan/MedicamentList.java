@@ -7,15 +7,14 @@ import java.io.UnsupportedEncodingException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Scanner;
-
 
 public class MedicamentList {
 	private ArrayList<Medicament> medicaments = new ArrayList<Medicament>();
 	static SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+	final static int NUMBEROFENTRIES = 4;
 
-	public MedicamentList(ArrayList<Medicament> medicaments){
+	public MedicamentList(ArrayList<Medicament> medicaments) {
 		this.medicaments = medicaments;
 	}
 
@@ -34,27 +33,12 @@ public class MedicamentList {
 		Scanner input = null;
 		String delimiter = ";";
 		ArrayList<Medicament> mediList = new ArrayList<Medicament>();
-		
+
 		try {
 			input = new Scanner(new File(inputFileName), "UTF-16");
 		} catch (FileNotFoundException e) {
 			try {
 				PrintWriter out = new PrintWriter(inputFileName, "UTF-16");
-				/*
-				Date dummy = new Date(01 - 01 - 1900);
-				for (int i = 0; i < 5; i++) {
-					
-					mediList.add(new Medicament("", 0, 0, 0, 0, 0, null, null, null, null));
-				}
-				for (int i = 0; i < mediList.size(); i++) {
-					out.format(mediList.get(i).getName() + delimiter + " " + mediList.get(i).getDoseMorning() + delimiter + " "
-							+ mediList.get(i).getDoseMidday() + delimiter + " " + mediList.get(i).getDoseEvening() + delimiter
-							+ " " + mediList.get(i).getDoseNight() + delimiter + " " + mediList.get(i).getInterval() + delimiter
-							+ " " + format.format(mediList.get(i).getStart()) + delimiter + " "
-							+ format.format(mediList.get(i).getEnd()) + delimiter + " "
-							+ format.format(mediList.get(i).getTaken()) + delimiter + " "
-							+ format.format(mediList.get(i).getToTake()) + delimiter + "%n");
-				}*/
 				out.close();
 				input = new Scanner(new File(inputFileName), "UTF-16");
 			} catch (FileNotFoundException e1) {
@@ -66,9 +50,12 @@ public class MedicamentList {
 			}
 		}
 		ArrayList<Medicament> mediListsOne = new ArrayList<Medicament>();
-		
+
 		while (input.hasNextLine()) {
-			String data = input.nextLine();
+			String data = null;
+			for (int i = 0; i < NUMBEROFENTRIES; i++) {
+				data = input.nextLine();
+			}
 			String[] splittedData = data.split(delimiter);
 			for (int i = 0; i < splittedData.length; i++) {
 				splittedData[i] = splittedData[i].trim();
@@ -92,7 +79,6 @@ public class MedicamentList {
 		return mediListsOne;
 	}
 
-	
 	/**
 	 * Writes the data of the infopage to a defined Textfile
 	 * 
@@ -106,6 +92,9 @@ public class MedicamentList {
 		PrintWriter out = null;
 		try {
 			out = new PrintWriter(outputfileName, "UTF-16");
+			// Emties the File, the file will be generated with the content of
+			// medi
+			out.flush();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -116,7 +105,7 @@ public class MedicamentList {
 
 		String delimiter = ";";
 		for (int i = 0; i < medi.size(); i++) {
-			for (int a = 0; a < 5; a++) {
+			for (int a = 0; a < NUMBEROFENTRIES; a++) {
 				out.format(medi.get(i).getName() + delimiter + " " + medi.get(i).getDoseMorning() + delimiter + " "
 						+ medi.get(i).getDoseMidday() + delimiter + " " + medi.get(i).getDoseEvening() + delimiter + " "
 						+ medi.get(i).getDoseNight() + delimiter + " " + medi.get(i).getInterval() + delimiter + " "
@@ -126,6 +115,19 @@ public class MedicamentList {
 			}
 		}
 		out.close();
+	}
+
+	public static ArrayList<Medicament> exists(Medicament medi, ArrayList<Medicament> mediList) {
+		Medicament newMedi = medi;
+		ArrayList<Medicament> newMediList = mediList;
+		for (int i = 0; i < mediList.size(); i++) {
+			if (mediList.get(i).getMediID() == newMedi.getMediID()) {
+				newMediList.remove(i);
+				break;
+			}
+		}
+
+		return newMediList;
 	}
 
 	@Override

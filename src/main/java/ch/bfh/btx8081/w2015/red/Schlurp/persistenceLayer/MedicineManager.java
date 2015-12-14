@@ -24,10 +24,10 @@ public class MedicineManager {
 		return mc;
 	}
 
-	public void addMedicament(Medicament medi) {
+	/*public void addMedicament(Medicament medi) {
 		MediList.add(medi);
 		MedicamentList.writeMediToMediplan(MediList, (user + FILENAMEPART + FILETYPE));
-	}
+	}*/
 
 	public void removeMedicament(Medicament medi) {
 		MediList.remove(medi);
@@ -36,8 +36,12 @@ public class MedicineManager {
 	public ArrayList<Medicament> getMediList() {
 		return MediList;
 	}
+	public void setMediList(ArrayList<Medicament> mediList){
+		this.MediList = mediList;
+	}
 
 	public void saveMedicament(String user, Medicament medi) {
+		setMediList(MedicamentList.exists(medi, getMediList()));
 		MediList.add(medi);
 		MedicamentList.writeMediToMediplan(MediList, (user + FILENAMEPART + FILETYPE));
 	}
