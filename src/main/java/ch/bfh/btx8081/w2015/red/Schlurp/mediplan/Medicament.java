@@ -5,6 +5,7 @@ package ch.bfh.btx8081.w2015.red.Schlurp.mediplan;
 
 import java.util.Arrays;
 import java.util.Date;
+import java.util.concurrent.atomic.AtomicLong;
 
 import ch.bfh.btx8081.w2015.red.Schlurp.mediplan.StatePattern.*;
 
@@ -14,7 +15,9 @@ import ch.bfh.btx8081.w2015.red.Schlurp.mediplan.StatePattern.*;
  *
  */
 public class Medicament {
-
+	
+	static final AtomicLong NEXT_ID = new AtomicLong(0);
+    final long id = NEXT_ID.getAndIncrement();
 	private String name;
 	private int[] dose = new int[4];
 	private int interval;
@@ -46,6 +49,8 @@ public class Medicament {
 	 */
 	public Medicament(String name, int dose1, int dose2, int dose3, int dose4, int interval, Date start, Date end,
 			Date taken, Date toTake) {
+		
+		getId();
 		this.name = name;
 		dose[0] = dose1;
 		dose[1] = dose2;
@@ -62,7 +67,9 @@ public class Medicament {
 	// ---------------------------------------------------------------//
 	// --------------------START-GETTER-SECTION-----------------------//
 	// ---------------------------------------------------------------//
-
+    public long getId() {
+        return id;
+   }
 	/**
 	 * @return the name
 	 */
