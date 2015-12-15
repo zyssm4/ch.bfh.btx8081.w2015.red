@@ -1,3 +1,4 @@
+
 package ch.bfh.btx8081.w2015.red.Schlurp.mediplan;
 
 import java.io.File;
@@ -51,7 +52,7 @@ public class DailyMedicamentList {
 
 		ArrayList<Medicament> mediList = null;
 
-		while (input.hasNextLine()) {
+		/*while (input.hasNextLine()) {
 			for (int b = 0; b < 5; b++) {
 				int line = b;
 				String data = input.nextLine();
@@ -59,7 +60,7 @@ public class DailyMedicamentList {
 				for (int i = 0; i < splittedData.length; i++) {
 					splittedData[i] = splittedData[i].trim();
 				}
-				try {
+		try {
 					mediList.add(new Medicament(splittedData[0], Integer.parseInt(splittedData[1]),
 							Integer.parseInt(splittedData[2]), Integer.parseInt(splittedData[3]),
 							Integer.parseInt(splittedData[4]), Integer.parseInt(splittedData[5]),
@@ -73,7 +74,7 @@ public class DailyMedicamentList {
 					e.printStackTrace();
 				}
 			}
-		}
+		}*/
 
 		input.close();
 		return mediList;
@@ -102,7 +103,7 @@ public class DailyMedicamentList {
 		}
 
 		String delimiter = ";";
-		for (int i = 0; i < medi.size(); i++) {
+	/*	for (int i = 0; i < medi.size(); i++) {
 			for (int a = 0; a < 5; a++) {
 				out.format(medi.get(i).getName() + delimiter + " " + medi.get(i).getDoseMorning() + delimiter + " "
 						+ medi.get(i).getDoseMidday() + delimiter + " " + medi.get(i).getDoseEvening() + delimiter + " "
@@ -111,8 +112,9 @@ public class DailyMedicamentList {
 						+ delimiter + " " + format.format(medi.get(i).getTaken()) + delimiter + " "
 						+ format.format(medi.get(i).getToTake()) + delimiter + "%n");
 			}
-		}
+		}*/
 		out.close();
+		
 	}
 
 	@Override
