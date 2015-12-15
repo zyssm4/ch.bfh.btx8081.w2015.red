@@ -28,8 +28,7 @@ public class MedicamentList {
 	 * 
 	 * 
 	 */
-	public static ArrayList<Medicament> readInformationsFromMediplan(
-			String inputFileName) {
+	public static ArrayList<Medicament> readInformationsFromMediplan(String inputFileName) {
 
 		Scanner input = null;
 		String delimiter = ";";
@@ -62,9 +61,8 @@ public class MedicamentList {
 				splittedData[i] = splittedData[i].trim();
 			}
 			try {
-				mediListsOne.add(new Medicament(splittedData[0],
-						splittedData[1], format.parse(splittedData[2]), format
-								.parse(splittedData[3])));
+				mediListsOne.add(new Medicament(splittedData[0], splittedData[1], format.parse(splittedData[2]),
+						format.parse(splittedData[3])));
 			} catch (NumberFormatException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -86,8 +84,7 @@ public class MedicamentList {
 	 * @param outputfileName
 	 *            the name of the file which will be (over)written
 	 */
-	public static void writeMediToMediplan(ArrayList<Medicament> medi,
-			String outputfileName) {
+	public static void writeMediToMediplan(ArrayList<Medicament> medi, String outputfileName) {
 
 		PrintWriter out = null;
 		try {
@@ -106,25 +103,20 @@ public class MedicamentList {
 		String delimiter = ";";
 		for (int i = 0; i < medi.size(); i++) {
 			for (int a = 0; a < NUMBEROFENTRIES; a++) {
-				out.format(medi.get(i).getName() + delimiter + " "
-						+ medi.get(i).getInterval() + delimiter + " "
-						+ format.format(medi.get(i).getStart()) + delimiter
-						+ " " + format.format(medi.get(i).getEnd()) + delimiter
-						+ " " + format.format(medi.get(i).getTaken())
-						+ delimiter + " "
-						+ format.format(medi.get(i).getToTake()) + delimiter
+				out.format(medi.get(i).getName() + delimiter + " " + medi.get(i).getInterval() + delimiter + " "
+						+ format.format(medi.get(i).getStart()) + delimiter + " " + format.format(medi.get(i).getEnd())
 						+ "%n");
 			}
 		}
 		out.close();
 	}
 
-	public static ArrayList<Medicament> exists(Medicament medi,
-			ArrayList<Medicament> mediList) {
+	public static ArrayList<Medicament> exists(Medicament medi, ArrayList<Medicament> mediList) {
 		Medicament newMedi = medi;
 		ArrayList<Medicament> newMediList = mediList;
 		for (int i = 0; i < mediList.size(); i++) {
-			if (mediList.get(i).getMediID() == newMedi.getMediID()) {
+			// returns true if they have the same UUID value
+			if (mediList.get(i).getMediID().equals(newMedi.getMediID())) {
 				newMediList.remove(i);
 				break;
 			}

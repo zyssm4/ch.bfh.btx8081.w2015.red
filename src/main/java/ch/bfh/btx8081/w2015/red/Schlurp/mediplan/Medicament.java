@@ -3,12 +3,8 @@
  */
 package ch.bfh.btx8081.w2015.red.Schlurp.mediplan;
 
-import java.util.Arrays;
 import java.util.Date;
-import java.util.concurrent.atomic.AtomicLong;
-
-import com.vaadin.ui.ComboBox;
-import com.vaadin.ui.NativeSelect;
+import java.util.UUID;
 
 import ch.bfh.btx8081.w2015.red.Schlurp.mediplan.StatePattern.*;
 
@@ -19,12 +15,7 @@ import ch.bfh.btx8081.w2015.red.Schlurp.mediplan.StatePattern.*;
  */
 public class Medicament {
 
-	static final AtomicLong NEXT_ID = new AtomicLong(0);
-	// ID for the next Medicament, if retrieved via getIdToSet it gets
-	// incremented by one
-	final long idToSet = NEXT_ID.getAndIncrement();
-	// Actual ID of the Medicament
-	private long mediID;
+	private UUID mediID;
 	private String name;
 	private String interval;
 	private Date start;
@@ -50,7 +41,7 @@ public class Medicament {
 	 * @param end
 	 */
 	public Medicament(String name, String Intervall, Date start, Date end) {
-		mediID = getIdToSet();
+		mediID = mediID.randomUUID();
 		this.name = name;
 		this.interval = Intervall;
 		this.start = start;
@@ -61,11 +52,8 @@ public class Medicament {
 	// ---------------------------------------------------------------//
 	// --------------------START-GETTER-SECTION-----------------------//
 	// ---------------------------------------------------------------//
-	public long getIdToSet() {
-		return idToSet;
-	}
 
-	public long getMediID() {
+	public UUID getMediID() {
 		return mediID;
 	}
 
@@ -83,10 +71,6 @@ public class Medicament {
 	public void setName(String name) {
 		this.name = name;
 	}
-
-	// ---------------------------------------------------------------//
-	// --------------------START-SETTER-SECTION-----------------------//
-	// ---------------------------------------------------------------//
 
 	/**
 	 * @return the interval
@@ -175,9 +159,8 @@ public class Medicament {
 
 	@Override
 	public String toString() {
-		return "Medicament [name=" + name + ", interval=" + interval
-				+ ", start=" + start + ", end=" + end + ", actState="
-				+ actState + ", taken=" + taken + ", toTake=" + toTake + "]";
+		return "Medicament [name=" + name + ", interval=" + interval + ", start=" + start + ", end=" + end
+				+ ", actState=" + actState + ", taken=" + taken + ", toTake=" + toTake + "]";
 	}
 
 }

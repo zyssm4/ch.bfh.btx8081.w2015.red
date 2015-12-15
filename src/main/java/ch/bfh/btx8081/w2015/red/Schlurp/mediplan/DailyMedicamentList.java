@@ -10,13 +10,12 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import com.vaadin.ui.Notification;
 
 public class DailyMedicamentList {
 	private ArrayList<Medicament> medicaments = new ArrayList<Medicament>();
 	static SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
 
-	public DailyMedicamentList(ArrayList<Medicament> medicaments){
+	public DailyMedicamentList(ArrayList<Medicament> medicaments) {
 		this.medicaments = medicaments;
 	}
 
@@ -37,10 +36,10 @@ public class DailyMedicamentList {
 		try {
 			input = new Scanner(new File(inputFileName), "UTF-16");
 		} catch (FileNotFoundException e) {
-			try{
-			PrintWriter out = new PrintWriter(inputFileName, "UTF-16");
-			out.close();
-			input = new Scanner(new File(inputFileName), "UTF-16");
+			try {
+				PrintWriter out = new PrintWriter(inputFileName, "UTF-16");
+				out.close();
+				input = new Scanner(new File(inputFileName), "UTF-16");
 			} catch (FileNotFoundException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
@@ -61,11 +60,8 @@ public class DailyMedicamentList {
 					splittedData[i] = splittedData[i].trim();
 				}
 		try {
-					mediList.add(new Medicament(splittedData[0], Integer.parseInt(splittedData[1]),
-							Integer.parseInt(splittedData[2]), Integer.parseInt(splittedData[3]),
-							Integer.parseInt(splittedData[4]), Integer.parseInt(splittedData[5]),
-							format.parse(splittedData[6]), format.parse(splittedData[7]), format.parse(splittedData[8]),
-							format.parse(splittedData[9])));
+					mediList.add(new Medicament(splittedData[0], splittedData[1], format.parse(splittedData[3]),
+							format.parse(splittedData[4])));
 				} catch (NumberFormatException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -79,7 +75,6 @@ public class DailyMedicamentList {
 		input.close();
 		return mediList;
 	}
-
 
 	/**
 	 * Writes the data of the infopage to a defined Textfile
@@ -105,12 +100,9 @@ public class DailyMedicamentList {
 		String delimiter = ";";
 	/*	for (int i = 0; i < medi.size(); i++) {
 			for (int a = 0; a < 5; a++) {
-				out.format(medi.get(i).getName() + delimiter + " " + medi.get(i).getDoseMorning() + delimiter + " "
-						+ medi.get(i).getDoseMidday() + delimiter + " " + medi.get(i).getDoseEvening() + delimiter + " "
-						+ medi.get(i).getDoseNight() + delimiter + " " + medi.get(i).getInterval() + delimiter + " "
+				out.format(medi.get(i).getName() + delimiter + " " + medi.get(i).getInterval() + delimiter + " "
 						+ format.format(medi.get(i).getStart()) + delimiter + " " + format.format(medi.get(i).getEnd())
-						+ delimiter + " " + format.format(medi.get(i).getTaken()) + delimiter + " "
-						+ format.format(medi.get(i).getToTake()) + delimiter + "%n");
+						+ "%n");
 			}
 		}*/
 		out.close();
