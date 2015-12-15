@@ -92,6 +92,9 @@ public class MedicationView extends VerticalLayout implements View {
 		drugTakeWrapper.setStyleName(m1.getState().getStyle());
 			
 
+		//-----------------------------------------------//
+		//--------END  Medicament State Dummie Data -----//
+		//----------------------------------------------//
 
 		Panel panel = new Panel();
 		panel.setContent(drugBox);
