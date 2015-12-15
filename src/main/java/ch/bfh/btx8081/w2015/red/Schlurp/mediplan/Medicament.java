@@ -46,6 +46,7 @@ public class Medicament {
 		this.interval = Intervall;
 		this.start = start;
 		this.end = end;
+		this.toTake = start;
 
 	}
 
