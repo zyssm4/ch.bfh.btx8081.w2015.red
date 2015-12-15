@@ -1,5 +1,7 @@
 package ch.bfh.btx8081.w2015.red.Schlurp.mediplan.StatePattern;
 
+import java.util.Date;
+
 import ch.bfh.btx8081.w2015.red.Schlurp.mediplan.Medicament;
 
 public class Upcoming extends DrugState {
@@ -16,15 +18,16 @@ public class Upcoming extends DrugState {
 	}
 	
 	public void switchState(){
-
+		
 		actMedi.setState(new Taken(actMedi));
+		
 		
 	}
 	public void checkTime(){
-		//if(this.getSystemTime().after(actMedi.getStart())){
+		Date date = new Date();
+		if(actMedi.getToTake().before(date)){
 			actMedi.setState(new Expired(actMedi));
-		//}
+		}
 
 	}
-	
 }

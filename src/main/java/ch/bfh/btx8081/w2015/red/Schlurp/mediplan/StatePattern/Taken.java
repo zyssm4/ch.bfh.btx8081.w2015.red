@@ -16,6 +16,7 @@ public class Taken extends DrugState {
 
 	public void switchState() {
 		actMedi.setState(new Upcoming(actMedi));
+		actMedi.checkTime();
 
 	}
 

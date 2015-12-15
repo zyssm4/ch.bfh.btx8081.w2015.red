@@ -1,5 +1,9 @@
 package ch.bfh.btx8081.w2015.red.Schlurp.UI.Views;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
 import ch.bfh.btx8081.w2015.red.Schlurp.MyUI;
 import ch.bfh.btx8081.w2015.red.Schlurp.UI.Elements.DrugTakeWrapper;
 import ch.bfh.btx8081.w2015.red.Schlurp.UI.Elements.DrugWrapper;
@@ -45,8 +49,17 @@ public class MedicationView extends VerticalLayout implements View {
 		drugTakeWrapper = new DrugTakeWrapper();
 		HorizontalLayout layoutDrugWrapper = drugTakeWrapper
 				.getDrugTakeLayout();
-		Medicament m1 = new Medicament("Tafalgan", null, null, null);
+		
+		//-----------------------------------------------//
+		//-------- Medicament State Dummie Data ---------//
+		//----------------------------------------------//
+		Calendar date1 = new GregorianCalendar(2015, Calendar.DECEMBER, 20);
+		Calendar date2 = new GregorianCalendar(2015, Calendar.DECEMBER, 13);
+		Calendar date3 = new GregorianCalendar(2015, Calendar.DECEMBER, 20);
+		
+		Medicament m1 = new Medicament("Tafalgan", "10", date1.getTime(),new Date());
 		drugTakeWrapper.setMedicament(m1);
+		drugTakeWrapper.getMedicament().getState().checkTime();
 		drugTakeWrapper.setStyleName();
 		drugTakeWrapper.setName();
 		
@@ -57,10 +70,10 @@ public class MedicationView extends VerticalLayout implements View {
 				.getDrugTakeLayout();
 		drugTakeWrapper.setStyleName("taken");
 
-		Medicament m2 = new Medicament("Naloxon",null, null, null);
+		Medicament m2 = new Medicament("Naloxon","2", date2.getTime(),new Date());
 		drugTakeWrapper.setMedicament(m2);
+		drugTakeWrapper.getMedicament().getState().checkTime();
 		drugTakeWrapper.setName();
-		drugTakeWrapper.getMedicament().getState().switchState();
 		drugTakeWrapper.setStyleName();
 		
 		drugBox.addComponent(layoutDrugWrapper);
@@ -70,10 +83,10 @@ public class MedicationView extends VerticalLayout implements View {
 		drugTakeWrapper.setStyleName("expired");
 		drugBox.addComponent(layoutDrugWrapper);
 		
-		Medicament m3 = new Medicament("Zelboraf", null, null, null);
+		Medicament m3 = new Medicament("Zelboraf", "10", date3.getTime(),new Date());
 		drugTakeWrapper.setMedicament(m3);
-		drugTakeWrapper.setName();
 		drugTakeWrapper.getMedicament().getState().checkTime();
+		drugTakeWrapper.setName();
 		drugTakeWrapper.setStyleName();
 		
 		drugTakeWrapper.setStyleName(m1.getState().getStyle());
