@@ -30,87 +30,75 @@ public class MedicationView extends VerticalLayout implements View {
 		setSizeFull();
 
 		Wrapper wrapper = new Wrapper();
-	
+
 		final VerticalLayout layout = wrapper.getLayout();
 		final HorizontalLayout header = wrapper.getHeader();
 		final HorizontalLayout body = wrapper.getBody();
 		final HorizontalLayout footer = wrapper.getFooter();
-		
-		
+
 		wrapper.setLabel("Medication");
 		VerticalLayout drugBox = new VerticalLayout();
-	
-			
+
 		wrapper.getButton().setCaption("Logout");
 		wrapper.getButton().addClickListener(logOut());
 		wrapper.getSwitchButton().setVisible(true);
 		wrapper.getSwitchButton().setCaption("MediList");
-		
+
 		drugTakeWrapper = new DrugTakeWrapper();
-		HorizontalLayout layoutDrugWrapper = drugTakeWrapper
-				.getDrugTakeLayout();
-		
-		//-----------------------------------------------//
-		//-------- Medicament State Dummie Data ---------//
-		//----------------------------------------------//
+		HorizontalLayout layoutDrugWrapper = drugTakeWrapper.getDrugTakeLayout();
+
+		// -----------------------------------------------//
+		// -------- Medicament State Dummie Data ---------//
+		// ----------------------------------------------//
 		Calendar date1 = new GregorianCalendar(2015, Calendar.DECEMBER, 20);
 		Calendar date2 = new GregorianCalendar(2015, Calendar.DECEMBER, 13);
 		Calendar date3 = new GregorianCalendar(2015, Calendar.DECEMBER, 20);
-		
-		Medicament m1 = new Medicament("Tafalgan","1", "10", date1.getTime(),new Date());
+
+		Medicament m1 = new Medicament("Tafalgan", "1", "10", date1.getTime(), new Date());
 		drugTakeWrapper.setMedicament(m1);
 		drugTakeWrapper.getMedicament().getState().checkTime();
-		//drugTakeWrapper.setStyleName();
+		drugTakeWrapper.setStateStyleName();
 		drugTakeWrapper.setName();
-		
-		
+
 		drugBox.addComponent(layoutDrugWrapper);
 		drugTakeWrapper = new DrugTakeWrapper();
-		layoutDrugWrapper = drugTakeWrapper
-				.getDrugTakeLayout();
+		layoutDrugWrapper = drugTakeWrapper.getDrugTakeLayout();
 		drugTakeWrapper.setStyleName("taken");
 
-		Medicament m2 = new Medicament("Naloxon","3","2", date2.getTime(),new Date());
+		Medicament m2 = new Medicament("Naloxon", "3", "2", date2.getTime(), new Date());
 		drugTakeWrapper.setMedicament(m2);
 		drugTakeWrapper.getMedicament().getState().checkTime();
 		drugTakeWrapper.setName();
-		//drugTakeWrapper.setStyleName();
-		
+		drugTakeWrapper.setStateStyleName();
+
 		drugBox.addComponent(layoutDrugWrapper);
 		drugTakeWrapper = new DrugTakeWrapper();
-		layoutDrugWrapper = drugTakeWrapper
-				.getDrugTakeLayout();
+		layoutDrugWrapper = drugTakeWrapper.getDrugTakeLayout();
 		drugTakeWrapper.setStyleName("expired");
 		drugBox.addComponent(layoutDrugWrapper);
-		
-		Medicament m3 = new Medicament("Zelboraf","3", "10", date3.getTime(),new Date());
+
+		Medicament m3 = new Medicament("Zelboraf", "3", "10", date3.getTime(), new Date());
 		drugTakeWrapper.setMedicament(m3);
 		drugTakeWrapper.getMedicament().getState().checkTime();
 		drugTakeWrapper.setName();
-		//drugTakeWrapper.setStyleName();
-		
+		drugTakeWrapper.setStateStyleName();
 		drugTakeWrapper.setStyleName(m1.getState().getStyle());
-			
 
-		//-----------------------------------------------//
-		//--------END  Medicament State Dummie Data -----//
-		//----------------------------------------------//
+		// -----------------------------------------------//
+		// --------END Medicament State Dummie Data -----//
+		// ----------------------------------------------//
 
 		Panel panel = new Panel();
 		panel.setContent(drugBox);
-		panel.setHeight("543");		
+		panel.setHeight("543");
 		body.addComponent(panel);
 		layout.addComponent(header);
 		layout.addComponent(body);
 		layout.addComponent(footer);
-		
+
 		addComponent(layout);
 		layout.setMargin(false);
-		
 
-		
-		
-		
 		wrapper.getSwitchButton().addClickListener(new ClickListener() {
 			public void buttonClick(ClickEvent event) {
 				getUI().getNavigator().navigateTo(MyUI.MEDICATIONLISTVIEW);
