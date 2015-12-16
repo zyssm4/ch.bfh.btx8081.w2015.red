@@ -21,7 +21,15 @@ import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Panel;
 import com.vaadin.ui.Tree;
 import com.vaadin.ui.VerticalLayout;
-
+/**
+ * Creates the view for the medicament.
+ * It displays a list with the drugs of the day. 
+ * It checks the state of every drug, if it is taken or it has to take.
+ * 
+ * @author team red
+ * @version V16.12.2015
+ *
+ */
 @SuppressWarnings("serial")
 public class MedicationView extends VerticalLayout implements View {
 	DrugTakeWrapper drugTakeWrapper = null;
