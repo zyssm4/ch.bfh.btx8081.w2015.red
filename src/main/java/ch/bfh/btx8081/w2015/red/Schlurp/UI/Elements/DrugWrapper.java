@@ -165,7 +165,7 @@ public class DrugWrapper extends CustomComponent {
 				layoutDrug_rightBox.setEnabled(false);
 				saveButton.setVisible(false);
 				Medicament medicament = new Medicament(drugName.getValue(),
-						nativSelect_Intervall.getItem(1).toString(), startDate
+						nativSelect_Intervall.getValue().toString(), startDate
 								.getValue(), endDate.getValue());
 				uc.saveMedicament(medicament);
 			}
@@ -220,5 +220,10 @@ public class DrugWrapper extends CustomComponent {
 	public void setEndDate(Date endDate) {
 		this.endDate.setValue(endDate);
 	}
+
+	public void setNativSelect_Intervall(NativeSelect nativSelect_Intervall) {
+		this.nativSelect_Intervall = nativSelect_Intervall;
+	}
+	
 
 }
