@@ -57,10 +57,10 @@ public class MedicationView extends VerticalLayout implements View {
 		Calendar date2 = new GregorianCalendar(2015, Calendar.DECEMBER, 13);
 		Calendar date3 = new GregorianCalendar(2015, Calendar.DECEMBER, 20);
 		
-		Medicament m1 = new Medicament("Tafalgan", "10", date1.getTime(),new Date());
+		Medicament m1 = new Medicament("Tafalgan","1", "10", date1.getTime(),new Date());
 		drugTakeWrapper.setMedicament(m1);
 		drugTakeWrapper.getMedicament().getState().checkTime();
-		drugTakeWrapper.setStyleName();
+		//drugTakeWrapper.setStyleName();
 		drugTakeWrapper.setName();
 		
 		
@@ -70,11 +70,11 @@ public class MedicationView extends VerticalLayout implements View {
 				.getDrugTakeLayout();
 		drugTakeWrapper.setStyleName("taken");
 
-		Medicament m2 = new Medicament("Naloxon","2", date2.getTime(),new Date());
+		Medicament m2 = new Medicament("Naloxon","3","2", date2.getTime(),new Date());
 		drugTakeWrapper.setMedicament(m2);
 		drugTakeWrapper.getMedicament().getState().checkTime();
 		drugTakeWrapper.setName();
-		drugTakeWrapper.setStyleName();
+		//drugTakeWrapper.setStyleName();
 		
 		drugBox.addComponent(layoutDrugWrapper);
 		drugTakeWrapper = new DrugTakeWrapper();
@@ -83,11 +83,11 @@ public class MedicationView extends VerticalLayout implements View {
 		drugTakeWrapper.setStyleName("expired");
 		drugBox.addComponent(layoutDrugWrapper);
 		
-		Medicament m3 = new Medicament("Zelboraf", "10", date3.getTime(),new Date());
+		Medicament m3 = new Medicament("Zelboraf","3", "10", date3.getTime(),new Date());
 		drugTakeWrapper.setMedicament(m3);
 		drugTakeWrapper.getMedicament().getState().checkTime();
 		drugTakeWrapper.setName();
-		drugTakeWrapper.setStyleName();
+		//drugTakeWrapper.setStyleName();
 		
 		drugTakeWrapper.setStyleName(m1.getState().getStyle());
 			
