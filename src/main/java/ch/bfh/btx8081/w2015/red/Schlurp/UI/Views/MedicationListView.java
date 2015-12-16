@@ -74,6 +74,9 @@ public class MedicationListView extends VerticalLayout implements View {
 				drugWrapperList.add(drugWrapper);
 				layoutDrugWrapper = drugWrapper.getLayoutDrugBox();
 				drugBox.addComponent(layoutDrugWrapper);
+				drugWrapper.getSaveButton().setVisible(true);
+				drugWrapper.getRightLayoutDrugBox().setEnabled(true);
+				drugWrapper.getLeftLayoutDrugBox().setEnabled(true);
 			}
 		});
 
