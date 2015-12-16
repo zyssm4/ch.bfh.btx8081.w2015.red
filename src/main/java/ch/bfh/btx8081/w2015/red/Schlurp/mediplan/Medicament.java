@@ -18,6 +18,7 @@ public class Medicament {
 	private UUID mediID;
 	private String name;
 	private String interval;
+	private String amount;
 	private Date start;
 	private Date end;
 	private DrugState actState = new Upcoming(this);
@@ -40,9 +41,10 @@ public class Medicament {
 	 * @param start
 	 * @param end
 	 */
-	public Medicament(String name, String Intervall, Date start, Date end) {
+	public Medicament(String name, String amount, String Intervall, Date start, Date end) {
 		mediID = mediID.randomUUID();
 		this.name = name;
+		this.amount = amount;
 		this.interval = Intervall;
 		this.start = start;
 		this.end = end;
@@ -51,7 +53,7 @@ public class Medicament {
 	}
 
 	// ---------------------------------------------------------------//
-	// --------------------START-GETTER-SECTION-----------------------//
+	// --------------------START-GETTER-SETTER-SECTION-----------------------//
 	// ---------------------------------------------------------------//
 
 	public UUID getMediID() {
@@ -116,6 +118,14 @@ public class Medicament {
 	 */
 	public void setEnd(Date end) {
 		this.end = end;
+	}
+	
+	public String getAmount() {
+		return amount;
+	}
+
+	public void setAmount(String amount) {
+		this.amount = amount;
 	}
 
 	// ---------------------------------------------------------------//

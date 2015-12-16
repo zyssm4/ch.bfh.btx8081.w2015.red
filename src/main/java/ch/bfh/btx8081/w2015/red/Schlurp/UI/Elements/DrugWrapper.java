@@ -85,17 +85,16 @@ public class DrugWrapper extends CustomComponent {
 		drugAmount = new TextField();
 		nativSelect_Intervall = new NativeSelect("Intervall");
 
-		//set NativSelect
-		nativSelect_Intervall.addItems("6","12","24","48");
+		// set NativSelect
+		nativSelect_Intervall.addItems("6", "12", "24", "48");
 		nativSelect_Intervall.setItemCaption("6", "6 Std");
 		nativSelect_Intervall.setItemCaption("12", "12 Std");
 		nativSelect_Intervall.setItemCaption("24", "24 Std");
 		nativSelect_Intervall.setItemCaption("48", "48 Std");
-		
 
 		nativSelect_Intervall.setImmediate(true);
-        nativSelect_Intervall.addValueChangeListener(e -> Notification.show("Value changed:",
-                String.valueOf(e.getProperty().getValue()), Notification.TYPE_HUMANIZED_MESSAGE));
+		nativSelect_Intervall.addValueChangeListener(e -> Notification.show("Value changed:",
+				String.valueOf(e.getProperty().getValue()), Notification.TYPE_HUMANIZED_MESSAGE));
 		// set Boxes
 		drugName.setCaption("Enter drug name");
 		label_DrugTimeTakeSplitter_Morning_Noon.setValue("-");
@@ -105,7 +104,7 @@ public class DrugWrapper extends CustomComponent {
 		drugAmount.setCaption("Set Amount");
 		startDate.setCaption("Start date");
 		endDate.setCaption("End Date");
-		
+
 		layoutDrugBox.setWidth(WIDTH_DRUGLAYOUT);
 
 		label_DrugTakeTime.setHeight("23");
@@ -123,11 +122,9 @@ public class DrugWrapper extends CustomComponent {
 
 		// Set Button
 		FileResource saveImage = new FileResource(
-				new File(
-						"src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/diskette.png"));
+				new File("src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/diskette.png"));
 		FileResource xImage = new FileResource(
-				new File(
-						"src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/xCross.png"));
+				new File("src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/xCross.png"));
 
 		saveButton.setIcon(saveImage);
 		saveButton.setPrimaryStyleName("nobackground");
@@ -138,7 +135,7 @@ public class DrugWrapper extends CustomComponent {
 		crossButton.setVisible(false);
 
 		// Add Components
-		
+
 		layoutDrug_leftBox.addComponent(drugName);
 		layoutDrug_leftBox.addComponent(drugAmount);
 		layoutDrug_leftBox.addComponent(saveButton);
@@ -147,7 +144,6 @@ public class DrugWrapper extends CustomComponent {
 		layoutDrug_rightBox.addComponent(nativSelect_Intervall);
 		layoutDrug_rightBox.addComponent(startDate);
 		layoutDrug_rightBox.addComponent(endDate);
-
 
 		layoutDrugBox.addComponent(layoutDrug_leftBox);
 		layoutDrugBox.addComponent(layoutDrug_rightBox);
@@ -170,9 +166,8 @@ public class DrugWrapper extends CustomComponent {
 				layoutDrug_leftBox.setEnabled(false);
 				layoutDrug_rightBox.setEnabled(false);
 				saveButton.setVisible(false);
-				Medicament medicament = new Medicament(drugName.getValue(),
-						nativSelect_Intervall.getValue().toString(), startDate
-								.getValue(), endDate.getValue());
+				Medicament medicament = new Medicament(drugName.getValue(), drugAmount.getValue(),
+						nativSelect_Intervall.getValue().toString(), startDate.getValue(), endDate.getValue());
 				uc.saveMedicament(medicament);
 			}
 		});
@@ -227,9 +222,11 @@ public class DrugWrapper extends CustomComponent {
 		this.endDate.setValue(endDate);
 	}
 
-	public void setNativSelect_Intervall(NativeSelect nativSelect_Intervall) {
-		this.nativSelect_Intervall = nativSelect_Intervall;
+	public void setDrugAmount(String amount) {
+		this.drugAmount.setValue(amount);
 	}
-	
+	public void setNativSelect_Intervall(String nativSelect_Intervall) {
+		this.nativSelect_Intervall.setValue(nativSelect_Intervall);
+	}
 
 }

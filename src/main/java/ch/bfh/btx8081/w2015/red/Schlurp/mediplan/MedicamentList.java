@@ -61,8 +61,8 @@ public class MedicamentList {
 				splittedData[i] = splittedData[i].trim();
 			}
 			try {
-				mediListsOne.add(new Medicament(splittedData[0], splittedData[1], format.parse(splittedData[2]),
-						format.parse(splittedData[3])));
+				mediListsOne.add(new Medicament(splittedData[0], splittedData[1], splittedData[2], format.parse(splittedData[3]),
+						format.parse(splittedData[4])));
 			} catch (NumberFormatException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -103,7 +103,7 @@ public class MedicamentList {
 		String delimiter = ";";
 		for (int i = 0; i < medi.size(); i++) {
 			for (int a = 0; a < NUMBEROFENTRIES; a++) {
-				out.format(medi.get(i).getName() + delimiter + " " + medi.get(i).getInterval() + delimiter + " "
+				out.format(medi.get(i).getName() + delimiter + " " + medi.get(i).getAmount()+ delimiter + " "+ medi.get(i).getInterval() + delimiter + " "
 						+ format.format(medi.get(i).getStart()) + delimiter + " " + format.format(medi.get(i).getEnd())
 						+ "%n");
 			}
