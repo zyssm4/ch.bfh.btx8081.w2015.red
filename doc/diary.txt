@@ -1,3 +1,15 @@
+16.12.2015
+Durchgeführt von: Zysset, Tschanz, Noser, Schmocker, Iseli
+Präsentation Statepattern 
+ComboBox Einlesen gemacht
+JavaDoc
+
+14.12.2015
+Durchgeführt von: Zysset, Tschanz, Noser, Schmocker, Iseli
+10tes DailyScrum
+Fehler beheben, Refactoring, Problem und Lösung gesucht für Medikamenten Eintragen und Speichern.
+
+
 09.12.2015
 DurchgefÃƒÂ¼hrt von: Zysset, Tschanz, Noser, Schmocker, Iseli
 Neuntes DailyScrum
