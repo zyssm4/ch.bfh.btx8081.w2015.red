@@ -116,8 +116,8 @@ public class MedicationListView extends VerticalLayout implements View {
 		for (int i = 0; i < mediList.size(); i++) {
 			drugWrapper = new DrugWrapper();
 			drugWrapper.setDrugName(mediList.get(i).getName());
-			drugWrapper.setIntervall(String.valueOf(mediList.get(i)
-					.getInterval()));
+			drugWrapper.setDrugAmount(mediList.get(i).getAmount());
+			drugWrapper.setNativSelect_Intervall(String.valueOf(mediList.get(i).getInterval()));
 			drugWrapper.setStartDate(mediList.get(i).getStart());
 			drugWrapper.setEndDate(mediList.get(i).getEnd());
 			drugWrapperList.add(drugWrapper);
