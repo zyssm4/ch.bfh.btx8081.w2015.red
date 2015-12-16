@@ -3,6 +3,7 @@ package ch.bfh.btx8081.w2015.red.Schlurp.UI.Elements;
 import java.io.File;
 import java.util.Date;
 
+import com.google.gwt.event.dom.client.DomEvent.Type;
 import com.vaadin.client.ui.LayoutClickEventHandler;
 import com.vaadin.event.LayoutEvents.LayoutClickEvent;
 import com.vaadin.event.LayoutEvents.LayoutClickListener;
@@ -14,6 +15,7 @@ import com.vaadin.ui.DateField;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.NativeSelect;
+import com.vaadin.ui.Notification;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.VerticalLayout;
 
@@ -84,7 +86,16 @@ public class DrugWrapper extends CustomComponent {
 		nativSelect_Intervall = new NativeSelect("Intervall");
 
 		//set NativSelect
-		nativSelect_Intervall.addItems("6 Std", "12 Std", "24 Std", "48 Std");
+		nativSelect_Intervall.addItems("6","12","24","48");
+		nativSelect_Intervall.setItemCaption("6", "6 Std");
+		nativSelect_Intervall.setItemCaption("12", "12 Std");
+		nativSelect_Intervall.setItemCaption("24", "24 Std");
+		nativSelect_Intervall.setItemCaption("48", "48 Std");
+		
+
+		nativSelect_Intervall.setImmediate(true);
+        nativSelect_Intervall.addValueChangeListener(e -> Notification.show("Value changed:",
+                String.valueOf(e.getProperty().getValue()), Notification.TYPE_HUMANIZED_MESSAGE));
 		// set Boxes
 		drugName.setCaption("Enter drug name");
 		label_DrugTimeTakeSplitter_Morning_Noon.setValue("-");
