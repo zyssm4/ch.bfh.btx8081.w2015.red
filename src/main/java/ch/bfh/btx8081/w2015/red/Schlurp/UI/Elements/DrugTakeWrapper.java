@@ -67,7 +67,7 @@ public class DrugTakeWrapper extends CustomComponent {
 		drug_Taken.addClickListener(new ClickListener() {
 			public void buttonClick(ClickEvent event) {
 			m.switchState();
-			setStyleName();
+			setStateStyleName();
 			
 			}
 		});
@@ -109,7 +109,7 @@ public class DrugTakeWrapper extends CustomComponent {
 		return drug_Taken;
 	}
 
-	public void setStyleName() {
+	public void setStateStyleName() {
 		drugTakeBox.setStyleName("myDrugTakeWrapper " + m.getState().getStyle());
 	}
 	public void setName(){
@@ -122,5 +122,11 @@ public class DrugTakeWrapper extends CustomComponent {
 	public Medicament getMedicament(){
 		return m;
 	}
+
+	public void checkTime() {
+		m.checkTime();
+		
+	}
+
 
 }
