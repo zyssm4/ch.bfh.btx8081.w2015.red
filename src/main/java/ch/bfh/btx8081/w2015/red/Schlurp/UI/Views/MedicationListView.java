@@ -21,20 +21,21 @@ import com.vaadin.ui.VerticalLayout;
 
 @SuppressWarnings("serial")
 public class MedicationListView extends VerticalLayout implements View {
-	
+
 	// get ObjectController
 	UserManager uc = UserManager.getInstance();
-		
+
 	DrugWrapper drugWrapper = null;
+	Wrapper wrapper = null;
 	ArrayList<DrugWrapper> drugWrapperList = null;
 	VerticalLayout drugBox = null;
 	HorizontalLayout layoutDrugWrapper = null;
-	
+
 	public MedicationListView() {
 		setSizeFull();
 		drugWrapper = new DrugWrapper();
 		drugWrapperList = new ArrayList<>();
-		Wrapper wrapper = new Wrapper();
+		wrapper = new Wrapper();
 		final VerticalLayout layout = wrapper.getLayout();
 		addComponent(layout);
 		layout.setMargin(false);
@@ -42,6 +43,7 @@ public class MedicationListView extends VerticalLayout implements View {
 		final HorizontalLayout header = wrapper.getHeader();
 		final HorizontalLayout body = wrapper.getBody();
 		final HorizontalLayout footer = wrapper.getFooter();
+
 		wrapper.setLabel("Medication");
 		drugBox = new VerticalLayout();
 
@@ -49,7 +51,6 @@ public class MedicationListView extends VerticalLayout implements View {
 		panel.setContent(drugBox);
 		panel.setHeight("543");
 		panel.setCaptionAsHtml(true);
-
 
 		body.addComponent(panel);
 		layout.addComponent(header);
@@ -60,6 +61,7 @@ public class MedicationListView extends VerticalLayout implements View {
 		wrapper.getButton().addClickListener(logOut());
 
 		wrapper.getSwitchButton().setCaption("Medi Today");
+		wrapper.getSwitchButton().setVisible(true);
 		wrapper.getSwitchButton().addClickListener(new ClickListener() {
 			public void buttonClick(ClickEvent event) {
 				getUI().getNavigator().navigateTo(MyUI.MEDICATIONVIEW);
@@ -108,16 +110,18 @@ public class MedicationListView extends VerticalLayout implements View {
 	public void enter(ViewChangeEvent event) {
 		uc.createMediListObject(uc.getUser());
 		ArrayList<Medicament> mediList = uc.getMediList();
-		for(int i = 0; i < mediList.size(); i++){
+		for (int i = 0; i < mediList.size(); i++) {
 			drugWrapper = new DrugWrapper();
 			drugWrapper.setDrugName(mediList.get(i).getName());
-			drugWrapper.setIntervall(String.valueOf(mediList.get(i).getInterval()));
+			drugWrapper.setIntervall(String.valueOf(mediList.get(i)
+					.getInterval()));
 			drugWrapper.setStartDate(mediList.get(i).getStart());
 			drugWrapper.setEndDate(mediList.get(i).getEnd());
 			drugWrapperList.add(drugWrapper);
 			layoutDrugWrapper = drugWrapper.getLayoutDrugBox();
 			drugBox.addComponent(layoutDrugWrapper);
 		}
+
 	}
 
 	private ClickListener logOut() {

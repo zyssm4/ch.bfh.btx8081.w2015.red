@@ -41,11 +41,7 @@ public class DrugWrapper extends CustomComponent {
 
 	// create Textfields
 	private TextField drugName = null;
-	// private TextField TextField_Morning = null;
-	// private TextField TextField_Noon = null;
-	// private TextField TextField_Evening = null;
-	// private TextField TextField_Night = null;
-	private TextField intervall = null;
+	private TextField drugAmount = null;
 
 	// create Labels
 	private Label label_DrugTimeTakeSplitter_Morning_Noon = null;
@@ -84,22 +80,21 @@ public class DrugWrapper extends CustomComponent {
 		endDate = new DateField();
 		saveButton = new Button();
 		crossButton = new Button();
-		intervall = new TextField();
+		drugAmount = new TextField();
 		nativSelect_Intervall = new NativeSelect("Intervall");
 
 		//set NativSelect
 		nativSelect_Intervall.addItems("6 Std", "12 Std", "24 Std", "48 Std");
-		
 		// set Boxes
 		drugName.setCaption("Enter drug name");
 		label_DrugTimeTakeSplitter_Morning_Noon.setValue("-");
 		label_DrugTimeTakeSplitter_Noon_Evening.setValue("-");
 		label_DrugTimeTakeSplitter_Evening_Night.setValue("-");
 		label_DrugTakeTime.setValue("Drug take time");
-		intervall.setCaption("Set repetition");
+		drugAmount.setCaption("Set Amount");
 		startDate.setCaption("Start date");
 		endDate.setCaption("End Date");
-
+		
 		layoutDrugBox.setWidth(WIDTH_DRUGLAYOUT);
 
 		label_DrugTakeTime.setHeight("23");
@@ -107,7 +102,7 @@ public class DrugWrapper extends CustomComponent {
 
 		startDate.setWidth(WIDTH_DRUGBOXCOMPONENTS);
 		endDate.setWidth(WIDTH_DRUGBOXCOMPONENTS);
-		intervall.setWidth(WIDTH_DRUGBOXCOMPONENTS);
+		drugAmount.setWidth(WIDTH_DRUGBOXCOMPONENTS);
 		drugName.setWidth(WIDTH_DRUGBOXCOMPONENTS);
 
 		// set Components
@@ -134,7 +129,7 @@ public class DrugWrapper extends CustomComponent {
 		// Add Components
 		
 		layoutDrug_leftBox.addComponent(drugName);
-		layoutDrug_leftBox.addComponent(nativSelect_Intervall);
+		layoutDrug_leftBox.addComponent(drugAmount);
 		layoutDrug_leftBox.addComponent(saveButton);
 		layoutDrug_leftBox.addComponent(crossButton);
 
@@ -209,8 +204,8 @@ public class DrugWrapper extends CustomComponent {
 		this.drugName.setValue(drugName);
 	}
 
-	public void setIntervall(String intervall) {
-		this.intervall.setValue(intervall);
+	public void setIntervall(String drugAmount) {
+		this.drugAmount.setValue(drugAmount);
 	}
 
 	public void setStartDate(Date startDate) {
