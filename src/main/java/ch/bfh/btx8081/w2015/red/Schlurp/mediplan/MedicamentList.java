@@ -12,7 +12,6 @@ import java.util.Scanner;
 public class MedicamentList {
 	private ArrayList<Medicament> medicaments = new ArrayList<Medicament>();
 	static SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
-	final static int NUMBEROFENTRIES = 4;
 
 	public MedicamentList(ArrayList<Medicament> medicaments) {
 		this.medicaments = medicaments;
@@ -53,16 +52,14 @@ public class MedicamentList {
 
 		while (input.hasNextLine()) {
 			String data = null;
-			for (int i = 0; i < NUMBEROFENTRIES; i++) {
-				data = input.nextLine();
-			}
+			data = input.nextLine();
 			String[] splittedData = data.split(delimiter);
 			for (int i = 0; i < splittedData.length; i++) {
 				splittedData[i] = splittedData[i].trim();
 			}
 			try {
-				mediListsOne.add(new Medicament(splittedData[0], splittedData[1], splittedData[2], format.parse(splittedData[3]),
-						format.parse(splittedData[4])));
+				mediListsOne.add(new Medicament(splittedData[1], splittedData[2], splittedData[3],
+						format.parse(splittedData[4]), format.parse(splittedData[5])));
 			} catch (NumberFormatException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -102,11 +99,12 @@ public class MedicamentList {
 
 		String delimiter = ";";
 		for (int i = 0; i < medi.size(); i++) {
-			for (int a = 0; a < NUMBEROFENTRIES; a++) {
-				out.format(medi.get(i).getName() + delimiter + " " + medi.get(i).getAmount()+ delimiter + " "+ medi.get(i).getInterval() + delimiter + " "
-						+ format.format(medi.get(i).getStart()) + delimiter + " " + format.format(medi.get(i).getEnd())
-						+ "%n");
-			}
+
+			out.format(medi.get(i).getMediID() + delimiter + " " + medi.get(i).getName() + delimiter + " "
+					+ medi.get(i).getAmount() + delimiter + " " + medi.get(i).getInterval() + delimiter + " "
+					+ format.format(medi.get(i).getStart()) + delimiter + " " + format.format(medi.get(i).getEnd())
+					+ "%n");
+
 		}
 		out.close();
 	}
@@ -115,10 +113,10 @@ public class MedicamentList {
 		Medicament newMedi = medi;
 		ArrayList<Medicament> newMediList = mediList;
 		for (int i = 0; i < mediList.size(); i++) {
-			// returns true if they have the same UUID value
-			if (mediList.get(i).getMediID().equals(newMedi.getMediID())) {
+			// returns true if they have the same UUID value(doesn't work, because the saveMethod creates a new Medicamentobject -> therefore the UUID is never the same)
+			// temporary solution: compares the name of the medicament
+			if (mediList.get(i).getName().equals(newMedi.getName())) {
 				newMediList.remove(i);
-				break;
 			}
 		}
 
