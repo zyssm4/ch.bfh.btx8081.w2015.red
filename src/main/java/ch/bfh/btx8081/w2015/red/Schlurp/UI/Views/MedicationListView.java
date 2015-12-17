@@ -111,6 +111,8 @@ public class MedicationListView extends VerticalLayout implements View {
 
 	@Override
 	public void enter(ViewChangeEvent event) {
+		// remove the Drugboxes
+		drugBox.removeAllComponents();
 		uc.createMediListObject(uc.getUser());
 		ArrayList<Medicament> mediList = uc.getMediList();
 		for (int i = 0; i < mediList.size(); i++) {
