@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="13.3">
-  <zoom_level>8</zoom_level>
+  <zoom_level>12</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>240</x>
-      <y>200</y>
-      <w>168</w>
-      <h>248</h>
+      <x>120</x>
+      <y>60</y>
+      <w>252</w>
+      <h>372</h>
     </coordinates>
     <panel_attributes>&lt;&lt;context&gt;&gt;
 Medicament
@@ -34,10 +34,10 @@ Medicament
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>712</x>
-      <y>200</y>
-      <w>168</w>
-      <h>112</h>
+      <x>828</x>
+      <y>60</y>
+      <w>252</w>
+      <h>168</h>
     </coordinates>
     <panel_attributes>&lt;&lt;abstract&gt;&gt;
 DrugState
@@ -54,10 +54,10 @@ DrugState
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>896</x>
+      <x>1104</x>
       <y>480</y>
-      <w>168</w>
-      <h>120</h>
+      <w>252</w>
+      <h>180</h>
     </coordinates>
     <panel_attributes>&lt;&lt;State 3&gt;&gt;
 Expired
@@ -67,16 +67,17 @@ Expired
 +Expired()
 +getStyle()
 +switchState()
++checktime()
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>504</x>
+      <x>516</x>
       <y>480</y>
-      <w>168</w>
-      <h>120</h>
+      <w>252</w>
+      <h>180</h>
     </coordinates>
     <panel_attributes>&lt;&lt;State 1&gt;&gt;
 Taken
@@ -93,10 +94,10 @@ Taken
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>704</x>
+      <x>816</x>
       <y>480</y>
-      <w>168</w>
-      <h>120</h>
+      <w>252</w>
+      <h>180</h>
     </coordinates>
     <panel_attributes>&lt;&lt;State 2&gt;&gt;
 Upcoming
@@ -105,16 +106,17 @@ Upcoming
 --
 +Taken()
 +getStyle()
-+switchState()</panel_attributes>
++switchState()
++checktime()</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>584</x>
-      <y>304</y>
-      <w>144</w>
-      <h>192</h>
+      <x>636</x>
+      <y>216</y>
+      <w>216</w>
+      <h>288</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>160.0;10.0;10.0;220.0</additional_attributes>
@@ -122,10 +124,10 @@ Upcoming
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>784</x>
-      <y>304</y>
-      <w>24</w>
-      <h>192</h>
+      <x>936</x>
+      <y>216</y>
+      <w>36</w>
+      <h>288</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;220.0</additional_attributes>
@@ -133,10 +135,10 @@ Upcoming
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>872</x>
-      <y>304</y>
-      <w>120</w>
-      <h>192</h>
+      <x>1068</x>
+      <y>216</y>
+      <w>180</w>
+      <h>288</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;130.0;220.0</additional_attributes>
@@ -144,10 +146,10 @@ Upcoming
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>400</x>
-      <y>208</y>
-      <w>328</w>
-      <h>24</h>
+      <x>360</x>
+      <y>72</y>
+      <w>492</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;390.0;10.0</additional_attributes>
