@@ -115,6 +115,9 @@ public class DrugTakeWrapper extends CustomComponent {
 	public void setName(){
 	label_DrugName.setValue(m.getName());
 	}
+	public void setAmount(){
+	label_DrugAmount.setValue(m.getAmount());
+	}
 	
 	public void setMedicament(Medicament m){
 		this.m = m;

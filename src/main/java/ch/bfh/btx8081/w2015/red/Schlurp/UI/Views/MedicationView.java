@@ -67,6 +67,7 @@ public class MedicationView extends VerticalLayout implements View {
 		drugTakeWrapper.getMedicament().getState().checkTime();
 		drugTakeWrapper.setStateStyleName();
 		drugTakeWrapper.setName();
+		drugTakeWrapper.setAmount();
 
 		drugBox.addComponent(layoutDrugWrapper);
 		drugTakeWrapper = new DrugTakeWrapper();
@@ -78,7 +79,8 @@ public class MedicationView extends VerticalLayout implements View {
 		drugTakeWrapper.getMedicament().getState().checkTime();
 		drugTakeWrapper.setName();
 		drugTakeWrapper.setStateStyleName();
-
+		drugTakeWrapper.setAmount();
+		
 		drugBox.addComponent(layoutDrugWrapper);
 		drugTakeWrapper = new DrugTakeWrapper();
 		layoutDrugWrapper = drugTakeWrapper.getDrugTakeLayout();
@@ -90,7 +92,7 @@ public class MedicationView extends VerticalLayout implements View {
 		drugTakeWrapper.getMedicament().getState().checkTime();
 		drugTakeWrapper.setName();
 		drugTakeWrapper.setStateStyleName();
-		drugTakeWrapper.setStyleName(m1.getState().getStyle());
+		drugTakeWrapper.setAmount();
 
 		// -----------------------------------------------//
 		// --------END Medicament State Dummie Data -----//

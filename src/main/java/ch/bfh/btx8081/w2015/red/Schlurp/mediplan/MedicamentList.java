@@ -9,8 +9,11 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class MedicamentList {
-	private ArrayList<Medicament> medicaments = new ArrayList<Medicament>();
+/**
+ * @author admin
+ *
+ */
+public class MedicamentList { private ArrayList<Medicament> medicaments = new ArrayList<Medicament>();
 	static SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
 
 	public MedicamentList(ArrayList<Medicament> medicaments) {
