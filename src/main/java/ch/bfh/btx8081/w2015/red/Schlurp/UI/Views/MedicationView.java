@@ -22,12 +22,12 @@ import com.vaadin.ui.Panel;
 import com.vaadin.ui.Tree;
 import com.vaadin.ui.VerticalLayout;
 /**
- * Creates the view for the medicament.
+ * Creates the view for the medicaments.
  * It displays a list with the drugs of the day. 
- * It checks the state of every drug, if it is taken or it has to take.
+ * It checks the state of every drug, if it is taken or it has to take .
  * 
  * @author team red
- * @version V16.12.2015
+ * @version V1.0
  *
  */
 @SuppressWarnings("serial")
@@ -126,7 +126,12 @@ public class MedicationView extends VerticalLayout implements View {
 		// TODO Auto-generated method stub
 
 	}
-
+/**
+ * ClickListener method, handles the log out button in the header component
+ * 
+ * @return <code>logOut</code>: ClickListener
+ * 
+ */
 	private ClickListener logOut() {
 		Button.ClickListener logout = new Button.ClickListener() {
 			@Override
@@ -137,7 +142,11 @@ public class MedicationView extends VerticalLayout implements View {
 		};
 		return logout;
 	}
-
+/**
+ * get logout path
+ * 
+ * @return <code>getLogoutPath</code>: String
+ */
 	private String getLogoutPath() {
 		return getUI().getPage().getLocation().getPath();
 	}
