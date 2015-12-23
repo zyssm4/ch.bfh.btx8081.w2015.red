@@ -62,7 +62,7 @@ public class MedicationView extends VerticalLayout implements View {
 		Calendar date2 = new GregorianCalendar(2015, Calendar.DECEMBER, 13);
 		Calendar date3 = new GregorianCalendar(2015, Calendar.DECEMBER, 20);
 
-		Medicament m1 = new Medicament("Tafalgan", "1", "10", date1.getTime(), new Date());
+		Medicament m1 = new Medicament("Dafalgan", "1", "10", date1.getTime(), new Date());
 		drugTakeWrapper.setMedicament(m1);
 		drugTakeWrapper.getMedicament().getState().checkTime();
 		drugTakeWrapper.setStateStyleName();

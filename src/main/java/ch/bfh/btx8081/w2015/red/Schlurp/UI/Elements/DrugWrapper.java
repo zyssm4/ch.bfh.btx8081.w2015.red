@@ -3,13 +3,11 @@ package ch.bfh.btx8081.w2015.red.Schlurp.UI.Elements;
 import java.io.File;
 import java.util.Date;
 
-import com.google.gwt.event.dom.client.DomEvent.Type;
-import com.vaadin.client.ui.LayoutClickEventHandler;
+
 import com.vaadin.event.LayoutEvents.LayoutClickEvent;
 import com.vaadin.event.LayoutEvents.LayoutClickListener;
 import com.vaadin.server.FileResource;
 import com.vaadin.ui.Button;
-import com.vaadin.ui.ComboBox;
 import com.vaadin.ui.CustomComponent;
 import com.vaadin.ui.DateField;
 import com.vaadin.ui.HorizontalLayout;
@@ -201,7 +199,10 @@ public class DrugWrapper extends CustomComponent {
 	public void addCrossButton() {
 		crossButton.setVisible(true);
 	}
-
+	//Könnte für removeMedicament verwendet werden
+	public String getDrugName(){
+		return drugName.getValue();
+	}
 	// ---------------------------------------------------------------------//
 	// --------------------DRUGWRAPPER-SETTER-SECTION-----------------------//
 	// ---------------------------------------------------------------------//
@@ -228,5 +229,6 @@ public class DrugWrapper extends CustomComponent {
 	public void setNativSelect_Intervall(String nativSelect_Intervall) {
 		this.nativSelect_Intervall.setValue(nativSelect_Intervall);
 	}
+
 
 }

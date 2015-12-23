@@ -1,11 +1,20 @@
 package ch.bfh.btx8081.w2015.red.Schlurp.persistenceLayer;
 
-
 import java.util.ArrayList;
 
 import ch.bfh.btx8081.w2015.red.Schlurp.infopage.Infopage;
 import ch.bfh.btx8081.w2015.red.Schlurp.mediplan.Medicament;
 
+/**
+ * The UserManager is used to call certain Methods from the class Infopage and
+ * MedicineManager.
+ * <p>
+ * The Methods are used to link the Application Logic with the
+ * Data provided by the text Files and the Data entered by the User.
+ * 
+ * @author Rea, Mauro
+ *
+ */
 public class UserManager {
 
 	private static UserManager uc = null;
@@ -13,7 +22,6 @@ public class UserManager {
 	private String user = null;
 	private final String FILETYPE = ".txt";
 	private MedicineManager mc = null;
-
 
 	private UserManager() {
 		mc = MedicineManager.getInstance();
@@ -29,12 +37,12 @@ public class UserManager {
 	public void createInfoPageObject(String username) {
 		infopage = Infopage.readInformationsFromFile(username + FILETYPE);
 	}
-	
-	public void saveInfopage(Infopage iP){
+
+	public void saveInfopage(Infopage iP) {
 		infopage = iP;
 		Infopage.writeInfomationsToFile(infopage, user + FILETYPE);
 	}
-	
+
 	public Infopage getInfopage() {
 		return infopage;
 	}
@@ -46,18 +54,24 @@ public class UserManager {
 	public String getUser() {
 		return user;
 	}
-	
-	public void saveMedicament(Medicament medi){
+
+	public void saveMedicament(Medicament medi) {
 		mc.saveMedicament(uc.getUser(), medi);
 	}
-	
+
 	public void createMediListObject(String username) {
 		mc.createMediListObject(username);
 	}
-	public void createDailyListObject(String username){
+
+	public void createDailyListObject(String username) {
 		mc.createDailyListObject(username);
 	}
+
 	public ArrayList<Medicament> getMediList() {
 		return mc.getMediList();
+	}
+
+	public void removeMedicament(Medicament medi) {
+		mc.removeMedicament(medi);
 	}
 }
