@@ -20,9 +20,9 @@ import com.vaadin.ui.TextField;
 import com.vaadin.ui.VerticalLayout;
 
 @SuppressWarnings("serial")
-public class TimeView extends VerticalLayout implements View {
+public class GIFView extends VerticalLayout implements View {
 
-	public TimeView() {
+	public GIFView() {
 		setSizeFull();
 
 		Wrapper wrapper = new Wrapper();
