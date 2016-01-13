@@ -19,7 +19,7 @@ public class TestInfopage {
 		//no Patient yet
 		"".compareTo(Infopage.toString());
 		
-		Infopage.getPatient().compareTo();
+		
 		
 	}
 
