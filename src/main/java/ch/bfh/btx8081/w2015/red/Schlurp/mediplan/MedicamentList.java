@@ -22,7 +22,7 @@ import java.util.Scanner;
  */
 public class MedicamentList {
 	private ArrayList<Medicament> medicaments = new ArrayList<Medicament>();
-	static SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+	private final static SimpleDateFormat FORMAT = new SimpleDateFormat("dd-MM-yyyy");
 
 	public MedicamentList(ArrayList<Medicament> medicaments) {
 		this.medicaments = medicaments;
@@ -78,7 +78,7 @@ public class MedicamentList {
 				// the content of the line(Medicament:Name, Amount, Intervall,
 				// StartDate, EndDate) is added to the ArrayList
 				newMediList.add(new Medicament(splittedData[1], splittedData[2], splittedData[3],
-						format.parse(splittedData[4]), format.parse(splittedData[5])));
+						FORMAT.parse(splittedData[4]), FORMAT.parse(splittedData[5])));
 			} catch (NumberFormatException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -121,7 +121,7 @@ public class MedicamentList {
 
 			out.format(medi.get(i).getMediID() + delimiter + " " + medi.get(i).getName() + delimiter + " "
 					+ medi.get(i).getAmount() + delimiter + " " + medi.get(i).getInterval() + delimiter + " "
-					+ format.format(medi.get(i).getStart()) + delimiter + " " + format.format(medi.get(i).getEnd())
+					+ FORMAT.format(medi.get(i).getStart()) + delimiter + " " + FORMAT.format(medi.get(i).getEnd())
 					+ "%n");
 
 		}
