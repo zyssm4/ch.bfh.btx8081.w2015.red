@@ -90,17 +90,20 @@ public class MedicationListView extends VerticalLayout implements View {
 			@Override
 			public void buttonClick(ClickEvent event) {
 				panel.setCaption("<strong>click Medicament to remove</strong>");
-				for (DrugWrapper dw : drugWrapperList) {
-					dw.setStyleName("remove");
-				}
 				drugBox.addLayoutClickListener(new LayoutClickListener() {
 					public void layoutClick(LayoutClickEvent event) {
-						drugBox.removeComponent(event.getClickedComponent());
+						//DrugWrapper deletedWrapper = (DrugWrapper)event.getClickedComponent();
+						//System.out.println(deletedWrapper.getDrugName());
+		
+						System.out.println(event.getClickedComponent());
+						System.out.println(drugBox.getComponentIndex(event.getClickedComponent()));
+						System.out.println(drugWrapperList.get(drugBox.getComponentIndex(event.getClickedComponent())).getDrugName());
+						
+						drugWrapperList.remove(drugBox.getComponentIndex(event.getClickedComponent()));
+						drugBox.removeComponent(event.getClickedComponent());					
 						drugBox.removeLayoutClickListener(this);
 						panel.setCaption("");
-						for (DrugWrapper dw : drugWrapperList) {
-							dw.setStyleName("");
-						}
+						
 					}
 				});
 			}
