@@ -7,7 +7,7 @@ import ch.bfh.btx8081.w2015.red.Schlurp.UI.Views.InfoView;
 import ch.bfh.btx8081.w2015.red.Schlurp.UI.Views.LoginView;
 import ch.bfh.btx8081.w2015.red.Schlurp.UI.Views.MedicationListView;
 import ch.bfh.btx8081.w2015.red.Schlurp.UI.Views.MedicationView;
-import ch.bfh.btx8081.w2015.red.Schlurp.UI.Views.TimeView;
+import ch.bfh.btx8081.w2015.red.Schlurp.UI.Views.GIFView;
 
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
@@ -35,7 +35,7 @@ public class MyUI extends UI {
 	public static final String HOMEVIEW = "home";
 	public static final String LOGINVIEW = "login";
 	public static final String INFOVIEW = "infoview";
-	public static final String TIMEVIEW = "timeview";
+	public static final String GIFVIEW = "gifview";
 	public static final String MEDICATIONVIEW = "medicationview";
 	public static final String MEDICATIONLISTVIEW = "medicationlistview";
 
@@ -51,7 +51,7 @@ public class MyUI extends UI {
 		navigator.addView("", new LoginView());
 		navigator.addView(HOMEVIEW, new HomeView());
 		navigator.addView(INFOVIEW, new InfoView());
-		navigator.addView(TIMEVIEW, new TimeView());
+		navigator.addView(GIFVIEW, new GIFView());
 		navigator.addView(MEDICATIONVIEW, new MedicationView());
 		navigator.addView(MEDICATIONLISTVIEW, new MedicationListView());
 
