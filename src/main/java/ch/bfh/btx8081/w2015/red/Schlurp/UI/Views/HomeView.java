@@ -59,7 +59,7 @@ public class HomeView extends VerticalLayout implements View {
 
 		body.addComponent(buttonContainer);
 		buttonContainer.addComponent(infoPage());
-		buttonContainer.addComponent(timeTable());
+		buttonContainer.addComponent(gifButton());
 		buttonContainer.addComponent(mediPlan());
 
 	}
@@ -89,12 +89,12 @@ public class HomeView extends VerticalLayout implements View {
 	 * 
 	 * @return <code>timeTable</code>: Button
 	 */
-	private Button timeTable() {
-		Button button = new Button("Terminplan", new Button.ClickListener() {
+	private Button gifButton() {
+		Button button = new Button("random GIF-Button", new Button.ClickListener() {
 
 			@Override
 			public void buttonClick(ClickEvent event) {
-				getUI().getNavigator().navigateTo(MyUI.HOMEVIEW);
+				getUI().getNavigator().navigateTo(MyUI.GIFVIEW);
 			}
 		});
 		button.setIcon(calendarImage);
