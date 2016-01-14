@@ -1,3 +1,17 @@
+
+
+14.01.2016
+Durchgeführt von: Zysset, Tschanz, Schmocker, Iseli
+JavaDoc, Validierung weiterführend RandomGifButton, Delete Medieinträge in der Medilist
+
+13.01.2016
+Durchgeführt von: Zysset, Tschanz, Noser, Schmocker, Iseli
+JavaDoc von Statepattern, Validierung Eingabe bei Infopage, JUnit Tests, RandomGifButton View, Delete Medieinträge Medilist
+
+11.01.2016
+Durchgeführt von: Zysset, Tschanz, Noser, Schmocker, Iseli
+Daily Scrum Alle Mitarbeiter auf gleichen Stand bringen nach den Ferien.
+
 17.12.2015
 DurchgefÃ¼hrt von: Zysset, Tschanz, Schmocker, Iseli
 12tes DailyScrum
