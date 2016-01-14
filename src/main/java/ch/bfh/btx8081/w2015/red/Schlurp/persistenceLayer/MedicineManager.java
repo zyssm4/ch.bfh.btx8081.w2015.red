@@ -32,12 +32,6 @@ public class MedicineManager {
 		return mc;
 	}
 
-	/*
-	 * public void addMedicament(Medicament medi) { MediList.add(medi);
-	 * MedicamentList.writeMediToMediplan(MediList, (user + FILENAMEPART +
-	 * FILETYPE)); }
-	 */
-
 	public void removeMedicament(String mediName, String user) {
 		setMediList(MedicamentList.removeMedicament(mediName, getMediList()));
 		MedicamentList.writeMediToMediplan(MediList, (user + FILENAMEPART + FILETYPE));

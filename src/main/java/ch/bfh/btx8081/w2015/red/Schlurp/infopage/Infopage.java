@@ -71,10 +71,8 @@ public class Infopage {
 				out.close();
 				input = new Scanner(new File(inputFileName), "UTF-16");
 			} catch (FileNotFoundException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			} catch (UnsupportedEncodingException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 		}
@@ -110,10 +108,8 @@ public class Infopage {
 		try {
 			out = new PrintWriter(outputfileName, "UTF-16");
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 

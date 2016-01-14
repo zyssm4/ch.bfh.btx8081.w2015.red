@@ -54,17 +54,15 @@ public class MedicamentList {
 				out.close();
 				readInformationsFromMediplan(inputFileName);
 			} catch (FileNotFoundException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			} catch (UnsupportedEncodingException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 		}
 		// the main part of the method
 		// processing the content of the File
 		ArrayList<Medicament> newMediList = new ArrayList<Medicament>();
-		
+
 		while (input.hasNextLine()) {
 			String data = null;
 			data = input.nextLine();
@@ -80,10 +78,8 @@ public class MedicamentList {
 				newMediList.add(new Medicament(splittedData[0], splittedData[1], splittedData[2],
 						FORMAT.parse(splittedData[3]), FORMAT.parse(splittedData[4])));
 			} catch (NumberFormatException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (ParseException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -104,27 +100,26 @@ public class MedicamentList {
 
 		PrintWriter out = null;
 		try {
+
 			out = new PrintWriter(outputfileName, "UTF-16");
 			// Emties the File, the file will be generated with the content of
 			// medi
 			out.flush();
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
 		String delimiter = ";";
 		for (int i = 0; i < medi.size(); i++) {
 
-			out.format(medi.get(i).getName() + delimiter + " "
-					+ medi.get(i).getAmount() + delimiter + " " + medi.get(i).getInterval() + delimiter + " "
-					+ FORMAT.format(medi.get(i).getStart()) + delimiter + " " + FORMAT.format(medi.get(i).getEnd())
-					+ "%n");
+			out.format(medi.get(i).getName() + delimiter + " " + medi.get(i).getAmount() + delimiter + " "
+					+ medi.get(i).getInterval() + delimiter + " " + FORMAT.format(medi.get(i).getStart()) + delimiter
+					+ " " + FORMAT.format(medi.get(i).getEnd()) + "%n");
 
 		}
+
 		out.close();
 	}
 
@@ -144,10 +139,9 @@ public class MedicamentList {
 		Medicament newMedi = medi;
 		ArrayList<Medicament> newMediList = mediList;
 		for (int i = 0; i < mediList.size(); i++) {
-			// returns true if they have the same UUID value(doesn't work,
-			// because the saveMethod creates a new Medicamentobject ->
-			// therefore the UUID is never the same)
-			// temporary solution: compares the name of the medicament
+			// We didn't implement an Medicament ID, so we compare the names of
+			// the medicaments - it's not wrong because normally you don't need
+			// more than one entry for a medicament
 			if (mediList.get(i).getName().equals(newMedi.getName())) {
 				newMediList.remove(i);
 			}
@@ -155,13 +149,14 @@ public class MedicamentList {
 
 		return newMediList;
 	}
-	public static ArrayList<Medicament> removeMedicament(String mediName, ArrayList<Medicament> mediList){
+
+	public static ArrayList<Medicament> removeMedicament(String mediName, ArrayList<Medicament> mediList) {
 		ArrayList<Medicament> newMediList = mediList;
 		for (int i = 0; i < mediList.size(); i++) {
-			// returns true if they have the same UUID value(doesn't work,
-			// because the saveMethod creates a new Medicamentobject ->A
-			// therefore the UUID is never the same)
-			// temporary solution: compares the name of the medicament
+
+			// We didn't implement an Medicament ID, so we compare the names of
+			// the medicaments - it's not wrong because normally you don't need
+			// more than one entry for a medicament
 			if (mediList.get(i).getName().equals(mediName)) {
 				newMediList.remove(i);
 			}
