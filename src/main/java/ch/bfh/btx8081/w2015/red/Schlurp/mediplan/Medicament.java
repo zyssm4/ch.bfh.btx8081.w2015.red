@@ -15,7 +15,6 @@ import ch.bfh.btx8081.w2015.red.Schlurp.mediplan.StatePattern.*;
  */
 public class Medicament {
 
-	private UUID mediID;
 	private String name;
 	private String interval;
 	private String amount;
@@ -42,7 +41,6 @@ public class Medicament {
 	 * @param end
 	 */
 	public Medicament(String name, String amount, String Intervall, Date start, Date end) {
-		mediID = mediID.randomUUID();
 		this.name = name;
 		this.amount = amount;
 		this.interval = Intervall;
@@ -56,9 +54,6 @@ public class Medicament {
 	// --------------------START-GETTER-SETTER-SECTION-----------------------//
 	// ---------------------------------------------------------------//
 
-	public UUID getMediID() {
-		return mediID;
-	}
 
 	/**
 	 * @return the name
