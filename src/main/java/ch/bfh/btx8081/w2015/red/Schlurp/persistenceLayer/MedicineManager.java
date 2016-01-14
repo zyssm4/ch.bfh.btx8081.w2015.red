@@ -21,7 +21,6 @@ public class MedicineManager {
 	private static MedicineManager mc = null;
 	private final String FILETYPE = ".txt";
 	private final String FILENAMEPART = "mediplan";
-	private String user = null;
 
 	private MedicineManager() {
 	}
@@ -39,9 +38,8 @@ public class MedicineManager {
 	 * FILETYPE)); }
 	 */
 
-	public void removeMedicament(Medicament medi) {
-		//MediList.remove(medi);
-		setMediList(MedicamentList.exists(medi, getMediList()));
+	public void removeMedicament(String mediName, String user) {
+		setMediList(MedicamentList.removeMedicament(mediName, getMediList()));
 		MedicamentList.writeMediToMediplan(MediList, (user + FILENAMEPART + FILETYPE));
 	}
 

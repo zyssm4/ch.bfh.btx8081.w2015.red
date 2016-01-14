@@ -71,7 +71,7 @@ public class UserManager {
 		return mc.getMediList();
 	}
 
-	public void removeMedicament(Medicament medi) {
-		mc.removeMedicament(medi);
+	public void removeMedicament(String mediName) {
+		mc.removeMedicament(mediName, uc.getUser());
 	}
 }

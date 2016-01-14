@@ -95,10 +95,9 @@ public class MedicationListView extends VerticalLayout implements View {
 						//DrugWrapper deletedWrapper = (DrugWrapper)event.getClickedComponent();
 						//System.out.println(deletedWrapper.getDrugName());
 		
-						System.out.println(event.getClickedComponent());
-						System.out.println(drugBox.getComponentIndex(event.getClickedComponent()));
-						System.out.println(drugWrapperList.get(drugBox.getComponentIndex(event.getClickedComponent())).getDrugName());
-						
+						//System.out.println(event.getClickedComponent());
+						//System.out.println(drugBox.getComponentIndex(event.getClickedComponent()));
+						uc.removeMedicament((drugWrapperList.get(drugBox.getComponentIndex(event.getClickedComponent())).getDrugName()));
 						drugWrapperList.remove(drugBox.getComponentIndex(event.getClickedComponent()));
 						drugBox.removeComponent(event.getClickedComponent());					
 						drugBox.removeLayoutClickListener(this);

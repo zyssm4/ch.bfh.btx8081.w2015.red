@@ -64,7 +64,7 @@ public class MedicamentList {
 		// the main part of the method
 		// processing the content of the File
 		ArrayList<Medicament> newMediList = new ArrayList<Medicament>();
-
+		
 		while (input.hasNextLine()) {
 			String data = null;
 			data = input.nextLine();
