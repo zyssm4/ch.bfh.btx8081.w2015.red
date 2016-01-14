@@ -21,10 +21,11 @@ import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Panel;
 import com.vaadin.ui.Tree;
 import com.vaadin.ui.VerticalLayout;
+
 /**
- * Creates the view for the medicaments.
- * It displays a list with the drugs of the day. 
- * It checks the state of every drug, if it is taken or it has to take .
+ * Creates the view for the medicaments. It displays a list with the drugs of
+ * the day. It checks the state of every drug, if it is taken or it has to take
+ * .
  * 
  * @author team red
  * @version V1.0
@@ -80,7 +81,7 @@ public class MedicationView extends VerticalLayout implements View {
 		drugTakeWrapper.setName();
 		drugTakeWrapper.setStateStyleName();
 		drugTakeWrapper.setAmount();
-		
+
 		drugBox.addComponent(layoutDrugWrapper);
 		drugTakeWrapper = new DrugTakeWrapper();
 		layoutDrugWrapper = drugTakeWrapper.getDrugTakeLayout();
@@ -106,15 +107,22 @@ public class MedicationView extends VerticalLayout implements View {
 		layout.addComponent(body);
 		layout.addComponent(footer);
 
+		wrapper.getFooterRefreshButton().setVisible(false);
+
 		addComponent(layout);
 		layout.setMargin(false);
-
+		/**
+		 * ClickListener method to navigate to the medication list.
+		 */
 		wrapper.getSwitchButton().addClickListener(new ClickListener() {
 			public void buttonClick(ClickEvent event) {
 				getUI().getNavigator().navigateTo(MyUI.MEDICATIONLISTVIEW);
 			}
 		});
-
+		/**
+		 * ClickListener method for the back button, navigate back to the
+		 * homeview.
+		 */
 		wrapper.getFooterBackButton().addClickListener(new ClickListener() {
 			public void buttonClick(ClickEvent event) {
 				getUI().getNavigator().navigateTo(MyUI.HOMEVIEW);
@@ -128,12 +136,13 @@ public class MedicationView extends VerticalLayout implements View {
 		// TODO Auto-generated method stub
 
 	}
-/**
- * ClickListener method, handles the log out button in the header component
- * 
- * @return <code>logOut</code>: ClickListener
- * 
- */
+
+	/**
+	 * ClickListener method, handles the log out button in the header component
+	 * 
+	 * @return <code>logOut</code>: ClickListener
+	 * 
+	 */
 	private ClickListener logOut() {
 		Button.ClickListener logout = new Button.ClickListener() {
 			@Override
@@ -144,11 +153,12 @@ public class MedicationView extends VerticalLayout implements View {
 		};
 		return logout;
 	}
-/**
- * get logout path
- * 
- * @return <code>getLogoutPath</code>: String
- */
+
+	/**
+	 * get logout path
+	 * 
+	 * @return <code>getLogoutPath</code>: String
+	 */
 	private String getLogoutPath() {
 		return getUI().getPage().getLocation().getPath();
 	}

@@ -1,6 +1,7 @@
 package ch.bfh.btx8081.w2015.red.Schlurp.UI.Views;
 
 import java.io.File;
+
 import java.text.SimpleDateFormat;
 
 import ch.bfh.btx8081.w2015.red.Schlurp.MyUI;
@@ -24,6 +25,24 @@ import com.vaadin.ui.Label;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.VerticalLayout;
 
+/**
+ * Creates the view with the informations about the patient. Following
+ * informations are deposited:
+ * <li>name
+ * <li>first name
+ * <li>insurance
+ * <li>insurance number
+ * <li>disease
+ * <li>first treatment
+ * <li>attending doctor
+ * <li>family member
+ * 
+ * <br>
+ * 
+ * @author team red
+ * @version V1.0
+ *
+ */
 @SuppressWarnings("serial")
 @Theme("mytheme")
 @Widgetset("ch.bfh.btx8081.w2015.red.Schlurp.MyAppWidgetset")
@@ -81,7 +100,7 @@ public class InfoView extends VerticalLayout implements View {
 		VerticalLayout textFieldBox = new VerticalLayout();
 		textFieldBox.setEnabled(false);
 		textFieldBox.setHeight(HEIGHT_BODY);
-		
+
 		// Add Infopage Components
 		Label label_ButtonCompensation = new Label();
 		Label label_Name = new Label("Name: ");
@@ -103,15 +122,14 @@ public class InfoView extends VerticalLayout implements View {
 
 		// Ressource Images
 		FileResource editImage = new FileResource(
-				new File(
-						"src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/editpen.png"));
+				new File("src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/editpen.png"));
 		FileResource saveImage = new FileResource(
-				new File(
-						"src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/diskette.png"));
+				new File("src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/diskette.png"));
 
 		// Buttons
 		wrapper.getFooterAddButton().setVisible(false);
 		wrapper.getFooterDeleteButton().setVisible(false);
+		wrapper.getFooterRefreshButton().setVisible(false);
 
 		editButton.setPrimaryStyleName("nobackground");
 		editButton.setIcon(editImage);
@@ -123,8 +141,10 @@ public class InfoView extends VerticalLayout implements View {
 		// ClickListeners
 		wrapper.getButton().setCaption("Logout");
 		wrapper.getButton().addClickListener(logOut());
-		
-		
+
+		/**
+		 * ClickListener method to edit the informations
+		 */
 		editButton.addClickListener(new ClickListener() {
 			public void buttonClick(ClickEvent event) {
 				textFieldBox.setEnabled(true);
@@ -133,29 +153,29 @@ public class InfoView extends VerticalLayout implements View {
 			}
 		});
 
+		/**
+		 * ClickListener method to save the edited informations.
+		 */
 		saveButton.addClickListener(new ClickListener() {
 			public void buttonClick(ClickEvent event) {
 				textFieldBox.setEnabled(false);
 				editButton.setVisible(true);
 				saveButton.setVisible(false);
-				Patient patient = new Patient(textField_Name.getValue(),
-						textField_Firstname.getValue(), 
-						textField_Insurance.getValue(), 
-						textField_InsuranceNumber.getValue(), 
-						textField_Disease.getValue(),
-						textField_firstTreatment.getValue(),  
-						new Doctor(
-								textField_DoctorContactName.getValue(),
-								textField_DoctorContactPhone.getValue()),
-						new FamilyMember(
-								textField_RelativesContactName.getValue(), 
+				Patient patient = new Patient(textField_Name.getValue(), textField_Firstname.getValue(),
+						textField_Insurance.getValue(), textField_InsuranceNumber.getValue(),
+						textField_Disease.getValue(), textField_firstTreatment.getValue(),
+						new Doctor(textField_DoctorContactName.getValue(), textField_DoctorContactPhone.getValue()),
+						new FamilyMember(textField_RelativesContactName.getValue(),
 								textField_RelativesContactPhone.getValue()));
 				Infopage infoPage = new Infopage(patient);
 				uc.saveInfopage(infoPage);
 
 			}
 		});
-
+		/**
+		 * ClickListener method for the back button, navigate back to the
+		 * homeview.
+		 */
 		wrapper.getFooterBackButton().addClickListener(new ClickListener() {
 			public void buttonClick(ClickEvent event) {
 				getUI().getNavigator().navigateTo(MyUI.HOMEVIEW);
@@ -179,7 +199,7 @@ public class InfoView extends VerticalLayout implements View {
 		textFieldBox.addComponent(textField_DoctorContactPhone);
 		textFieldBox.addComponent(textField_RelativesContactName);
 		textFieldBox.addComponent(textField_RelativesContactPhone);
-//		textFieldBox.addComponent(label_ButtonCompensation);
+		// textFieldBox.addComponent(label_ButtonCompensation);
 
 		// labelBox
 		labelBox.addComponent(label_Name);
@@ -197,13 +217,16 @@ public class InfoView extends VerticalLayout implements View {
 
 		footer.addComponent(editButton);
 		footer.addComponent(saveButton);
-		
+
 		// layout
 		layout.addComponent(header);
 		layout.addComponent(body);
 		layout.addComponent(footer);
 	}
 
+	/**
+	 * enter method to fill the infopage with the informations.
+	 */
 	@Override
 	public void enter(ViewChangeEvent event) {
 		uc.createInfoPageObject(uc.getUser());
@@ -211,21 +234,21 @@ public class InfoView extends VerticalLayout implements View {
 		textField_Name.setValue(infopage.getPatient().getLastName());
 		textField_Firstname.setValue(infopage.getPatient().getFirstName());
 		textField_Insurance.setValue(infopage.getPatient().getInsurance());
-		textField_InsuranceNumber.setValue(infopage.getPatient()
-				.getInsPolicyNb());
+		textField_InsuranceNumber.setValue(infopage.getPatient().getInsPolicyNb());
 		textField_Disease.setValue(infopage.getPatient().getDisease());
-		textField_firstTreatment.setValue(infopage.getPatient()
-				.getFirstTreatment());
-		textField_DoctorContactName.setValue(infopage.getPatient().getDoctor()
-				.getLastName());
-		textField_DoctorContactPhone.setValue((infopage.getPatient()
-				.getDoctor().getPhoneNb()));
-		textField_RelativesContactName.setValue(infopage.getPatient()
-				.getFmember().getLastName());
-		textField_RelativesContactPhone.setValue(infopage.getPatient()
-				.getFmember().getPhoneNb());
+		textField_firstTreatment.setValue(infopage.getPatient().getFirstTreatment());
+		textField_DoctorContactName.setValue(infopage.getPatient().getDoctor().getLastName());
+		textField_DoctorContactPhone.setValue((infopage.getPatient().getDoctor().getPhoneNb()));
+		textField_RelativesContactName.setValue(infopage.getPatient().getFmember().getLastName());
+		textField_RelativesContactPhone.setValue(infopage.getPatient().getFmember().getPhoneNb());
 	}
-	
+
+	/**
+	 * ClickListener method, handles the log out button in the header component
+	 * 
+	 * @return <code>logOut</code>: ClickListener
+	 * 
+	 */
 	private ClickListener logOut() {
 		Button.ClickListener logout = new Button.ClickListener() {
 			@Override
@@ -237,6 +260,11 @@ public class InfoView extends VerticalLayout implements View {
 		return logout;
 	}
 
+	/**
+	 * get logout path
+	 * 
+	 * @return <code>getLogoutPath</code>: String
+	 */
 	private String getLogoutPath() {
 		return getUI().getPage().getLocation().getPath();
 	}
