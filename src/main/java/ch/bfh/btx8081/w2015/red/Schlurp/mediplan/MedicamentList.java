@@ -77,8 +77,8 @@ public class MedicamentList {
 			try {
 				// the content of the line(Medicament:Name, Amount, Intervall,
 				// StartDate, EndDate) is added to the ArrayList
-				newMediList.add(new Medicament(splittedData[1], splittedData[2], splittedData[3],
-						FORMAT.parse(splittedData[4]), FORMAT.parse(splittedData[5])));
+				newMediList.add(new Medicament(splittedData[0], splittedData[1], splittedData[2],
+						FORMAT.parse(splittedData[3]), FORMAT.parse(splittedData[4])));
 			} catch (NumberFormatException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -119,7 +119,7 @@ public class MedicamentList {
 		String delimiter = ";";
 		for (int i = 0; i < medi.size(); i++) {
 
-			out.format(medi.get(i).getMediID() + delimiter + " " + medi.get(i).getName() + delimiter + " "
+			out.format(medi.get(i).getName() + delimiter + " "
 					+ medi.get(i).getAmount() + delimiter + " " + medi.get(i).getInterval() + delimiter + " "
 					+ FORMAT.format(medi.get(i).getStart()) + delimiter + " " + FORMAT.format(medi.get(i).getEnd())
 					+ "%n");
@@ -153,6 +153,19 @@ public class MedicamentList {
 			}
 		}
 
+		return newMediList;
+	}
+	public static ArrayList<Medicament> removeMedicament(String mediName, ArrayList<Medicament> mediList){
+		ArrayList<Medicament> newMediList = mediList;
+		for (int i = 0; i < mediList.size(); i++) {
+			// returns true if they have the same UUID value(doesn't work,
+			// because the saveMethod creates a new Medicamentobject ->A
+			// therefore the UUID is never the same)
+			// temporary solution: compares the name of the medicament
+			if (mediList.get(i).getName().equals(mediName)) {
+				newMediList.remove(i);
+			}
+		}
 		return newMediList;
 	}
 
