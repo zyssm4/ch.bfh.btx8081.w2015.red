@@ -4,28 +4,66 @@ import java.util.Date;
 
 import ch.bfh.btx8081.w2015.red.Schlurp.mediplan.Medicament;
 
+/**
+ * <p>
+ * The Upcoming extends DrugState and is one of the three states of the
+ * Statepattern.
+ * </p>
+ * 
+ * The class has a method to get the upcoming style for later use on the gui
+ * 
+ * Aswell it has the switchState to change from expired to upcoming if the
+ * medicament get's disgorged
+ * 
+ * *
+ * 
+ * @author Mauro Tschanz
+ *
+ */
 public class Upcoming extends DrugState {
 	Medicament actMedi;
 	String style = "upcoming";
-	
-	public Upcoming(Medicament aMedi){
+
+	/**
+	 * Constructor of the Upcoming state Needs a Medicament
+	 * 
+	 * @param aMedi
+	 *            - Medicament
+	 */
+	public Upcoming(Medicament aMedi) {
 		actMedi = aMedi;
-	
+
 	}
 
-	public String getStyle(){
+	/**
+	 * 
+	 * Returns the Taken-Style String
+	 * 
+	 * @param style
+	 *            - String
+	 */
+	public String getStyle() {
 		return style;
 	}
-	
-	public void switchState(){
-		
+
+	/**
+	 * it changes from Upcoming to Taken if the medicament has been taken.
+	 */
+	public void switchState() {
+
 		actMedi.setState(new Taken(actMedi));
-		
-		
+
 	}
-	public void checkTime(){
+
+	/**
+	 * 
+	 * This method checks if the set Date of the medicament when it should be
+	 * taken is after the actual date. If this is the case, the state switches
+	 * to expired.
+	 */
+	public void checkTime() {
 		Date date = new Date();
-		if(actMedi.getToTake().before(date)){
+		if (actMedi.getToTake().before(date)) {
 			actMedi.setState(new Expired(actMedi));
 		}
 
