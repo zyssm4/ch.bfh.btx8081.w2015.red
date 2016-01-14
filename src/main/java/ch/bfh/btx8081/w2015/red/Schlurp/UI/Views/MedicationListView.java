@@ -19,6 +19,14 @@ import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Panel;
 import com.vaadin.ui.VerticalLayout;
 
+/**
+ * Creates the view for the medicaments. It displays a list with all drugs. In
+ * this view its possible create, edit and delete a medicament.
+ * 
+ * @author team red
+ * @version V1.0
+ *
+ */
 @SuppressWarnings("serial")
 public class MedicationListView extends VerticalLayout implements View {
 
@@ -57,17 +65,26 @@ public class MedicationListView extends VerticalLayout implements View {
 		layout.addComponent(body);
 		layout.addComponent(footer);
 
+		wrapper.getFooterRefreshButton().setVisible(false);
+
 		wrapper.getButton().setCaption("Logout");
 		wrapper.getButton().addClickListener(logOut());
 
-		wrapper.getSwitchButton().setCaption("Home");
+		wrapper.getSwitchButton().setCaption("Daily View");
 		wrapper.getSwitchButton().setVisible(true);
+		/**
+		 * ClickListener method for the back button, navigate back to the
+		 * homeview.
+		 */
 		wrapper.getSwitchButton().addClickListener(new ClickListener() {
 			public void buttonClick(ClickEvent event) {
-				getUI().getNavigator().navigateTo(MyUI.HOMEVIEW);
+				getUI().getNavigator().navigateTo(MyUI.MEDICATIONVIEW);
 			}
+			
 		});
-
+		/**
+		 * ClickListener method to add a new drug.
+		 */
 		wrapper.getFooterAddButton().addClickListener(new ClickListener() {
 			public void buttonClick(ClickEvent event) {
 				drugWrapper = new DrugWrapper();
@@ -79,30 +96,37 @@ public class MedicationListView extends VerticalLayout implements View {
 				drugWrapper.getLeftLayoutDrugBox().setEnabled(true);
 			}
 		});
-
+		/**
+		 * ClickListener method for the back button, navigate back to the
+		 * medicament view.
+		 */
 		wrapper.getFooterBackButton().addClickListener(new ClickListener() {
 			public void buttonClick(ClickEvent event) {
-				getUI().getNavigator().navigateTo(MyUI.MEDICATIONVIEW);
+				getUI().getNavigator().navigateTo(MyUI.HOMEVIEW);
 			}
 		});
-
+		/**
+		 * ClickListener method to delete a drug. After a click on this button,
+		 * you can click on the medicament which you want to delete.
+		 */
 		wrapper.getFooterDeleteButton().addClickListener(new ClickListener() {
 			@Override
 			public void buttonClick(ClickEvent event) {
 				panel.setCaption("<strong>click Medicament to remove</strong>");
 				drugBox.addLayoutClickListener(new LayoutClickListener() {
 					public void layoutClick(LayoutClickEvent event) {
-						//DrugWrapper deletedWrapper = (DrugWrapper)event.getClickedComponent();
-						//System.out.println(deletedWrapper.getDrugName());
-		
-						//System.out.println(event.getClickedComponent());
-						//System.out.println(drugBox.getComponentIndex(event.getClickedComponent()));
-						uc.removeMedicament((drugWrapperList.get(drugBox.getComponentIndex(event.getClickedComponent())).getDrugName()));
+						// DrugWrapper deletedWrapper =
+						// (DrugWrapper)event.getClickedComponent();
+						// System.out.println(deletedWrapper.getDrugName());
+
+						// System.out.println(event.getClickedComponent());
+						// System.out.println(drugBox.getComponentIndex(event.getClickedComponent()));
+						uc.removeMedicament((drugWrapperList.get(drugBox.getComponentIndex(event.getClickedComponent()))
+								.getDrugName()));
 						drugWrapperList.remove(drugBox.getComponentIndex(event.getClickedComponent()));
-						drugBox.removeComponent(event.getClickedComponent());					
+						drugBox.removeComponent(event.getClickedComponent());
 						drugBox.removeLayoutClickListener(this);
 						panel.setCaption("");
-						
 					}
 				});
 			}
@@ -111,6 +135,9 @@ public class MedicationListView extends VerticalLayout implements View {
 
 	}
 
+	/**
+	 * enter method to fill the medication list.
+	 */
 	@Override
 	public void enter(ViewChangeEvent event) {
 		// remove the Drugboxes
@@ -131,6 +158,12 @@ public class MedicationListView extends VerticalLayout implements View {
 
 	}
 
+	/**
+	 * ClickListener method, handles the log out button in the header component
+	 * 
+	 * @return <code>logOut</code>: ClickListener
+	 * 
+	 */
 	private ClickListener logOut() {
 		Button.ClickListener logout = new Button.ClickListener() {
 			@Override
@@ -142,6 +175,11 @@ public class MedicationListView extends VerticalLayout implements View {
 		return logout;
 	}
 
+	/**
+	 * get logout path
+	 * 
+	 * @return <code>getLogoutPath</code>: String
+	 */
 	private String getLogoutPath() {
 		return getUI().getPage().getLocation().getPath();
 	}
