@@ -20,6 +20,7 @@ public class MedicineManagerTest {
 	Date datestart = new Date();
 	Date dateend = new Date();
 	String name = "Aspirin";
+	String user = "testUser";
 	Medicament testMediFull = new Medicament("Aspirin", "1", "6", datestart,
 			dateend);
 	MedicineManager mc = MedicineManager.getInstance();
@@ -44,7 +45,7 @@ public class MedicineManagerTest {
 	 */
 	@Test
 	public void testRemoveMedicament() {
-		mc.removeMedicament(testMediFull);
+		mc.removeMedicament(testMediFull.getName(), user);
 		assertTrue(mc.getMediList().isEmpty());
 	
 	}
