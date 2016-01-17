@@ -41,6 +41,7 @@ public class TestInfopage {
 	// right the test returns true
 	@Test
 	public void testSaveInfoPage() {
+		um.createUser(user);
 		um.saveInfopage(fullInfopage);
 		um.createInfoPageObject(user);
 		assertEquals(um.getInfopage(), fullInfopage);
