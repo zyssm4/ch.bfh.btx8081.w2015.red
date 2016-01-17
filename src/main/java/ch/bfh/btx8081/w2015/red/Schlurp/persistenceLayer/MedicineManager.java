@@ -32,6 +32,8 @@ public class MedicineManager {
 		return mc;
 	}
 
+	// Removes first the Medicament with mediName from the MedicamentList and
+	// writes then the new List to the File
 	public void removeMedicament(String mediName, String user) {
 		setMediList(MedicamentList.removeMedicament(mediName, getMediList()));
 		MedicamentList.writeMediToMediplan(MediList, (user + FILENAMEPART + FILETYPE));
@@ -45,16 +47,27 @@ public class MedicineManager {
 		this.MediList = mediList;
 	}
 
+	// the medicament to be safed gets first "overwritten" (if it already
+	// existed) then the old text file with the old medicamentlist gets
+	// overwritten with the new one
 	public void saveMedicament(String user, Medicament medi) {
+		// Checks first if a Medicament with the same Name already exists in
+		// the MedicamentList. If it does, it' gets removed from the List.
 		setMediList(MedicamentList.exists(medi, getMediList()));
 		MediList.add(medi);
+		// Lastly we overwrite the text file with the old medicamentlist with
+		// the new one
 		MedicamentList.writeMediToMediplan(MediList, (user + FILENAMEPART + FILETYPE));
 	}
 
+	// reads the Informations form the appropriate text file and generates a new
+	// ArrayList of Medicaments for the MediListView
 	public void createMediListObject(String username) {
 		MediList = MedicamentList.readInformationsFromMediplan(username + FILENAMEPART + FILETYPE);
 	}
 
+	// reads the Informations form the appropriate text file and generates a new
+	// ArrayList of Medicaments for the DailyListView
 	public void createDailyListObject(String username) {
 		MediList = DailyMedicamentList.readDailyInformations(username + FILENAMEPART + FILETYPE);
 	}

@@ -103,16 +103,16 @@ public class InfoView extends VerticalLayout implements View {
 
 		// Add Infopage Components
 		Label label_ButtonCompensation = new Label();
-		Label label_Name = new Label("Name: ");
-		Label label_Firstname = new Label("Vorname: ");
-		Label label_Insurance = new Label("Krankenkasse: ");
-		Label label_InsuranceNumber = new Label("Versicherten Nr: ");
-		Label label_Disease = new Label("Krankheit: ");
-		Label label_FirstThreatment = new Label("Erste Behandlung: ");
-		Label label_DoctorContact = new Label("Arzt Kontakt: ");
-		Label label_DoctorPhone = new Label("");
-		Label label_RelativesContact = new Label("Angehörige: ");
-		Label label_RelativesPhone = new Label("");
+		Label label_Name = new Label("Last name: ");
+		Label label_Firstname = new Label("First name: ");
+		Label label_Insurance = new Label("Insurance: ");
+		Label label_InsuranceNumber = new Label("Insurance number: ");
+		Label label_Disease = new Label("Disease: ");
+		Label label_FirstThreatment = new Label("First treatment: ");
+		Label label_DoctorContact = new Label("Doctor contact: ");
+		Label label_DoctorPhone = new Label("Doctor phone:");
+		Label label_RelativesContact = new Label("Relatives contact: ");
+		Label label_RelativesPhone = new Label("Relatives phone:");
 
 		// //DateField
 		// DateField dateField_firstTreatment = new DateField();

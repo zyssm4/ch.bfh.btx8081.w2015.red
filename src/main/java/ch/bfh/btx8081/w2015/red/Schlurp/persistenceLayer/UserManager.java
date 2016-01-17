@@ -9,8 +9,8 @@ import ch.bfh.btx8081.w2015.red.Schlurp.mediplan.Medicament;
  * The UserManager is used to call certain Methods from the class Infopage and
  * MedicineManager.
  * <p>
- * The Methods are used to link the Application Logic with the
- * Data provided by the text Files and the Data entered by the User.
+ * The Methods are used to link the Application Logic with the Data provided by
+ * the text Files and the Data entered by the User.
  * 
  * @author Rea, Mauro
  *
@@ -34,10 +34,14 @@ public class UserManager {
 		return uc;
 	}
 
+	// reads the Informations form the appropriate text file and overwrites the
+	// Infopageobject with it's content
 	public void createInfoPageObject(String username) {
 		infopage = Infopage.readInformationsFromFile(username + FILETYPE);
 	}
 
+	// overwrites the Infopageobject of the Usermanager and writes the
+	// content to a text file
 	public void saveInfopage(Infopage iP) {
 		infopage = iP;
 		Infopage.writeInfomationsToFile(infopage, user + FILETYPE);

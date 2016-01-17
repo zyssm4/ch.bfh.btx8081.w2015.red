@@ -1,7 +1,5 @@
 package ch.bfh.btx8081.w2015.red.Schlurp.person;
 
-
-
 /**
  * A <code>patient</code> object represents a patient (abstraction) with its
  * following data (name, first name, insurance, insurance policy number and
@@ -166,6 +164,67 @@ public class Patient extends Person {
 	 */
 	public void setFmember(FamilyMember fmember) {
 		this.fmember = fmember;
+	}
+
+	/**
+	 * Generated hashCode method,because only used for the Junit tests
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + ((disease == null) ? 0 : disease.hashCode());
+		result = prime * result + ((doctor == null) ? 0 : doctor.hashCode());
+		result = prime * result + ((firstTreatment == null) ? 0 : firstTreatment.hashCode());
+		result = prime * result + ((fmember == null) ? 0 : fmember.hashCode());
+		result = prime * result + ((insPolicyNb == null) ? 0 : insPolicyNb.hashCode());
+		result = prime * result + ((insurance == null) ? 0 : insurance.hashCode());
+		return result;
+	}
+
+	/**
+	 * Generated equals method, because only used for the Junit tests
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Patient other = (Patient) obj;
+		if (disease == null) {
+			if (other.disease != null)
+				return false;
+		} else if (!disease.equals(other.disease))
+			return false;
+		if (doctor == null) {
+			if (other.doctor != null)
+				return false;
+		} else if (!doctor.equals(other.doctor))
+			return false;
+		if (firstTreatment == null) {
+			if (other.firstTreatment != null)
+				return false;
+		} else if (!firstTreatment.equals(other.firstTreatment))
+			return false;
+		if (fmember == null) {
+			if (other.fmember != null)
+				return false;
+		} else if (!fmember.equals(other.fmember))
+			return false;
+		if (insPolicyNb == null) {
+			if (other.insPolicyNb != null)
+				return false;
+		} else if (!insPolicyNb.equals(other.insPolicyNb))
+			return false;
+		if (insurance == null) {
+			if (other.insurance != null)
+				return false;
+		} else if (!insurance.equals(other.insurance))
+			return false;
+		return true;
 	}
 
 }

@@ -12,7 +12,7 @@ import ch.bfh.btx8081.w2015.red.Schlurp.person.FamilyMember;
 import ch.bfh.btx8081.w2015.red.Schlurp.person.Patient;
 
 /**
- * A <code>Infopage</code> object represents an information page (abstraction)
+ * An <code>Infopage</code> object represents an information page (abstraction)
  * of a patient with its following data (name, first name and phone number). The
  * data is first generated from the input of the patient in textfields and will
  * be written to a text file. In future the content of the infopage will be
@@ -139,4 +139,36 @@ public class Infopage {
 	public String toString() {
 		return "Infopage [patient=" + patient + "]";
 	}
+
+	/**
+	 * Generated hashCode method,because only used for the Junit tests
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((patient == null) ? 0 : patient.hashCode());
+		return result;
+	}
+
+	/**
+	 * Generated equals method, because only used for the Junit tests
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Infopage other = (Infopage) obj;
+		if (patient == null) {
+			if (other.patient != null)
+				return false;
+		} else if (!patient.equals(other.patient))
+			return false;
+		return true;
+	}
+
 }

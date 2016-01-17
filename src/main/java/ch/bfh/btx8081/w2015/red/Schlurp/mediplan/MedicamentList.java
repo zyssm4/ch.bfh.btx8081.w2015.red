@@ -125,12 +125,12 @@ public class MedicamentList {
 
 	/**
 	 * Tests if the Medicament medi already exists in the ArrayList mediList.
-	 * The test is based on the name of the Medicament and if it already exsits,
+	 * The test is based on the name of the Medicament and if it already exists,
 	 * this Medicament is removed from the ArrayList so that it can be added
 	 * with the new content
 	 * 
 	 * @param medi
-	 *            the Medicament to test if it exsits
+	 *            the Medicament to test if it exists
 	 * @param mediList
 	 *            the MedicamentList with the recent Medicaments of the Patient
 	 * @return modified ArrayList<Medicament> newMediList
