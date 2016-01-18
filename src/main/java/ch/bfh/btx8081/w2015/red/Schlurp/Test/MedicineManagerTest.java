@@ -11,7 +11,7 @@ import ch.bfh.btx8081.w2015.red.Schlurp.mediplan.Medicament;
 import ch.bfh.btx8081.w2015.red.Schlurp.persistenceLayer.MedicineManager;
 
 /**
- * @author zyssm4
+ * @author zyssm4, Nosep2
  * @version V17.01.2016
  * 
  * Tests the Save and Remove Function of the MedicineManager
