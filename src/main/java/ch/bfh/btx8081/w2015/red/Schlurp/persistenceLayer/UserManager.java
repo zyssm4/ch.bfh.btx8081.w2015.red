@@ -34,14 +34,21 @@ public class UserManager {
 		return uc;
 	}
 
-	// reads the Informations form the appropriate text file and overwrites the
-	// Infopageobject with it's content
+	/**
+	 * reads the Informations form the appropriate text file and overwrites the
+	 * Infopageobject with it's content
+	 */
 	public void createInfoPageObject(String username) {
 		infopage = Infopage.readInformationsFromFile(username + FILETYPE);
 	}
 
-	// overwrites the Infopageobject of the Usermanager and writes the
-	// content to a text file
+	/**
+	 * overwrites the Infopageobject of the Usermanager and writes the content
+	 * to a text file
+	 * 
+	 * @param iP
+	 */
+
 	public void saveInfopage(Infopage iP) {
 		infopage = iP;
 		Infopage.writeInfomationsToFile(infopage, user + FILETYPE);

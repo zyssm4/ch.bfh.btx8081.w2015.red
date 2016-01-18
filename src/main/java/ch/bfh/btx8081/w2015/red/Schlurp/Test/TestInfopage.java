@@ -27,18 +27,22 @@ public class TestInfopage {
 	String user = "Max";
 	UserManager um = UserManager.getInstance();
 
-	// The method createInfopageObject wants to read from an File with the
-	// username.txt, if it doesn't exsist it creates one with empty Strings for
-	// every Infopagefield
+	/**
+	 * The method createInfopageObject wants to read from an File with the
+	 * username.txt, if it doesn't exsist it creates one with empty Strings for
+	 * every Infopagefield
+	 */
 	@Test
 	public void testCreateInfoPageObject() {
 		um.createInfoPageObject(user);
 		assertEquals(um.getInfopage(), emptyInfopage);
 	}
 
-	// First we save the FullInfopage to a file and then we read it and
-	// overwrite the Infopageobject of the usermanager, if both methods work
-	// right the test returns true
+	/**
+	 * First we save the FullInfopage to a file and then we read it and
+	 * overwrite the Infopageobject of the usermanager, if both methods work
+	 * right the test returns true
+	 */
 	@Test
 	public void testSaveInfoPage() {
 		um.createUser(user);
