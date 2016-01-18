@@ -55,8 +55,6 @@ public class MedicationView extends VerticalLayout implements View {
 
 		wrapper.getButton().setCaption("Logout");
 		wrapper.getButton().addClickListener(logOut());
-		wrapper.getSwitchButton().setVisible(true);
-		wrapper.getSwitchButton().setCaption("MediList");
 
 		
 		// Load Medicaments
@@ -85,19 +83,15 @@ public class MedicationView extends VerticalLayout implements View {
 		layout.addComponent(header);
 		layout.addComponent(body);
 		layout.addComponent(footer);
+		
 
 		wrapper.getFooterRefreshButton().setVisible(false);
-
+		wrapper.getFooterAddButton().setVisible(false);
+		wrapper.getFooterDeleteButton().setVisible(false);
+	
+		
 		addComponent(layout);
 		layout.setMargin(false);
-		/**
-		 * ClickListener method to navigate to the medication list.
-		 */
-		wrapper.getSwitchButton().addClickListener(new ClickListener() {
-			public void buttonClick(ClickEvent event) {
-				getUI().getNavigator().navigateTo(MyUI.MEDICATIONLISTVIEW);
-			}
-		});
 		/**
 		 * ClickListener method for the back button, navigate back to the
 		 * homeview.
@@ -105,6 +99,12 @@ public class MedicationView extends VerticalLayout implements View {
 		wrapper.getFooterBackButton().addClickListener(new ClickListener() {
 			public void buttonClick(ClickEvent event) {
 				getUI().getNavigator().navigateTo(MyUI.HOMEVIEW);
+			}
+		});
+		
+		wrapper.getfooterFurtherButton().addClickListener(new ClickListener() {
+			public void buttonClick(ClickEvent event) {
+				getUI().getNavigator().navigateTo(MyUI.MEDICATIONLISTVIEW);
 			}
 		});
 

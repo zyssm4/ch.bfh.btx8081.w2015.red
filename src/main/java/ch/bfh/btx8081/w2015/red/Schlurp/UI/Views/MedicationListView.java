@@ -66,22 +66,13 @@ public class MedicationListView extends VerticalLayout implements View {
 		layout.addComponent(footer);
 
 		wrapper.getFooterRefreshButton().setVisible(false);
-
+		wrapper.getfooterFurtherButton().setVisible(false);
+		wrapper.getFillerFooterLabel().setVisible(false);
+		
 		wrapper.getButton().setCaption("Logout");
 		wrapper.getButton().addClickListener(logOut());
 
-		wrapper.getSwitchButton().setCaption("Daily View");
-		wrapper.getSwitchButton().setVisible(true);
-		/**
-		 * ClickListener method for the back button, navigate back to the
-		 * homeview.
-		 */
-		wrapper.getSwitchButton().addClickListener(new ClickListener() {
-			public void buttonClick(ClickEvent event) {
-				getUI().getNavigator().navigateTo(MyUI.MEDICATIONVIEW);
-			}
-			
-		});
+	
 		/**
 		 * ClickListener method to add a new drug.
 		 */
@@ -102,7 +93,7 @@ public class MedicationListView extends VerticalLayout implements View {
 		 */
 		wrapper.getFooterBackButton().addClickListener(new ClickListener() {
 			public void buttonClick(ClickEvent event) {
-				getUI().getNavigator().navigateTo(MyUI.HOMEVIEW);
+				getUI().getNavigator().navigateTo(MyUI.MEDICATIONVIEW);
 			}
 		});
 		/**

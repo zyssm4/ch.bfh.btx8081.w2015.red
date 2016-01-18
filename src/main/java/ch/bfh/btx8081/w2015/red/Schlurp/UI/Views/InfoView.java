@@ -130,6 +130,7 @@ public class InfoView extends VerticalLayout implements View {
 		wrapper.getFooterAddButton().setVisible(false);
 		wrapper.getFooterDeleteButton().setVisible(false);
 		wrapper.getFooterRefreshButton().setVisible(false);
+		wrapper.getfooterFurtherButton().setVisible(false);
 
 		editButton.setPrimaryStyleName("nobackground");
 		editButton.setIcon(editImage);

@@ -7,6 +7,8 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Random;
 
+import com.vaadin.annotations.Theme;
+import com.vaadin.annotations.Widgetset;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.server.FileResource;
@@ -29,16 +31,15 @@ import com.vaadin.ui.VerticalLayout;
  */
 
 @SuppressWarnings("serial")
+@Theme("mytheme")
+@Widgetset("ch.bfh.btx8081.w2015.red.Schlurp.MyAppWidgetset")
 public class GIFView extends VerticalLayout implements View {
-	// defined Height
-	final String HEIGHT_BODY = "543";
 
 	private ArrayList<Image> gifs = new ArrayList<>();
 
 	final VerticalLayout componentContainer;
 	Random r = new Random();
 
-	Wrapper wrapper = null;
 
 	FileResource res1 = new FileResource(new File("src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/GIFs/gif1.gif"));
 	FileResource res2 = new FileResource(new File("src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/GIFs/gif2.gif"));
@@ -51,31 +52,32 @@ public class GIFView extends VerticalLayout implements View {
 		fillGIFList();
 
 		setSizeFull();
-		setSpacing(false);
-
-		wrapper = new Wrapper();
+		
+	
+		Wrapper wrapper = new Wrapper();
 		final VerticalLayout layout = wrapper.getLayout();
+		addComponent(layout);
+		layout.setMargin(false);
+		
 		final HorizontalLayout header = wrapper.getHeader();
 		final HorizontalLayout body = wrapper.getBody();
 		final HorizontalLayout footer = wrapper.getFooter();
 
 		wrapper.setLabel("Random GIF");
 
-		addComponent(layout);
-		layout.setMargin(false);
-
 		componentContainer = new VerticalLayout();
-		componentContainer.setHeight(HEIGHT_BODY);
 		componentContainer.setDefaultComponentAlignment(Alignment.MIDDLE_CENTER);
 
 		displayRandomGIF();
 		wrapper.getFooterRefreshButton().setVisible(true);
-		wrapper.getHeader().removeComponent(wrapper.getButton());
-		wrapper.getHeader().addComponent(logOut(), 0);
+		wrapper.getButton().setCaption("Logout");
+		wrapper.getButton().addClickListener(logOut());
 		body.addComponent(componentContainer);
 
 		wrapper.getFooterAddButton().setVisible(false);
 		wrapper.getFooterDeleteButton().setVisible(false);
+		wrapper.getfooterFurtherButton().setVisible(false);
+	
 
 		/**
 		 * ClickListener method for the back button, navigate back to the
@@ -112,15 +114,15 @@ public class GIFView extends VerticalLayout implements View {
 	 * @return <code>logOut</code>: ClickListener
 	 * 
 	 */
-	private Button logOut() {
-		Button button = new Button("Logout", new Button.ClickListener() {
+	private ClickListener logOut() {
+		Button.ClickListener logout = new Button.ClickListener() {
 			@Override
 			public void buttonClick(ClickEvent event) {
 				getUI().getSession().close();
 				getUI().getPage().setLocation(getLogoutPath());
 			}
-		});
-		return button;
+		};
+		return logout;
 	}
 
 	@Override

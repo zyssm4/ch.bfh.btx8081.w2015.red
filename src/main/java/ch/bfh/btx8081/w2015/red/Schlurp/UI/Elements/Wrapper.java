@@ -42,12 +42,15 @@ public class Wrapper extends CustomComponent {
 	// define Components
 	private Label headerLabel = null;
 	private Button homeButton = null;
-	private Button switchViewButton = null;
 
+	private Label fillerHeaderLabel = null;
+	private Label fillerFooterLabel = null;
+	
 	private Button footerBackButton = null;
 	private Button footerDeleteButton = null;
 	private Button footerAddButton = null;
 	private Button footerRefreshButton = null;
+	private Button footerFurtherButton = null;
 
 	public Wrapper() {
 
@@ -57,9 +60,11 @@ public class Wrapper extends CustomComponent {
 		body = new HorizontalLayout();
 
 		headerLabel = new Label();
+		fillerHeaderLabel = new Label();
+		fillerFooterLabel = new Label();
 		homeButton = new Button("Home");
-		switchViewButton = new Button();
 		footerBackButton = new Button();
+		footerFurtherButton = new Button();
 		footerDeleteButton = new Button();
 		footerAddButton = new Button();
 		footerRefreshButton = new Button();
@@ -69,6 +74,8 @@ public class Wrapper extends CustomComponent {
 		// set Button Images
 		FileResource backImage = new FileResource(
 				new File("src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/backbutton.png"));
+		FileResource furtherImage = new FileResource(
+				new File("src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/FurtherButton.png"));
 		FileResource deleteImage = new FileResource(
 				new File("src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/delete.png"));
 		FileResource addImage = new FileResource(
@@ -76,14 +83,15 @@ public class Wrapper extends CustomComponent {
 		FileResource refreshImage = new FileResource(
 				new File("src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/refresh.png"));
 
+	
+		
 		homeButton.setStyleName("tiny");
 		homeButton.setHeight(HEIGHT_HEADER);
-		switchViewButton.setStyleName("tiny");
-		switchViewButton.setHeight(HEIGHT_HEADER);
-		switchViewButton.setVisible(false);
 
 		footerBackButton.setPrimaryStyleName("nobackground");
 		footerBackButton.setIcon(backImage);
+		footerFurtherButton.setPrimaryStyleName("nobackground");
+		footerFurtherButton.setIcon(furtherImage);
 		footerDeleteButton.setPrimaryStyleName("nobackground");
 		footerDeleteButton.setIcon(deleteImage);
 		footerAddButton.setPrimaryStyleName("nobackground");
@@ -97,6 +105,9 @@ public class Wrapper extends CustomComponent {
 
 		headerLabel.setStyleName("myHeaderLabel");
 		headerLabel.setWidth(null);
+		fillerHeaderLabel.setWidth(null);
+		
+		fillerFooterLabel.setStyleName("myHeaderLabel");
 
 		// Body
 		body.setHeight(HEIGHT_BODY);
@@ -113,36 +124,41 @@ public class Wrapper extends CustomComponent {
 		layout.addComponent(body);
 		header.addComponent(homeButton);
 		header.addComponent(headerLabel);
-		header.addComponent(switchViewButton);
+		header.addComponent(fillerHeaderLabel);
 
 		footer.addComponent(footerBackButton);
 		footer.addComponent(footerAddButton);
 		footer.addComponent(footerDeleteButton);
+		footer.addComponent(fillerFooterLabel);
 		footer.addComponent(footerRefreshButton);
+		footer.addComponent(footerFurtherButton);
 		
 
 		// Set Alignment
 		header.setComponentAlignment(headerLabel, Alignment.MIDDLE_CENTER);
-		header.setComponentAlignment(switchViewButton, Alignment.MIDDLE_CENTER);
 	}
 
 	public void setLabel(String title) {
 		String titleLabel = title;
 		headerLabel.setCaption(titleLabel);
 	}
+	
+	public Label getFillerFooterLabel(){
+		return fillerFooterLabel;
+	}
 
 	public Button getButton() {
 		return homeButton;
-	}
-
-	public Button getSwitchButton() {
-		return switchViewButton;
 	}
 
 	public Button getFooterBackButton() {
 		return footerBackButton;
 	}
 
+	public Button getfooterFurtherButton() {
+		return footerFurtherButton;
+	}
+	
 	public Button getFooterAddButton() {
 		return footerAddButton;
 	}
