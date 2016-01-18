@@ -48,9 +48,11 @@ public class Upcoming extends DrugState {
 
 	/**
 	 * it changes from Upcoming to Taken if the medicament has been taken.
+	 * Aswell the next ToTake Date gets updated and will be set to the actToTake Date + the intervall
 	 */
 	public void switchState() {
-
+		int intervallTimeInHours = Integer.parseInt(actMedi.getInterval());
+		actMedi.setToTake(new Date( actMedi.getToTake().getTime() + intervallTimeInHours*3600000));
 		actMedi.setState(new Taken(actMedi));
 
 	}

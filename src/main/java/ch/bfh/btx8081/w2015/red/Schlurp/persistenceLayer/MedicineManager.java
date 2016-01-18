@@ -2,7 +2,6 @@ package ch.bfh.btx8081.w2015.red.Schlurp.persistenceLayer;
 
 import java.util.ArrayList;
 
-import ch.bfh.btx8081.w2015.red.Schlurp.mediplan.DailyMedicamentList;
 import ch.bfh.btx8081.w2015.red.Schlurp.mediplan.Medicament;
 import ch.bfh.btx8081.w2015.red.Schlurp.mediplan.MedicamentList;
 
@@ -66,9 +65,4 @@ public class MedicineManager {
 		MediList = MedicamentList.readInformationsFromMediplan(username + FILENAMEPART + FILETYPE);
 	}
 
-	// reads the Informations form the appropriate text file and generates a new
-	// ArrayList of Medicaments for the DailyListView
-	public void createDailyListObject(String username) {
-		MediList = DailyMedicamentList.readDailyInformations(username + FILENAMEPART + FILETYPE);
-	}
 }

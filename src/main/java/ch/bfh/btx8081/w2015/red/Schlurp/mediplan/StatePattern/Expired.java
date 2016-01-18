@@ -42,8 +42,10 @@ public class Expired extends DrugState {
 	/**
 	 * 
 	 * Switches the State to taken from expired.
+	 * Also the Date gets returned to the last time, when the Medi has been taken
 	 */
 	public void switchState() {
+		actMedi.setToTake(actMedi.getTaken());
 		actMedi.setState(new Taken(actMedi));
 
 	}

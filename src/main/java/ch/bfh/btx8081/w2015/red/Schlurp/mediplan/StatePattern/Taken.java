@@ -42,8 +42,10 @@ public class Taken extends DrugState {
 	/**
 	 * it changes from Taken to Upcoming and uses afterwards the checktime Method to check if the 
 	 * Medicament date is still expired.
+	 * Also the Date gets returned to the last time, when the Medi has been taken
 	 */
 	public void switchState() {
+		actMedi.setToTake(actMedi.getTaken());
 		actMedi.setState(new Upcoming(actMedi));
 		actMedi.checkTime();
 

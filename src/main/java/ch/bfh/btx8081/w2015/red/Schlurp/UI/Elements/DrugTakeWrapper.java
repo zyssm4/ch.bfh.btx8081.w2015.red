@@ -66,7 +66,7 @@ public class DrugTakeWrapper extends CustomComponent {
 		drug_Taken.setPrimaryStyleName("nobackground");
 		drug_Taken.addClickListener(new ClickListener() {
 			public void buttonClick(ClickEvent event) {
-			m.switchState();
+			switchState();
 			setStateStyleName();
 			
 			}
@@ -128,6 +128,9 @@ public class DrugTakeWrapper extends CustomComponent {
 
 	public void checkTime() {
 		m.checkTime();
+	}
+	public void switchState(){
+		m.switchState();
 		
 	}
 

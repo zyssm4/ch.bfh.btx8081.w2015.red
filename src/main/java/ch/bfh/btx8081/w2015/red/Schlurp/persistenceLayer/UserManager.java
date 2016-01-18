@@ -74,10 +74,6 @@ public class UserManager {
 		mc.createMediListObject(username);
 	}
 
-	public void createDailyListObject(String username) {
-		mc.createDailyListObject(username);
-	}
-
 	public ArrayList<Medicament> getMediList() {
 		return mc.getMediList();
 	}
