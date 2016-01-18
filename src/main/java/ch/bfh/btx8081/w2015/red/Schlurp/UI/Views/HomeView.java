@@ -32,8 +32,8 @@ public class HomeView extends VerticalLayout implements View {
 	// Load Images from Resources
 	FileResource infoPageImage = new FileResource(
 			new File("src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/infoPage.png"));
-	FileResource calendarImage = new FileResource(
-			new File("src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/calendar.png"));
+	FileResource gifImage = new FileResource(
+			new File("src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/robot.png"));
 	FileResource mediPlanImage = new FileResource(
 			new File("src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/MedPlan.png"));
 
@@ -90,14 +90,13 @@ public class HomeView extends VerticalLayout implements View {
 	 * @return <code>timeTable</code>: Button
 	 */
 	private Button gifButton() {
-		Button button = new Button("random GIF-Button", new Button.ClickListener() {
-
+		Button button = new Button("random GIF", new Button.ClickListener() {
 			@Override
 			public void buttonClick(ClickEvent event) {
 				getUI().getNavigator().navigateTo(MyUI.GIFVIEW);
 			}
 		});
-		button.setIcon(calendarImage);
+		button.setIcon(gifImage);
 		button.setStyleName("button");
 		button.setHeight("70");
 		button.setWidth("70");
