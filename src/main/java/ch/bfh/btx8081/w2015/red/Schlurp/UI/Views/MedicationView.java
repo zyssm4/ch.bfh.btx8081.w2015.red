@@ -1,5 +1,6 @@
 package ch.bfh.btx8081.w2015.red.Schlurp.UI.Views;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -9,9 +10,12 @@ import ch.bfh.btx8081.w2015.red.Schlurp.UI.Elements.DrugTakeWrapper;
 import ch.bfh.btx8081.w2015.red.Schlurp.UI.Elements.DrugWrapper;
 import ch.bfh.btx8081.w2015.red.Schlurp.UI.Elements.Wrapper;
 import ch.bfh.btx8081.w2015.red.Schlurp.mediplan.Medicament;
+import ch.bfh.btx8081.w2015.red.Schlurp.persistenceLayer.MedicineManager;
+import ch.bfh.btx8081.w2015.red.Schlurp.persistenceLayer.UserManager;
 
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
+import com.vaadin.shared.ui.MediaControl;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Button.ClickListener;
@@ -33,6 +37,7 @@ import com.vaadin.ui.VerticalLayout;
  */
 @SuppressWarnings("serial")
 public class MedicationView extends VerticalLayout implements View {
+
 	DrugTakeWrapper drugTakeWrapper = null;
 
 	public MedicationView() {
@@ -53,52 +58,26 @@ public class MedicationView extends VerticalLayout implements View {
 		wrapper.getSwitchButton().setVisible(true);
 		wrapper.getSwitchButton().setCaption("MediList");
 
-		drugTakeWrapper = new DrugTakeWrapper();
-		HorizontalLayout layoutDrugWrapper = drugTakeWrapper.getDrugTakeLayout();
+		
+		// Load Medicaments
+		MedicineManager mc = MedicineManager.getInstance();
+		ArrayList<Medicament> mediList = mc.getMediList();
+		
+		for(Medicament m : mediList){
+			m.setTaken(new GregorianCalendar(2016, Calendar.DECEMBER, 18).getTime());
+			drugTakeWrapper = new DrugTakeWrapper();
+			HorizontalLayout layoutDrugWrapper = drugTakeWrapper.getDrugTakeLayout();
+			drugTakeWrapper.setMedicament(m);
+			drugTakeWrapper.getMedicament().getState().checkTime();
+			drugTakeWrapper.setStateStyleName();
+			drugTakeWrapper.setName();
+			drugTakeWrapper.setAmount();
 
-		// -----------------------------------------------//
-		// -------- Medicament State Dummie Data ---------//
-		// ----------------------------------------------//
-		Calendar date1 = new GregorianCalendar(2015, Calendar.DECEMBER, 20);
-		Calendar date2 = new GregorianCalendar(2015, Calendar.DECEMBER, 13);
-		Calendar date3 = new GregorianCalendar(2015, Calendar.DECEMBER, 20);
 
-		Medicament m1 = new Medicament("Dafalgan", "1", "10", date1.getTime(), new Date());
-		drugTakeWrapper.setMedicament(m1);
-		drugTakeWrapper.getMedicament().getState().checkTime();
-		drugTakeWrapper.setStateStyleName();
-		drugTakeWrapper.setName();
-		drugTakeWrapper.setAmount();
-
-		drugBox.addComponent(layoutDrugWrapper);
-		drugTakeWrapper = new DrugTakeWrapper();
-		layoutDrugWrapper = drugTakeWrapper.getDrugTakeLayout();
-		drugTakeWrapper.setStyleName("taken");
-
-		Medicament m2 = new Medicament("Naloxon", "3", "2", date2.getTime(), new Date());
-		drugTakeWrapper.setMedicament(m2);
-		drugTakeWrapper.getMedicament().getState().checkTime();
-		drugTakeWrapper.setName();
-		drugTakeWrapper.setStateStyleName();
-		drugTakeWrapper.setAmount();
-
-		drugBox.addComponent(layoutDrugWrapper);
-		drugTakeWrapper = new DrugTakeWrapper();
-		layoutDrugWrapper = drugTakeWrapper.getDrugTakeLayout();
-		drugTakeWrapper.setStyleName("expired");
-		drugBox.addComponent(layoutDrugWrapper);
-
-		Medicament m3 = new Medicament("Zelboraf", "3", "10", date3.getTime(), new Date());
-		drugTakeWrapper.setMedicament(m3);
-		drugTakeWrapper.getMedicament().getState().checkTime();
-		drugTakeWrapper.setName();
-		drugTakeWrapper.setStateStyleName();
-		drugTakeWrapper.setAmount();
-
-		// -----------------------------------------------//
-		// --------END Medicament State Dummie Data -----//
-		// ----------------------------------------------//
-
+			drugBox.addComponent(layoutDrugWrapper);
+			
+		}
+		
 		Panel panel = new Panel();
 		panel.setContent(drugBox);
 		panel.setHeight("543");
@@ -135,6 +114,9 @@ public class MedicationView extends VerticalLayout implements View {
 	public void enter(ViewChangeEvent event) {
 		// TODO Auto-generated method stub
 
+		MedicineManager mc = MedicineManager.getInstance();
+		UserManager um = UserManager.getInstance();
+		mc.createMediListObject(um.getUser());
 	}
 
 	/**
