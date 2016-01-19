@@ -42,20 +42,20 @@ public class DrugTakeWrapper extends CustomComponent {
 
 	public DrugTakeWrapper() {
 
-		//create Boxes
+		// create Boxes
 		drugTakeBox = new HorizontalLayout();
 		drugNameBox = new VerticalLayout();
 		drugAmountBox = new VerticalLayout();
-		
-		//create Label
+
+		// create Label
 		label_DrugName = new Label();
 		label_DrugAmount = new Label();
 		label_TopBoxName = new Label();
 		label_TopBoxAmount = new Label();
 		label_BottomBoxName = new Label();
-		label_BottomBoxAmount =  new Label();
-		
-		//create Button
+		label_BottomBoxAmount = new Label();
+
+		// create Button
 		drug_Taken = new Button();
 
 		// set Button
@@ -66,39 +66,37 @@ public class DrugTakeWrapper extends CustomComponent {
 		drug_Taken.setPrimaryStyleName("nobackground");
 		drug_Taken.addClickListener(new ClickListener() {
 			public void buttonClick(ClickEvent event) {
-			switchState();
-			setStateStyleName();
-			
+				switchState();
+				setStateStyleName();
+
 			}
 		});
-		
-		
+
 		// define Boxes
 		drugTakeBox.setHeight(HEIGHT_DRUGTAKEBOX);
 		drugTakeBox.setWidth(WIDTH_DRUGTAKEBOX);
-		
+
 		// add to MainBox
 		drugTakeBox.addComponent(drugNameBox);
 		drugTakeBox.addComponent(drugAmountBox);
 		drugTakeBox.addComponent(drug_Taken);
-		
-		//add to Name Box
+
+		// add to Name Box
 		drugNameBox.addComponent(label_TopBoxName);
 		drugNameBox.addComponent(label_DrugName);
 		drugNameBox.addComponent(label_BottomBoxName);
-		
-		//add to Amount Box
+
+		// add to Amount Box
 		drugAmountBox.addComponent(label_TopBoxAmount);
 		drugAmountBox.addComponent(label_DrugAmount);
 		drugAmountBox.addComponent(label_BottomBoxAmount);
-		
-	
-		//set Style
+
+		// set Style
 		drugNameBox.setStyleName("MarginLabel");
 		drugAmountBox.setStyleName("MarginLabel");
 		drugTakeBox.setStyleName("myDrugTakeWrapper upcoming");
 		drug_Taken.setStyleName("MarginButton");
-		
+
 	}
 
 	public HorizontalLayout getDrugTakeLayout() {
@@ -110,29 +108,33 @@ public class DrugTakeWrapper extends CustomComponent {
 	}
 
 	public void setStateStyleName() {
-		drugTakeBox.setStyleName("myDrugTakeWrapper " + m.getState().getStyle());
+		drugTakeBox
+				.setStyleName("myDrugTakeWrapper " + m.getState().getStyle());
 	}
-	public void setName(){
-	label_DrugName.setValue(m.getName());
+
+	public void setName() {
+		label_DrugName.setValue(m.getName());
 	}
-	public void setAmount(){
-	label_DrugAmount.setValue(m.getAmount());
+
+	public void setAmount() {
+		label_DrugAmount.setValue(m.getAmount());
 	}
-	
-	public void setMedicament(Medicament m){
+
+	public void setMedicament(Medicament m) {
 		this.m = m;
 	}
-	public Medicament getMedicament(){
+
+	public Medicament getMedicament() {
 		return m;
 	}
 
 	public void checkTime() {
 		m.checkTime();
 	}
-	public void switchState(){
-		m.switchState();
-		
-	}
 
+	public void switchState() {
+		m.switchState();
+
+	}
 
 }

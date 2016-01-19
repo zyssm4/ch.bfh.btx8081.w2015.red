@@ -27,15 +27,9 @@ import com.vaadin.ui.VerticalLayout;
 
 /**
  * Creates the view with the informations about the patient. Following
- * informations are deposited:
- * <li>name
- * <li>first name
- * <li>insurance
- * <li>insurance number
- * <li>disease
- * <li>first treatment
- * <li>attending doctor
- * <li>family member
+ * informations are deposited: <li>name <li>first name <li>insurance <li>
+ * insurance number <li>disease <li>first treatment <li>attending doctor <li>
+ * family member
  * 
  * <br>
  * 
@@ -102,7 +96,6 @@ public class InfoView extends VerticalLayout implements View {
 		textFieldBox.setHeight(HEIGHT_BODY);
 
 		// Add Infopage Components
-		Label label_ButtonCompensation = new Label();
 		Label label_Name = new Label("Last name: ");
 		Label label_Firstname = new Label("First name: ");
 		Label label_Insurance = new Label("Insurance: ");
@@ -114,17 +107,13 @@ public class InfoView extends VerticalLayout implements View {
 		Label label_RelativesContact = new Label("Relatives contact: ");
 		Label label_RelativesPhone = new Label("Relatives phone:");
 
-		// //DateField
-		// DateField dateField_firstTreatment = new DateField();
-		// dateField_firstTreatment.setValue(new Date());
-		// dateField_firstTreatment.setHeight(HEIGHT_TEXTFIELD);
-		// dateField_firstTreatment.setWidth(WIDTH_TEXTFIELD);
-
 		// Ressource Images
 		FileResource editImage = new FileResource(
-				new File("src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/editpen.png"));
+				new File(
+						"src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/editpen.png"));
 		FileResource saveImage = new FileResource(
-				new File("src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/diskette.png"));
+				new File(
+						"src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/diskette.png"));
 
 		// Buttons
 		wrapper.getFooterAddButton().setVisible(false);
@@ -162,12 +151,16 @@ public class InfoView extends VerticalLayout implements View {
 				textFieldBox.setEnabled(false);
 				editButton.setVisible(true);
 				saveButton.setVisible(false);
-				Patient patient = new Patient(textField_Name.getValue(), textField_Firstname.getValue(),
-						textField_Insurance.getValue(), textField_InsuranceNumber.getValue(),
-						textField_Disease.getValue(), textField_firstTreatment.getValue(),
-						new Doctor(textField_DoctorContactName.getValue(), textField_DoctorContactPhone.getValue()),
-						new FamilyMember(textField_RelativesContactName.getValue(),
-								textField_RelativesContactPhone.getValue()));
+				Patient patient = new Patient(textField_Name.getValue(),
+						textField_Firstname.getValue(), textField_Insurance
+								.getValue(), textField_InsuranceNumber
+								.getValue(), textField_Disease.getValue(),
+						textField_firstTreatment.getValue(), new Doctor(
+								textField_DoctorContactName.getValue(),
+								textField_DoctorContactPhone.getValue()),
+						new FamilyMember(textField_RelativesContactName
+								.getValue(), textField_RelativesContactPhone
+								.getValue()));
 				Infopage infoPage = new Infopage(patient);
 				uc.saveInfopage(infoPage);
 
@@ -235,13 +228,19 @@ public class InfoView extends VerticalLayout implements View {
 		textField_Name.setValue(infopage.getPatient().getLastName());
 		textField_Firstname.setValue(infopage.getPatient().getFirstName());
 		textField_Insurance.setValue(infopage.getPatient().getInsurance());
-		textField_InsuranceNumber.setValue(infopage.getPatient().getInsPolicyNb());
+		textField_InsuranceNumber.setValue(infopage.getPatient()
+				.getInsPolicyNb());
 		textField_Disease.setValue(infopage.getPatient().getDisease());
-		textField_firstTreatment.setValue(infopage.getPatient().getFirstTreatment());
-		textField_DoctorContactName.setValue(infopage.getPatient().getDoctor().getLastName());
-		textField_DoctorContactPhone.setValue((infopage.getPatient().getDoctor().getPhoneNb()));
-		textField_RelativesContactName.setValue(infopage.getPatient().getFmember().getLastName());
-		textField_RelativesContactPhone.setValue(infopage.getPatient().getFmember().getPhoneNb());
+		textField_firstTreatment.setValue(infopage.getPatient()
+				.getFirstTreatment());
+		textField_DoctorContactName.setValue(infopage.getPatient().getDoctor()
+				.getLastName());
+		textField_DoctorContactPhone.setValue((infopage.getPatient()
+				.getDoctor().getPhoneNb()));
+		textField_RelativesContactName.setValue(infopage.getPatient()
+				.getFmember().getLastName());
+		textField_RelativesContactPhone.setValue(infopage.getPatient()
+				.getFmember().getPhoneNb());
 	}
 
 	/**

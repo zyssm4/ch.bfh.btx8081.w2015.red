@@ -45,7 +45,7 @@ public class Wrapper extends CustomComponent {
 
 	private Label fillerHeaderLabel = null;
 	private Label fillerFooterLabel = null;
-	
+
 	private Button footerBackButton = null;
 	private Button footerDeleteButton = null;
 	private Button footerAddButton = null;
@@ -73,18 +73,21 @@ public class Wrapper extends CustomComponent {
 
 		// set Button Images
 		FileResource backImage = new FileResource(
-				new File("src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/backbutton.png"));
+				new File(
+						"src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/backbutton.png"));
 		FileResource furtherImage = new FileResource(
-				new File("src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/FurtherButton.png"));
+				new File(
+						"src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/FurtherButton.png"));
 		FileResource deleteImage = new FileResource(
-				new File("src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/delete.png"));
+				new File(
+						"src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/delete.png"));
 		FileResource addImage = new FileResource(
-				new File("src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/addnew.png"));
+				new File(
+						"src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/addnew.png"));
 		FileResource refreshImage = new FileResource(
-				new File("src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/refresh.png"));
+				new File(
+						"src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/refresh.png"));
 
-	
-		
 		homeButton.setStyleName("tiny");
 		homeButton.setHeight(HEIGHT_HEADER);
 
@@ -106,7 +109,7 @@ public class Wrapper extends CustomComponent {
 		headerLabel.setStyleName("myHeaderLabel");
 		headerLabel.setWidth(null);
 		fillerHeaderLabel.setWidth(null);
-		
+
 		fillerFooterLabel.setStyleName("myHeaderLabel");
 
 		// Body
@@ -132,7 +135,6 @@ public class Wrapper extends CustomComponent {
 		footer.addComponent(fillerFooterLabel);
 		footer.addComponent(footerRefreshButton);
 		footer.addComponent(footerFurtherButton);
-		
 
 		// Set Alignment
 		header.setComponentAlignment(headerLabel, Alignment.MIDDLE_CENTER);
@@ -142,8 +144,8 @@ public class Wrapper extends CustomComponent {
 		String titleLabel = title;
 		headerLabel.setCaption(titleLabel);
 	}
-	
-	public Label getFillerFooterLabel(){
+
+	public Label getFillerFooterLabel() {
 		return fillerFooterLabel;
 	}
 
@@ -158,7 +160,7 @@ public class Wrapper extends CustomComponent {
 	public Button getfooterFurtherButton() {
 		return footerFurtherButton;
 	}
-	
+
 	public Button getFooterAddButton() {
 		return footerAddButton;
 	}
@@ -166,8 +168,8 @@ public class Wrapper extends CustomComponent {
 	public Button getFooterDeleteButton() {
 		return footerDeleteButton;
 	}
-	
-	public Button getFooterRefreshButton(){
+
+	public Button getFooterRefreshButton() {
 		return footerRefreshButton;
 	}
 

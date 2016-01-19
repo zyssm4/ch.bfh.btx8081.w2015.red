@@ -21,7 +21,8 @@ import com.vaadin.ui.themes.ValoTheme;
 /**
  * Creates the view for the login page.
  * 
- * @author Maurice
+ * @author team red
+ * @version V1.0
  */
 @SuppressWarnings("serial")
 public class LoginView extends VerticalLayout implements View {
@@ -61,7 +62,8 @@ public class LoginView extends VerticalLayout implements View {
 		addComponent(loginButton());
 
 		FileResource saveImage = new FileResource(
-				new File("src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/108px-Schlurp_Traumwelt.png"));
+				new File(
+						"src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/108px-Schlurp_Traumwelt.png"));
 		schlurpLabel.setIcon(saveImage);
 		addComponent(schlurpLabel);
 	}
@@ -77,7 +79,8 @@ public class LoginView extends VerticalLayout implements View {
 			@Override
 			public void buttonClick(ClickEvent event) {
 				// new LoginValidator
-				loginVal = new LoginValidator(username.getValue(), password.getValue());
+				loginVal = new LoginValidator(username.getValue(),
+						password.getValue());
 
 				if (loginVal.validate()) {
 					getUI().getNavigator().navigateTo(MyUI.HOMEVIEW);
@@ -85,7 +88,7 @@ public class LoginView extends VerticalLayout implements View {
 					oc.createUser(username.getValue());
 					oc.createInfoPageObject(oc.getUser());
 					oc.createMediListObject(oc.getUser());
-					//oc.createDailyListObject(oc.getUser());
+					// oc.createDailyListObject(oc.getUser());
 				}
 			}
 		});

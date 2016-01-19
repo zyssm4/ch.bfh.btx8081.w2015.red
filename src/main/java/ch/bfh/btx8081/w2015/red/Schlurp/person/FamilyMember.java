@@ -10,23 +10,24 @@ package ch.bfh.btx8081.w2015.red.Schlurp.person;
 public class FamilyMember extends Person {
 
 	private String phoneNb;
+
 	/**
 	 * Constructs a family member with name
 	 * 
 	 * @param name
-	 * 			the name
+	 *            the name
 	 */
 	public FamilyMember(String name) {
 		super(name);
 	}
-	
+
 	/**
 	 * Constructs a complete family member
 	 * 
 	 * @param name
-	 * 			the name
+	 *            the name
 	 * @param phoneNb
-	 * 			the phone number
+	 *            the phone number
 	 */
 	public FamilyMember(String name, String phoneNb) {
 		super(name);
@@ -39,7 +40,7 @@ public class FamilyMember extends Person {
 	public String getPhoneNb() {
 		return phoneNb;
 	}
-	
+
 	/**
 	 * returns the phone number of this <code>FamilyMember</codes>
 	 * 

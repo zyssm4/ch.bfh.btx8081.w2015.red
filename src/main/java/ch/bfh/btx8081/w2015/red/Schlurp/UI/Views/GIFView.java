@@ -40,25 +40,33 @@ public class GIFView extends VerticalLayout implements View {
 	final VerticalLayout componentContainer;
 	Random r = new Random();
 
-
-	FileResource res1 = new FileResource(new File("src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/GIFs/gif1.gif"));
-	FileResource res2 = new FileResource(new File("src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/GIFs/gif2.gif"));
-	FileResource res3 = new FileResource(new File("src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/GIFs/gif3.gif"));
-	FileResource res4 = new FileResource(new File("src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/GIFs/gif4.gif"));
-	FileResource res5 = new FileResource(new File("src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/GIFs/gif5.gif"));
+	FileResource res1 = new FileResource(
+			new File(
+					"src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/GIFs/gif1.gif"));
+	FileResource res2 = new FileResource(
+			new File(
+					"src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/GIFs/gif2.gif"));
+	FileResource res3 = new FileResource(
+			new File(
+					"src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/GIFs/gif3.gif"));
+	FileResource res4 = new FileResource(
+			new File(
+					"src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/GIFs/gif4.gif"));
+	FileResource res5 = new FileResource(
+			new File(
+					"src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/GIFs/gif5.gif"));
 
 	public GIFView() {
 
 		fillGIFList();
 
 		setSizeFull();
-		
-	
+
 		Wrapper wrapper = new Wrapper();
 		final VerticalLayout layout = wrapper.getLayout();
 		addComponent(layout);
 		layout.setMargin(false);
-		
+
 		final HorizontalLayout header = wrapper.getHeader();
 		final HorizontalLayout body = wrapper.getBody();
 		final HorizontalLayout footer = wrapper.getFooter();
@@ -66,7 +74,8 @@ public class GIFView extends VerticalLayout implements View {
 		wrapper.setLabel("Random GIF");
 
 		componentContainer = new VerticalLayout();
-		componentContainer.setDefaultComponentAlignment(Alignment.MIDDLE_CENTER);
+		componentContainer
+				.setDefaultComponentAlignment(Alignment.MIDDLE_CENTER);
 
 		displayRandomGIF();
 		wrapper.getFooterRefreshButton().setVisible(true);
@@ -77,7 +86,6 @@ public class GIFView extends VerticalLayout implements View {
 		wrapper.getFooterAddButton().setVisible(false);
 		wrapper.getFooterDeleteButton().setVisible(false);
 		wrapper.getfooterFurtherButton().setVisible(false);
-	
 
 		/**
 		 * ClickListener method for the back button, navigate back to the

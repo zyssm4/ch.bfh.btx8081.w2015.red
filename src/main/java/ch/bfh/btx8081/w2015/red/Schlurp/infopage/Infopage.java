@@ -58,16 +58,20 @@ public class Infopage {
 		} catch (FileNotFoundException e) {
 			try {
 				PrintWriter out = new PrintWriter(inputFileName, "UTF-16");
-				Infopage infos = new Infopage(
-						new Patient("", "", "", "", "", "", new Doctor("", ""), new FamilyMember("", "")));
+				Infopage infos = new Infopage(new Patient("", "", "", "", "",
+						"", new Doctor("", ""), new FamilyMember("", "")));
 
-				out.format(infos.patient.getLastName() + delimiter + " " + infos.patient.getFirstName() + delimiter
-						+ " " + infos.patient.getInsurance() + delimiter + " " + infos.patient.getInsPolicyNb()
-						+ delimiter + " " + infos.patient.getDisease() + delimiter + " "
-						+ infos.patient.getFirstTreatment() + delimiter + " " + infos.patient.getDoctor().getLastName()
-						+ delimiter + " " + infos.patient.getDoctor().getPhoneNb() + delimiter + " "
-						+ infos.patient.getFmember().getLastName() + delimiter + " "
-						+ infos.patient.getFmember().getPhoneNb() + "%n");
+				out.format(infos.patient.getLastName() + delimiter + " "
+						+ infos.patient.getFirstName() + delimiter + " "
+						+ infos.patient.getInsurance() + delimiter + " "
+						+ infos.patient.getInsPolicyNb() + delimiter + " "
+						+ infos.patient.getDisease() + delimiter + " "
+						+ infos.patient.getFirstTreatment() + delimiter + " "
+						+ infos.patient.getDoctor().getLastName() + delimiter
+						+ " " + infos.patient.getDoctor().getPhoneNb()
+						+ delimiter + " "
+						+ infos.patient.getFmember().getLastName() + delimiter
+						+ " " + infos.patient.getFmember().getPhoneNb() + "%n");
 				out.close();
 				input = new Scanner(new File(inputFileName), "UTF-16");
 			} catch (FileNotFoundException e1) {
@@ -85,9 +89,11 @@ public class Infopage {
 			for (int i = 0; i < splittedData.length; i++) {
 				splittedData[i] = splittedData[i].trim();
 			}
-			info = new Infopage(new Patient(splittedData[0], splittedData[1], splittedData[2], splittedData[3],
-					splittedData[4], splittedData[5], new Doctor(splittedData[6], splittedData[7]),
-					new FamilyMember(splittedData[8], splittedData[9])));
+			info = new Infopage(new Patient(splittedData[0], splittedData[1],
+					splittedData[2], splittedData[3], splittedData[4],
+					splittedData[5], new Doctor(splittedData[6],
+							splittedData[7]), new FamilyMember(splittedData[8],
+							splittedData[9])));
 		}
 
 		input.close();
@@ -102,7 +108,8 @@ public class Infopage {
 	 * @param outputfileName
 	 *            the name of the file which will be (over)written
 	 */
-	public static void writeInfomationsToFile(Infopage infos, String outputfileName) {
+	public static void writeInfomationsToFile(Infopage infos,
+			String outputfileName) {
 
 		PrintWriter out = null;
 		try {
@@ -115,11 +122,15 @@ public class Infopage {
 
 		String delimiter = ";";
 
-		out.format(infos.patient.getLastName() + delimiter + " " + infos.patient.getFirstName() + delimiter + " "
-				+ infos.patient.getInsurance() + delimiter + " " + infos.patient.getInsPolicyNb() + delimiter + " "
-				+ infos.patient.getDisease() + delimiter + " " + infos.patient.getFirstTreatment() + delimiter + " "
-				+ infos.patient.getDoctor().getLastName() + delimiter + " " + infos.patient.getDoctor().getPhoneNb()
-				+ delimiter + " " + infos.patient.getFmember().getLastName() + delimiter + " "
+		out.format(infos.patient.getLastName() + delimiter + " "
+				+ infos.patient.getFirstName() + delimiter + " "
+				+ infos.patient.getInsurance() + delimiter + " "
+				+ infos.patient.getInsPolicyNb() + delimiter + " "
+				+ infos.patient.getDisease() + delimiter + " "
+				+ infos.patient.getFirstTreatment() + delimiter + " "
+				+ infos.patient.getDoctor().getLastName() + delimiter + " "
+				+ infos.patient.getDoctor().getPhoneNb() + delimiter + " "
+				+ infos.patient.getFmember().getLastName() + delimiter + " "
 				+ infos.patient.getFmember().getPhoneNb() + "%n");
 
 		out.close();

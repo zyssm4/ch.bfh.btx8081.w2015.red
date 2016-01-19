@@ -35,7 +35,8 @@ public class MedicineManager {
 	// writes then the new List to the File
 	public void removeMedicament(String mediName, String user) {
 		setMediList(MedicamentList.removeMedicament(mediName, getMediList()));
-		MedicamentList.writeMediToMediplan(MediList, (user + FILENAMEPART + FILETYPE));
+		MedicamentList.writeMediToMediplan(MediList,
+				(user + FILENAMEPART + FILETYPE));
 	}
 
 	public ArrayList<Medicament> getMediList() {
@@ -56,13 +57,15 @@ public class MedicineManager {
 		MediList.add(medi);
 		// Lastly we overwrite the text file with the old medicamentlist with
 		// the new one
-		MedicamentList.writeMediToMediplan(MediList, (user + FILENAMEPART + FILETYPE));
+		MedicamentList.writeMediToMediplan(MediList,
+				(user + FILENAMEPART + FILETYPE));
 	}
 
 	// reads the Informations form the appropriate text file and generates a new
 	// ArrayList of Medicaments for the MediListView
 	public void createMediListObject(String username) {
-		MediList = MedicamentList.readInformationsFromMediplan(username + FILENAMEPART + FILETYPE);
+		MediList = MedicamentList.readInformationsFromMediplan(username
+				+ FILENAMEPART + FILETYPE);
 	}
 
 }

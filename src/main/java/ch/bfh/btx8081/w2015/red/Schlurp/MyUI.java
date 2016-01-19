@@ -23,6 +23,7 @@ import com.vaadin.ui.VerticalLayout;
  * User interface class
  * <p>
  * the navigator handles the different views of the <i>Schlurp</i>-application
+ * 
  * @author zyssm4
  * @version V09.12.2015
  */
@@ -44,9 +45,10 @@ public class MyUI extends UI {
 		final VerticalLayout layout = new VerticalLayout();
 		layout.setMargin(true);
 		layout.setSpacing(true);
-		
+
 		setContent(layout);
-		ComponentContainerViewDisplay viewDisplay = new ComponentContainerViewDisplay(layout);
+		ComponentContainerViewDisplay viewDisplay = new ComponentContainerViewDisplay(
+				layout);
 		navigator = new Navigator(UI.getCurrent(), viewDisplay);
 		navigator.addView("", new LoginView());
 		navigator.addView(HOMEVIEW, new HomeView());
@@ -56,9 +58,10 @@ public class MyUI extends UI {
 		navigator.addView(MEDICATIONLISTVIEW, new MedicationListView());
 
 	}
-    @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
-    @VaadinServletConfiguration(ui = MyUI.class, productionMode = false)
-    public static class MyUIServlet extends VaadinServlet {
-    }
-	
+
+	@WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
+	@VaadinServletConfiguration(ui = MyUI.class, productionMode = false)
+	public static class MyUIServlet extends VaadinServlet {
+	}
+
 }

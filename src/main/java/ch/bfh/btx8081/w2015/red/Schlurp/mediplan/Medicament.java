@@ -40,7 +40,8 @@ public class Medicament {
 	 * @param start
 	 * @param end
 	 */
-	public Medicament(String name, String amount, String Intervall, Date start, Date end) {
+	public Medicament(String name, String amount, String Intervall, Date start,
+			Date end) {
 		this.name = name;
 		this.amount = amount;
 		this.interval = Intervall;
@@ -53,7 +54,6 @@ public class Medicament {
 	// ---------------------------------------------------------------//
 	// --------------------START-GETTER-SETTER-SECTION-----------------------//
 	// ---------------------------------------------------------------//
-
 
 	/**
 	 * @return the name
@@ -114,7 +114,7 @@ public class Medicament {
 	public void setEnd(Date end) {
 		this.end = end;
 	}
-	
+
 	public String getAmount() {
 		return amount;
 	}
@@ -165,8 +165,9 @@ public class Medicament {
 
 	@Override
 	public String toString() {
-		return "Medicament [name=" + name + ", interval=" + interval + ", start=" + start + ", end=" + end
-				+ ", actState=" + actState + ", taken=" + taken + ", toTake=" + toTake + "]";
+		return "Medicament [name=" + name + ", interval=" + interval
+				+ ", start=" + start + ", end=" + end + ", actState="
+				+ actState + ", taken=" + taken + ", toTake=" + toTake + "]";
 	}
 
 }

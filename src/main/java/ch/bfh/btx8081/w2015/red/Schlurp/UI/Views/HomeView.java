@@ -22,7 +22,7 @@ import com.vaadin.ui.VerticalLayout;
  * There are three buttons to select the infopage, the calendar or medication
  * survey.
  * 
- * @author zyssm4
+ * @author team red
  * @version V1.0
  *
  */
@@ -31,11 +31,14 @@ public class HomeView extends VerticalLayout implements View {
 
 	// Load Images from Resources
 	FileResource infoPageImage = new FileResource(
-			new File("src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/infoPage.png"));
+			new File(
+					"src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/infoPage.png"));
 	FileResource gifImage = new FileResource(
-			new File("src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/robot.png"));
+			new File(
+					"src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/robot.png"));
 	FileResource mediPlanImage = new FileResource(
-			new File("src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/MedPlan.png"));
+			new File(
+					"src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/MedPlan.png"));
 
 	public HomeView() {
 		setSizeFull();
@@ -110,13 +113,14 @@ public class HomeView extends VerticalLayout implements View {
 	 * @return <code>mediPlan</code>: Button
 	 */
 	private Button mediPlan() {
-		Button button = new Button("Medikationsplan", new Button.ClickListener() {
+		Button button = new Button("Medikationsplan",
+				new Button.ClickListener() {
 
-			@Override
-			public void buttonClick(ClickEvent event) {
-				getUI().getNavigator().navigateTo(MyUI.MEDICATIONVIEW);
-			}
-		});
+					@Override
+					public void buttonClick(ClickEvent event) {
+						getUI().getNavigator().navigateTo(MyUI.MEDICATIONVIEW);
+					}
+				});
 		button.setIcon(mediPlanImage);
 		button.setStyleName("button");
 		button.setHeight("70");

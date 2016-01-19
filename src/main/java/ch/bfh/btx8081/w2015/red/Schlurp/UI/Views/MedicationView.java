@@ -56,26 +56,26 @@ public class MedicationView extends VerticalLayout implements View {
 		wrapper.getButton().setCaption("Logout");
 		wrapper.getButton().addClickListener(logOut());
 
-		
 		// Load Medicaments
 		MedicineManager mc = MedicineManager.getInstance();
 		ArrayList<Medicament> mediList = mc.getMediList();
-		
-		for(Medicament m : mediList){
-			m.setTaken(new GregorianCalendar(2016, Calendar.DECEMBER, 18).getTime());
+
+		for (Medicament m : mediList) {
+			m.setTaken(new GregorianCalendar(2016, Calendar.DECEMBER, 18)
+					.getTime());
 			drugTakeWrapper = new DrugTakeWrapper();
-			HorizontalLayout layoutDrugWrapper = drugTakeWrapper.getDrugTakeLayout();
+			HorizontalLayout layoutDrugWrapper = drugTakeWrapper
+					.getDrugTakeLayout();
 			drugTakeWrapper.setMedicament(m);
 			drugTakeWrapper.getMedicament().getState().checkTime();
 			drugTakeWrapper.setStateStyleName();
 			drugTakeWrapper.setName();
 			drugTakeWrapper.setAmount();
 
-
 			drugBox.addComponent(layoutDrugWrapper);
-			
+
 		}
-		
+
 		Panel panel = new Panel();
 		panel.setContent(drugBox);
 		panel.setHeight("543");
@@ -83,13 +83,11 @@ public class MedicationView extends VerticalLayout implements View {
 		layout.addComponent(header);
 		layout.addComponent(body);
 		layout.addComponent(footer);
-		
 
 		wrapper.getFooterRefreshButton().setVisible(false);
 		wrapper.getFooterAddButton().setVisible(false);
 		wrapper.getFooterDeleteButton().setVisible(false);
-	
-		
+
 		addComponent(layout);
 		layout.setMargin(false);
 		/**
@@ -101,7 +99,7 @@ public class MedicationView extends VerticalLayout implements View {
 				getUI().getNavigator().navigateTo(MyUI.HOMEVIEW);
 			}
 		});
-		
+
 		wrapper.getfooterFurtherButton().addClickListener(new ClickListener() {
 			public void buttonClick(ClickEvent event) {
 				getUI().getNavigator().navigateTo(MyUI.MEDICATIONLISTVIEW);

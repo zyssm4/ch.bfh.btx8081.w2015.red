@@ -68,11 +68,10 @@ public class MedicationListView extends VerticalLayout implements View {
 		wrapper.getFooterRefreshButton().setVisible(false);
 		wrapper.getfooterFurtherButton().setVisible(false);
 		wrapper.getFillerFooterLabel().setVisible(false);
-		
+
 		wrapper.getButton().setCaption("Logout");
 		wrapper.getButton().addClickListener(logOut());
 
-	
 		/**
 		 * ClickListener method to add a new drug.
 		 */
@@ -112,9 +111,11 @@ public class MedicationListView extends VerticalLayout implements View {
 
 						// System.out.println(event.getClickedComponent());
 						// System.out.println(drugBox.getComponentIndex(event.getClickedComponent()));
-						uc.removeMedicament((drugWrapperList.get(drugBox.getComponentIndex(event.getClickedComponent()))
+						uc.removeMedicament((drugWrapperList.get(drugBox
+								.getComponentIndex(event.getClickedComponent()))
 								.getDrugName()));
-						drugWrapperList.remove(drugBox.getComponentIndex(event.getClickedComponent()));
+						drugWrapperList.remove(drugBox.getComponentIndex(event
+								.getClickedComponent()));
 						drugBox.removeComponent(event.getClickedComponent());
 						drugBox.removeLayoutClickListener(this);
 						panel.setCaption("");
@@ -139,7 +140,8 @@ public class MedicationListView extends VerticalLayout implements View {
 			drugWrapper = new DrugWrapper();
 			drugWrapper.setDrugName(mediList.get(i).getName());
 			drugWrapper.setDrugAmount(mediList.get(i).getAmount());
-			drugWrapper.setNativSelect_Intervall(String.valueOf(mediList.get(i).getInterval()));
+			drugWrapper.setNativSelect_Intervall(String.valueOf(mediList.get(i)
+					.getInterval()));
 			drugWrapper.setStartDate(mediList.get(i).getStart());
 			drugWrapper.setEndDate(mediList.get(i).getEnd());
 			drugWrapperList.add(drugWrapper);

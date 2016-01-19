@@ -61,7 +61,8 @@ public class LoginValidator {
 	 *            the String that the user entered as password
 	 * @return a boolean
 	 */
-	public static Boolean searchLoginCredentials(String username, String password) {
+	public static Boolean searchLoginCredentials(String username,
+			String password) {
 		username = username.trim();
 		password = password.trim();
 
@@ -69,8 +70,10 @@ public class LoginValidator {
 		Boolean valid = false;
 
 		try {
-			br = new BufferedReader(new InputStreamReader(
-					new FileInputStream("src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/LoginFile/login.txt")));
+			br = new BufferedReader(
+					new InputStreamReader(
+							new FileInputStream(
+									"src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/LoginFile/login.txt")));
 			String line;
 			while (((line = br.readLine()) != null)) {
 				String[] login = line.split(";");
@@ -90,7 +93,8 @@ public class LoginValidator {
 				if (br != null)
 					br.close();
 			} catch (Exception e) {
-				System.err.println("Exception while closing bufferedreader " + e.toString());
+				System.err.println("Exception while closing bufferedreader "
+						+ e.toString());
 			}
 		}
 		return valid;

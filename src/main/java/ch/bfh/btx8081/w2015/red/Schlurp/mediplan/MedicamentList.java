@@ -22,7 +22,8 @@ import java.util.Scanner;
  */
 public class MedicamentList {
 	private ArrayList<Medicament> medicaments = new ArrayList<Medicament>();
-	private final static SimpleDateFormat FORMAT = new SimpleDateFormat("dd-MM-yyyy");
+	private final static SimpleDateFormat FORMAT = new SimpleDateFormat(
+			"dd-MM-yyyy");
 
 	public MedicamentList(ArrayList<Medicament> medicaments) {
 		this.medicaments = medicaments;
@@ -38,7 +39,8 @@ public class MedicamentList {
 	 *            the name of the file that will be read
 	 * @return the ArrayList<Medicament>: newMediList
 	 */
-	public static ArrayList<Medicament> readInformationsFromMediplan(String inputFileName) {
+	public static ArrayList<Medicament> readInformationsFromMediplan(
+			String inputFileName) {
 
 		Scanner input = null;
 		String delimiter = ";";
@@ -75,8 +77,10 @@ public class MedicamentList {
 			try {
 				// the content of the line(Medicament:Name, Amount, Intervall,
 				// StartDate, EndDate) is added to the ArrayList
-				newMediList.add(new Medicament(splittedData[0], splittedData[1], splittedData[2],
-						FORMAT.parse(splittedData[3]), FORMAT.parse(splittedData[4])));
+				newMediList.add(new Medicament(splittedData[0],
+						splittedData[1], splittedData[2], FORMAT
+								.parse(splittedData[3]), FORMAT
+								.parse(splittedData[4])));
 			} catch (NumberFormatException e) {
 				e.printStackTrace();
 			} catch (ParseException e) {
@@ -96,7 +100,8 @@ public class MedicamentList {
 	 * @param outputfileName
 	 *            the name of the file which will be overwritten
 	 */
-	public static void writeMediToMediplan(ArrayList<Medicament> medi, String outputfileName) {
+	public static void writeMediToMediplan(ArrayList<Medicament> medi,
+			String outputfileName) {
 
 		PrintWriter out = null;
 		try {
@@ -114,9 +119,11 @@ public class MedicamentList {
 		String delimiter = ";";
 		for (int i = 0; i < medi.size(); i++) {
 
-			out.format(medi.get(i).getName() + delimiter + " " + medi.get(i).getAmount() + delimiter + " "
-					+ medi.get(i).getInterval() + delimiter + " " + FORMAT.format(medi.get(i).getStart()) + delimiter
-					+ " " + FORMAT.format(medi.get(i).getEnd()) + "%n");
+			out.format(medi.get(i).getName() + delimiter + " "
+					+ medi.get(i).getAmount() + delimiter + " "
+					+ medi.get(i).getInterval() + delimiter + " "
+					+ FORMAT.format(medi.get(i).getStart()) + delimiter + " "
+					+ FORMAT.format(medi.get(i).getEnd()) + "%n");
 
 		}
 
@@ -135,7 +142,8 @@ public class MedicamentList {
 	 *            the MedicamentList with the recent Medicaments of the Patient
 	 * @return modified ArrayList<Medicament> newMediList
 	 */
-	public static ArrayList<Medicament> exists(Medicament medi, ArrayList<Medicament> mediList) {
+	public static ArrayList<Medicament> exists(Medicament medi,
+			ArrayList<Medicament> mediList) {
 		Medicament newMedi = medi;
 		ArrayList<Medicament> newMediList = mediList;
 		for (int i = 0; i < mediList.size(); i++) {
@@ -150,7 +158,8 @@ public class MedicamentList {
 		return newMediList;
 	}
 
-	public static ArrayList<Medicament> removeMedicament(String mediName, ArrayList<Medicament> mediList) {
+	public static ArrayList<Medicament> removeMedicament(String mediName,
+			ArrayList<Medicament> mediList) {
 		ArrayList<Medicament> newMediList = mediList;
 		for (int i = 0; i < mediList.size(); i++) {
 

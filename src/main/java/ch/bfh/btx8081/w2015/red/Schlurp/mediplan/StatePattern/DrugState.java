@@ -37,7 +37,7 @@ public abstract class DrugState {
 	 */
 	public void switchState() {
 		System.out.println("ERROR");
-	
+
 	}
 
 	/**

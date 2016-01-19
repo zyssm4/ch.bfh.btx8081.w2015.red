@@ -20,10 +20,11 @@ import ch.bfh.btx8081.w2015.red.Schlurp.person.Patient;
  */
 public class TestInfopage {
 
-	Infopage fullInfopage = new Infopage(new Patient("Muster", "Max", "Versicherung", "Nr", "12.12.2015", "Krankheit",
-			new Doctor("Arzt", "TelNr"), new FamilyMember("Familie", "TelNr")));
-	Infopage emptyInfopage = new Infopage(
-			new Patient("", "", "", "", "", "", new Doctor("", ""), new FamilyMember("", "")));
+	Infopage fullInfopage = new Infopage(new Patient("Muster", "Max",
+			"Versicherung", "Nr", "12.12.2015", "Krankheit", new Doctor("Arzt",
+					"TelNr"), new FamilyMember("Familie", "TelNr")));
+	Infopage emptyInfopage = new Infopage(new Patient("", "", "", "", "", "",
+			new Doctor("", ""), new FamilyMember("", "")));
 	String user = "Max";
 	UserManager um = UserManager.getInstance();
 

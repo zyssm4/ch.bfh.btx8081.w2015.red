@@ -40,8 +40,9 @@ public class Patient extends Person {
 	 * @param fmember
 	 *            a family member
 	 */
-	public Patient(String lastName, String firstName, String insurance, String insPolicyNb, String disease,
-			String firstTreatment, Doctor doctor, FamilyMember fmember) {
+	public Patient(String lastName, String firstName, String insurance,
+			String insPolicyNb, String disease, String firstTreatment,
+			Doctor doctor, FamilyMember fmember) {
 		super(lastName, firstName);
 		this.insurance = insurance;
 		this.insPolicyNb = insPolicyNb;
@@ -175,10 +176,13 @@ public class Patient extends Person {
 		int result = super.hashCode();
 		result = prime * result + ((disease == null) ? 0 : disease.hashCode());
 		result = prime * result + ((doctor == null) ? 0 : doctor.hashCode());
-		result = prime * result + ((firstTreatment == null) ? 0 : firstTreatment.hashCode());
+		result = prime * result
+				+ ((firstTreatment == null) ? 0 : firstTreatment.hashCode());
 		result = prime * result + ((fmember == null) ? 0 : fmember.hashCode());
-		result = prime * result + ((insPolicyNb == null) ? 0 : insPolicyNb.hashCode());
-		result = prime * result + ((insurance == null) ? 0 : insurance.hashCode());
+		result = prime * result
+				+ ((insPolicyNb == null) ? 0 : insPolicyNb.hashCode());
+		result = prime * result
+				+ ((insurance == null) ? 0 : insurance.hashCode());
 		return result;
 	}
 

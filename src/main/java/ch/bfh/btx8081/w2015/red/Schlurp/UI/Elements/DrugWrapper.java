@@ -3,7 +3,6 @@ package ch.bfh.btx8081.w2015.red.Schlurp.UI.Elements;
 import java.io.File;
 import java.util.Date;
 
-
 import com.vaadin.event.LayoutEvents.LayoutClickEvent;
 import com.vaadin.event.LayoutEvents.LayoutClickListener;
 import com.vaadin.server.FileResource;
@@ -91,8 +90,9 @@ public class DrugWrapper extends CustomComponent {
 		nativSelect_Intervall.setItemCaption("48", "48 Std");
 
 		nativSelect_Intervall.setImmediate(true);
-		nativSelect_Intervall.addValueChangeListener(e -> Notification.show("Value changed:",
-				String.valueOf(e.getProperty().getValue()), Notification.TYPE_HUMANIZED_MESSAGE));
+		nativSelect_Intervall.addValueChangeListener(e -> Notification.show(
+				"Value changed:", String.valueOf(e.getProperty().getValue()),
+				Notification.TYPE_HUMANIZED_MESSAGE));
 		// set Boxes
 		drugName.setCaption("Enter drug name");
 		label_DrugTimeTakeSplitter_Morning_Noon.setValue("-");
@@ -120,9 +120,11 @@ public class DrugWrapper extends CustomComponent {
 
 		// Set Button
 		FileResource saveImage = new FileResource(
-				new File("src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/diskette.png"));
+				new File(
+						"src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/diskette.png"));
 		FileResource xImage = new FileResource(
-				new File("src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/xCross.png"));
+				new File(
+						"src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/xCross.png"));
 
 		saveButton.setIcon(saveImage);
 		saveButton.setPrimaryStyleName("nobackground");
@@ -164,8 +166,10 @@ public class DrugWrapper extends CustomComponent {
 				layoutDrug_leftBox.setEnabled(false);
 				layoutDrug_rightBox.setEnabled(false);
 				saveButton.setVisible(false);
-				Medicament medicament = new Medicament(drugName.getValue(), drugAmount.getValue(),
-						nativSelect_Intervall.getValue().toString(), startDate.getValue(), endDate.getValue());
+				Medicament medicament = new Medicament(drugName.getValue(),
+						drugAmount.getValue(), nativSelect_Intervall.getValue()
+								.toString(), startDate.getValue(), endDate
+								.getValue());
 				uc.saveMedicament(medicament);
 			}
 		});
@@ -199,10 +203,12 @@ public class DrugWrapper extends CustomComponent {
 	public void addCrossButton() {
 		crossButton.setVisible(true);
 	}
-	//Könnte für removeMedicament verwendet werden
-	public String getDrugName(){
+
+	// Könnte für removeMedicament verwendet werden
+	public String getDrugName() {
 		return drugName.getValue();
 	}
+
 	// ---------------------------------------------------------------------//
 	// --------------------DRUGWRAPPER-SETTER-SECTION-----------------------//
 	// ---------------------------------------------------------------------//
@@ -226,9 +232,9 @@ public class DrugWrapper extends CustomComponent {
 	public void setDrugAmount(String amount) {
 		this.drugAmount.setValue(amount);
 	}
+
 	public void setNativSelect_Intervall(String nativSelect_Intervall) {
 		this.nativSelect_Intervall.setValue(nativSelect_Intervall);
 	}
-
 
 }
