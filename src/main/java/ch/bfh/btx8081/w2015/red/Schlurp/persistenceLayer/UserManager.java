@@ -36,10 +36,13 @@ public class UserManager {
 
 	/**
 	 * reads the Informations form the appropriate text file and overwrites the
-	 * Infopageobject with it's content
+	 * Infopage object with it's content
+	 * 
+	 * @param user
+	 *            - the name of the current user
 	 */
-	public void createInfoPageObject(String username) {
-		infopage = Infopage.readInformationsFromFile(username + FILETYPE);
+	public void createInfoPageObject(String user) {
+		infopage = Infopage.readInformationsFromFile(user + FILETYPE);
 	}
 
 	/**
@@ -48,7 +51,6 @@ public class UserManager {
 	 * 
 	 * @param iP
 	 */
-
 	public void saveInfopage(Infopage iP) {
 		infopage = iP;
 		Infopage.writeInfomationsToFile(infopage, user + FILETYPE);
