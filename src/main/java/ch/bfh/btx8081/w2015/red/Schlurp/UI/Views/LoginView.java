@@ -38,21 +38,18 @@ public class LoginView extends VerticalLayout implements View {
 
 		Label label = new Label("Enter your information below to log in.");
 		Label schlurpLabel = new Label();
+
 		// Create the user input Field
 		username = new TextField("Username");
 		username.setRequired(true);
 		username.setInvalidAllowed(false);
-		// username.addValidator(new UsernameValidator());
 		username.setImmediate(true);
-		// username.setNullSettingAllowed(true);
 
 		// Create the password input Field
 		password = new PasswordField("Password");
 		password.setRequired(true);
 		password.setInvalidAllowed(false);
-		// password.addValidator(new PasswordValidator());
 		password.setImmediate(true);
-		// password.setNullSettingAllowed(true);
 
 		label.setStyleName(ValoTheme.LABEL_COLORED);
 
@@ -62,8 +59,7 @@ public class LoginView extends VerticalLayout implements View {
 		addComponent(loginButton());
 
 		FileResource saveImage = new FileResource(
-				new File(
-						"src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/108px-Schlurp_Traumwelt.png"));
+				new File("src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/Images/108px-Schlurp_Traumwelt.png"));
 		schlurpLabel.setIcon(saveImage);
 		addComponent(schlurpLabel);
 	}
@@ -75,20 +71,17 @@ public class LoginView extends VerticalLayout implements View {
 
 	private Button loginButton() {
 		Button button = new Button("Log In", new Button.ClickListener() {
-
+			
 			@Override
 			public void buttonClick(ClickEvent event) {
 				// new LoginValidator
-				loginVal = new LoginValidator(username.getValue(),
-						password.getValue());
-
+				loginVal = new LoginValidator(username.getValue(), password.getValue());
 				if (loginVal.validate()) {
 					getUI().getNavigator().navigateTo(MyUI.HOMEVIEW);
 					UserManager oc = UserManager.getInstance();
 					oc.createUser(username.getValue());
 					oc.createInfoPageObject(oc.getUser());
 					oc.createMediListObject(oc.getUser());
-					
 				}
 			}
 		});
