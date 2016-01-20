@@ -1,4 +1,12 @@
+20.01.2016
+Durchgeführt von Zysset, Tschanz, Schmocker, Iseli
+Präsentation vorbereiten, GUI Updates, letzte Fehlerbehebungen
 
+18.01.2016
+Durchgeführt von Zysset, Tschanz, Schmocker, Iseli, Noser
+Letzte Updates an Code und weitere Kommentare / Javadoc hinzugefügt
+Speicher Funktion von Medikamentenlisten angepasst.
+Laden der Medikamente auf der DailyView angepasst (Speichern noch nicht)
 
 14.01.2016
 Durchgeführt von: Zysset, Tschanz, Schmocker, Iseli
