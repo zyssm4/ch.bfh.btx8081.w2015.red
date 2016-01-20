@@ -24,11 +24,14 @@ public class MedicineManagerTest {
 	String user = "testUser";
 	Medicament testMediFull = new Medicament("Aspirin", "1", "6", datestart,
 			dateend);
+	Medicament testMediEmpty = new Medicament("", "", "", datestart,
+			dateend);
 	MedicineManager mc = MedicineManager.getInstance();
-	ArrayList<Medicament> mediarray = new ArrayList<Medicament>();
+	ArrayList<Medicament> MediList = new ArrayList<Medicament>();
+
 
 	/**
-	 * Create a new Medicament Aspirin with the Values from the earlier createt
+	 * Create a new Medicament Aspirin with the Values from the earlier created
 	 * Medicament testMediFull.
 	 * 
 	 * @result The Medicament will be saved in the Medilist of the
@@ -40,16 +43,6 @@ public class MedicineManagerTest {
 		mc.saveMedicament("Aspirin", testMediFull);
 		System.out.println(mc.getMediList().get(0));
 		assertSame(mc.getMediList().get(0), testMediFull);
-
-	}
-
-	@Test
-	public void testCreateMediListObject() {
-		// Medicament Marcoumar = new Medicament("user");
-		//
-		// Mediarray.add(Marcoumar);
-		mc.createMediListObject(user);
-		assertSame(mediarray, mc.getMediList().get(0));
 
 	}
 
