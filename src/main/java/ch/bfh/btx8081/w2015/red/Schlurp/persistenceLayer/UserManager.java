@@ -23,10 +23,21 @@ public class UserManager {
 	private final String FILETYPE = ".txt";
 	private MedicineManager mc = null;
 
+	/**
+	 * Constructor who calls the getInstance() Method of the MedicineManager
+	 * class, so we can call the methods of the MedicineManger with the
+	 * UserManager
+	 */
 	private UserManager() {
 		mc = MedicineManager.getInstance();
 	}
 
+	/**
+	 * Instances uc of type UserManager if uc is null. This method is necessary,
+	 * to be sure it exists only one instance of the class UserManager
+	 * 
+	 * @return - an UserManager Object
+	 */
 	public static UserManager getInstance() {
 		if (uc == null) {
 			uc = new UserManager();

@@ -23,7 +23,12 @@ public class MedicineManager {
 
 	private MedicineManager() {
 	}
-
+	/**
+	 * Instances mc of type MedicineManager if mc is null. This method is necessary,
+	 * to be sure it exists only one instance of the class MedicineManager
+	 * 
+	 * @return - a MedicineManager Object
+	 */
 	public static MedicineManager getInstance() {
 		if (mc == null) {
 			mc = new MedicineManager();
