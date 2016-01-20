@@ -41,15 +41,10 @@ public class GIFView extends VerticalLayout implements View {
 	Random r = new Random();
 
 	FileResource res1 = new FileResource(new File("src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/GIFs/gif1.gif"));
-	Image img1 = new Image("", res1);
 	FileResource res2 = new FileResource(new File("src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/GIFs/gif2.gif"));
-	Image img2 = new Image("", res2);
 	FileResource res3 = new FileResource(new File("src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/GIFs/gif3.gif"));
-	Image img3 = new Image("", res3);
 	FileResource res4 = new FileResource(new File("src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/GIFs/gif4.gif"));
-	Image img4 = new Image("", res4);
 	FileResource res5 = new FileResource(new File("src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/GIFs/gif5.gif"));
-	Image img5 = new Image("", res5);
 
 	public GIFView() {
 		fillGIFList();
@@ -80,6 +75,10 @@ public class GIFView extends VerticalLayout implements View {
 		wrapper.getFooterDeleteButton().setVisible(false);
 		wrapper.getfooterFurtherButton().setVisible(false);
 
+		layout.addComponent(header);
+		layout.addComponent(body);
+		layout.addComponent(footer);
+
 		/**
 		 * ClickListener method for the back button, navigate back to the
 		 * homeview.
@@ -91,6 +90,7 @@ public class GIFView extends VerticalLayout implements View {
 				getUI().getNavigator().navigateTo(MyUI.HOMEVIEW);
 			}
 		});
+
 		/**
 		 * ClickListener method for the refresh button. It shows a next random
 		 * picture.
@@ -102,10 +102,6 @@ public class GIFView extends VerticalLayout implements View {
 				displayRandomGIF();
 			}
 		});
-
-		layout.addComponent(header);
-		layout.addComponent(body);
-		layout.addComponent(footer);
 
 	}
 
@@ -148,6 +144,7 @@ public class GIFView extends VerticalLayout implements View {
 	 * twice. If this list is empty, it calls the method
 	 * <code>fillGIFList()</code>
 	 */
+	
 	private void displayRandomGIF() {
 		int next = r.nextInt(gifs.size());
 		System.out.println(gifs.get(next).getAlternateText());
