@@ -93,7 +93,7 @@ public class HomeView extends VerticalLayout implements View {
 	 * @return <code>timeTable</code>: Button
 	 */
 	private Button gifButton() {
-		Button button = new Button("random GIF", new Button.ClickListener() {
+		Button button = new Button("randomGIF", new Button.ClickListener() {
 			@Override
 			public void buttonClick(ClickEvent event) {
 				getUI().getNavigator().navigateTo(MyUI.GIFVIEW);
