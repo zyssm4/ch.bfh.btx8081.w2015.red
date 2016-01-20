@@ -40,24 +40,18 @@ public class GIFView extends VerticalLayout implements View {
 	final VerticalLayout componentContainer;
 	Random r = new Random();
 
-	FileResource res1 = new FileResource(
-			new File(
-					"src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/GIFs/gif1.gif"));
-	FileResource res2 = new FileResource(
-			new File(
-					"src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/GIFs/gif2.gif"));
-	FileResource res3 = new FileResource(
-			new File(
-					"src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/GIFs/gif3.gif"));
-	FileResource res4 = new FileResource(
-			new File(
-					"src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/GIFs/gif4.gif"));
-	FileResource res5 = new FileResource(
-			new File(
-					"src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/GIFs/gif5.gif"));
+	FileResource res1 = new FileResource(new File("src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/GIFs/gif1.gif"));
+	Image img1 = new Image("", res1);
+	FileResource res2 = new FileResource(new File("src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/GIFs/gif2.gif"));
+	Image img2 = new Image("", res2);
+	FileResource res3 = new FileResource(new File("src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/GIFs/gif3.gif"));
+	Image img3 = new Image("", res3);
+	FileResource res4 = new FileResource(new File("src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/GIFs/gif4.gif"));
+	Image img4 = new Image("", res4);
+	FileResource res5 = new FileResource(new File("src/main/resources/ch/bfh/btx8081/w2015/red/Schlurp/GIFs/gif5.gif"));
+	Image img5 = new Image("", res5);
 
 	public GIFView() {
-
 		fillGIFList();
 
 		setSizeFull();
@@ -74,8 +68,7 @@ public class GIFView extends VerticalLayout implements View {
 		wrapper.setLabel("Random GIF");
 
 		componentContainer = new VerticalLayout();
-		componentContainer
-				.setDefaultComponentAlignment(Alignment.MIDDLE_CENTER);
+		componentContainer.setDefaultComponentAlignment(Alignment.MIDDLE_CENTER);
 
 		displayRandomGIF();
 		wrapper.getFooterRefreshButton().setVisible(true);
@@ -156,9 +149,17 @@ public class GIFView extends VerticalLayout implements View {
 	 * <code>fillGIFList()</code>
 	 */
 	private void displayRandomGIF() {
-		componentContainer.removeAllComponents();
 		int next = r.nextInt(gifs.size());
+		System.out.println(gifs.get(next).getAlternateText());
+		if (!(componentContainer.getComponentCount() == 0)) {
+			if (gifs.get(next).getAlternateText()
+					.equals(((Image) componentContainer.getComponent(0)).getAlternateText())) {
+				r.nextInt(gifs.size());
+			}
+		}
+		componentContainer.removeAllComponents();
 		componentContainer.addComponent(gifs.get(next));
+
 		gifs.remove(next);
 		if (gifs.size() < 1) {
 			fillGIFList();
