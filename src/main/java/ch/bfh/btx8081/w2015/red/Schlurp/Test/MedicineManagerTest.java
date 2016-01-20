@@ -40,8 +40,7 @@ public class MedicineManagerTest {
 	@Test
 	public void testSaveMedicament() {
 
-		mc.saveMedicament("Aspirin", testMediFull);
-		System.out.println(mc.getMediList().get(0));
+		mc.saveMedicament(user, testMediFull);
 		assertSame(mc.getMediList().get(0), testMediFull);
 
 	}
