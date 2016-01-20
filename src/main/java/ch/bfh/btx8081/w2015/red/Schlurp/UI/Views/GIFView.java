@@ -151,7 +151,7 @@ public class GIFView extends VerticalLayout implements View {
 		if (!(componentContainer.getComponentCount() == 0)) {
 			if (gifs.get(next).getAlternateText()
 					.equals(((Image) componentContainer.getComponent(0)).getAlternateText())) {
-				r.nextInt(gifs.size());
+				next = r.nextInt(gifs.size());
 			}
 		}
 		componentContainer.removeAllComponents();
