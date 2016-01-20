@@ -90,9 +90,7 @@ public class DrugWrapper extends CustomComponent {
 		nativSelect_Intervall.setItemCaption("48", "48 Std");
 
 		nativSelect_Intervall.setImmediate(true);
-		nativSelect_Intervall.addValueChangeListener(e -> Notification.show(
-				"Value changed:", String.valueOf(e.getProperty().getValue()),
-				Notification.TYPE_HUMANIZED_MESSAGE));
+
 		// set Boxes
 		drugName.setCaption("Enter drug name");
 		label_DrugTimeTakeSplitter_Morning_Noon.setValue("-");
