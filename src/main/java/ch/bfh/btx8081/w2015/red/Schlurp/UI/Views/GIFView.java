@@ -147,7 +147,6 @@ public class GIFView extends VerticalLayout implements View {
 	
 	private void displayRandomGIF() {
 		int next = r.nextInt(gifs.size());
-		System.out.println(gifs.get(next).getAlternateText());
 		if (!(componentContainer.getComponentCount() == 0)) {
 			if (gifs.get(next).getAlternateText()
 					.equals(((Image) componentContainer.getComponent(0)).getAlternateText())) {
